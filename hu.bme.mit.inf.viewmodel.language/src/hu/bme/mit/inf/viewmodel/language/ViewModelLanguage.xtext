@@ -1,0 +1,34 @@
+grammar hu.bme.mit.inf.viewmodel.language.ViewModelLanguage with org.eclipse.xtext.xbase.Xbase
+
+import "http://inf.mit.bme.hu/emf/2017/ViewModelLanguage"
+import "http://www.eclipse.org/viatra/query/patternlanguage/PatternLanguage" as patternlanguage
+
+ViewDefinitionModel:
+	"package" packageName=QualifiedName ";"?
+	importSection=ImportSection
+	ruleDefinitions+=RuleDefinition*;
+
+ImportSection:
+	{ImportSection} namespaceImports+=NamespaceImport*;
+
+NamespaceImport:
+	"import" importedNamespace=QualifiedNameWithOptionalWildcard ";"?;
+
+RuleDefinition:
+	"rule" precondition=PatternReference ("=>" result=PatternReference)?
+	("{" (lookups+=Lookup ";"?)* "}" | ";"?);
+
+PatternReference:
+	pattern=[patternlanguage::Pattern|QualifiedName]
+	"(" (arguments+=[Variable|ValidID] ("," arguments+=[Variable|ValidID])*)? ")";
+
+Lookup:
+	atomic?="atomic"? "lookup" ruleDefinition=[RuleDefinition|QualifiedName]
+	"(" (preconditionArguments+=[Variable|ValidID] ("," preconditionArguments+=[Variable|ValidID])*)? ")"
+	("=>" result=LookupResult)?;
+
+LookupResult:
+	{LookupResult} "(" (resultArguments+=[Variable|ValidID] ("," resultArguments+=[Variable|ValidID])*)? ")";
+
+QualifiedNameWithOptionalWildcard:
+	QualifiedName ("." "*")?;

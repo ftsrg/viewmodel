@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ViewModelLanguage -->
+      <package
+            uri="http://inf.mit.bme.hu/emf/2017/ViewModelLanguage"
+            class="hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.ViewModelLanguagePackage"
+            genModel="model/ViewModelLanguage.xcore"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,8 @@
+plugin.xml_gen
+bin
+target
+src-gen
+xtend-gen
+.antlr-generator-*-patch.jar
+MANIFEST.MF_gen
+.DS_Store*

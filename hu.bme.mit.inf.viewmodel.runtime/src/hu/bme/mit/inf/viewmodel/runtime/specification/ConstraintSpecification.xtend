@@ -1,0 +1,100 @@
+package hu.bme.mit.inf.viewmodel.runtime.specification
+
+import com.google.common.collect.ImmutableList
+import java.util.List
+import java.util.function.Function
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtend.lib.annotations.Data
+
+abstract class ConstraintSpecification<T> {
+	package new() {
+	}
+
+	abstract def <U> ConstraintSpecification<U> map(Function<? super T, ? extends U> f)
+}
+
+@Data
+final class TemplateConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val T templatePattern
+	val List<VariableReference> arguments
+
+	override <U> TemplateConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new TemplateConstraintSpecification(f.apply(templatePattern), arguments)
+	}
+
+	static def <T> of(T templatePattern, VariableReference... arguments) {
+		new TemplateConstraintSpecification<T>(templatePattern, ImmutableList.copyOf(arguments))
+	}
+}
+
+@Data
+final class EquivalenceConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val VariableReference left
+	val VariableReference right
+
+	override <U> EquivalenceConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new EquivalenceConstraintSpecification(left, right)
+	}
+
+	static def <T> of(VariableReference left, VariableReference right) {
+		new EquivalenceConstraintSpecification<T>(left, right)
+	}
+}
+
+@Data
+final class AssignmentConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val VariableReference left
+	val String right
+
+	override <U> AssignmentConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new AssignmentConstraintSpecification(left, right)
+	}
+
+	static def <T> of(VariableReference left, String right) {
+		new AssignmentConstraintSpecification<T>(left, right)
+	}
+}
+
+@Data
+final class ConstantConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val VariableReference left
+	val Object right
+
+	override <U> ConstantConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new ConstantConstraintSpecification(left, right)
+	}
+
+	static def <T> of(VariableReference left, Object right) {
+		new ConstantConstraintSpecification<T>(left, right)
+	}
+}
+
+@Data
+final class TypeConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val EClassifier eClassifier
+	val VariableReference variable
+
+	override <U> TypeConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new TypeConstraintSpecification(eClassifier, variable)
+	}
+
+	static def <T> of(EClassifier eClassifier, VariableReference variable) {
+		new TypeConstraintSpecification<T>(eClassifier, variable)
+	}
+}
+
+@Data
+final class RelationConstraintSpecification<T> extends ConstraintSpecification<T> {
+	val EStructuralFeature feature
+	val VariableReference left
+	val VariableReference right
+
+	override <U> RelationConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
+		new RelationConstraintSpecification(feature, left, right)
+	}
+
+	static def <T> of(EStructuralFeature feature, VariableReference left, VariableReference right) {
+		new RelationConstraintSpecification<T>(feature, left, right)
+	}
+}

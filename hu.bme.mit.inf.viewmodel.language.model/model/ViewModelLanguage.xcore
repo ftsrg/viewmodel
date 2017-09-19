@@ -1,0 +1,50 @@
+@Ecore(nsPrefix="viewmodel", nsURI="http://inf.mit.bme.hu/emf/2017/ViewModelLanguage")
+@GenModel(modelDirectory="/hu.bme.mit.inf.viewmodel.language.model/src-gen", prefix="ViewModelLanguage",
+	fileExtensions="viewmodellanguage", providerName="BME MIT FTSRG", operationReflection="false")
+package hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage
+
+// HACK See http://www.eclipse.org/forums/index.php/m/898888/?srch=xcore+extends#msg_898888
+// for @GenModel(operationReflection="false"), the offending operation is
+// org.eclipse.viatra.query.patternlanguage.patternLanguage.Variable#getSimpleName()
+
+import org.eclipse.viatra.query.patternlanguage.patternLanguage.Pattern
+
+class ViewDefinitionModel {
+	String packageName
+	contains ImportSection importSection
+	contains RuleDefinition[] ruleDefinitions
+}
+
+class ImportSection {
+	contains NamespaceImport[] namespaceImports
+}
+
+class NamespaceImport {
+	String importedNamespace
+}
+
+class RuleDefinition {
+	contains Variable[] variables
+	contains PatternReference precondition
+	contains PatternReference result
+	contains Lookup[] lookups
+}
+
+class PatternReference {
+	refers Pattern pattern
+	refers Variable[] arguments
+}
+
+class Variable extends org.eclipse.viatra.query.patternlanguage.patternLanguage.Variable {
+}
+
+class Lookup {
+	refers RuleDefinition ruleDefinition
+	refers Variable[] preconditionArguments
+	contains LookupResult result
+	boolean atomic = "false"
+}
+
+class LookupResult {
+	refers Variable[] resultArguments
+}

@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: hu.bme.mit.inf.viewmodel.language
+Bundle-Vendor: BME MIT FTSRG
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore.xcore,
+ org.eclipse.xtext.common.types,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ hu.bme.mit.inf.viewmodel.language.model,
+ hu.bme.mit.inf.viewmodel.runtime,
+ org.eclipse.viatra.query.patternlanguage.emf,
+ org.eclipse.viatra.query.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: hu.bme.mit.inf.viewmodel.language.parser.antlr.internal,
+ hu.bme.mit.inf.viewmodel.language,
+ hu.bme.mit.inf.viewmodel.language.scoping,
+ hu.bme.mit.inf.viewmodel.language.validation,
+ hu.bme.mit.inf.viewmodel.language.services,
+ hu.bme.mit.inf.viewmodel.language.serializer,
+ hu.bme.mit.inf.viewmodel.language.jvmmodel,
+ hu.bme.mit.inf.viewmodel.language.parser.antlr,
+ hu.bme.mit.inf.viewmodel.language.formatting2
+Import-Package: org.apache.log4j

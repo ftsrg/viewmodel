@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.viatra.query.patternlanguage.annotation">
+      <annotation
+            additionalValidator="hu.bme.mit.inf.viewmodel.patternlanguage.validation.TemplateAnnotationValidator"
+            description="Specifies that this pattern may be used on the right side of a view model rule."
+            name="Template">
+         <annotationparameter
+               description="Variables from the source model."
+               mandatory="false"
+               multiple="false"
+               name="left"
+               type="list">
+         </annotationparameter>
+      </annotation>
+   </extension>
+
+</plugin>
