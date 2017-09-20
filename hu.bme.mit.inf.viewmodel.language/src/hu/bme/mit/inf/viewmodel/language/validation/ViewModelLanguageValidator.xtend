@@ -29,6 +29,8 @@ import org.eclipse.xtext.validation.Check
 
 import static hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.ViewModelLanguagePackage.Literals.*
 
+import static extension hu.bme.mit.inf.viewmodel.language.ViewModelLanguageUtils.nullOrProxy
+
 /**
  * This class contains custom validation rules. 
  * 
@@ -323,9 +325,5 @@ class ViewModelLanguageValidator extends AbstractViewModelLanguageValidator {
 		} else {
 			throw new IllegalArgumentException("The " + reference.name + " of " + obj + " must be a list.")
 		}
-	}
-
-	private static def nullOrProxy(EObject obj) {
-		obj === null || obj.eIsProxy
 	}
 }

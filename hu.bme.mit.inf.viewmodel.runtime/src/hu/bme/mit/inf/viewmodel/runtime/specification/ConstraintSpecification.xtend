@@ -3,8 +3,7 @@ package hu.bme.mit.inf.viewmodel.runtime.specification
 import com.google.common.collect.ImmutableList
 import java.util.List
 import java.util.function.Function
-import org.eclipse.emf.ecore.EClassifier
-import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.viatra.query.runtime.matchers.context.IInputKey
 import org.eclipse.xtend.lib.annotations.Data
 
 abstract class ConstraintSpecification<T> {
@@ -72,29 +71,15 @@ final class ConstantConstraintSpecification<T> extends ConstraintSpecification<T
 
 @Data
 final class TypeConstraintSpecification<T> extends ConstraintSpecification<T> {
-	val EClassifier eClassifier
-	val VariableReference variable
+	val IInputKey inputKey
+	val List<VariableReference> arguments
 
 	override <U> TypeConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
-		new TypeConstraintSpecification(eClassifier, variable)
+		new TypeConstraintSpecification(inputKey, arguments)
 	}
 
-	static def <T> of(EClassifier eClassifier, VariableReference variable) {
-		new TypeConstraintSpecification<T>(eClassifier, variable)
-	}
-}
-
-@Data
-final class RelationConstraintSpecification<T> extends ConstraintSpecification<T> {
-	val EStructuralFeature feature
-	val VariableReference left
-	val VariableReference right
-
-	override <U> RelationConstraintSpecification<U> map(Function<? super T, ? extends U> f) {
-		new RelationConstraintSpecification(feature, left, right)
-	}
-
-	static def <T> of(EStructuralFeature feature, VariableReference left, VariableReference right) {
-		new RelationConstraintSpecification<T>(feature, left, right)
+	static def <T> of(IInputKey inputKey, VariableReference... arguments) {
+		new TypeConstraintSpecification<T>(inputKey, ImmutableList.copyOf(arguments))
 	}
 }
+

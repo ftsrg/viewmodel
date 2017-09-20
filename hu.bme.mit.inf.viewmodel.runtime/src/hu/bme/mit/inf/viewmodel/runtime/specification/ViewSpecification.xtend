@@ -35,6 +35,13 @@ final class ViewSpecification<Pattern, Template> {
 		builder.build
 	}
 
+	static def <Pattern, Template, E extends Throwable> createOrThrow(
+		ThrowingConsumer<Builder<Pattern, Template>, E> initializer) throws E {
+		val builder = builder
+		initializer.accept(builder)
+		builder.build
+	}
+
 	final static class Builder<Pattern, Template> {
 		var String name
 		val ruleSpecifications = ImmutableList.<RuleSpecification<? extends Pattern, ? extends Template>>builder
@@ -53,20 +60,36 @@ final class ViewSpecification<Pattern, Template> {
 		}
 
 		def addVariableInstantiationRule(
-			Consumer<? super VariableInstantiationRuleSpecification.Builder<? extends Pattern>> initializer) {
-			val rule = VariableInstantiationRuleSpecification.<Pattern, Template>create(initializer)
+			Consumer<? super VariableInstantiationRuleSpecification.Builder<Pattern>> initializer) {
+			val rule = VariableInstantiationRuleSpecification.create(initializer)
 			addRule(rule)
 		}
 
-		def addConstraintRule(
-			Consumer<? super ConstraintRuleSpecification.Builder<? extends Pattern, ? extends Template>> initializer) {
+		def <E extends Throwable> addVariableInstantiationRuleOrThrow(
+			ThrowingConsumer<? super VariableInstantiationRuleSpecification.Builder<Pattern>, E> initializer) throws E {
+			val rule = VariableInstantiationRuleSpecification.createOrThrow(initializer)
+			addRule(rule)
+		}
+
+		def addConstraintRule(Consumer<? super ConstraintRuleSpecification.Builder<Pattern, Template>> initializer) {
 			val rule = ConstraintRuleSpecification.create(initializer)
 			addRule(rule)
 		}
 
-		def addDependencyRule(
-			Consumer<? super DependencyRuleSpecification.Builder<? extends Pattern>> initializer) {
+		def <E extends Throwable> addConstraintRuleOrThrow(
+			ThrowingConsumer<? super ConstraintRuleSpecification.Builder<Pattern, Template>, E> initializer) throws E {
+			val rule = ConstraintRuleSpecification.createOrThrow(initializer)
+			addRule(rule)
+		}
+
+		def addDependencyRule(Consumer<? super DependencyRuleSpecification.Builder<Pattern>> initializer) {
 			val rule = DependencyRuleSpecification.create(initializer)
+			addRule(rule)
+		}
+
+		def <E extends Throwable> addDependencyRuleOrThrow(
+			ThrowingConsumer<? super DependencyRuleSpecification.Builder<Pattern>, E> initializer) throws E  {
+			val rule = DependencyRuleSpecification.createOrThrow(initializer)
 			addRule(rule)
 		}
 

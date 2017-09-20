@@ -14,7 +14,7 @@ abstract class RuleSpecification<Pattern, Template> {
 	)
 
 	def <Template2> RuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser)
+		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser)
 }
 
 abstract class TemplateBivariantRuleSpecification<Pattern, Template> extends RuleSpecification<Pattern, Template> {
@@ -30,7 +30,7 @@ abstract class TemplateBivariantRuleSpecification<Pattern, Template> extends Rul
 	}
 
 	override <Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		map(Function.identity)
 	}
 }

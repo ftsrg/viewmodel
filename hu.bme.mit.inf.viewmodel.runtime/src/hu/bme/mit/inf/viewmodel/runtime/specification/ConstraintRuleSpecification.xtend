@@ -11,6 +11,7 @@ import org.eclipse.xtend.lib.annotations.Data
 
 @Data
 final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecification<Pattern, Template> {
+	val String name
 	val List<String> parameters
 	val List<VariableSpecification> localVariables
 	val List<PreconditionSpecification<? extends Pattern>> preconditionSpecifications
@@ -21,6 +22,7 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 		Function<? super Template, ? extends Template2> templateF
 	) {
 		new ConstraintRuleSpecification(
+			name,
 			parameters,
 			localVariables,
 			ImmutableList.copyOf(preconditionSpecifications.map[map(patternF)]),
@@ -29,7 +31,7 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 	}
 
 	override <Template2> ConstraintRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		val builder = new ConstraintAcceptor(parameters, localVariables, preconditionSpecifications)
 		for (constraintSpecification : constraintSpecifications) {
 			switch (constraintSpecification) {
@@ -46,14 +48,21 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 		new Builder<Pattern, Template>
 	}
 
-	static def <Pattern, Template> create(
-		Consumer<? super Builder<? extends Pattern, ? extends Template>> initializer) {
+	static def <Pattern, Template> create(Consumer<? super Builder<Pattern, Template>> initializer) {
+		val builder = builder
+		initializer.accept(builder)
+		builder.build
+	}
+
+	static def <Pattern, Template, E extends Throwable> createOrThrow(
+		ThrowingConsumer<? super Builder<Template, Pattern>, E> initializer) throws E {
 		val builder = builder
 		initializer.accept(builder)
 		builder.build
 	}
 
 	final static class Builder<Pattern, Template> {
+		var String name
 		val parameters = ImmutableList.<String>builder
 		val localVariables = ImmutableList.<VariableSpecification>builder
 		val preconditionSpecifications = ImmutableList.<PreconditionSpecification<? extends Pattern>>builder
@@ -69,8 +78,18 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 			this.preconditionSpecifications.addAll(preconditionSpecifications)
 		}
 
+		def setName(String name) {
+			this.name = name
+			this
+		}
+
 		def addParameter(String parameter) {
 			parameters.add(parameter)
+			this
+		}
+
+		def addParameters(Iterable<String> parameters) {
+			this.parameters.addAll(parameters)
 			this
 		}
 
@@ -95,8 +114,8 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 		}
 
 		def build() {
-			new ConstraintRuleSpecification(parameters.build, localVariables.build, preconditionSpecifications.build,
-				constraintSpecifications.build)
+			new ConstraintRuleSpecification(name, parameters.build, localVariables.build,
+				preconditionSpecifications.build, constraintSpecifications.build)
 		}
 	}
 

@@ -1,29 +1,25 @@
 package hu.bme.mit.inf.viewmodel.language.specification
 
-import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.RuleDefinition
+import com.google.inject.Provider
+import com.google.inject.Singleton
 import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.ViewDefinitionModel
-import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
 import javax.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.eclipse.xtext.naming.QualifiedName
+import org.eclipse.xtext.util.IResourceScopeCache
 
+@Singleton
 class ViewModelSpecificationCompiler {
-	@Inject IQualifiedNameProvider qualifiedNameProvider
+	@Inject Provider<ViewModelSpecificationInitializer> initializerProvider
+	@Inject IResourceScopeCache cache
 
 	def getSpecification(ViewDefinitionModel viewDefinition) {
-		ViewSpecification.create [
-			name = qualifiedNameProvider.getFullyQualifiedName(viewDefinition)?.toString ?: ""
-			for (ruleDefinition : viewDefinition.ruleDefinitions) {
-				addRuleSpecifications(ruleDefinition)
-			}
+		cache.get(viewDefinition, viewDefinition.eResource) [
+			createSpecification(viewDefinition)
 		]
 	}
-
-	def addRuleSpecifications(ViewSpecification.Builder<QualifiedName, QualifiedName> it,
-		RuleDefinition ruleDefinition) {
-		val precondition = ruleDefinition.precondition
-		if (precondition === null) {
-			return
-		}
+	
+	protected def createSpecification(ViewDefinitionModel viewDefinition) {
+		val initializer = initializerProvider.get
+		initializer.createViewModelSpecification(viewDefinition)
+		initializer.build
 	}
 }

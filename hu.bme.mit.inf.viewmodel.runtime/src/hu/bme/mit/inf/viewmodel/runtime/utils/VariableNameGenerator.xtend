@@ -4,7 +4,7 @@ import java.util.HashMap
 import java.util.regex.Pattern
 
 class VariableNameGenerator {
-	static val NUMBERED_NAME_PATTERN = Pattern.compile("(.+)<(\\d+)>")
+	static val NUMBERED_NAME_PATTERN = Pattern.compile("(.+)<(\\d+)>?")
 
 	val variableNumbering = new HashMap<String, Integer>
 

@@ -26,7 +26,7 @@ final class VariableInstantiationRuleSpecification<Pattern, Template> extends Te
 	}
 
 	override <Template2> VariableInstantiationRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		super.<Template2>parseTemplates(parser) as VariableInstantiationRuleSpecification<Pattern, Template2>
 	}
 
@@ -34,7 +34,14 @@ final class VariableInstantiationRuleSpecification<Pattern, Template> extends Te
 		new Builder<T>
 	}
 
-	static def <Pattern, Template> create(Consumer<? super Builder<? extends Pattern>> initializer) {
+	static def <Pattern, Template> create(Consumer<? super Builder<Pattern>> initializer) {
+		val builder = builder
+		initializer.accept(builder)
+		builder.<Template>build
+	}
+	
+	static def <Pattern, Template, E extends Throwable> createOrThrow(
+		ThrowingConsumer<? super Builder<Pattern>, E> initializer) throws E {
 		val builder = builder
 		initializer.accept(builder)
 		builder.<Template>build
@@ -54,6 +61,11 @@ final class VariableInstantiationRuleSpecification<Pattern, Template> extends Te
 
 		def addVariable(String variable) {
 			variables.add(variable)
+			this
+		}
+		
+		def addVariables(Iterable<String> variables) {
+			this.variables.addAll(variables)
 			this
 		}
 

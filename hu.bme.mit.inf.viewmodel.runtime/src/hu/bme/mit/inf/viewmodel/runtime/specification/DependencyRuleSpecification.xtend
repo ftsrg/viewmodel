@@ -10,13 +10,9 @@ import org.eclipse.xtend.lib.annotations.Data
 
 @Data
 final class DependencyRuleSpecification<Pattern, Template> extends TemplateBivariantRuleSpecification<Pattern, Template> {
-	public static val UNBOUNDED = -1
-
-	val List<String> paramters
+	val List<String> parameters
 	val MatchPreconditionSpecification<Pattern> precondition
 	val MatchPreconditionSpecification<Pattern> consequence
-	val int lowerBound
-	val int upperBound
 
 	override <Pattern2, Template2> DependencyRuleSpecification<Pattern2, Template2> bimap(
 		Function<? super Pattern, ? extends Pattern2> patternF,
@@ -28,38 +24,46 @@ final class DependencyRuleSpecification<Pattern, Template> extends TemplateBivar
 	override <Pattern2, Template2> DependencyRuleSpecification<Pattern2, Template2> map(
 		Function<? super Pattern, ? extends Pattern2> f) {
 		new DependencyRuleSpecification(
-			paramters,
+			parameters,
 			precondition.map(f),
-			consequence.map(f),
-			lowerBound,
-			upperBound
+			consequence.map(f)
 		)
 	}
 
 	override <Template2> DependencyRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		super.<Template2>parseTemplates(parser) as DependencyRuleSpecification<Pattern, Template2>
 	}
-	
+
 	static def <Pattern> builder() {
 		new Builder<Pattern>
 	}
-	
-	static def <Pattern, Template> create(Consumer<? super Builder<? extends Pattern>> initializer) {
+
+	static def <Pattern, Template> create(Consumer<? super Builder<Pattern>> initializer) {
 		val newBuilder = builder
 		initializer.accept(newBuilder)
 		newBuilder.<Template>build
+	}
+
+	static def <Pattern, Template, E extends Throwable> createOrThrow(
+		ThrowingConsumer<? super Builder<Pattern>, E> initializer) throws E {
+		val builder = builder
+		initializer.accept(builder)
+		builder.<Template>build
 	}
 
 	static final class Builder<Pattern> {
 		val parameters = ImmutableList.<String>builder
 		var MatchPreconditionSpecification<Pattern> precondition
 		var MatchPreconditionSpecification<Pattern> consequence
-		var int lowerBound = 0
-		var int upperBound = UNBOUNDED
 
 		def addParameter(String argument) {
 			parameters.add(argument)
+			this
+		}
+
+		def addParameters(Iterable<String> parameters) {
+			this.parameters.addAll(parameters)
 			this
 		}
 
@@ -67,24 +71,9 @@ final class DependencyRuleSpecification<Pattern, Template> extends TemplateBivar
 			this.precondition = precondition
 			this
 		}
-		
+
 		def setConsequence(MatchPreconditionSpecification<Pattern> consequence) {
 			this.consequence = consequence
-			this
-		}
-		
-		def setLowerBound(int lowerBound) {
-			this.lowerBound = lowerBound
-			this
-		}
-		
-		def setUpperBound(int upperBound) {
-			this.upperBound = upperBound
-			this
-		}
-		
-		def setNoUpperBound() {
-			this.upperBound = UNBOUNDED
 			this
 		}
 
@@ -92,9 +81,7 @@ final class DependencyRuleSpecification<Pattern, Template> extends TemplateBivar
 			new DependencyRuleSpecification<Pattern, Template>(
 				parameters.build,
 				precondition,
-				consequence,
-				lowerBound,
-				upperBound
+				consequence
 			)
 		}
 	}
