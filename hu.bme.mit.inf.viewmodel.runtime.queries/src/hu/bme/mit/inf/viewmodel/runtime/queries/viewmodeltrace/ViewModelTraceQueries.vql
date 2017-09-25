@@ -1,0 +1,24 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace
+
+import "http://inf.mit.bme.hu/emf/2017/ViewModelTrace"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+pattern namedTrace(TraceModelId : EString, Name : EString, Tuple : MatchArgumentTuple, Trace : Trace) {
+	ViewModelTrace.traceModelId(TraceModel, TraceModelId);
+	ViewModelTrace.traces(TraceModel, Trace);
+	Trace.traceName(Trace, Name);
+	Trace.argumentTuple(Trace, Tuple);
+}
+
+// Value : java Object omitted deliberately so that no TypeFilterConstraint is generated.
+pattern namedMatchArgument(Tuple : MatchArgumentTuple, Name : EString, Value) {
+	MatchArgumentTuple.elements(Tuple, Element);
+	MatchArgument.parameterName(Element, Name);
+	find matchArgument(Element, Value);
+}
+
+private pattern matchArgument(Element : MatchArgument, Value) {
+	EObjectMatchArgument.value(Element, Value);
+} or {
+	JavaObjectMatchArgument.value(Element, Value);
+}

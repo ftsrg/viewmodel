@@ -21,6 +21,7 @@ Require-Bundle: hu.bme.mit.inf.viewmodel.language,
  org.eclipse.xtext.builder,
  org.eclipse.jdt.debug.ui,
  org.eclipse.viatra.query.patternlanguage.emf,
+ org.eclipse.viatra.query.patternlanguage.emf.ui,
  org.eclipse.viatra.query.tooling.core
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

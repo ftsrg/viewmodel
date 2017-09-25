@@ -23,6 +23,7 @@ import org.eclipse.viatra.query.patternlanguage.emf.scoping.ResourceSetMetamodel
 import org.eclipse.viatra.query.patternlanguage.emf.types.EMFPatternLanguageTypeRules
 import org.eclipse.viatra.query.patternlanguage.emf.types.EMFTypeInferrer
 import org.eclipse.viatra.query.patternlanguage.emf.types.EMFTypeSystem
+import org.eclipse.viatra.query.patternlanguage.emf.util.IClassLoaderProvider
 import org.eclipse.viatra.query.patternlanguage.emf.util.IErrorFeedback
 import org.eclipse.viatra.query.patternlanguage.emf.util.ResourceDiagnosticFeedback
 import org.eclipse.viatra.query.patternlanguage.typing.ITypeInferrer
@@ -31,6 +32,7 @@ import org.eclipse.viatra.query.patternlanguage.typing.PatternLanguageTypeRules
 import org.eclipse.viatra.query.patternlanguage.typing.TypeInformation
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.eclipse.viatra.query.patternlanguage.emf.util.SimpleClassLoaderProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -71,6 +73,10 @@ class ViewModelLanguageRuntimeModule extends AbstractViewModelLanguageRuntimeMod
 
 	def Class<? extends IGenmodelMappingLoader> bindIGenmodelMappingLoader() {
 		GenmodelExtensionLoader
+	}
+	
+	def Class<? extends IClassLoaderProvider> bindIClassLoaderProvider() {
+		SimpleClassLoaderProvider
 	}
 
 	def Class<? extends IErrorFeedback> bindIErrorFeedback() {

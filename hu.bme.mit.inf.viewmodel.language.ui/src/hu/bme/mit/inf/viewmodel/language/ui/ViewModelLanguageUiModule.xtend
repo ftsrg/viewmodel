@@ -7,6 +7,8 @@ import com.google.inject.Binder
 import com.google.inject.multibindings.Multibinder
 import hu.bme.mit.inf.viewmodel.language.ui.builder.ViewModelLanguageBuilderParticipant
 import org.eclipse.viatra.query.patternlanguage.emf.scoping.IMetamodelProviderInstance
+import org.eclipse.viatra.query.patternlanguage.emf.ui.util.JavaProjectClassLoaderProvider
+import org.eclipse.viatra.query.patternlanguage.emf.util.IClassLoaderProvider
 import org.eclipse.viatra.query.tooling.core.generator.genmodel.GenModelMetamodelProviderService
 import org.eclipse.viatra.query.tooling.core.generator.genmodel.IVQGenmodelProvider
 import org.eclipse.viatra.query.tooling.core.targetplatform.ITargetPlatformMetamodelLoader
@@ -36,5 +38,9 @@ class ViewModelLanguageUiModule extends AbstractViewModelLanguageUiModule {
 
 	def Class<? extends ITargetPlatformMetamodelLoader> bindTargetPlatformMetamodelLoader() {
 		TargetPlatformMetamodelsIndex
+	}
+
+	def Class<? extends IClassLoaderProvider> bindIClassLoaderProvider() {
+		JavaProjectClassLoaderProvider
 	}
 }

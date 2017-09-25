@@ -92,7 +92,7 @@ class ViewModelSpecificationInitializer {
 			var int atomicLookupWithRightSideIndex = 0
 			for (atomicLookup : atomicLookups) {
 				if (isLookupWithRightSide(atomicLookup)) {
-					val lookupName = "atomic<" + atomicLookupWithRightSideIndex + ">"
+					val lookupName = "<atomic" + atomicLookupWithRightSideIndex + ">"
 					atomicLookupWithRightSideIndex++
 					addLookupEquivalenceConstraint(atomicLookup, lookupName, rightVariables)
 				} else {

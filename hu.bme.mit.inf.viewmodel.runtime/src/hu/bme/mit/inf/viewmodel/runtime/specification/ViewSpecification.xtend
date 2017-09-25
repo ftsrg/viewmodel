@@ -20,7 +20,7 @@ final class ViewSpecification<Pattern, Template> {
 	}
 
 	def <Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<? extends Pattern, ? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<? extends Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		val newRuleSpecifications = ruleSpecifications.map[parseTemplates(parser)]
 		new ViewSpecification(name, ImmutableList.copyOf(newRuleSpecifications))
 	}

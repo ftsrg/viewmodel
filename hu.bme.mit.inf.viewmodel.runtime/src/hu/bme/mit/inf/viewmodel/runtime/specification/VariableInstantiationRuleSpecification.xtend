@@ -26,7 +26,7 @@ final class VariableInstantiationRuleSpecification<Pattern, Template> extends Te
 	}
 
 	override <Template2> VariableInstantiationRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		super.<Template2>parseTemplates(parser) as VariableInstantiationRuleSpecification<Pattern, Template2>
 	}
 

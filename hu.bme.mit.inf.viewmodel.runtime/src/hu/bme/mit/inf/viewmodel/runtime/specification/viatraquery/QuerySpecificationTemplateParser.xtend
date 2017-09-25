@@ -1,0 +1,125 @@
+package hu.bme.mit.inf.viewmodel.runtime.specification.viatraquery
+
+import com.google.common.collect.ImmutableMap
+import com.google.common.collect.Maps
+import hu.bme.mit.inf.viewmodel.runtime.specification.ConstantConstraintSpecification
+import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification.ConstraintAcceptor
+import hu.bme.mit.inf.viewmodel.runtime.specification.EquivalenceConstraintSpecification
+import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateConstraintSpecification
+import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateParser
+import hu.bme.mit.inf.viewmodel.runtime.specification.TypeConstraintSpecification
+import hu.bme.mit.inf.viewmodel.runtime.specification.VariableReference
+import java.util.List
+import java.util.Map
+import org.eclipse.viatra.query.runtime.api.IQuerySpecification
+import org.eclipse.viatra.query.runtime.matchers.psystem.PBody
+import org.eclipse.viatra.query.runtime.matchers.psystem.PConstraint
+import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.ConstantValue
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PQuery
+import org.eclipse.viatra.query.runtime.matchers.tuple.Tuple
+
+class QuerySpecificationTemplateParser implements TemplateParser<IQuerySpecification<?>, Void> {
+
+	override accept(ConstraintAcceptor<? super Void> acceptor,
+		TemplateConstraintSpecification<? extends IQuerySpecification<?>> templateConstraint) {
+		val pQuery = templateConstraint.templatePattern.internalQueryRepresentation
+		val arguments = templateConstraint.arguments
+		parsePQuery(acceptor, pQuery, arguments)
+	}
+
+	protected def void parsePQuery(ConstraintAcceptor<? super Void> acceptor, PQuery pQuery,
+		List<VariableReference> arguments) {
+		val bodies = pQuery.disjunctBodies.bodies
+		if (bodies.size != 1) {
+			throw new IllegalArgumentException("Valid templates must have a single body, got " + bodies.size +
+				" bodies instead.")
+		}
+		val parameterBinding = getParameterBindingMap(pQuery, arguments)
+		val body = bodies.get(0)
+		val variables = Maps.newHashMapWithExpectedSize(body.allVariables.size)
+		for (exportedParameter : body.symbolicParameters) {
+			val exportedVariable = exportedParameter.parameterVariable
+			val patternParameter = exportedParameter.patternParameter
+			val argumentReference = parameterBinding.get(patternParameter)
+			variables.put(exportedVariable, argumentReference)
+		}
+		for (variable : body.allVariables) {
+			if (!variables.containsKey(variable)) {
+				val variableReference = acceptor.newLocalVariable(variable.name)
+				variables.put(variable, variableReference)
+			}
+		}
+		parsePBody(acceptor, body, variables)
+	}
+
+	protected def void parsePBody(ConstraintAcceptor<? super Void> acceptor, PBody body,
+		Map<PVariable, VariableReference> variables) {
+		for (constraint : body.constraints) {
+		}
+	}
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, TypeConstraint constraint,
+		Map<PVariable, VariableReference> variables) {
+		val inputKey = constraint.supplierKey
+		val arguments = getVariableTuple(constraint.variablesTuple, variables)
+		acceptor.acceptConstraint(TypeConstraintSpecification.<Void>of(inputKey, arguments))
+	}
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, ConstantValue constraint,
+		Map<PVariable, VariableReference> variables) {
+		val arguments = getVariableTuple(constraint.variablesTuple, variables)
+		if (arguments.size != 1) {
+			throw new IllegalArgumentException("Expected 1 argument for ConstantValue constraint.")
+		}
+		val left = arguments.get(0)
+		val right = constraint.supplierKey
+		acceptor.acceptConstraint(ConstantConstraintSpecification.<Void>of(left, right))
+	}
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, Equality constraint,
+		Map<PVariable, VariableReference> variables) {
+		val left = variables.get(constraint.who)
+		val right = variables.get(constraint.withWhom)
+		acceptor.acceptConstraint(EquivalenceConstraintSpecification.<Void>of(left, right))
+	}
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, PConstraint constraint,
+		Map<PVariable, VariableReference> variables) {
+		throw new IllegalArgumentException("Unknown PConstraint: " + constraint)
+	}
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor,
+		PositivePatternCall constraint, Map<PVariable, VariableReference> variables) {
+		val pQuery = constraint.supplierKey
+		val arguments = getVariableTuple(constraint.variablesTuple, variables)
+		parsePQuery(acceptor, pQuery, arguments)
+	}
+
+	protected def getVariableTuple(Tuple tuple, Map<PVariable, VariableReference> variables) {
+		tuple.elements.map [ element |
+			if (element instanceof PVariable) {
+				variables.get(element)
+			} else {
+				throw new IllegalArgumentException("Expected PVariable in tuple, got " + element + " instead.")
+			}
+		]
+	}
+
+	private def getParameterBindingMap(PQuery pQuery, List<VariableReference> arguments) {
+		val parameters = pQuery.parameters
+		val parameterCount = parameters.size
+		if (parameterCount != arguments.size) {
+			throw new IllegalArgumentException(
+				"Pattern expected " + parameterCount + " arguments, but got " + arguments.size + " instead.")
+		}
+		val builder = ImmutableMap.builder
+		for (var int i = 0; i < parameterCount; i++) {
+			builder.put(parameters.get(i), arguments.get(i))
+		}
+		builder.build
+	}
+}

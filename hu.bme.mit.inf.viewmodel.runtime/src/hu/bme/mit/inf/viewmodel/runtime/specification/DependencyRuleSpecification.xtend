@@ -31,7 +31,7 @@ final class DependencyRuleSpecification<Pattern, Template> extends TemplateBivar
 	}
 
 	override <Template2> DependencyRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		BiConsumer<? super ConstraintAcceptor<Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		super.<Template2>parseTemplates(parser) as DependencyRuleSpecification<Pattern, Template2>
 	}
 

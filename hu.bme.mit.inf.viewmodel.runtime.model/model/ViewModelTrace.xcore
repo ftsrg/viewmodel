@@ -1,0 +1,51 @@
+@Ecore(nsPrefix="viewmodeltrace", nsURI="http://inf.mit.bme.hu/emf/2017/ViewModelTrace")
+@GenModel(modelDirectory="/hu.bme.mit.inf.viewmodel.runtime.model/src-gen", prefix="ViewModelTrace",
+	fileExtensions="viewmodeltrace", providerName="BME MIT FTSRG", operationReflection="false")
+package hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace
+
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Constraint
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
+import java.util.Map$Entry
+import org.eclipse.emf.ecore.EObject
+
+class ViewModelTrace {
+	String traceModelId
+	refers LogicModel logicModel
+	contains Trace[] traces
+}
+
+class MatchArgumentTuple {
+	contains MatchArgument[] elements
+}
+
+abstract class MatchArgument {
+	String parameterName
+}
+
+class EObjectMatchArgument extends MatchArgument {
+	refers EObject value
+}
+
+class JavaObjectMatchArgument extends MatchArgument {
+	Object value
+}
+
+abstract class Trace {
+	String traceName
+	contains MatchArgumentTuple argumentTuple
+}
+
+class VariableInstantiationTrace extends Trace {
+	contains StringVariablePair[] variables
+}
+
+class StringVariablePair wraps Entry {
+	String key
+	refers Variable value
+}
+
+class ConstraintTrace extends Trace {
+	refers Variable[] localVariables
+	refers Constraint[] constraints
+}

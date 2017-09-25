@@ -31,8 +31,8 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 	}
 
 	override <Template2> ConstraintRuleSpecification<Pattern, Template2> parseTemplates(
-		BiConsumer<? super ConstraintAcceptor<Pattern, Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
-		val builder = new ConstraintAcceptor(parameters, localVariables, preconditionSpecifications)
+		BiConsumer<? super ConstraintAcceptor<Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
+		val builder = new ConstraintAcceptorImpl(parameters, localVariables, preconditionSpecifications)
 		for (constraintSpecification : constraintSpecifications) {
 			switch (constraintSpecification) {
 				TemplateConstraintSpecification<? extends Template>:
@@ -98,11 +98,6 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 			this
 		}
 
-		def addLocalVariable(String name) {
-			localVariables.add(VariableSpecification.of(name))
-			this
-		}
-
 		def addPrecondition(PreconditionSpecification<? extends Pattern> preconditionSpecification) {
 			preconditionSpecifications.add(preconditionSpecification)
 			this
@@ -118,8 +113,15 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 				preconditionSpecifications.build, constraintSpecifications.build)
 		}
 	}
+	
+	static interface ConstraintAcceptor<Template> {
+		
+		def VariableReference newLocalVariable(String prefix)
+		
+		def void acceptConstraint(ConstraintSpecification<? extends Template> constraintSpecification)
+	}
 
-	final static class ConstraintAcceptor<Pattern, Template> {
+	final static class ConstraintAcceptorImpl<Pattern, Template> implements ConstraintAcceptor<Template> {
 		val Builder<Pattern, Template> builder
 		val VariableNameGenerator nameGenerator
 
@@ -129,16 +131,18 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 			nameGenerator = new VariableNameGenerator(localVariables.map[name])
 		}
 
-		def newLocalVariable(String prefix) {
+		override newLocalVariable(String prefix) {
 			val name = nameGenerator.getNextName(prefix)
-			builder.addLocalVariable(name)
+			val variable = VariableSpecification.of(name)
+			builder.addLocalVariable(variable)
+			LocalVariableReference.of(name)
 		}
 
-		def acceptConstraint(ConstraintSpecification<? extends Template> constraintSpecification) {
+		override acceptConstraint(ConstraintSpecification<? extends Template> constraintSpecification) {
 			builder.addConstraint(constraintSpecification)
 		}
 
-		private def build() {
+		def build() {
 			builder.build
 		}
 	}

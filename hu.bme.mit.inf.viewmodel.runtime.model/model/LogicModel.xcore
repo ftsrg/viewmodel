@@ -1,0 +1,40 @@
+@Ecore(nsPrefix="logicmodel", nsURI="http://inf.mit.bme.hu/emf/2017/LogicModel")
+@GenModel(modelDirectory="/hu.bme.mit.inf.viewmodel.runtime.model/src-gen", prefix="LogicModel",
+	fileExtensions="logicmodel", providerName="BME MIT FTSRG", operationReflection="false")
+package hu.bme.mit.inf.viewmodel.runtime.model.logicmodel
+
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EStructuralFeature
+
+class LogicModel {
+	contains Variable[] variables
+	contains Constraint[] constraints
+}
+
+class Variable {
+	int ^id
+}
+
+abstract class Constraint {
+}
+
+abstract class UnaryConstraint extends Constraint {
+	refers Variable variable
+}
+
+abstract class BinaryConstraint extends Constraint {
+	refers Variable left
+	refers Variable right
+} 
+
+class EClassConstraint extends UnaryConstraint {
+	refers EClass targetEClass
+}
+
+class JavaClassConstraint extends UnaryConstraint {
+	Class<?> targetClass
+}
+
+class RelationConstraint extends BinaryConstraint {
+	refers EStructuralFeature targetRelation
+}
