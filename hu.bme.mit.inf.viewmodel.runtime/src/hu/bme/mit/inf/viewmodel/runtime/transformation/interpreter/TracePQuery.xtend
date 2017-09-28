@@ -18,15 +18,17 @@ import org.eclipse.viatra.query.runtime.matchers.tuple.Tuples
 import org.eclipse.xtend.lib.annotations.Accessors
 
 class TracePQuery extends BaseGeneratedEMFPQuery {
-	val String traceName
+	@Accessors(PUBLIC_GETTER) val String traceName
+	@Accessors(PUBLIC_GETTER) val List<String> argumentNames
 	val PParameter traceModelIdParameter
 	val List<PParameter> matchArgumentParameters
 	val PParameter traceParameter
-	val EClass traceClass
+	@Accessors(PUBLIC_GETTER) val EClass traceClass
 	@Accessors(PUBLIC_GETTER) val List<PParameter> parameters
 
 	new(String traceName, List<String> argumentNames, EClass traceClass) {
 		this.traceName = traceName
+		this.argumentNames = ImmutableList.copyOf(argumentNames)
 		this.matchArgumentParameters = PQueryUtils.newMatchArgumentParameters(argumentNames)
 		this.traceClass = traceClass
 		val parametersBuilder = ImmutableList.builder
@@ -44,7 +46,6 @@ class TracePQuery extends BaseGeneratedEMFPQuery {
 		val traceModelIdVariable = PQueryUtils.newTraceModelIdVariable(body)
 		symbolicParameters += new ExportedParameter(body, traceModelIdVariable, traceModelIdParameter)
 		val traceVariable = PQueryUtils.newTraceVariable(body, PQueryUtils.TRACE_PARAMETER, traceClass)
-		symbolicParameters += new ExportedParameter(body, traceVariable, traceParameter)
 		val argumentTupleVariable = PQueryUtils.newVariable(body, PQueryUtils.ARGUMENT_TUPLE_VARIABLE,
 			ViewModelTracePackage.Literals.MATCH_ARGUMENT_TUPLE)
 		val traceNameVariable = body.newConstantVariable(traceName)
@@ -58,6 +59,7 @@ class TracePQuery extends BaseGeneratedEMFPQuery {
 			new PositivePatternCall(body, Tuples.flatTupleOf(argumentTupleVariable, nameVariable, elementVariable),
 				NamedMatchArgumentQuerySpecification.instance.internalQueryRepresentation)
 		}
+		symbolicParameters += new ExportedParameter(body, traceVariable, traceParameter)
 		body.symbolicParameters = symbolicParameters
 		Collections.singleton(body)
 	}

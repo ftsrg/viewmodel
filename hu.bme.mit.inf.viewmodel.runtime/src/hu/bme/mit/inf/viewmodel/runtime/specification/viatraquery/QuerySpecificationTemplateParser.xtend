@@ -6,25 +6,26 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.ConstantConstraintSpecific
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification.ConstraintAcceptor
 import hu.bme.mit.inf.viewmodel.runtime.specification.EquivalenceConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateConstraintSpecification
-import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateParser
 import hu.bme.mit.inf.viewmodel.runtime.specification.TypeConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableReference
 import java.util.List
 import java.util.Map
+import java.util.function.BiConsumer
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody
 import org.eclipse.viatra.query.runtime.matchers.psystem.PConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.ConstantValue
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PQuery
 import org.eclipse.viatra.query.runtime.matchers.tuple.Tuple
 
-class QuerySpecificationTemplateParser implements TemplateParser<IQuerySpecification<?>, Void> {
+class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<Void>, TemplateConstraintSpecification<? extends IQuerySpecification<?>>> {
 
-	override accept(ConstraintAcceptor<? super Void> acceptor,
+	override accept(ConstraintAcceptor<Void> acceptor,
 		TemplateConstraintSpecification<? extends IQuerySpecification<?>> templateConstraint) {
 		val pQuery = templateConstraint.templatePattern.internalQueryRepresentation
 		val arguments = templateConstraint.arguments
@@ -59,7 +60,13 @@ class QuerySpecificationTemplateParser implements TemplateParser<IQuerySpecifica
 	protected def void parsePBody(ConstraintAcceptor<? super Void> acceptor, PBody body,
 		Map<PVariable, VariableReference> variables) {
 		for (constraint : body.constraints) {
+			parsePConstraint(acceptor, constraint, variables)
 		}
+	}
+	
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, ExportedParameter constraint,
+		Map<PVariable, VariableReference> variables) {
+		// Nothing to do for exported parameters.
 	}
 
 	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, TypeConstraint constraint,

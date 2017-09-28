@@ -24,7 +24,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class PreconditionPQuery extends BaseGeneratedEMFPQuery {
 	@Accessors(PUBLIC_GETTER) val String fullyQualifiedName
 	val List<? extends PreconditionSpecification<? extends IQuerySpecification<?>>> preconditionSpecifications
-	val Map<IQuerySpecification<?>, TraceQuerySpecification> traceQueryMap
+	val TraceQueries traceQueryManager
 	val PParameter traceModelIdParameter
 	val List<PParameter> matchArgumentParameters
 	val List<PParameter> lookupParameters
@@ -34,15 +34,16 @@ class PreconditionPQuery extends BaseGeneratedEMFPQuery {
 		String name,
 		List<String> argumentNames,
 		List<? extends PreconditionSpecification<? extends IQuerySpecification<?>>> preconditionSpecifications,
-		Map<IQuerySpecification<?>, TraceQuerySpecification> traceQueryMap
+		TraceQueries traceQueryManager
 	) {
 		fullyQualifiedName = name
 		this.preconditionSpecifications = preconditionSpecifications
-		this.traceQueryMap = traceQueryMap
+		this.traceQueryManager = traceQueryManager
 		val parametersBuilder = ImmutableList.builder
 		traceModelIdParameter = PQueryUtils.newTraceModelIdParameter
 		parametersBuilder.add(traceModelIdParameter)
 		matchArgumentParameters = PQueryUtils.newMatchArgumentParameters(argumentNames)
+		parametersBuilder.addAll(matchArgumentParameters)
 		lookupParameters = new ArrayList
 		for (preconditionSpecification : preconditionSpecifications) {
 			if (LookupPreconditionSpecification.isInstance(preconditionSpecification)) {
@@ -90,11 +91,7 @@ class PreconditionPQuery extends BaseGeneratedEMFPQuery {
 				argumentList += lookupArguments
 				argumentList += lookupVariablesMap.get(lookupSpecification.name)
 				val argumentTuple = toFlatTuple(argumentList)
-				val tracedQuery = traceQueryMap.get(lookupSpecification.preconditionPattern)
-				if (tracedQuery === null) {
-					throw new IllegalStateException("No traced query for " +
-						lookupSpecification.preconditionPattern.fullyQualifiedName)
-				}
+				val tracedQuery = traceQueryManager.getVariableInstantiationTraceQuery(lookupSpecification.preconditionPattern)
 				new PositivePatternCall(body, argumentTuple, tracedQuery.internalQueryRepresentation)
 			} else {
 				throw new IllegalArgumentException("Unknown precondition specification: " + preconditionSpecification)

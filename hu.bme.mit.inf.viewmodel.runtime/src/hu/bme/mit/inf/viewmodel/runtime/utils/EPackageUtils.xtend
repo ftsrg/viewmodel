@@ -1,5 +1,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.utils
 
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelPackage
+import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTracePackage
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 
@@ -30,5 +32,26 @@ final class EPackageUtils {
 			throw new IllegalArgumentException(className + " has no EStructuralFeature named " + featureName)
 		}
 		eStructuralFeature
+	}
+	
+	static def registerRequiredEPackages() {
+		registerViewModelTracePackage
+		registerLogicModelPackage
+	}
+	
+	static def registerViewModelTracePackage() {
+		registerEPackage(ViewModelTracePackage.eINSTANCE)
+	}
+	
+	static def registerLogicModelPackage() {
+		registerEPackage(LogicModelPackage.eINSTANCE)
+	}
+	
+	static def void registerEPackage(EPackage ePackage) {
+		val nsUri = ePackage.nsURI
+		val registry = EPackage.Registry.INSTANCE
+		if (registry.containsKey(nsUri)) {
+			registry.put(nsUri, ePackage)
+		}
 	}
 }

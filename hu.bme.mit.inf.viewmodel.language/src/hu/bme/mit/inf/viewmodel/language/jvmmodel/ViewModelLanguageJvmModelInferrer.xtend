@@ -71,7 +71,7 @@ class ViewModelLanguageJvmModelInferrer extends AbstractModelInferrer {
 				'''
 			]
 			members += viewDefinitionModel.toMethod("create", viewSpecificationTypeRef) [
-				visibility = JvmVisibility.PRIVATE
+				visibility = JvmVisibility.PUBLIC
 				static = true
 				exceptions += ViatraQueryException.typeRef
 				body = '''

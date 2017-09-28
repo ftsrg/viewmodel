@@ -32,7 +32,7 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 
 	override <Template2> ConstraintRuleSpecification<Pattern, Template2> parseTemplates(
 		BiConsumer<? super ConstraintAcceptor<Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
-		val builder = new ConstraintAcceptorImpl(parameters, localVariables, preconditionSpecifications)
+		val builder = new ConstraintAcceptorImpl(name, parameters, localVariables, preconditionSpecifications)
 		for (constraintSpecification : constraintSpecifications) {
 			switch (constraintSpecification) {
 				TemplateConstraintSpecification<? extends Template>:
@@ -71,8 +71,9 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 		private new() {
 		}
 
-		private new(List<String> parameters, List<VariableSpecification> localVariables,
+		private new(String name, List<String> parameters, List<VariableSpecification> localVariables,
 			List<PreconditionSpecification<? extends Pattern>> preconditionSpecifications) {
+			this.name = name
 			this.parameters.addAll(parameters)
 			this.localVariables.addAll(localVariables)
 			this.preconditionSpecifications.addAll(preconditionSpecifications)
@@ -113,11 +114,11 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 				preconditionSpecifications.build, constraintSpecifications.build)
 		}
 	}
-	
+
 	static interface ConstraintAcceptor<Template> {
-		
+
 		def VariableReference newLocalVariable(String prefix)
-		
+
 		def void acceptConstraint(ConstraintSpecification<? extends Template> constraintSpecification)
 	}
 
@@ -125,9 +126,9 @@ final class ConstraintRuleSpecification<Pattern, Template> extends RuleSpecifica
 		val Builder<Pattern, Template> builder
 		val VariableNameGenerator nameGenerator
 
-		private new(List<String> parameters, List<VariableSpecification> localVariables,
+		private new(String name, List<String> parameters, List<VariableSpecification> localVariables,
 			List<PreconditionSpecification<? extends Pattern>> preconditionSpecifications) {
-			builder = new Builder(parameters, localVariables, preconditionSpecifications)
+			builder = new Builder(name, parameters, localVariables, preconditionSpecifications)
 			nameGenerator = new VariableNameGenerator(localVariables.map[name])
 		}
 

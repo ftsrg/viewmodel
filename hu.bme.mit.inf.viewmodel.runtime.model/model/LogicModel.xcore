@@ -4,6 +4,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.model.logicmodel
 
 import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 
 class LogicModel {
@@ -12,7 +13,10 @@ class LogicModel {
 }
 
 class Variable {
-	int ^id
+	long ^id
+	op String toString() {
+		"<" + ^id + ">"
+	}
 }
 
 abstract class Constraint {
@@ -25,16 +29,47 @@ abstract class UnaryConstraint extends Constraint {
 abstract class BinaryConstraint extends Constraint {
 	refers Variable left
 	refers Variable right
-} 
+}
 
 class EClassConstraint extends UnaryConstraint {
 	refers EClass targetEClass
+	op String toString() {
+		targetEClass.name + "(" + variable + ")"
+	}
 }
 
 class JavaClassConstraint extends UnaryConstraint {
 	Class<?> targetClass
+	op String toString() {
+		"java " + targetClass.simpleName + "(" + variable + ")"
+	}
+}
+
+class ConstantEObjectConstraint extends UnaryConstraint {
+	refers EObject value
+	op String toString() {
+		variable + " == " + value
+	}
+}
+
+class ConstantJavaObjectConstraint extends UnaryConstraint {
+	Object value
+	op String toString() {
+		variable + " == " + value
+	}
+}
+
+class EquivalenceConstraint extends BinaryConstraint {
+	op String toString() {
+		left + " == " + right
+	}
 }
 
 class RelationConstraint extends BinaryConstraint {
 	refers EStructuralFeature targetRelation
+	op String toString() {
+		targetRelation.EContainingClass.name + "." + targetRelation.name + "(" + left + ", " + right + ")"
+	}
 }
+
+
