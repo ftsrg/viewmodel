@@ -17,6 +17,9 @@ class ViewModelTrace {
 
 class MatchArgumentTuple {
 	contains unordered unique MatchArgument[] elements
+	op String toString() {
+		"{" + elements.join(", ") + "}"
+	}
 }
 
 abstract class MatchArgument {
@@ -25,15 +28,24 @@ abstract class MatchArgument {
 
 class EObjectMatchArgument extends MatchArgument {
 	refers EObject value
+	op String toString() {
+		parameterName + "=" + value
+	}
 }
 
 class JavaObjectMatchArgument extends MatchArgument {
 	Object value
+	op String toString() {
+		parameterName + "=" + value
+	}
 }
 
 abstract class Trace {
 	String traceName
 	contains MatchArgumentTuple argumentTuple
+	op String toString() {
+		traceName + argumentTuple
+	}
 }
 
 class VariableInstantiationTrace extends Trace {

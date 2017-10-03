@@ -11,18 +11,19 @@ import org.eclipse.xtend.lib.annotations.Data
 @Data
 final class ViewSpecification<Pattern, Template> {
 	val String name
+	val List<String> requiredMetamodels
 	val List<RuleSpecification<? extends Pattern, ? extends Template>> ruleSpecifications
 
 	def <Pattern2, Template2> bimap(Function<? super Pattern, ? extends Pattern2> patternF,
 		Function<? super Template, ? extends Template2> templateF) {
 		val newRuleSpecifications = ruleSpecifications.map[bimap(patternF, templateF)]
-		new ViewSpecification(name, ImmutableList.copyOf(newRuleSpecifications))
+		new ViewSpecification(name, requiredMetamodels, ImmutableList.copyOf(newRuleSpecifications))
 	}
 
 	def <Template2> parseTemplates(
 		BiConsumer<? super ConstraintAcceptor<Template2>, ? super TemplateConstraintSpecification<? extends Template>> parser) {
 		val newRuleSpecifications = ruleSpecifications.map[parseTemplates(parser)]
-		new ViewSpecification<Pattern, Template2>(name, ImmutableList.copyOf(newRuleSpecifications))
+		new ViewSpecification<Pattern, Template2>(name, requiredMetamodels, ImmutableList.copyOf(newRuleSpecifications))
 	}
 
 	static def <Pattern, Template> builder() {
@@ -44,6 +45,7 @@ final class ViewSpecification<Pattern, Template> {
 
 	final static class Builder<Pattern, Template> {
 		var String name
+		val requiredMetamodels = ImmutableList.<String>builder
 		val ruleSpecifications = ImmutableList.<RuleSpecification<? extends Pattern, ? extends Template>>builder
 
 		private new() {
@@ -51,6 +53,11 @@ final class ViewSpecification<Pattern, Template> {
 
 		def setName(String name) {
 			this.name = name
+			this
+		}
+		
+		def addRequiredMetamodel(String requiredMetamodel) {
+			requiredMetamodels.add(requiredMetamodel)
 			this
 		}
 
@@ -94,7 +101,7 @@ final class ViewSpecification<Pattern, Template> {
 		}
 
 		def build() {
-			new ViewSpecification(name, ruleSpecifications.build)
+			new ViewSpecification(name, requiredMetamodels.build, ruleSpecifications.build)
 		}
 	}
 }

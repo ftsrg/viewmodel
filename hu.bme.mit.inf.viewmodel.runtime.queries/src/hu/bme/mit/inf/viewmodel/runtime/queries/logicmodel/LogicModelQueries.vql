@@ -5,18 +5,97 @@ import "http://inf.mit.bme.hu/emf/2017/LogicModel"
 // because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
 import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
 
-pattern variableRelation(Left : Variable, Right : Variable, Relation : EStructuralFeature) {
-	RelationConstraint.left(Constraint, Left);
-	RelationConstraint.right(Constraint, Right);
-	RelationConstraint.targetRelation(Constraint, Relation);
-} or {
-	RelationConstraint.left(Constraint, Right);
-	RelationConstraint.right(Constraint, Left);
-	RelationConstraint.targetRelation(Constraint, Opposite);
-	EReference.eOpposite(Opposite, Relation);
+pattern concreteRelation(LeftRep : Variable, RightRep : Variable, Rel : EStructuralFeature) {
+	find strongClusterRelation(LeftRep, RightRep, Rel);
+	N == count find clusterRelation(LeftRep, _, Rel);
+	EStructuralFeature.upperBound(Rel, Bound);
+	check(Bound < 0 || Bound >= 1 || N <= 1);
+	find strongRelationOppositeAllowed(RightRep, Rel);
+	find strongRelationContainmentAllowed(RightRep, Rel);
 }
 
-pattern variableType(Var : Variable, Type : EClass) {
-	EClassConstraint.variable(Constraint, Var);
-	EClassConstraint.targetEClass(Constraint, Type);
+private pattern strongRelationOppositeAllowed(RightRep : Variable, Rel : EStructuralFeature) {
+	find strongClusterRelation(_, RightRep, Rel);
+	neg find hasEOpposite(Rel);
+} or {
+	find strongClusterRelation(_, RightRep, Rel);
+	neg find constantEObjectConstraint(RightRep, _);
+	neg find constantJavaObjectConstraint(RightRep, _);
+	N == count find clusterRelation(_, RightRep, Rel);
+	EReference.eOpposite.upperBound(Rel, Bound);
+	check(Bound < 0 || Bound >= 1 || N <= 1);
+}
+
+private pattern strongRelationContainmentAllowed(RightRep : Variable, Rel : EStructuralFeature) {
+	find strongClusterRelation(_, RightRep, Rel);
+	neg find isContainment(Rel);
+} or {
+	find strongClusterRelation(_, RightRep, Rel);
+	1 == count find containmentClusterRelation(_, RightRep, _);
+}
+
+private pattern containmentClusterRelation(LeftRep : Variable, RightRep : Variable, Rel : EReference) {
+	find strongClusterRelation(LeftRep, RightRep, Rel);
+	find isContainment(Rel);
+}
+
+pattern concreteVariable(Rep : Variable, Type : EClass) {
+	find representant(Rep);
+	neg find constantEObjectConstraint(Rep, _);
+	neg find javaObjectConstantValue(Rep, _);
+	find concreteClusterType(Rep, Type);
+}
+
+pattern eObjectConstantValue(Rep : Variable, Value : EObject) {
+	find representant(Rep);
+	neg find constantJavaObjectConstraint(Rep, _);
+	1 == count find constantEObject(Rep, _);
+	find constantEObjectConstraint(Rep, Const);
+	neg find typeConstraintViolatingConstant(Rep, Const);
+	ConstantEObjectConstraint.value(Const, Value);
+}
+
+pattern javaObjectConstantValue(Rep : Variable, Value : java Object) {
+	find representant(Rep);
+	neg find requiredClusterType(Rep, _);
+	neg find constantEObjectConstraint(Rep, _);
+	1 == count find constantJavaObject(Rep, _);
+	find constantJavaObjectConstraint(Rep, Const);
+	neg find javaTypeConstraintViolatingConstant(Rep, Const);
+	ConstantJavaObjectConstraint.value(Const, Value);
+}
+
+private pattern typeConstraintViolatingConstant(Rep : Variable, Const : ConstantEObjectConstraint) {
+	find constantEObjectConstraint(Rep, Const);
+	ConstantEObjectConstraint.valueType(Const, Type);
+	find requiredClusterType(Rep, SuperType);
+	neg find conformsTo(SuperType, Type);
+}
+
+private pattern javaTypeConstraintViolatingConstant(Rep : Variable, Const : ConstantJavaObjectConstraint) {
+	find constantJavaObjectConstraint(Rep, Const);
+	ConstantJavaObjectConstraint.valueType(Const, JavaType);
+	find requiredJavaClusterType(Rep, RequiredType);
+	// HACK Evil casting to work around code generation issue in requiredJavaClusterType/2.
+	check(!(RequiredType as Class<?>).isAssignableFrom(JavaType));
+}
+
+private pattern constantEObject(Rep : Variable, Value : EObject) {
+	find constantEObjectConstraint(Rep, Const);
+	ConstantEObjectConstraint.value(Const, Value);
+}
+
+private pattern constantEObjectConstraint(Rep : Variable, Const : ConstantEObjectConstraint) {
+	find representedVariable(Rep, Var);
+	ConstantEObjectConstraint.variable(Const, Var);
+}
+
+private pattern constantJavaObject(Rep : Variable, Value : java Object) {
+	find constantJavaObjectConstraint(Rep, Const);
+	ConstantJavaObjectConstraint.value(Const, Value);
+}
+
+private pattern constantJavaObjectConstraint(Rep : Variable, Const : ConstantJavaObjectConstraint) {
+	find representedVariable(Rep, Var);
+	ConstantJavaObjectConstraint.variable(Const, Var);
 }

@@ -7,63 +7,37 @@ import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EStructuralFeature
 
 class ManifestationTrace {
 	String traceModelId
 	refers LogicModel logicModel
-	contains EObject[] results
-	boolean dirtyClusters
-	contains unordered unique Cluster[] clusters
-	contains unordered unique RelationSetting[] relationSettings
-}
-
-class Cluster {
-	refers unordered unique Variable[] variables
-	refers unordered unique RelationSetting[] relationSettings
-	contains Manifestation manifestation
-	op String toString() {
-		val manifestationName = switch (manifestation) {
-			InterpretedManifestation:
-				" : " + (manifestation as InterpretedManifestation).manifestedEObject.eClass.name
-			UninterpretedManifestation:
-				" : left " + (manifestation as UninterpretedManifestation).sourceEObject.eClass.name
-			PrimitiveManifestation:
-				" : java " + (manifestation as PrimitiveManifestation).value.class.name
-			case null:
-				""
-			default:
-				" : unknown"
-		}
-		"{" + variables.join(", ") + "}" + manifestationName
-	}
+	contains unordered unique EObject[] results
+	contains unordered unique Manifestation[] manifestations
 }
 
 abstract class Manifestation {
+	refers Variable variable
 }
 
-abstract class EClassTypedManifestation extends Manifestation {
+class InterpretedManifestation extends Manifestation {
 	refers EClass ^type
-}
-
-class InterpretedManifestation extends EClassTypedManifestation {
 	refers EObject manifestedEObject
+	op String toString() {
+		variable + " : " + ^type.name
+	}
 }
 
-class UninterpretedManifestation extends EClassTypedManifestation {
+class UninterpretedManifestation extends Manifestation {
 	refers EObject sourceEObject
+	op String toString() {
+		variable + " = " + sourceEObject
+	}
 }
 
 class PrimitiveManifestation extends Manifestation {
-	Class<?> ^type
 	Object value
-}
-
-class RelationSetting {
-	refers Cluster left
-	refers Cluster right
-	refers EStructuralFeature targetRelation
 	op String toString() {
-		targetRelation.EContainingClass.name + "." + targetRelation.name + "(" + left + ", " + right + ")"
+		variable + " = " + value
 	}
 }
+

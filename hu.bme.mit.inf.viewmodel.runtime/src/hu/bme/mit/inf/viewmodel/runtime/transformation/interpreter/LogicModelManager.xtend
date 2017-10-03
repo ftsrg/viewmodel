@@ -20,7 +20,7 @@ class LogicModelManager implements ILogicModelManager {
 	new() {
 		this(LogicModelFactory.eINSTANCE.createLogicModel)
 	}
-	
+
 	new(Resource resource) {
 		this()
 		resource.contents += logicModel
@@ -33,7 +33,7 @@ class LogicModelManager implements ILogicModelManager {
 		logicModel.variables += variable
 		variable
 	}
-	
+
 	override addEquivalenceConstraint(Variable left, Variable right) {
 		val constraint = LogicModelFactory.eINSTANCE.createEquivalenceConstraint
 		constraint.left = left
@@ -62,6 +62,7 @@ class LogicModelManager implements ILogicModelManager {
 		val constraint = LogicModelFactory.eINSTANCE.createConstantEObjectConstraint
 		constraint.variable = variable
 		constraint.value = value
+		constraint.valueType = value.eClass
 		logicModel.constraints += constraint
 		constraint
 	}
@@ -70,6 +71,7 @@ class LogicModelManager implements ILogicModelManager {
 		val constraint = LogicModelFactory.eINSTANCE.createConstantJavaObjectConstraint
 		constraint.variable = variable
 		constraint.value = value
+		constraint.valueType = value.class
 		logicModel.constraints += constraint
 		constraint
 	}
@@ -82,11 +84,11 @@ class LogicModelManager implements ILogicModelManager {
 		logicModel.constraints += constraint
 		constraint
 	}
-	
+
 	override void removeVariables(Collection<Variable> variables) {
 		logicModel.variables.removeAll(variables)
 	}
-	
+
 	override void removeConstraints(Collection<Constraint> constraints) {
 		logicModel.constraints.removeAll(constraints)
 	}

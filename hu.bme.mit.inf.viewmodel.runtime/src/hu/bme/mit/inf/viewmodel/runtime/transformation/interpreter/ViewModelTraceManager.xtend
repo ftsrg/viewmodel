@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Constraint
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.Trace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTrace
@@ -21,15 +22,15 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 class ViewModelTraceManager {
 	@Accessors(PUBLIC_GETTER) val ViewModelTrace traceModel
 
-	new(LogicModelManager logicModelManager) {
+	new(LogicModel logicModel) {
 		this(ViewModelTraceFactory.eINSTANCE.createViewModelTrace => [
 			traceModelId = UUID.randomUUID.toString
-			logicModel = logicModelManager.logicModel
+			it.logicModel = logicModel
 		])
 	}
 	
-	new(Resource resource, LogicModelManager logicModelManager) {
-		this(logicModelManager)
+	new(Resource resource, LogicModel logicModel) {
+		this(logicModel)
 		resource.contents += traceModel
 	}
 

@@ -15,7 +15,7 @@ final class ChainableTransformations {
 		transformation.queryGroup.prepare(queryEngine)
 		val prioritisedRuleGroup = transformation.createRuleGroup(queryEngine)
 		val schedulerFactory = Schedulers.getQueryEngineSchedulerFactory(queryEngine)
-		val conflictResolver = prioritisedRuleGroup.toFixedPriorityResolver
+		val conflictResolver = prioritisedRuleGroup.toConflictResolver
 		val executionSchema = ExecutionSchemas.createViatraQueryExecutionSchema(queryEngine, schedulerFactory, conflictResolver)
 		for (rule : prioritisedRuleGroup.toTransformationRuleGroup) {
 			// HACK Evil casting.

@@ -1,0 +1,48 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel
+
+// Must not use "http://www.eclipse.org/emf/2002/Ecore",
+// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
+import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+
+pattern conformsTo(Ancestor : EClass, Child : EClass) {
+	Ancestor == Child;
+} or {
+	find childEClass+(Ancestor, Child);
+}
+
+private pattern childEClass(Parent : EClass, Child : EClass) {
+	EClass.eSuperTypes(Child, Parent);
+}
+
+pattern strongRelation(Rel : EStructuralFeature) {
+	neg find hasEOpposite(Rel);
+} or {
+	find isContainment(Rel);
+} or {
+	EReference.eOpposite(Rel, Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check((RelBound < 0 && OppositeBound >= 0) || (RelBound >= 0 && OppositeBound >= 0 && RelBound > OppositeBound));
+} or {
+	EReference.eOpposite(Rel, Opposite);
+	find uniqueName(Rel, RelName);
+	find uniqueName(Opposite, OppositeName);
+	check(RelName.compareTo(OppositeName) < 0);
+}
+
+pattern hasEOpposite(Rel : EReference) {
+	EReference.eOpposite(Rel, _);
+}
+
+pattern isContainment(Rel : EReference) {
+	EReference.containment(Rel, true);
+}
+
+private pattern uniqueName(Rel : EStructuralFeature, Name : java String) {
+	EClass.eStructuralFeatures(Type, Rel);
+	EPackage.eClassifiers(Package, Type);
+	EPackage.nsURI(Package, NsUri);
+	EClass.name(Type, ClassName);
+	EStructuralFeature.name(Rel, RelName);
+	Name == eval(NsUri + "#" + ClassName + "." + RelName);
+}

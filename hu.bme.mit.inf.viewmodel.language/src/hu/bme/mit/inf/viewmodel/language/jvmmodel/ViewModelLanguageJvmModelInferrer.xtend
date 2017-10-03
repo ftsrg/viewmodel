@@ -22,10 +22,13 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.VariableInstantiationRuleS
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableReference
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
+import hu.bme.mit.inf.viewmodel.runtime.transformation.ViewModel
 import org.apache.commons.lang.StringEscapeUtils
+import org.eclipse.emf.common.notify.Notifier
 import org.eclipse.viatra.query.patternlanguage.helper.CorePatternLanguageHelper
 import org.eclipse.viatra.query.patternlanguage.patternLanguage.Pattern
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException
 import org.eclipse.xtend2.lib.StringConcatenationClient
 import org.eclipse.xtext.common.types.JvmDeclaredType
@@ -47,7 +50,7 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
  */
 class ViewModelLanguageJvmModelInferrer extends AbstractModelInferrer {
 	static val QUERY_SPECIFICATION_SUFFIX = "QuerySpecification"
-	static val VIEW_SPECIFICATION_SUFFIX = "ViewSpecification"
+	static val VIEW_SPECIFICATION_SUFFIX = ""
 
 	@Inject ViewModelSpecificationCompiler specificationCompiler
 	@Inject IQualifiedNameProvider qualifiedNameProvider
@@ -61,7 +64,8 @@ class ViewModelLanguageJvmModelInferrer extends AbstractModelInferrer {
 		val viewSpecification = specificationCompiler.getSpecification(viewDefinitionModel)
 		val querySpecificationTypeRef = IQuerySpecification.typeRef(wildcard)
 		val viewSpecificationTypeRef = ViewSpecification.typeRef(querySpecificationTypeRef, querySpecificationTypeRef)
-		acceptor.accept(viewDefinitionModel.toClass(viewDefinitionName + VIEW_SPECIFICATION_SUFFIX)) [
+		val viewSpecificationClass = viewDefinitionModel.toClass(viewDefinitionName + VIEW_SPECIFICATION_SUFFIX)
+		acceptor.accept(viewSpecificationClass) [
 			visibility = JvmVisibility.PUBLIC
 			final = true
 			members += viewDefinitionModel.toConstructor [
@@ -70,12 +74,30 @@ class ViewModelLanguageJvmModelInferrer extends AbstractModelInferrer {
 					throw new «IllegalArgumentException.typeRef»("This class should not be instantiated directly. Use the #create() static method instead.");
 				'''
 			]
-			members += viewDefinitionModel.toMethod("create", viewSpecificationTypeRef) [
+			members += viewDefinitionModel.toMethod("createSpecification", viewSpecificationTypeRef) [
 				visibility = JvmVisibility.PUBLIC
 				static = true
 				exceptions += ViatraQueryException.typeRef
 				body = '''
 					return «serializeViewSpecification(viewSpecification)»;
+				'''
+			]
+			members += viewDefinitionModel.toMethod("create", ViewModel.typeRef) [
+				visibility = JvmVisibility.PUBLIC
+				static = true
+				exceptions += ViatraQueryException.typeRef
+				parameters += viewDefinitionModel.toParameter("queryEngine", ViatraQueryEngine.typeRef)
+				body = '''
+					return «ViewModel.typeRef».create(queryEngine, «viewSpecificationClass.typeRef».createSpecification());
+				'''
+			]
+			members += viewDefinitionModel.toMethod("create", ViewModel.typeRef) [
+				visibility = JvmVisibility.PUBLIC
+				static = true
+				exceptions += ViatraQueryException.typeRef
+				parameters += viewDefinitionModel.toParameter("notifier", Notifier.typeRef)
+				body = '''
+					return «ViewModel.typeRef».create(notifier, «viewSpecificationClass.typeRef».createSpecification());
 				'''
 			]
 		]
@@ -91,6 +113,9 @@ class ViewModelLanguageJvmModelInferrer extends AbstractModelInferrer {
 		ViewSpecification<JvmTypeReference, JvmTypeReference> viewSpecification) {
 		'''
 		«ViewSpecification.typeRef».createOrThrow(b0 -> b0
+				«FOR requiredMetamodel : viewSpecification.requiredMetamodels»
+					.addRequiredMetamodel(«requiredMetamodel.literal»)
+				«ENDFOR»
 				«FOR ruleSpecification : viewSpecification.ruleSpecifications»
 					«serializeRuleSpecification(ruleSpecification)»
 				«ENDFOR»

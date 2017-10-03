@@ -16,7 +16,9 @@ Require-Bundle: com.google.guava,
  hu.bme.mit.inf.viewmodel.runtime.queries
 Export-Package: hu.bme.mit.inf.viewmodel.runtime.specification,
  hu.bme.mit.inf.viewmodel.runtime.specification.viatraquery,
+ hu.bme.mit.inf.viewmodel.runtime.transformation,
  hu.bme.mit.inf.viewmodel.runtime.transformation.common,
  hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter,
+ hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation,
  hu.bme.mit.inf.viewmodel.runtime.utils
 

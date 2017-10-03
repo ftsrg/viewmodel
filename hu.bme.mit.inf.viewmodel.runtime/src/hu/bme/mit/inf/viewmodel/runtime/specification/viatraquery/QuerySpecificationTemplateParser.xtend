@@ -8,6 +8,7 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.EquivalenceConstraintSpeci
 import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.TypeConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableReference
+import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
 import java.util.List
 import java.util.Map
 import java.util.function.BiConsumer
@@ -128,5 +129,9 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 			builder.put(parameters.get(i), arguments.get(i))
 		}
 		builder.build
+	}
+	
+	static def parse(ViewSpecification<? extends IQuerySpecification<?>, ? extends IQuerySpecification<?>> viewSpecification) {
+		viewSpecification.parseTemplates(new QuerySpecificationTemplateParser)
 	}
 }

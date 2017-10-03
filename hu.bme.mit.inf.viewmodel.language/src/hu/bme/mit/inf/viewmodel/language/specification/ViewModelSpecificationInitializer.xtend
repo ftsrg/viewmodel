@@ -8,6 +8,7 @@ import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.Lookup
 import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.RuleDefinition
 import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.Variable
 import hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.ViewDefinitionModel
+import hu.bme.mit.inf.viewmodel.language.typing.ReferencedEPackagesInferrer
 import hu.bme.mit.inf.viewmodel.runtime.specification.AssignmentConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.EquivalenceConstraintSpecification
@@ -32,6 +33,7 @@ class ViewModelSpecificationInitializer {
 	static val OTHER_LOOKUP_NAME = "<lookup>"
 
 	@Inject IQualifiedNameProvider qualifiedNameProvider
+	@Inject ReferencedEPackagesInferrer referencedEPackagesInferrer
 
 	protected extension val ViewSpecification.Builder<Pattern, Pattern> builder = ViewSpecification.builder
 	var Map<Variable, String> uniqueVariableNames
@@ -39,6 +41,12 @@ class ViewModelSpecificationInitializer {
 	def void createViewModelSpecification(ViewDefinitionModel viewDefinitionModel) {
 		name = qualifiedNameProvider.getFullyQualifiedName(viewDefinitionModel)?.toString ?: ""
 		uniqueVariableNames = disambiguateVariableNames(viewDefinitionModel)
+		for (referencedEPackage : referencedEPackagesInferrer.getReferencedEPackages(viewDefinitionModel)) {
+			val nsUri = referencedEPackage.nsURI
+			if (nsUri !== null) {
+				addRequiredMetamodel(nsUri)
+			}
+		}
 		for (ruleDefinition : viewDefinitionModel.ruleDefinitions) {
 			addRuleSpecifications(ruleDefinition)
 		}

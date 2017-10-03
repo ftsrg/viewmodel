@@ -15,7 +15,7 @@ class LogicModel {
 class Variable {
 	long ^id
 	op String toString() {
-		"<" + ^id + ">"
+		"_" + ^id
 	}
 }
 
@@ -47,6 +47,7 @@ class JavaClassConstraint extends UnaryConstraint {
 
 class ConstantEObjectConstraint extends UnaryConstraint {
 	refers EObject value
+	refers EClass valueType
 	op String toString() {
 		variable + " == " + value
 	}
@@ -54,6 +55,7 @@ class ConstantEObjectConstraint extends UnaryConstraint {
 
 class ConstantJavaObjectConstraint extends UnaryConstraint {
 	Object value
+	Class<?> valueType
 	op String toString() {
 		variable + " == " + value
 	}

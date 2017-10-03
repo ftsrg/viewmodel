@@ -9,12 +9,17 @@ final class EPackageUtils {
 	private new() {
 		throw new IllegalStateException("This is a static utility class and should not be instantiated directly.")
 	}
-
-	static def getEClass(String nsUri, String className) {
+	
+	static def getEPackage(String nsUri) {
 		val ePackage = EPackage.Registry.INSTANCE.getEPackage(nsUri)
 		if (ePackage === null) {
 			throw new IllegalArgumentException("No such EPackage " + nsUri)
 		}
+		ePackage
+	}
+
+	static def getEClass(String nsUri, String className) {
+		val ePackage = getEPackage(nsUri)
 		val eClassifier = ePackage.EClassifiers.findFirst[name == className]
 		if (eClassifier === null) {
 			throw new IllegalArgumentException("No such EClass " + nsUri + "#" + className)

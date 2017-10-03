@@ -1,18 +1,20 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.InterpretedManifestation
+import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Manifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTraceFactory
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.PrimitiveManifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.RelationSetting
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.UninterpretedManifestation
-import java.util.Collection
 import java.util.List
+import java.util.UUID
+import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
@@ -23,6 +25,18 @@ class ManifestationTraceManager {
 
 	extension val ManifestationTraceFactory = ManifestationTraceFactory.eINSTANCE
 
+	new(LogicModel logicModel) {
+		this(ManifestationTraceFactory.eINSTANCE.createManifestationTrace => [
+			it.traceModelId = UUID.randomUUID.toString
+			it.logicModel = logicModel
+		])
+	}
+
+	new(Resource resource, LogicModel logicModel) {
+		this(logicModel)
+		resource.contents += manifestationTrace
+	}
+
 	def getLogicModel() {
 		manifestationTrace.logicModel
 	}
@@ -31,102 +45,92 @@ class ManifestationTraceManager {
 		manifestationTrace.results
 	}
 
-	def markDirty() {
-		manifestationTrace.dirtyClusters = true
-	}
-
-	def getQueryGroup() {
-		ManifestationTraceMatcher.queryGroup
+	def getTraceModelId() {
+		manifestationTrace.traceModelId
 	}
 
 	def getMatcher(ViatraQueryEngine queryEngine) {
-		new ManifestationTraceMatcher(this, queryEngine)
+		new ManifestationTraceMatcher(traceModelId, queryEngine)
 	}
 
-	def createCluster(Collection<Variable> variables) {
-		manifestationTrace.clusters += createCluster => [
-			it.variables.addAll(variables)
+	def void manifestInterpretedEObject(Variable variable, EClass type) {
+		val manifestedEObject = type.EPackage.EFactoryInstance.create(type)
+		manifestationTrace.results += manifestedEObject
+		manifestationTrace.manifestations += createInterpretedManifestation => [
+			it.variable = variable
+			it.manifestedEObject = manifestedEObject
+			it.type = type
 		]
 	}
 
-	/**
-	 * Removes the clusters without removing any referencing relation settings.
-	 * 
-	 * Use {@link ManifestationTraceManager#removeClusters(Collection<Cluster>)} instead
-	 * to remove clusters while maintaining consistency.
-	 * 
-	 * @param clusters The clusters to remove.
-	 */
-	def void forceRemoveClusters(Collection<Cluster> clusters) {
-		manifestationTrace.clusters.removeAll(clusters)
+	def void manifestUninterpretedEObject(Variable variable, EObject sourceEObject) {
+		manifestationTrace.manifestations += createUninterpretedManifestation => [
+			it.variable = variable
+			it.sourceEObject = sourceEObject
+		]
 	}
 
-	def void addVariables(Cluster cluster, Collection<Variable> variables) {
-		cluster.variables.addAll(variables)
+	def void manifestPrimitive(Variable variable, Object value) {
+		manifestationTrace.manifestations += createPrimitiveManifestation => [
+			it.variable = variable
+			it.value = value
+		]
 	}
 
-	def void removeVariables(Cluster cluster, Collection<Variable> variables) {
-		cluster.variables.removeAll(variables)
+	def void removeManifestation(Manifestation manifestation) {
+		manifestationTrace.manifestations -= manifestation
+		if (manifestation instanceof InterpretedManifestation) {
+			manifestationTrace.results -= manifestation.manifestedEObject
+		}
 	}
 
-	def void addRelationSetting(Cluster leftCluster, Cluster rightCluster, EStructuralFeature targetFeature) {
-		val left = getManifestedEObject(leftCluster)
+	def void setRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
+		EStructuralFeature targetFeature) {
+		val left = leftManifestation.manifestedEObject
 		if (targetFeature instanceof EReference && (targetFeature as EReference).EOpposite !== null) {
 			val targetReference = targetFeature as EReference
 			val oppositeReference = targetReference.EOpposite
-			val right = getManifestedEObject(rightCluster)
-			if (targetReference.upperBound > 1) {
+			val right = getManifestedEObject(rightManifestation)
+			if (targetReference.many) {
 				addToListOnce(left.eGet(targetReference) as List<EObject>, right)
-			} else if (oppositeReference.upperBound > 1) {
-				addToListOnce(right.eGet(oppositeReference) as List<EObject>, left)
+			} else if (oppositeReference.many) {
+				throw new IllegalArgumentException(
+					"Manifested feature must be strong and strong features cannot have an upper bound less that the eOpposite's. See the strongRelation/2 predicate.")
 			} else {
 				left.eSet(targetReference, right)
 			}
 		} else {
-			val right = getManifestedObject(rightCluster)
-			if (targetFeature.upperBound > 1) {
+			val right = getManifestedObject(rightManifestation)
+			if (targetFeature.many) {
 				addToListOnce(left.eGet(targetFeature) as List<Object>, right)
 			} else {
 				left.eSet(targetFeature, right)
 			}
 		}
-		manifestationTrace.relationSettings += createRelationSetting => [
-			it.left = leftCluster
-			it.right = rightCluster
-			it.targetRelation = targetFeature
-		]
 	}
 
-	protected def unsetRelationSetting(RelationSetting relationSetting) {
-		val targetFeature = relationSetting.targetRelation
-		val rightCluster = relationSetting.right
-		val left = getManifestedEObjectOrNull(relationSetting.left)
-		if (left === null) {
-			return
-		}
+	def unsetRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
+		EStructuralFeature targetFeature) {
+		val left = leftManifestation.manifestedEObject
 		if (targetFeature instanceof EReference) {
-			val rightEObject = getManifestedEObjectOrNull(rightCluster)
-			if (rightEObject !== null) {
-				if (targetFeature.isContainment) {
-					if (rightEObject.eContainer == left && rightEObject.eContainingFeature == targetFeature) {
-						// Adding the right object to the top-level container steals it from the left container.
-						manifestationTrace.results.add(rightEObject)
-					}
+			val rightEObject = getManifestedEObject(rightManifestation)
+			if (targetFeature.isContainment) {
+				if (rightEObject.eContainer == left && rightEObject.eContainingFeature == targetFeature) {
+					// Adding the right object to the top-level container steals it from the left container.
+					manifestationTrace.results.add(rightEObject)
 				}
-				if (targetFeature.EOpposite !== null) {
-					val oppositeFeature = targetFeature.EOpposite
-					if (left.eContainer == rightEObject && left.eContainingFeature == oppositeFeature) {
-						manifestationTrace.results.add(left)
-					} else {
-						removeFromFeature(rightEObject, oppositeFeature, rightEObject)
-					}
+			}
+			if (targetFeature.EOpposite !== null) {
+				val oppositeFeature = targetFeature.EOpposite
+				if (left.eContainer == rightEObject && left.eContainingFeature == oppositeFeature) {
+					throw new IllegalArgumentException(
+						"Manifested feature must be strong and strong features cannot have a containment eOpposite. See the strongRelation/2 predicate.")
+				} else {
+					removeFromFeature(rightEObject, oppositeFeature, rightEObject)
 				}
 			}
 		}
-		val right = getManifestedObjectOrNull(rightCluster)
-		if (right === null) {
-			return
-		}
+		val right = getManifestedObject(rightManifestation)
 		removeFromFeature(left, targetFeature, right)
 	}
 
@@ -137,7 +141,7 @@ class ManifestationTraceManager {
 	}
 
 	protected def void removeFromFeature(EObject left, EStructuralFeature feature, Object right) {
-		if (feature.upperBound > 1) {
+		if (feature.many) {
 			(left.eGet(feature) as List<Object>).removeIf[it == right]
 		} else {
 			val currentvalue = left.eGet(feature)
@@ -148,51 +152,21 @@ class ManifestationTraceManager {
 		}
 	}
 
-	def removeRelationSetting(RelationSetting relationSetting) {
-		unsetRelationSetting(relationSetting)
-		manifestationTrace.relationSettings -= relationSetting
-	}
-
-	def removeRelationSettings(Collection<RelationSetting> relationSettings) {
-		for (relationSetting : relationSettings) {
-			unsetRelationSetting(relationSetting)
-		}
-		manifestationTrace.relationSettings.removeAll(relationSettings)
-	}
-
-	protected def getManifestedEObject(Cluster cluster) {
-		switch (manifestation : cluster.manifestation) {
+	protected def getManifestedEObject(Manifestation manifestation) {
+		switch (manifestation) {
 			InterpretedManifestation: manifestation.manifestedEObject
 			UninterpretedManifestation: throw new IllegalArgumentException("Attempt to modify a source object.")
 			PrimitiveManifestation: throw new IllegalArgumentException("Attempt to modify a primitive object.")
-			case null: throw new IllegalArgumentException("Attempt to get manifestation from unmanifested cluster.")
 			default: throw new IllegalArgumentException("Unknown manifestation: " + manifestation)
 		}
 	}
 
-	protected def getManifestedObject(Cluster cluster) {
-		switch (manifestation : cluster.manifestation) {
+	protected def getManifestedObject(Manifestation manifestation) {
+		switch (manifestation) {
 			InterpretedManifestation: manifestation.manifestedEObject
 			UninterpretedManifestation: manifestation.sourceEObject
 			PrimitiveManifestation: manifestation.value
-			case null: throw new IllegalArgumentException("Attempt to get manifestation from unmanifested cluster.")
 			default: throw new IllegalArgumentException("Unknown manifestation: " + manifestation)
-		}
-	}
-
-	protected def getManifestedEObjectOrNull(Cluster cluster) {
-		switch (manifestation : cluster.manifestation) {
-			InterpretedManifestation: manifestation.manifestedEObject
-			default: null
-		}
-	}
-
-	protected def getManifestedObjectOrNull(Cluster cluster) {
-		switch (manifestation : cluster.manifestation) {
-			InterpretedManifestation: manifestation.manifestedEObject
-			UninterpretedManifestation: manifestation.sourceEObject
-			PrimitiveManifestation: manifestation.value
-			default: null
 		}
 	}
 }

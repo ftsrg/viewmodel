@@ -7,7 +7,6 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.DependencyRuleSpecificatio
 import hu.bme.mit.inf.viewmodel.runtime.specification.RuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableInstantiationRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
-import hu.bme.mit.inf.viewmodel.runtime.specification.viatraquery.QuerySpecificationTemplateParser
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.IChainableTransformation
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.PrioritisedRuleGroup
 import java.util.Collections
@@ -22,7 +21,7 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDriv
 
 class ViewModelTransformation implements IChainableTransformation {
 	static val VARIABLE_INSTANTIATION_RULE_PRIORITY = 0
-	static val CONSTRAINT_RULE_PRIORITY = 1
+	static val CONSTRAINT_RULE_PRIORITY = 10
 
 	val ViewSpecification<? extends IQuerySpecification<?>, Void> viewSpecification
 	val TraceQueries traceQueries
@@ -112,14 +111,5 @@ class ViewModelTransformation implements IChainableTransformation {
 		RuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
 		ViewModelTraceMatcher traceMatcher) {
 		throw new IllegalArgumentException("Unknown rule specification: " + ruleSpecification)
-	}
-
-	static def of(
-		ViewSpecification<? extends IQuerySpecification<?>, ? extends IQuerySpecification<?>> viewSpecification,
-		ViewModelTraceManager traceManager,
-		LogicModelManager logicModelManager
-	) {
-		val transformedSpecification = viewSpecification.parseTemplates(new QuerySpecificationTemplateParser)
-		new ViewModelTransformation(transformedSpecification, traceManager, logicModelManager)
 	}
 }

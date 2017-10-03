@@ -2,7 +2,7 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.common
 
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
-import org.eclipse.viatra.transformation.evm.specific.ConflictResolvers
+import org.eclipse.viatra.transformation.evm.specific.resolver.InvertedDisappearancePriorityConflictResolver
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -21,8 +21,8 @@ class PrioritisedRuleGroup {
 		new EventDrivenTransformationRuleGroup(rules.values)
 	}
 	
-	def toFixedPriorityResolver() {
-		val resolver = ConflictResolvers.createFixedPriorityResolver
+	def toConflictResolver() {
+		val resolver = new InvertedDisappearancePriorityConflictResolver
 		for (pair : rules.entries) {
 			resolver.setPriority(pair.value.ruleSpecification, pair.key)
 		}
@@ -39,6 +39,14 @@ class PrioritisedRuleGroup {
 
 	static def of(EventDrivenTransformationRule<?, ?>... rules) {
 		copyOf(rules)
+	}
+	
+	static def of(Pair<Integer, EventDrivenTransformationRule<?, ?>>... rules) {
+		val builder = ImmutableMultimap.builder
+		for (rule : rules) {
+			builder.put(rule.key, rule.value)
+		}
+		new PrioritisedRuleGroup(builder.build)
 	}
 
 	static def copyOf(Iterable<EventDrivenTransformationRule<?, ?>> rules) {
@@ -59,5 +67,6 @@ class PrioritisedRuleGroup {
 			}
 			priority += group.maximumPriority - min + 1
 		}
+		new PrioritisedRuleGroup(builder.build)
 	}
 }
