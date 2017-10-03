@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 
 class LogicModel {
-	contains Variable[] variables
-	contains Constraint[] constraints
+	contains unordered unique Variable[] variables
+	contains unordered unique Constraint[] constraints
 }
 
 class Variable {

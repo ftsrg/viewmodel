@@ -23,4 +23,12 @@
             genModel="model/LogicModel.xcore"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ManifestationTrace -->
+      <package
+            uri="http://inf.mit.bme.hu/emf/2017/ManifestationTrace"
+            class="hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTracePackage"
+            genModel="model/ManifestationTrace.xcore"/>
+   </extension>
+
 </plugin>

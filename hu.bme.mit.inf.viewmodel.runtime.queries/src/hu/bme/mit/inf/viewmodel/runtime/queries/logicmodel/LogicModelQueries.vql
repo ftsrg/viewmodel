@@ -1,0 +1,22 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel
+
+import "http://inf.mit.bme.hu/emf/2017/LogicModel"
+// Must not use "http://www.eclipse.org/emf/2002/Ecore",
+// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
+import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+
+pattern variableRelation(Left : Variable, Right : Variable, Relation : EStructuralFeature) {
+	RelationConstraint.left(Constraint, Left);
+	RelationConstraint.right(Constraint, Right);
+	RelationConstraint.targetRelation(Constraint, Relation);
+} or {
+	RelationConstraint.left(Constraint, Right);
+	RelationConstraint.right(Constraint, Left);
+	RelationConstraint.targetRelation(Constraint, Opposite);
+	EReference.eOpposite(Opposite, Relation);
+}
+
+pattern variableType(Var : Variable, Type : EClass) {
+	EClassConstraint.variable(Constraint, Var);
+	EClassConstraint.targetEClass(Constraint, Type);
+}

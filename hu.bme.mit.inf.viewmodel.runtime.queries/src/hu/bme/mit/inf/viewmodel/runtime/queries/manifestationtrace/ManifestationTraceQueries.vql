@@ -1,0 +1,98 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace
+
+import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.variableRelation
+import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.variableType
+
+import "http://inf.mit.bme.hu/emf/2017/LogicModel"
+import "http://inf.mit.bme.hu/emf/2017/ManifestationTrace"
+// Must not use "http://www.eclipse.org/emf/2002/Ecore",
+// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
+import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+
+pattern equivalenceConstraint(Left : Variable, Right : Variable) {
+	EquivalenceConstraint.left(Constraint, Left);
+	EquivalenceConstraint.right(Constraint, Right);
+} or {
+	EquivalenceConstraint.left(Constraint, Right);
+	EquivalenceConstraint.right(Constraint, Left);
+}
+
+pattern referencingRelationSetting(Cluster : Cluster, Setting : RelationSetting) {
+	RelationSetting.left(Setting, Cluster);
+} or {
+	RelationSetting.right(Setting, Cluster);
+}
+
+pattern relationSetting(TraceModelId : EString, Left : Cluster, Right : Cluster, Relation : EStructuralFeature, Setting : RelationSetting) {
+	ManifestationTrace.traceModelId(TraceModel, TraceModelId);
+	ManifestationTrace.relationSettings(TraceModel, Setting);
+	find relationSettingArguments(Left, Right, Relation, Setting);
+}
+
+private pattern relationSettingArguments(Left : Cluster, Right : Cluster, Relation : EStructuralFeature, Setting : RelationSetting) {
+	RelationSetting.left(Setting, Left);
+	RelationSetting.right(Setting, Right);
+	RelationSetting.targetRelation(Setting, Relation);
+} or {
+	RelationSetting.left(Setting, Right);
+	RelationSetting.right(Setting, Left);
+	RelationSetting.targetRelation(Setting, Opposite);
+	EReference.eOpposite(Relation, Opposite);
+}
+
+private pattern manifestableRelationInLogicModel(Left : Cluster, Right : Cluster, Relation : EStructuralFeature) {
+	find relationInLogicModel(Left, Right, Relation);
+	Cluster.manifestation(Left, LeftManifestation);
+	InterpretedManifestation(LeftManifestation);
+	
+}
+
+private pattern relationInLogicModel(Left : Cluster, Right : Cluster, Relation : EStructuralFeature) {
+	Cluster.variables(Left, LeftVar);
+	Cluster.variables(Right, RightVar);
+	find variableRelation(LeftVar, RightVar, Relation);
+}
+
+private pattern childEClass(Parent : EClass, Child : EClass) {
+	EClass.eSuperTypes(Child, Parent);
+}
+
+private pattern conformsTo(Ancestor : EClass, Child : EClass) {
+	Ancestor == Child;
+} or {
+	find childEClass+(Ancestor, Child);
+}
+
+pattern highestCommonConcreteSubtypeOfTypes(Cluster : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Cluster, Type);
+	neg find notHighestCommonConcreteSubtypeOfTypes(Cluster, Type);
+}
+
+private pattern notHighestCommonConcreteSubtypeOfTypes(Cluster : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Cluster, Type);
+	find commonConcreteSubtypeOfTypes(Cluster, OtherType);
+	find conformsTo(OtherType, Type);
+	Type != OtherType;
+}
+
+private pattern commonConcreteSubtypeOfTypes(Cluster : Cluster, Type : EClass) {
+	find possibleConcreteSubtypeOfClusterType(Cluster, Type);
+	neg find notACommonConcreteSubtypeOfPossibleTypes(Cluster, Type);
+}
+
+private pattern notACommonConcreteSubtypeOfPossibleTypes(Cluster : Cluster, Type : EClass) {
+	find possibleConcreteSubtypeOfClusterType(Cluster, Type);
+	find possibleClusterType(Cluster, PossibleType);
+	neg find conformsTo(PossibleType, Type);
+}
+
+private pattern possibleConcreteSubtypeOfClusterType(Cluster : Cluster, Type : EClass) {
+	find possibleClusterType(Cluster, SuperType);
+	find conformsTo(SuperType, Type);
+	EClass.abstract(Type, false);
+}
+
+private pattern possibleClusterType(Cluster : Cluster, Type : EClass) {
+	Cluster.variables(Cluster, Var);
+	find variableType(Var, Type);
+}

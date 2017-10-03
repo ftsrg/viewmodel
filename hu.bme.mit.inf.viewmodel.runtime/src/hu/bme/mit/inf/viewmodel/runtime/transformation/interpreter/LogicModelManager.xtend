@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 @FinalFieldsConstructor
-class LogicModelManager {
+class LogicModelManager implements ILogicModelManager {
 	@Accessors(PUBLIC_GETTER) val LogicModel logicModel
 	var long variableId = 0
 
@@ -26,7 +26,7 @@ class LogicModelManager {
 		resource.contents += logicModel
 	}
 
-	def newVariable() {
+	override newVariable() {
 		val variable = LogicModelFactory.eINSTANCE.createVariable
 		variable.id = variableId
 		variableId++
@@ -34,7 +34,7 @@ class LogicModelManager {
 		variable
 	}
 	
-	def addEquivalenceConstraint(Variable left, Variable right) {
+	override addEquivalenceConstraint(Variable left, Variable right) {
 		val constraint = LogicModelFactory.eINSTANCE.createEquivalenceConstraint
 		constraint.left = left
 		constraint.right = right
@@ -42,7 +42,7 @@ class LogicModelManager {
 		constraint
 	}
 
-	def addEClassConstraint(Variable variable, EClass eClass) {
+	override addEClassConstraint(Variable variable, EClass eClass) {
 		val constraint = LogicModelFactory.eINSTANCE.createEClassConstraint
 		constraint.variable = variable
 		constraint.targetEClass = eClass
@@ -50,7 +50,7 @@ class LogicModelManager {
 		constraint
 	}
 
-	def addJavaClassConstraint(Variable variable, Class<?> javaClass) {
+	override addJavaClassConstraint(Variable variable, Class<?> javaClass) {
 		val constraint = LogicModelFactory.eINSTANCE.createJavaClassConstraint
 		constraint.variable = variable
 		constraint.targetClass = javaClass
@@ -58,7 +58,7 @@ class LogicModelManager {
 		constraint
 	}
 
-	def addConstantEObjectConstraint(Variable variable, EObject value) {
+	override addConstantEObjectConstraint(Variable variable, EObject value) {
 		val constraint = LogicModelFactory.eINSTANCE.createConstantEObjectConstraint
 		constraint.variable = variable
 		constraint.value = value
@@ -66,7 +66,7 @@ class LogicModelManager {
 		constraint
 	}
 
-	def addConstantJavaObjectConstraint(Variable variable, Object value) {
+	override addConstantJavaObjectConstraint(Variable variable, Object value) {
 		val constraint = LogicModelFactory.eINSTANCE.createConstantJavaObjectConstraint
 		constraint.variable = variable
 		constraint.value = value
@@ -74,7 +74,7 @@ class LogicModelManager {
 		constraint
 	}
 
-	def addRelationConstraint(Variable left, Variable right, EStructuralFeature relation) {
+	override addRelationConstraint(Variable left, Variable right, EStructuralFeature relation) {
 		val constraint = LogicModelFactory.eINSTANCE.createRelationConstraint
 		constraint.left = left
 		constraint.right = right
@@ -83,11 +83,11 @@ class LogicModelManager {
 		constraint
 	}
 	
-	def void removeVariables(Collection<Variable> variables) {
+	override void removeVariables(Collection<Variable> variables) {
 		logicModel.variables.removeAll(variables)
 	}
 	
-	def void removeConstraints(Collection<Constraint> constraints) {
+	override void removeConstraints(Collection<Constraint> constraints) {
 		logicModel.constraints.removeAll(constraints)
 	}
 }
