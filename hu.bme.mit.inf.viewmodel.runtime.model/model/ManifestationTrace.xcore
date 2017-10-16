@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EObject
 class ManifestationTrace {
 	String traceModelId
 	refers LogicModel logicModel
-	contains unordered unique EObject[] results
-	contains unordered unique Manifestation[] manifestations
+	contains unordered EObject[] results
+	contains unordered Manifestation[] manifestations
 }
 
 abstract class Manifestation {

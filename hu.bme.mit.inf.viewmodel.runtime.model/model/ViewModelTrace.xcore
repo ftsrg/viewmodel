@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.EObject
 class ViewModelTrace {
 	String traceModelId
 	refers LogicModel logicModel
-	contains unordered unique Trace[] traces
+	contains unordered Trace[] traces
 }
 
 class MatchArgumentTuple {
-	contains unordered unique MatchArgument[] elements
+	contains unordered MatchArgument[] elements
 	op String toString() {
 		"{" + elements.join(", ") + "}"
 	}
@@ -49,7 +49,7 @@ abstract class Trace {
 }
 
 class VariableInstantiationTrace extends Trace {
-	contains unordered unique StringVariablePair[] variables
+	contains unordered StringVariablePair[] variables
 }
 
 class StringVariablePair wraps Entry {
@@ -58,6 +58,6 @@ class StringVariablePair wraps Entry {
 }
 
 class ConstraintTrace extends Trace {
-	refers unordered unique Variable[] localVariables
-	refers unordered unique Constraint[] constraints
+	refers unordered Variable[] localVariables
+	refers unordered Constraint[] constraints
 }

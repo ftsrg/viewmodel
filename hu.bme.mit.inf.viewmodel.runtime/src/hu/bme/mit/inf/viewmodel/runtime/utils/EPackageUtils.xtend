@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.utils
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelPackage
+import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTracePackage
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTracePackage
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
@@ -41,11 +42,16 @@ final class EPackageUtils {
 	
 	static def registerRequiredEPackages() {
 		registerViewModelTracePackage
+		registerManifestationTracePackage
 		registerLogicModelPackage
 	}
 	
 	static def registerViewModelTracePackage() {
 		registerEPackage(ViewModelTracePackage.eINSTANCE)
+	}
+	
+	static def registerManifestationTracePackage() {
+		registerEPackage(ManifestationTracePackage.eINSTANCE)
 	}
 	
 	static def registerLogicModelPackage() {

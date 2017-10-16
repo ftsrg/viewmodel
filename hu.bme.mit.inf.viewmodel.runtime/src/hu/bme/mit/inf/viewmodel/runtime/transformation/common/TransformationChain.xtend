@@ -5,26 +5,58 @@ import java.util.HashSet
 import java.util.List
 import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
+import org.eclipse.viatra.transformation.evm.api.ExecutionSchema
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 @FinalFieldsConstructor
-class TransformationChain implements IChainableTransformation {
-	
-	val List<IChainableTransformation> transformations
-	
-	override getQueryGroup() {
-		val queries = new HashSet
-		for (transformation : transformations) {
-			queries.addAll(transformation.queryGroup.specifications)
+class TransformationChain implements IChainableTransformationFactory {
+
+	val List<IChainableTransformationFactory> transformationFactories
+
+	override createTransformation(ViatraQueryEngine queryEngine) {
+		val builder = ImmutableList.builder
+		for (factory : transformationFactories) {
+			val transformation = factory.createTransformation(queryEngine)
+			if (transformation.queryEngine != queryEngine) {
+				throw new IllegalStateException("Chained transformations must be over the same query engine.")
+			}
+			builder.add(transformation)
 		}
-		new GenericQueryGroup(queries)
+		new ChainedTransformation(queryEngine, builder.build, false)
 	}
-	
-	override createRuleGroup(ViatraQueryEngine queryEngine) {
-		PrioritisedRuleGroup.chainedCopyOf(transformations.map[createRuleGroup(queryEngine)])
+
+	static def of(IChainableTransformationFactory... transformationFactories) {
+		new TransformationChain(ImmutableList.copyOf(transformationFactories))
 	}
-	
-	static def of(IChainableTransformation... transformations) {
-		new TransformationChain(ImmutableList.copyOf(transformations))
+
+	@FinalFieldsConstructor
+	static class ChainedTransformation implements IChainableTransformation {
+		@Accessors(PUBLIC_GETTER) val ViatraQueryEngine queryEngine
+		val List<IChainableTransformation> transformations
+		val boolean prepareAllQueries
+
+		override getQueryGroup() {
+			val queries = new HashSet
+			for (transformation : transformations) {
+				queries.addAll(transformation.queryGroup.specifications)
+			}
+			new GenericQueryGroup(queries)
+		}
+
+		override getRuleGroup() {
+			PrioritisedRuleGroup.chainedCopyOf(transformations.map[ruleGroup])
+		}
+
+		override startExecution(ExecutionSchema executionSchema) {
+			if (prepareAllQueries) {
+				queryGroup.prepare(queryEngine)
+			}
+			for (transformation : transformations) {
+				transformation.startExecution(executionSchema)
+			}
+		}
+
 	}
+
 }

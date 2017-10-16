@@ -18,6 +18,7 @@ import org.eclipse.viatra.query.runtime.matchers.psystem.PConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.TypeFilterConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.ConstantValue
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint
@@ -73,6 +74,13 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, TypeConstraint constraint,
 		Map<PVariable, VariableReference> variables) {
 		val inputKey = constraint.supplierKey
+		val arguments = getVariableTuple(constraint.variablesTuple, variables)
+		acceptor.acceptConstraint(TypeConstraintSpecification.<Void>of(inputKey, arguments))
+	}
+	
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, TypeFilterConstraint constraint,
+		Map<PVariable, VariableReference> variables) {
+		val inputKey = constraint.inputKey
 		val arguments = getVariableTuple(constraint.variablesTuple, variables)
 		acceptor.acceptConstraint(TypeConstraintSpecification.<Void>of(inputKey, arguments))
 	}

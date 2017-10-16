@@ -94,8 +94,7 @@ class ManifestationTraceManager {
 			if (targetReference.many) {
 				addToListOnce(left.eGet(targetReference) as List<EObject>, right)
 			} else if (oppositeReference.many) {
-				throw new IllegalArgumentException(
-					"Manifested feature must be strong and strong features cannot have an upper bound less that the eOpposite's. See the strongRelation/2 predicate.")
+				addToListOnce(right.eGet(oppositeReference) as List<EObject>, left)
 			} else {
 				left.eSet(targetReference, right)
 			}
@@ -142,7 +141,7 @@ class ManifestationTraceManager {
 
 	protected def void removeFromFeature(EObject left, EStructuralFeature feature, Object right) {
 		if (feature.many) {
-			(left.eGet(feature) as List<Object>).removeIf[it == right]
+			(left.eGet(feature) as List<Object>).remove(right)
 		} else {
 			val currentvalue = left.eGet(feature)
 			if (currentvalue == right) {

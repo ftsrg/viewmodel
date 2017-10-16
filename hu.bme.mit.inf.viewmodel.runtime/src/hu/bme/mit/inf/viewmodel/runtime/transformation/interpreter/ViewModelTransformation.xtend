@@ -7,7 +7,8 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.DependencyRuleSpecificatio
 import hu.bme.mit.inf.viewmodel.runtime.specification.RuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableInstantiationRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
-import hu.bme.mit.inf.viewmodel.runtime.transformation.common.IChainableTransformation
+import hu.bme.mit.inf.viewmodel.runtime.transformation.common.BasicChainableTransformationFactory
+import hu.bme.mit.inf.viewmodel.runtime.transformation.common.Lazy
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.PrioritisedRuleGroup
 import java.util.Collections
 import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
@@ -19,7 +20,7 @@ import org.eclipse.viatra.transformation.evm.specific.crud.CRUDActivationStateEn
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRuleFactory
 
-class ViewModelTransformation implements IChainableTransformation {
+class ViewModelTransformation extends BasicChainableTransformationFactory {
 	static val VARIABLE_INSTANTIATION_RULE_PRIORITY = 0
 	static val CONSTRAINT_RULE_PRIORITY = 10
 
@@ -52,7 +53,7 @@ class ViewModelTransformation implements IChainableTransformation {
 	}
 
 	override createRuleGroup(ViatraQueryEngine queryEngine) {
-		val traceMatcher = traceQueries.createMatcher(queryEngine, traceManager)
+		val traceMatcher = Lazy.of[traceQueries.createMatcher(queryEngine, traceManager)]
 		val builder = ImmutableMultimap.builder
 		for (ruleSpecification : viewSpecification.ruleSpecifications) {
 			val rules = createRules(ruleSpecification, traceMatcher)
@@ -65,7 +66,7 @@ class ViewModelTransformation implements IChainableTransformation {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		VariableInstantiationRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		ViewModelTraceMatcher traceMatcher) {
+		Lazy<ViewModelTraceMatcher> traceMatcher) {
 		val pattern = ruleSpecification.preconditionPattern as IQuerySpecification<ViatraQueryMatcher<IPatternMatch>>
 		val rule = createRule.precondition(pattern).action(CRUDActivationStateEnum.CREATED) [ match |
 			val variables = Maps.newHashMapWithExpectedSize(ruleSpecification.variables.size)
@@ -74,8 +75,9 @@ class ViewModelTransformation implements IChainableTransformation {
 				variables.put(variableName, variable)
 			}
 			traceManager.createVariableInstantiationTrace(ruleSpecification, match, variables)
+			// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
-			val trace = traceMatcher.getVariableInstantiationTrace(ruleSpecification, match)
+			val trace = traceMatcher.get.getVariableInstantiationTrace(ruleSpecification, match)
 			logicModelManager.removeVariables(trace.variables.values)
 			traceManager.removeTrace(trace)
 		].build
@@ -84,7 +86,7 @@ class ViewModelTransformation implements IChainableTransformation {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		ConstraintRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		ViewModelTraceMatcher traceMatcher) {
+		Lazy<ViewModelTraceMatcher> traceMatcher) {
 		val precondition = preconditionQueries.getConstraintPreconditionQuery(ruleSpecification)
 		val rule = createRule.precondition(precondition).filter [
 			get(PQueryUtils.TRACE_MODEL_ID_PARAMETER) == traceManager.traceModelId
@@ -92,8 +94,9 @@ class ViewModelTransformation implements IChainableTransformation {
 			val interpreter = new ConstraintInterpreter(ruleSpecification, match, logicModelManager)
 			traceManager.newConstraintTrace(ruleSpecification, match, interpreter.localVariables,
 				interpreter.constraints)
+			// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
-			val trace = traceMatcher.getConstraintTrace(ruleSpecification, match)
+			val trace = traceMatcher.get.getConstraintTrace(ruleSpecification, match)
 			logicModelManager.removeVariables(trace.localVariables)
 			logicModelManager.removeConstraints(trace.constraints)
 			traceManager.removeTrace(trace)
@@ -103,13 +106,13 @@ class ViewModelTransformation implements IChainableTransformation {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		DependencyRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		ViewModelTraceMatcher traceMatcher) {
+		Lazy<ViewModelTraceMatcher> traceMatcher) {
 		emptyList
 	}
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		RuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		ViewModelTraceMatcher traceMatcher) {
+		Lazy<ViewModelTraceMatcher> traceMatcher) {
 		throw new IllegalArgumentException("Unknown rule specification: " + ruleSpecification)
 	}
 }

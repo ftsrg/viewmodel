@@ -32,16 +32,19 @@ private pattern equivalenceConstraint(Left : Variable, Right : Variable) {
 } or {
 	EquivalenceConstraint.left(Constraint, Right);
 	EquivalenceConstraint.right(Constraint, Left);
-} or {
+} /*or {
 	ConstantEObjectConstraint.variable(Const1, Left);
 	ConstantEObjectConstraint.variable(Const2, Right);
 	ConstantEObjectConstraint.value(Const1, Value);
 	ConstantEObjectConstraint.value(Const2, Value);
-} or {
-	ConstantJavaObjectConstraint.variable(Const1, Left);
-	ConstantJavaObjectConstraint.variable(Const2, Right);
-	ConstantJavaObjectConstraint.value(Const1, Value);
-	ConstantJavaObjectConstraint.value(Const2, Value);
+}*/ or {
+	find anyJavaObjectConstantValue(Left, Value);
+	find anyJavaObjectConstantValue(Right, Value);
+}
+
+private pattern anyJavaObjectConstantValue(Var : Variable, Value : EJavaObject) {
+	ConstantJavaObjectConstraint.variable(Const, Var);
+	ConstantJavaObjectConstraint.value(Const, Value);
 }
 
 pattern strongClusterRelation(LeftRep : Variable, RightRep : Variable, Rel : EStructuralFeature) {
