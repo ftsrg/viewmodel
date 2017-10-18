@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.specification.viatraquery
 
 import com.google.common.collect.ImmutableMap
+import com.google.common.collect.ImmutableSet
 import com.google.common.collect.Maps
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstantConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification.ConstraintAcceptor
@@ -9,10 +10,13 @@ import hu.bme.mit.inf.viewmodel.runtime.specification.TemplateConstraintSpecific
 import hu.bme.mit.inf.viewmodel.runtime.specification.TypeConstraintSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableReference
 import hu.bme.mit.inf.viewmodel.runtime.specification.ViewSpecification
+import java.util.HashMap
 import java.util.List
 import java.util.Map
+import java.util.Set
 import java.util.function.BiConsumer
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification
+import org.eclipse.viatra.query.runtime.emf.EMFQueryMetaContext
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody
 import org.eclipse.viatra.query.runtime.matchers.psystem.PConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable
@@ -23,9 +27,46 @@ import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.Consta
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PQuery
+import org.eclipse.viatra.query.runtime.matchers.psystem.rewriters.DefaultFlattenCallPredicate
+import org.eclipse.viatra.query.runtime.matchers.psystem.rewriters.PBodyNormalizer
+import org.eclipse.viatra.query.runtime.matchers.psystem.rewriters.PQueryFlattener
 import org.eclipse.viatra.query.runtime.matchers.tuple.Tuple
 
 class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<Void>, TemplateConstraintSpecification<? extends IQuerySpecification<?>>> {
+
+	val TemplateParserOptimizationLevel optimizationLevel
+	val PQueryFlattener flattener
+	val PBodyNormalizer normalizer
+	val bodyCache = new HashMap<PQuery, Set<PBody>>
+
+	new() {
+		this(TemplateParserOptimizationLevel.FLATTEN_IMPLIED)
+	}
+
+	new(TemplateParserOptimizationLevel optimizationLevel) {
+		this.optimizationLevel = optimizationLevel
+		val flattenCallPredicate = new DefaultFlattenCallPredicate
+		flattener = new PQueryFlattener(flattenCallPredicate)
+		normalizer = new PBodyNormalizer(EMFQueryMetaContext.DEFAULT) {
+			
+			override protected shouldCalculateImpliedTypes(PQuery query) {
+				optimizationLevel.calculateImpliedTypes
+			}
+			
+		}
+	}
+
+	protected def normalize(PQuery pQuery) {
+		if (optimizationLevel.flattenAndNormalize) {
+			bodyCache.computeIfAbsent(pQuery) [
+				val flatDisjunction = flattener.rewrite(pQuery.disjunctBodies)
+				val normalizedDisjunction = normalizer.rewrite(flatDisjunction)
+				ImmutableSet.copyOf(normalizedDisjunction.bodies)
+			]
+		} else {
+			pQuery.disjunctBodies.bodies
+		}
+	}
 
 	override accept(ConstraintAcceptor<Void> acceptor,
 		TemplateConstraintSpecification<? extends IQuerySpecification<?>> templateConstraint) {
@@ -36,7 +77,8 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 
 	protected def void parsePQuery(ConstraintAcceptor<? super Void> acceptor, PQuery pQuery,
 		List<VariableReference> arguments) {
-		val bodies = pQuery.disjunctBodies.bodies
+
+		val bodies = normalize(pQuery)
 		if (bodies.size != 1) {
 			throw new IllegalArgumentException("Valid templates must have a single body, got " + bodies.size +
 				" bodies instead.")
@@ -48,12 +90,13 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 			val exportedVariable = exportedParameter.parameterVariable
 			val patternParameter = exportedParameter.patternParameter
 			val argumentReference = parameterBinding.get(patternParameter)
-			variables.put(exportedVariable, argumentReference)
+			variables.put(exportedVariable.unifiedIntoRoot, argumentReference)
 		}
 		for (variable : body.allVariables) {
-			if (!variables.containsKey(variable)) {
-				val variableReference = acceptor.newLocalVariable(variable.name)
-				variables.put(variable, variableReference)
+			val unifiedIntoRoot = variable.unifiedIntoRoot
+			if (!variables.containsKey(unifiedIntoRoot)) {
+				val variableReference = acceptor.newLocalVariable(unifiedIntoRoot.name)
+				variables.put(unifiedIntoRoot, variableReference)
 			}
 		}
 		parsePBody(acceptor, body, variables)
@@ -65,9 +108,9 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 			parsePConstraint(acceptor, constraint, variables)
 		}
 	}
-	
-	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, ExportedParameter constraint,
-		Map<PVariable, VariableReference> variables) {
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor,
+		ExportedParameter constraint, Map<PVariable, VariableReference> variables) {
 		// Nothing to do for exported parameters.
 	}
 
@@ -77,9 +120,9 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 		val arguments = getVariableTuple(constraint.variablesTuple, variables)
 		acceptor.acceptConstraint(TypeConstraintSpecification.<Void>of(inputKey, arguments))
 	}
-	
-	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor, TypeFilterConstraint constraint,
-		Map<PVariable, VariableReference> variables) {
+
+	protected dispatch def void parsePConstraint(ConstraintAcceptor<? super Void> acceptor,
+		TypeFilterConstraint constraint, Map<PVariable, VariableReference> variables) {
 		val inputKey = constraint.inputKey
 		val arguments = getVariableTuple(constraint.variablesTuple, variables)
 		acceptor.acceptConstraint(TypeConstraintSpecification.<Void>of(inputKey, arguments))
@@ -118,7 +161,7 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 	protected def getVariableTuple(Tuple tuple, Map<PVariable, VariableReference> variables) {
 		tuple.elements.map [ element |
 			if (element instanceof PVariable) {
-				variables.get(element)
+				variables.get(element.unifiedIntoRoot)
 			} else {
 				throw new IllegalArgumentException("Expected PVariable in tuple, got " + element + " instead.")
 			}
@@ -138,8 +181,9 @@ class QuerySpecificationTemplateParser implements BiConsumer<ConstraintAcceptor<
 		}
 		builder.build
 	}
-	
-	static def parse(ViewSpecification<? extends IQuerySpecification<?>, ? extends IQuerySpecification<?>> viewSpecification) {
+
+	static def parse(
+		ViewSpecification<? extends IQuerySpecification<?>, ? extends IQuerySpecification<?>> viewSpecification) {
 		viewSpecification.parseTemplates(new QuerySpecificationTemplateParser)
 	}
 }

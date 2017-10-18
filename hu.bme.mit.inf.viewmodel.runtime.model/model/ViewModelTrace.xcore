@@ -43,13 +43,13 @@ class JavaObjectMatchArgument extends MatchArgument {
 abstract class Trace {
 	String traceName
 	contains MatchArgumentTuple argumentTuple
-	op String toString() {
-		traceName + argumentTuple
-	}
 }
 
 class VariableInstantiationTrace extends Trace {
 	contains unordered StringVariablePair[] variables
+	op String toString() {
+		traceName + argumentTuple + "\n\t" + variables.map[key + "=" + value].join(", ")
+	}
 }
 
 class StringVariablePair wraps Entry {
@@ -60,4 +60,8 @@ class StringVariablePair wraps Entry {
 class ConstraintTrace extends Trace {
 	refers unordered Variable[] localVariables
 	refers unordered Constraint[] constraints
+	
+	op String toString() {
+		traceName + argumentTuple + "\n\tlocals: " + localVariables.join(", ") + constraints.map["\n\t" + it].join
+	}
 }

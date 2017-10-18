@@ -5,66 +5,55 @@ import "http://inf.mit.bme.hu/emf/2017/LogicModel"
 // because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
 import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
 
-pattern representedVariable(Rep : Variable, Var : Variable) {
-	find representant(Rep);
-	find equalVariables(Rep, Var);
+pattern representedVariable(Rep : Cluster, Var : Variable) {
+	Cluster.variables(Rep, Var);
 }
 
-pattern representant(Rep : Variable) {
-	Variable.id(Rep, Id);
-	Id == min find idOfEqualVariable(Rep, #);
-} 
-
-private pattern idOfEqualVariable(Var : Variable, Id : ELong) {
-	find equalVariables(Var, Other);
-	Variable.id(Other, Id);
-}
-
-private pattern equalVariables(Left : Variable, Right : Variable) {
-	Left == Right;
-} or {
-	find equivalenceConstraint+(Left, Right);
-}
-
-private pattern equivalenceConstraint(Left : Variable, Right : Variable) {
+pattern equivalenceConstraint(Left : Variable, Right : Variable) {
 	EquivalenceConstraint.left(Constraint, Left);
 	EquivalenceConstraint.right(Constraint, Right);
-} or {
-	EquivalenceConstraint.left(Constraint, Right);
-	EquivalenceConstraint.right(Constraint, Left);
-} /*or {
-	ConstantEObjectConstraint.variable(Const1, Left);
-	ConstantEObjectConstraint.variable(Const2, Right);
-	ConstantEObjectConstraint.value(Const1, Value);
-	ConstantEObjectConstraint.value(Const2, Value);
-}*/ or {
-	find anyJavaObjectConstantValue(Left, Value);
-	find anyJavaObjectConstantValue(Right, Value);
 }
 
-private pattern anyJavaObjectConstantValue(Var : Variable, Value : EJavaObject) {
+pattern anyEObjectConstantValue(Var : Variable, Value : EObject) {
+	ConstantEObjectConstraint.variable(Const, Var);
+	ConstantEObjectConstraint.value(Const, Value);
+}
+
+pattern anyJavaObjectConstantValue(Var : Variable, Value : EJavaObject) {
 	ConstantJavaObjectConstraint.variable(Const, Var);
 	ConstantJavaObjectConstraint.value(Const, Value);
 }
 
-pattern strongClusterRelation(LeftRep : Variable, RightRep : Variable, Rel : EStructuralFeature) {
+pattern eObjectCluster(Model : LogicModel, Rep : Cluster, Value : EObject) {
+	LogicModel.clusters(Model, Rep);
+	find anyEObjectConstantValue(Var, Value);
+	Cluster.variables(Rep, Var);
+}
+
+pattern javaObjectCluster(Model : LogicModel, Rep : Cluster, Value : EJavaObject) {
+	LogicModel.clusters(Model, Rep);
+	find anyJavaObjectConstantValue(Var, Value);
+	Cluster.variables(Rep, Var);
+}
+
+pattern strongClusterRelation(LeftRep : Cluster, RightRep : Cluster, Rel : EStructuralFeature) {
 	find clusterRelation(LeftRep, RightRep, Rel);
 	find strongRelation(Rel);
 }
 
-pattern clusterRelation(LeftRep : Variable, RightRep : Variable, Rel : EStructuralFeature) {
+pattern clusterRelation(LeftRep : Cluster, RightRep : Cluster, Rel : EStructuralFeature) {
 	find representedVariable(LeftRep, Left);
 	find representedVariable(RightRep, Right);
 	find variableRelation(Left, Right, Rel);
+} or {
+	find representedVariable(LeftRep, Left);
+	find representedVariable(RightRep, Right);
+	find variableRelation(Right, Left, Opposite);
+	EReference.eOpposite(Rel, Opposite);
 }
 
 private pattern variableRelation(Left : Variable, Right : Variable, Relation : EStructuralFeature) {
 	RelationConstraint.left(Constraint, Left);
 	RelationConstraint.right(Constraint, Right);
 	RelationConstraint.targetRelation(Constraint, Relation);
-} or {
-	RelationConstraint.left(Constraint, Right);
-	RelationConstraint.right(Constraint, Left);
-	RelationConstraint.targetRelation(Constraint, Opposite);
-	EReference.eOpposite(Opposite, Relation);
 }

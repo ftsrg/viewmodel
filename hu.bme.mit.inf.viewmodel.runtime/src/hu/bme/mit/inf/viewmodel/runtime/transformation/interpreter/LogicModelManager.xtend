@@ -1,21 +1,21 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Constraint
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelFactory
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import java.util.Collection
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EStructuralFeature
+import java.util.HashSet
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 @FinalFieldsConstructor
-class LogicModelManager implements ILogicModelManager {
+class LogicModelManager {
 	@Accessors(PUBLIC_GETTER) val LogicModel logicModel
 	var long variableId = 0
+	var long clusterId = 0
 
 	new() {
 		this(LogicModelFactory.eINSTANCE.createLogicModel)
@@ -25,71 +25,65 @@ class LogicModelManager implements ILogicModelManager {
 		this()
 		resource.contents += logicModel
 	}
+	
+	def getConstraintManagerQueryGroup() {
+		LogicModelConstraintManager.queryGroup
+	}
+	
+	def createConstraintManager(ViatraQueryEngine queryEngine) {
+		new LogicModelConstraintManager(this, queryEngine)
+	}
 
-	override newVariable() {
+	def newVariable() {
 		val variable = LogicModelFactory.eINSTANCE.createVariable
 		variable.id = variableId
 		variableId++
 		logicModel.variables += variable
+		newCluster(#[variable])
 		variable
 	}
 
-	override addEquivalenceConstraint(Variable left, Variable right) {
-		val constraint = LogicModelFactory.eINSTANCE.createEquivalenceConstraint
-		constraint.left = left
-		constraint.right = right
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override addEClassConstraint(Variable variable, EClass eClass) {
-		val constraint = LogicModelFactory.eINSTANCE.createEClassConstraint
-		constraint.variable = variable
-		constraint.targetEClass = eClass
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override addJavaClassConstraint(Variable variable, Class<?> javaClass) {
-		val constraint = LogicModelFactory.eINSTANCE.createJavaClassConstraint
-		constraint.variable = variable
-		constraint.targetClass = javaClass
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override addConstantEObjectConstraint(Variable variable, EObject value) {
-		val constraint = LogicModelFactory.eINSTANCE.createConstantEObjectConstraint
-		constraint.variable = variable
-		constraint.value = value
-		constraint.valueType = value.eClass
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override addConstantJavaObjectConstraint(Variable variable, Object value) {
-		val constraint = LogicModelFactory.eINSTANCE.createConstantJavaObjectConstraint
-		constraint.variable = variable
-		constraint.value = value
-		constraint.valueType = value.class
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override addRelationConstraint(Variable left, Variable right, EStructuralFeature relation) {
-		val constraint = LogicModelFactory.eINSTANCE.createRelationConstraint
-		constraint.left = left
-		constraint.right = right
-		constraint.targetRelation = relation
-		logicModel.constraints += constraint
-		constraint
-	}
-
-	override void removeVariables(Collection<Variable> variables) {
+	def void removeVariables(Collection<Variable> variables) {
 		logicModel.variables.removeAll(variables)
+		val clustersToRemove = new HashSet
+		for (variable : variables) {
+			if (variable.cluster.variables.empty) {
+				clustersToRemove += variable.cluster
+			}
+		}
+		logicModel.clusters.removeAll(clustersToRemove)
 	}
 
-	override void removeConstraints(Collection<Constraint> constraints) {
-		logicModel.constraints.removeAll(constraints)
+	def newCluster(Collection<Variable> variables) {
+		val cluster = LogicModelFactory.eINSTANCE.createCluster
+		cluster.id = clusterId
+		clusterId++
+		val clustersToRemove = new HashSet
+		for (variable : variables) {
+			val oldCluster = variable.cluster
+			if (oldCluster !== null  && oldCluster.variables.size <= 1) {
+				clustersToRemove += oldCluster
+			}
+		}
+		cluster.variables.addAll(variables)
+		logicModel.clusters += cluster
+		logicModel.clusters.removeAll(clustersToRemove)
+		cluster
+	}
+
+	def mergeClusters(Cluster left, Cluster right) {
+		if (left === right) {
+			return
+		}
+		if (left.variables.size >= right.variables.size) {
+			mergeClustersDirected(left, right)
+		} else {
+			mergeClustersDirected(right, left)
+		}
+	}
+
+	protected def void mergeClustersDirected(Cluster toKeep, Cluster toRemove) {
+		toKeep.variables.addAll(toRemove.variables)
+		logicModel.clusters -= toRemove
 	}
 }

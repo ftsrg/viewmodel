@@ -17,14 +17,22 @@ private pattern childEClass(Parent : EClass, Child : EClass) {
 pattern strongRelation(Rel : EStructuralFeature) {
 	neg find hasEOpposite(Rel);
 } or {
+	find hasEOpposite(Rel);
 	find isContainment(Rel);
 } or {
 	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
 	EStructuralFeature.upperBound(Rel, RelBound);
 	EStructuralFeature.upperBound(Opposite, OppositeBound);
 	check((RelBound < 0 && OppositeBound >= 0) || (RelBound >= 0 && OppositeBound >= 0 && RelBound > OppositeBound));
 } or {
 	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check((RelBound < 0 && OppositeBound < 0) || RelBound == OppositeBound);
 	find uniqueName(Rel, RelName);
 	find uniqueName(Opposite, OppositeName);
 	check(RelName.compareTo(OppositeName) < 0);

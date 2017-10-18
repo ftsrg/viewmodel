@@ -1,5 +1,6 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.InterpretedManifestation
@@ -53,26 +54,26 @@ class ManifestationTraceManager {
 		new ManifestationTraceMatcher(traceModelId, queryEngine)
 	}
 
-	def void manifestInterpretedEObject(Variable variable, EClass type) {
+	def void manifestInterpretedEObject(Cluster cluster, EClass type) {
 		val manifestedEObject = type.EPackage.EFactoryInstance.create(type)
 		manifestationTrace.results += manifestedEObject
 		manifestationTrace.manifestations += createInterpretedManifestation => [
-			it.variable = variable
+			it.clusterId = cluster.id
 			it.manifestedEObject = manifestedEObject
 			it.type = type
 		]
 	}
 
-	def void manifestUninterpretedEObject(Variable variable, EObject sourceEObject) {
+	def void manifestUninterpretedEObject(Cluster cluster, EObject sourceEObject) {
 		manifestationTrace.manifestations += createUninterpretedManifestation => [
-			it.variable = variable
+			it.clusterId = cluster.id
 			it.sourceEObject = sourceEObject
 		]
 	}
 
-	def void manifestPrimitive(Variable variable, Object value) {
+	def void manifestPrimitive(Cluster cluster, Object value) {
 		manifestationTrace.manifestations += createPrimitiveManifestation => [
-			it.variable = variable
+			it.clusterId = cluster.id
 			it.value = value
 		]
 	}
@@ -94,7 +95,8 @@ class ManifestationTraceManager {
 			if (targetReference.many) {
 				addToListOnce(left.eGet(targetReference) as List<EObject>, right)
 			} else if (oppositeReference.many) {
-				addToListOnce(right.eGet(oppositeReference) as List<EObject>, left)
+				throw new IllegalArgumentException(
+					"Manifested feature must be strong and strong features cannot have an upper bound lower than their eOpposite. See the strongRelation/2 predicate.")
 			} else {
 				left.eSet(targetReference, right)
 			}

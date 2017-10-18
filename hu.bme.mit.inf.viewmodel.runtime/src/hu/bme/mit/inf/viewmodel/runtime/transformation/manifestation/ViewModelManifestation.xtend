@@ -1,6 +1,6 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.ManifestationTraceQueries
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableConcreteVariableQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableEObjectConstantValueQuerySpecification
@@ -35,7 +35,7 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 					// println("CREATED " + rep + " : " + type.name)
 					traceManager.manifestInterpretedEObject(rep, type)
 				].action(CRUDActivationStateEnum.DELETED) [
-					// println("DELETED " + rep + " : " + type)
+					// println("DELETED " + rep + " : " + type.name)
 					removeManifestation(rep, traceMatcher.get)
 				].filter[traceModelId == traceManager.traceModelId].build,
 			MANIFESTATION_PRIORITY ->
@@ -68,8 +68,8 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 		)
 	}
 
-	protected def removeManifestation(Variable variable, ManifestationTraceMatcher traceMatcher) {
-		val manifestation = traceMatcher.getManifestation(variable)
+	protected def removeManifestation(Cluster cluster, ManifestationTraceMatcher traceMatcher) {
+		val manifestation = traceMatcher.getManifestation(cluster.id)
 		traceManager.removeManifestation(manifestation)
 	}
 }

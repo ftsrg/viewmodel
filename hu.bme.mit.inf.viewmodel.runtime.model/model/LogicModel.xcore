@@ -10,10 +10,12 @@ import org.eclipse.emf.ecore.EStructuralFeature
 class LogicModel {
 	contains unordered Variable[] variables
 	contains unordered Constraint[] constraints
+	contains unordered Cluster[] clusters
 }
 
 class Variable {
 	long ^id
+	refers Cluster cluster opposite variables
 	op String toString() {
 		"_" + ^id
 	}
@@ -74,4 +76,11 @@ class RelationConstraint extends BinaryConstraint {
 	}
 }
 
+class Cluster {
+	long ^id
+	refers unordered Variable[] variables opposite cluster
+	op String toString() {
+		"c" + ^id + "{" + variables.join(", ") + "}"
+	}
+}
 

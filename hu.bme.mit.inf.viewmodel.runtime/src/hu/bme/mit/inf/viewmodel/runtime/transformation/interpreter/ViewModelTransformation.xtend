@@ -41,7 +41,8 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 	}
 
 	override getQueryGroup() {
-		GenericQueryGroup.of(traceQueries.queryGroup.specifications + preconditionQueries.queryGroup.specifications)
+		GenericQueryGroup.of(traceQueries.queryGroup.specifications + preconditionQueries.queryGroup.specifications +
+			logicModelManager.constraintManagerQueryGroup.specifications)
 	}
 
 	def getTraceModel() {
@@ -53,10 +54,11 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 	}
 
 	override createRuleGroup(ViatraQueryEngine queryEngine) {
+		val constraintManager = Lazy.of[logicModelManager.createConstraintManager(queryEngine)]
 		val traceMatcher = Lazy.of[traceQueries.createMatcher(queryEngine, traceManager)]
 		val builder = ImmutableMultimap.builder
 		for (ruleSpecification : viewSpecification.ruleSpecifications) {
-			val rules = createRules(ruleSpecification, traceMatcher)
+			val rules = createRules(ruleSpecification, constraintManager, traceMatcher)
 			for (pair : rules) {
 				builder.put(pair.key, pair.value)
 			}
@@ -66,19 +68,20 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		VariableInstantiationRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		Lazy<ViewModelTraceMatcher> traceMatcher) {
+		Lazy<LogicModelConstraintManager> constraintManager, Lazy<ViewModelTraceMatcher> traceMatcher) {
 		val pattern = ruleSpecification.preconditionPattern as IQuerySpecification<ViatraQueryMatcher<IPatternMatch>>
 		val rule = createRule.precondition(pattern).action(CRUDActivationStateEnum.CREATED) [ match |
+			val theConstraintManager = constraintManager.get
 			val variables = Maps.newHashMapWithExpectedSize(ruleSpecification.variables.size)
 			for (variableName : ruleSpecification.variables) {
-				val variable = logicModelManager.newVariable
+				val variable = theConstraintManager.newVariable
 				variables.put(variableName, variable)
 			}
 			traceManager.createVariableInstantiationTrace(ruleSpecification, match, variables)
-			// println(match)
+		// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
 			val trace = traceMatcher.get.getVariableInstantiationTrace(ruleSpecification, match)
-			logicModelManager.removeVariables(trace.variables.values)
+			constraintManager.get.removeVariables(trace.variables.values)
 			traceManager.removeTrace(trace)
 		].build
 		Collections.singleton(VARIABLE_INSTANTIATION_RULE_PRIORITY -> rule)
@@ -86,19 +89,21 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		ConstraintRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		Lazy<ViewModelTraceMatcher> traceMatcher) {
+		Lazy<LogicModelConstraintManager> constraintManager, Lazy<ViewModelTraceMatcher> traceMatcher) {
 		val precondition = preconditionQueries.getConstraintPreconditionQuery(ruleSpecification)
 		val rule = createRule.precondition(precondition).filter [
 			get(PQueryUtils.TRACE_MODEL_ID_PARAMETER) == traceManager.traceModelId
 		].action(CRUDActivationStateEnum.CREATED) [ match |
-			val interpreter = new ConstraintInterpreter(ruleSpecification, match, logicModelManager)
+			val interpreter = new ConstraintInterpreter(ruleSpecification, match, constraintManager.get)
 			traceManager.newConstraintTrace(ruleSpecification, match, interpreter.localVariables,
 				interpreter.constraints)
-			// println(match)
+		// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
 			val trace = traceMatcher.get.getConstraintTrace(ruleSpecification, match)
-			logicModelManager.removeVariables(trace.localVariables)
-			logicModelManager.removeConstraints(trace.constraints)
+			val theConstraintManager = constraintManager.get
+			// Remove constraints first to allow clusters to update.
+			theConstraintManager.removeConstraints(trace.constraints)
+			theConstraintManager.removeVariables(trace.localVariables)
 			traceManager.removeTrace(trace)
 		].build
 		Collections.singleton(CONSTRAINT_RULE_PRIORITY -> rule)
@@ -106,13 +111,13 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		DependencyRuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		Lazy<ViewModelTraceMatcher> traceMatcher) {
+		Lazy<LogicModelConstraintManager> constraintManager, Lazy<ViewModelTraceMatcher> traceMatcher) {
 		emptyList
 	}
 
 	protected dispatch def Iterable<Pair<Integer, ? extends EventDrivenTransformationRule<?, ?>>> createRules(
 		RuleSpecification<? extends IQuerySpecification<?>, ? extends Void> ruleSpecification,
-		Lazy<ViewModelTraceMatcher> traceMatcher) {
+		Lazy<LogicModelConstraintManager> constraintManager, Lazy<ViewModelTraceMatcher> traceMatcher) {
 		throw new IllegalArgumentException("Unknown rule specification: " + ruleSpecification)
 	}
 }

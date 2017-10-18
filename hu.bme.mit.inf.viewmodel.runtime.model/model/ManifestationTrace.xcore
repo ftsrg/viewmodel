@@ -4,7 +4,6 @@
 package hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 
@@ -16,28 +15,28 @@ class ManifestationTrace {
 }
 
 abstract class Manifestation {
-	refers Variable variable
+	long clusterId
 }
 
 class InterpretedManifestation extends Manifestation {
 	refers EClass ^type
 	refers EObject manifestedEObject
 	op String toString() {
-		variable + " : " + ^type.name
+		"_" + clusterId + " : " + ^type.name
 	}
 }
 
 class UninterpretedManifestation extends Manifestation {
 	refers EObject sourceEObject
 	op String toString() {
-		variable + " = " + sourceEObject
+		"_" + clusterId + " = " + sourceEObject
 	}
 }
 
 class PrimitiveManifestation extends Manifestation {
 	Object value
 	op String toString() {
-		variable + " = " + value
+		"_" + clusterId + " = " + value
 	}
 }
 

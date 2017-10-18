@@ -25,15 +25,16 @@ import org.eclipse.viatra.query.runtime.matchers.context.common.JavaTransitiveIn
 
 class ConstraintInterpreter {
 	val GenericPatternMatch match
-	val LogicModelManager logicModelManager
+	val LogicModelConstraintManager constraintManager
+	
 	val Map<String, Variable> localVariables
 	val List<Constraint> constraints
 
 	new(ConstraintRuleSpecification<?, ? extends Void> ruleSpecification, GenericPatternMatch match,
-		LogicModelManager logicModelManager) {
+		LogicModelConstraintManager constraintManager) {
 		this.match = match
-		this.logicModelManager = logicModelManager
-		localVariables = ruleSpecification.localVariables.toMap([name], [logicModelManager.newVariable()])
+		this.constraintManager = constraintManager
+		localVariables = ruleSpecification.localVariables.toMap([name], [constraintManager.newVariable()])
 		constraints = ImmutableList.copyOf(ruleSpecification.constraintSpecifications.flatMap[createConstraints])
 	}
 
@@ -49,7 +50,7 @@ class ConstraintInterpreter {
 		EquivalenceConstraintSpecification<? extends Void> constraintSpecification) {
 		val left = getVariable(constraintSpecification.left)
 		val right = getVariable(constraintSpecification.right)
-		Collections.singleton(logicModelManager.addEquivalenceConstraint(left, right))
+		Collections.singleton(constraintManager.addEquivalenceConstraint(left, right))
 	}
 
 	protected dispatch def Iterable<Constraint> createConstraints(
@@ -59,13 +60,13 @@ class ConstraintInterpreter {
 				val variable = getVariable(constraintSpecification.arguments.get(0))
 				switch (inputKey : constraintSpecification.inputKey) {
 					EClassTransitiveInstancesKey:
-						Collections.singleton(logicModelManager.addEClassConstraint(variable, inputKey.emfKey))
+						Collections.singleton(constraintManager.addEClassConstraint(variable, inputKey.emfKey))
 					EDataTypeInSlotsKey:
 						Collections.singleton(
-							logicModelManager.addJavaClassConstraint(variable, inputKey.emfKey.instanceClass))
+							constraintManager.addJavaClassConstraint(variable, inputKey.emfKey.instanceClass))
 					JavaTransitiveInstancesKey:
 						Collections.singleton(
-							logicModelManager.addJavaClassConstraint(variable, inputKey.wrapperInstanceClass))
+							constraintManager.addJavaClassConstraint(variable, inputKey.wrapperInstanceClass))
 					default:
 						throw new IllegalArgumentException("Unknown unary IInputKey: " + inputKey)
 				}
@@ -75,7 +76,7 @@ class ConstraintInterpreter {
 				val right = getVariable(constraintSpecification.arguments.get(1))
 				switch (inputKey : constraintSpecification.inputKey) {
 					EStructuralFeatureInstancesKey:
-						Collections.singleton(logicModelManager.addRelationConstraint(left, right, inputKey.emfKey))
+						Collections.singleton(constraintManager.addRelationConstraint(left, right, inputKey.emfKey))
 					default:
 						throw new IllegalArgumentException("Unknown unary IInputKey: " + inputKey)
 				}
@@ -104,9 +105,9 @@ class ConstraintInterpreter {
 	
 	protected def Iterable<Constraint> createConstantConstraints(Variable variable, Object value) {
 		if (value instanceof EObject) {
-			Collections.singleton(logicModelManager.addConstantEObjectConstraint(variable, value))
+			Collections.singleton(constraintManager.addConstantEObjectConstraint(variable, value))
 		} else {
-			Collections.singleton(logicModelManager.addConstantJavaObjectConstraint(variable, value))
+			Collections.singleton(constraintManager.addConstantJavaObjectConstraint(variable, value))
 		}
 	}
 

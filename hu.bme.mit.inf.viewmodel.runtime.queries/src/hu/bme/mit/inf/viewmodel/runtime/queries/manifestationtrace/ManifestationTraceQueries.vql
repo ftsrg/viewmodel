@@ -12,47 +12,58 @@ import "http://inf.mit.bme.hu/emf/2017/ManifestationTrace"
 import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
 
 pattern manifestableRelation(TraceModelId : EString, LeftManifestation : InterpretedManifestation, RightManifestation : Manifestation, Relation : EStructuralFeature) {
-	find properlyManifested(TraceModelId, LeftRep, LeftManifestation);
+	// Discourage the query optimizer from trying to caclulated the Cartesian product of
+	// properlyManifested/3 with itself (TraceModelId is a very promising candidate to join on).
+	find manifestableRelationLeft(TraceModelId, LeftManifestation, RightRep, Relation);
 	find properlyManifested(TraceModelId, RightRep, RightManifestation);
-	find concreteRelation(LeftRep, RightRep, Relation);
 }
 
-pattern manifestableConcreteVariable(TraceModelId : EString, Rep : Variable, Type : EClass) {
-	find tracedVariable(TraceModelId, Rep);
+private pattern manifestableRelationLeft(TraceModelId : EString, LeftManifestation : InterpretedManifestation, RightRep : Cluster, Relation : EStructuralFeature) {
+	find concreteRelation(LeftRep, RightRep, Relation);
+	find properlyManifested(TraceModelId, LeftRep, LeftManifestation);
+}
+
+pattern manifestableConcreteVariable(TraceModelId : EString, Rep : Cluster, Type : EClass) {
+	find tracedCluster(TraceModelId, Rep);
 	find concreteVariable(Rep, Type);
 }
 
-pattern manifestableEObjectConstantValue(TraceModelId : EString, Rep : Variable, Value : EObject) {
-	find tracedVariable(TraceModelId, Rep);
+pattern manifestableEObjectConstantValue(TraceModelId : EString, Rep : Cluster, Value : EObject) {
+	find tracedCluster(TraceModelId, Rep);
 	find eObjectConstantValue(Rep, Value);
 }
 
-pattern manifestableJavaObjectConstantValue(TraceModelId : EString, Rep : Variable, Value : java Object) {
-	find tracedVariable(TraceModelId, Rep);
+pattern manifestableJavaObjectConstantValue(TraceModelId : EString, Rep : Cluster, Value : EJavaObject) {
+	find tracedCluster(TraceModelId, Rep);
 	find javaObjectConstantValue(Rep, Value);
 }
 
-private pattern properlyManifested(TraceModelId : EString, Rep : Variable, Man : Manifestation) {
-	find manifestation(TraceModelId, Rep, Man);
+private pattern properlyManifested(TraceModelId : EString, Rep : Cluster, Man : Manifestation) {
+	find manifestedCluster(TraceModelId, Rep, Man);
 	find concreteVariable(Rep, Type);
 	InterpretedManifestation.type(Man, Type);
 } or {
-	find manifestation(TraceModelId, Rep, Man);
+	find manifestedCluster(TraceModelId, Rep, Man);
 	find eObjectConstantValue(Rep, Value);
 	UninterpretedManifestation.sourceEObject(Man, Value);
 } or {
-	find manifestation(TraceModelId, Rep, Man);
+	find manifestedCluster(TraceModelId, Rep, Man);
 	find javaObjectConstantValue(Rep, Value);
 	PrimitiveManifestation.value(Man, Value);
 }
 
-pattern manifestation(TraceModelId : EString, Rep : Variable, Manifestation : Manifestation) {
-	ManifestationTrace.traceModelId(Trace, TraceModelId);
-	ManifestationTrace.manifestations(Trace, Manifestation);
-	Manifestation.variable(Manifestation, Rep);
+private pattern manifestedCluster(TraceModelId : EString, Rep : Cluster, Manifestation : Manifestation) {
+	Cluster.id(Rep, RepId);
+	find manifestation(TraceModelId, RepId, Manifestation);
 }
 
-private pattern tracedVariable(TraceModelId : EString, Var : Variable) {
+pattern manifestation(TraceModelId : EString, RepId : ELong, Manifestation : Manifestation) {
 	ManifestationTrace.traceModelId(Trace, TraceModelId);
-	ManifestationTrace.logicModel.variables(Trace, Var);
+	ManifestationTrace.manifestations(Trace, Manifestation);
+	Manifestation.clusterId(Manifestation, RepId);
+}
+
+private pattern tracedCluster(TraceModelId : EString, Rep : Cluster) {
+	ManifestationTrace.traceModelId(Trace, TraceModelId);
+	ManifestationTrace.logicModel.clusters(Trace, Rep);
 }
