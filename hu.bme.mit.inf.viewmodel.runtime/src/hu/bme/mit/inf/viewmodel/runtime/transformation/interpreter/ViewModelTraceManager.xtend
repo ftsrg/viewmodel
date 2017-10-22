@@ -28,7 +28,7 @@ class ViewModelTraceManager {
 			it.logicModel = logicModel
 		])
 	}
-	
+
 	new(Resource resource, LogicModel logicModel) {
 		this(logicModel)
 		resource.contents += traceModel
@@ -37,7 +37,7 @@ class ViewModelTraceManager {
 	def getTraceModelId() {
 		traceModel.traceModelId
 	}
-	
+
 	def createVariableInstantiationTrace(
 		VariableInstantiationRuleSpecification<? extends IQuerySpecification<?>, ?> ruleSpecification,
 		IPatternMatch patternMatch, Map<String, Variable> variables) {
@@ -45,7 +45,10 @@ class ViewModelTraceManager {
 			traceName = ruleSpecification.preconditionPattern.fullyQualifiedName
 			argumentTuple = createArgumentTuple(ruleSpecification.preconditionPattern.parameterNames, patternMatch)
 			for (pair : variables.entrySet) {
-				it.variables.put(pair.key, pair.value)
+				it.variables += ViewModelTraceFactory.eINSTANCE.createStringVariablePair => [
+					key = pair.key
+					value = pair.value
+				]
 			}
 		]
 	}
@@ -55,8 +58,13 @@ class ViewModelTraceManager {
 		val trace = ViewModelTraceFactory.eINSTANCE.createConstraintTrace => [
 			traceName = ruleSpecification.name
 			argumentTuple = createArgumentTuple(ruleSpecification.parameters, patternMatch)
-			it.localVariables.addAll(localVariables)
-			it.constraints.addAll(constraints)
+			for (variable : localVariables) {
+				it.localVariables += variable
+			}
+			// it.localVariables.addAll(localVariables)
+			for (constraint : constraints) {
+				it.constraints += constraint
+			}
 		]
 		traceModel.traces += trace
 	}

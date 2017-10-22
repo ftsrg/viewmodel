@@ -5,6 +5,24 @@ import "http://inf.mit.bme.hu/emf/2017/LogicModel"
 // because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
 import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
 
+pattern dirtyLogicModel(LogicModelId : EString) {
+	find dirtyCluster(LogicModelId, _);
+} or {
+	find unusedCluster(LogicModelId, _);
+}
+
+pattern unusedCluster(LogicModelId : EString, Rep : Cluster) {
+	LogicModel.logicModelId(Model, LogicModelId);
+	LogicModel.clusters(Model, Rep);
+	Cluster.state(Rep, ClusterState::UNUSED);
+}
+
+pattern dirtyCluster(LogicModelId : EString, Rep : Cluster) {
+	LogicModel.logicModelId(Model, LogicModelId);
+	LogicModel.clusters(Model, Rep);
+	Cluster.state(Rep, ClusterState::DIRTY);
+}
+
 pattern representedVariable(Rep : Cluster, Var : Variable) {
 	Cluster.variables(Rep, Var);
 }

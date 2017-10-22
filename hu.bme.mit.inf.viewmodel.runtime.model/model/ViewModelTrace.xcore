@@ -6,7 +6,6 @@ package hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Constraint
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
-import java.util.Map$Entry
 import org.eclipse.emf.ecore.EObject
 
 class ViewModelTrace {
@@ -50,16 +49,19 @@ class VariableInstantiationTrace extends Trace {
 	op String toString() {
 		traceName + argumentTuple + "\n\t" + variables.map[key + "=" + value].join(", ")
 	}
+	op Variable getVariable(String key) {
+		variables.findFirst[it.key == key]?.value
+	}
 }
 
-class StringVariablePair wraps Entry {
+class StringVariablePair {
 	String key
-	refers Variable value
+	contains Variable value
 }
 
 class ConstraintTrace extends Trace {
-	refers unordered Variable[] localVariables
-	refers unordered Constraint[] constraints
+	contains unordered Variable[] localVariables
+	contains unordered Constraint[] constraints
 	
 	op String toString() {
 		traceName + argumentTuple + "\n\tlocals: " + localVariables.join(", ") + constraints.map["\n\t" + it].join

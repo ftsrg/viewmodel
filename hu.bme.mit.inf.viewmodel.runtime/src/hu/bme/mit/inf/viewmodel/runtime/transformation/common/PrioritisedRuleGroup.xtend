@@ -2,16 +2,16 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.common
 
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
-import org.eclipse.viatra.transformation.evm.specific.resolver.InvertedDisappearancePriorityConflictResolver
+import org.eclipse.viatra.transformation.evm.api.resolver.ConflictResolver
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 class PrioritisedRuleGroup {
-	public static val DEFAULT_PRIORITY = 0
+	public static val DEFAULT_PRIORITY = CreateDeletePriority.DEFAULT
 
-	@Accessors(PUBLIC_GETTER) val Multimap<Integer, EventDrivenTransformationRule<?, ?>> rules
+	@Accessors(PUBLIC_GETTER) val Multimap<CreateDeletePriority, EventDrivenTransformationRule<?, ?>> rules
 
 	@FinalFieldsConstructor
 	new() {
@@ -21,8 +21,8 @@ class PrioritisedRuleGroup {
 		new EventDrivenTransformationRuleGroup(rules.values)
 	}
 	
-	def toConflictResolver() {
-		val resolver = new InvertedDisappearancePriorityConflictResolver
+	def ConflictResolver toConflictResolver() {
+		val resolver = new CreateDeletePriorityConflictResolver
 		for (pair : rules.entries) {
 			resolver.setPriority(pair.value.ruleSpecification, pair.key)
 		}
@@ -30,18 +30,18 @@ class PrioritisedRuleGroup {
 	}
 
 	def minimumPriority() {
-		rules.keySet.min
+		rules.keySet.map[min].min
 	}
 	
 	def maximumPriority() {
-		rules.keySet.max
+		rules.keySet.map[max].max
 	}
 
 	static def of(EventDrivenTransformationRule<?, ?>... rules) {
 		copyOf(rules)
 	}
 	
-	static def of(Pair<Integer, EventDrivenTransformationRule<?, ?>>... rules) {
+	static def of(Pair<CreateDeletePriority, EventDrivenTransformationRule<?, ?>>... rules) {
 		val builder = ImmutableMultimap.builder
 		for (rule : rules) {
 			builder.put(rule.key, rule.value)
@@ -59,11 +59,11 @@ class PrioritisedRuleGroup {
 	
 	static def chainedCopyOf(Iterable<PrioritisedRuleGroup> groups) {
 		val builder = ImmutableMultimap.builder
-		var priority = DEFAULT_PRIORITY
+		var priority = 0
 		for (group : groups) {
 			val min = group.minimumPriority
 			for (entry : group.rules.entries) {
-				builder.put(entry.key - min + priority, entry.value)
+				builder.put(entry.key + (priority - min), entry.value)
 			}
 			priority += group.maximumPriority - min + 1
 		}

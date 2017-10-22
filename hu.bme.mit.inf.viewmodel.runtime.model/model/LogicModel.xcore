@@ -8,8 +8,9 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 
 class LogicModel {
-	contains unordered Variable[] variables
-	contains unordered Constraint[] constraints
+	String logicModelId
+	// contains unordered Variable[] variables
+	// contains unordered Constraint[] constraints
 	contains unordered Cluster[] clusters
 }
 
@@ -76,11 +77,21 @@ class RelationConstraint extends BinaryConstraint {
 	}
 }
 
+enum ClusterState {
+	CLEAN
+	DIRTY
+	UNUSED
+}
+
 class Cluster {
 	long ^id
+	ClusterState state
 	refers unordered Variable[] variables opposite cluster
 	op String toString() {
 		"c" + ^id + "{" + variables.join(", ") + "}"
+	}
+	op boolean isDirty() {
+		state != ClusterState.CLEAN
 	}
 }
 

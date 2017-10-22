@@ -7,6 +7,7 @@ import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.Manifest
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableJavaObjectConstantValueQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableRelationQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.BasicChainableTransformationFactory
+import hu.bme.mit.inf.viewmodel.runtime.transformation.common.CreateDeletePriority
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.Lazy
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.PrioritisedRuleGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
@@ -16,8 +17,9 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
 @FinalFieldsConstructor
 class ViewModelManifestation extends BasicChainableTransformationFactory {
-	static val MANIFESTATION_PRIORITY = 0
-	static val REFERENCE_PRIORITY = 10
+	static val MANIFESTATION_PRIORITY = CreateDeletePriority.of(20, -10)
+	static val CONSTNAT_MANIFESTATION_PRIORITY = CreateDeletePriority.of(19, -9)
+	static val REFERENCE_PRIORITY = CreateDeletePriority.of(10, -20)
 
 	val ManifestationTraceManager traceManager
 	extension val EventDrivenTransformationRuleFactory = new EventDrivenTransformationRuleFactory
@@ -38,7 +40,7 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 					// println("DELETED " + rep + " : " + type.name)
 					removeManifestation(rep, traceMatcher.get)
 				].filter[traceModelId == traceManager.traceModelId].build,
-			MANIFESTATION_PRIORITY ->
+			CONSTNAT_MANIFESTATION_PRIORITY ->
 				createRule.precondition(ManifestableEObjectConstantValueQuerySpecification.instance).action(
 					CRUDActivationStateEnum.CREATED) [
 					// println("CREATED " + rep + " = " + value)
@@ -47,7 +49,7 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 					// println("DELETED " + rep + " = " + value)
 					removeManifestation(rep, traceMatcher.get)
 				].filter[traceModelId == traceManager.traceModelId].build,
-			MANIFESTATION_PRIORITY ->
+			CONSTNAT_MANIFESTATION_PRIORITY ->
 				createRule.precondition(ManifestableJavaObjectConstantValueQuerySpecification.instance).action(
 					CRUDActivationStateEnum.CREATED) [
 					// println("CREATED " + rep + " = " + value)

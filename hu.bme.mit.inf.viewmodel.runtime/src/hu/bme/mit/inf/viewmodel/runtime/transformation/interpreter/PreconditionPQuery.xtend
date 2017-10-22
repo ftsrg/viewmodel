@@ -91,8 +91,12 @@ class PreconditionPQuery extends BaseGeneratedEMFPQuery {
 				argumentList += lookupArguments
 				argumentList += lookupVariablesMap.get(lookupSpecification.name)
 				val argumentTuple = toFlatTuple(argumentList)
-				val tracedQuery = traceQueryManager.getVariableInstantiationTraceQuery(lookupSpecification.preconditionPattern)
+				val preconditionPattern = lookupSpecification.preconditionPattern
+				val tracedQuery = traceQueryManager.getVariableInstantiationTraceQuery(preconditionPattern)
 				new PositivePatternCall(body, argumentTuple, tracedQuery.internalQueryRepresentation)
+				// Allow the precondition match disappear even if the variable instantiation trace was not removed.
+				new PositivePatternCall(body, toFlatTuple(lookupArguments),
+					preconditionPattern.internalQueryRepresentation)
 			} else {
 				throw new IllegalArgumentException("Unknown precondition specification: " + preconditionSpecification)
 			}

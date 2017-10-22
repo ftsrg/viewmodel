@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
   <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.dirtyLogicModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.unusedCluster"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.dirtyCluster"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.representedVariable"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.equivalenceConstraint"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.anyEObjectConstantValue"/>
