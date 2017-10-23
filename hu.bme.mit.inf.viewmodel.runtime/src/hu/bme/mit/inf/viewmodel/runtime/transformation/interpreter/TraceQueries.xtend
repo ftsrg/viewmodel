@@ -19,9 +19,10 @@ class TraceQueries {
 			processRuleSpecification(ruleSpecification)
 		}
 	}
-	
+
 	def getQueryGroup() {
-		GenericQueryGroup.of(variableInstantiationQueries.values + constraintQueries.values)
+		GenericQueryGroup.of(variableInstantiationQueries.values + constraintQueries.values +
+			ViewModelTraceMatcher.DEFAULT_QUERY_GROUP.specifications)
 	}
 
 	def getVariableInstantiationTraceQuery(IQuerySpecification<?> preconditionSpecification) {
@@ -42,8 +43,7 @@ class TraceQueries {
 	}
 
 	def createMatcher(ViatraQueryEngine queryEngine, ViewModelTraceManager traceManager) {
-		new ViewModelTraceMatcher(queryEngine, traceManager.traceModelId, variableInstantiationQueries,
-			constraintQueries)
+		new ViewModelTraceMatcher(queryEngine, traceManager, variableInstantiationQueries, constraintQueries)
 	}
 
 	protected dispatch def void processRuleSpecification(

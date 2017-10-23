@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 
 import com.google.common.collect.Lists
+import com.google.common.collect.Sets
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.ClusterState
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.ConstantEObjectConstraint
@@ -14,6 +15,7 @@ import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.DirtyClusterMatcher
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.EObjectClusterMatcher
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.EquivalenceConstraintMatcher
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.JavaObjectClusterMatcher
+import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.RepresentedVariableMatcher
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.UnusedClusterMatcher
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.AnyEObjectConstantValueQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.AnyJavaObjectConstantValueQuerySpecification
@@ -21,6 +23,7 @@ import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.DirtyClusterQuer
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.EObjectClusterQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.EquivalenceConstraintQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.JavaObjectClusterQuerySpecification
+import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.RepresentedVariableQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.UnusedClusterQuerySpecification
 import java.util.ArrayDeque
 import java.util.ArrayList
@@ -43,6 +46,7 @@ class LogicModelConstraintManager {
 	val JavaObjectClusterMatcher javaObjectClusterMatcher
 	val DirtyClusterMatcher dirtClusterMatcher
 	val UnusedClusterMatcher unusedClusterMatcher
+	val RepresentedVariableMatcher representedVariableMatcher
 
 	new(LogicModelManager logicModelManager, ViatraQueryEngine queryEngine) {
 		this.logicModelManager = logicModelManager
@@ -53,6 +57,7 @@ class LogicModelConstraintManager {
 		javaObjectClusterMatcher = JavaObjectClusterMatcher.on(queryEngine)
 		dirtClusterMatcher = DirtyClusterMatcher.on(queryEngine)
 		unusedClusterMatcher = UnusedClusterMatcher.on(queryEngine)
+		representedVariableMatcher = RepresentedVariableMatcher.on(queryEngine)
 	}
 
 	static def getQueryGroup() {
@@ -63,12 +68,17 @@ class LogicModelConstraintManager {
 			EObjectClusterQuerySpecification.instance,
 			JavaObjectClusterQuerySpecification.instance,
 			DirtyClusterQuerySpecification.instance,
-			UnusedClusterQuerySpecification.instance
+			UnusedClusterQuerySpecification.instance,
+			RepresentedVariableQuerySpecification.instance
 		})
 	}
 
 	def getLogicModel() {
 		logicModelManager.logicModel
+	}
+
+	def getLogicModelId() {
+		logicModel.logicModelId
 	}
 
 	def void registerVariables(Collection<Variable> variables) {
@@ -79,39 +89,38 @@ class LogicModelConstraintManager {
 		}
 	}
 
-	protected dispatch def void registerConstraint(EquivalenceConstraint constraint) {
-		mergeClustersLazy(constraint.left.cluster, constraint.right.cluster)
-	}
-
 	def void registerConstraints(Collection<Constraint> constraints) {
 		for (constraint : constraints) {
 			registerConstraint(constraint)
 		}
 	}
 
+	protected dispatch def void registerConstraint(EquivalenceConstraint constraint) {
+		mergeClustersLazy(constraint.left, constraint.right)
+	}
+
 	protected dispatch def void registerConstraint(ConstantEObjectConstraint constraint) {
-		val clusterIterator = eObjectClusterMatcher.getAllValuesOfRep(logicModel, constraint.value).iterator
-		if (clusterIterator.hasNext) {
-			val eObjectCluster = clusterIterator.next
-			mergeClustersLazy(eObjectCluster, constraint.variable)
-			if (clusterIterator.hasNext) {
-				throw new IllegalStateException("Multiple clusters for EObject " + constraint.value)
-			}
-		} else {
+		val variable = constraint.variable
+		val clusters = eObjectClusterMatcher.getAllValuesOfRep(logicModel, constraint.value)
+		if (clusters.empty) {
 			newCluster(#[constraint.variable])
+		} else {
+			for (cluster : clusters) {
+				mergeClustersLazy(cluster, variable)
+
+			}
 		}
 	}
 
 	protected dispatch def void registerConstraint(ConstantJavaObjectConstraint constraint) {
-		val clusterIterator = javaObjectClusterMatcher.getAllValuesOfRep(logicModel, constraint.value).iterator
-		if (clusterIterator.hasNext) {
-			val javaObjectCluster = clusterIterator.next
-			mergeClustersLazy(javaObjectCluster, constraint.variable)
-			if (clusterIterator.hasNext) {
-				throw new IllegalStateException("Multiple clusters for java Object " + constraint.value)
-			}
-		} else {
+		val variable = constraint.variable
+		val clusters = javaObjectClusterMatcher.getAllValuesOfRep(logicModel, constraint.value)
+		if (clusters.empty) {
 			newCluster(#[constraint.variable])
+		} else {
+			for (cluster : clusters) {
+				mergeClustersLazy(cluster, variable)
+			}
 		}
 	}
 
@@ -149,7 +158,7 @@ class LogicModelConstraintManager {
 		if (left.cluster !== null) {
 			mergeClustersLazy(left.cluster, right)
 		} else if (right.cluster !== null) {
-			right.cluster.variables += left
+			left.cluster = right.cluster
 		} else {
 			newCluster(#[left, right])
 		}
@@ -157,35 +166,39 @@ class LogicModelConstraintManager {
 
 	def mergeClustersLazy(Cluster left, Variable right) {
 		if (right.cluster === null) {
-			left.variables += right
-		} else {
+			right.cluster = left
+		} else if (right.cluster !== left) {
 			mergeClustersLazy(left, right.cluster)
 		}
 	}
 
 	def mergeClustersLazy(Cluster left, Cluster right) {
 		if (!left.dirty && !right.dirty) {
-			logicModelManager.mergeClusters(left, right)
+			mergeClusters(left, right)
 		}
 	}
 
 	protected def splitClusterLazy(Cluster cluster) {
-		logicModelManager.markClusterDirty(cluster)
+		cluster.state = ClusterState.DIRTY
 	}
 
 	protected def splitClusters() {
 		val dirtyCluters = Lists.newArrayList(dirtClusterMatcher.getAllValuesOfRep(logicModelManager.logicModelId))
-		dirtyCluters.sortInplaceBy[-variables.size]
+		dirtyCluters.sortInplaceBy[-variableCount]
 		for (dirtyCluster : dirtyCluters) {
 			splitCluster(dirtyCluster)
 		}
 		val unusedClusters = unusedClusterMatcher.getAllValuesOfRep(logicModelManager.logicModelId)
-		logicModel.clusters.removeAll(unusedClusters)
+		if (!unusedClusters.empty) {
+			logicModel.clusters.removeAll(unusedClusters)
+		}
 	}
 
 	protected def splitCluster(Cluster cluster) {
-		val remaining = new HashSet
-		remaining.addAll(cluster.variables)
+		val remaining = Sets.newHashSetWithExpectedSize(cluster.variableCount)
+		representedVariableMatcher.forEachMatch(cluster, null) [
+			remaining += ^var
+		]
 		var Set<Variable> toKeep = null
 		val List<Set<Variable>> toSplit = new ArrayList
 		while (!remaining.empty) {
@@ -207,8 +220,51 @@ class LogicModelConstraintManager {
 	}
 
 	protected def newCluster(Collection<Variable> variables) {
+		val cluster = newEmptyCluster
+		for (variable : variables) {
+			variable.cluster = cluster
+		}
+		if (cluster.eContainer != logicModel) {
+			logicModel.clusters += cluster
+		}
+		cluster
+	}
+
+	protected def newEmptyCluster() {
 		val clusterToReuse = unusedClusterMatcher.getOneArbitraryMatch(logicModel.logicModelId, null)?.rep
-		logicModelManager.newCluster(variables, clusterToReuse)
+		if (clusterToReuse === null) {
+			logicModelManager.newEmptyCluster
+		} else {
+			if (unusedClusterMatcher.getOneArbitraryMatch(logicModelId, clusterToReuse) === null) {
+				throw new IllegalArgumentException("Only unused clusters can be reused.")
+			}
+			clusterToReuse.state = ClusterState.CLEAN
+			clusterToReuse
+		}
+	}
+
+	protected def getVariableCount(Cluster cluster) {
+		representedVariableMatcher.countMatches(cluster, null)
+	}
+
+	def mergeClusters(Cluster left, Cluster right) {
+		if (left === right) {
+			return
+		}
+		if (left.variableCount >= right.variableCount) {
+			mergeClustersDirected(left, right)
+		} else {
+			mergeClustersDirected(right, left)
+		}
+	}
+
+	protected def void mergeClustersDirected(Cluster toKeep, Cluster toRemove) {
+		representedVariableMatcher.forEachMatch(toRemove, null) [
+			^var.cluster = toKeep
+		]
+		if (toRemove.state === ClusterState.DIRTY && toKeep.state !== ClusterState.DIRTY) {
+			toKeep.state = ClusterState.DIRTY
+		}
 	}
 
 	protected def dfs(Variable variable) {

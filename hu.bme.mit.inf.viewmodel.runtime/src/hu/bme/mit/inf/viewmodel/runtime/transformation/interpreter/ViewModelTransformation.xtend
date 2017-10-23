@@ -2,7 +2,7 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Maps
-import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util.DirtyLogicModelQuerySpecification
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util.DirtyViewModelTraceModelQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.DependencyRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.RuleSpecification
@@ -47,7 +47,7 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 		GenericQueryGroup.of(
 			traceQueries.queryGroup.specifications + preconditionQueries.queryGroup.specifications +
 				logicModelManager.constraintManagerQueryGroup.specifications +
-				#{DirtyLogicModelQuerySpecification.instance})
+				#{DirtyViewModelTraceModelQuerySpecification.instance})
 	}
 
 	def getTraceModel() {
@@ -68,11 +68,15 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 				builder.put(pair.key, pair.value)
 			}
 		}
-		val clusterSplitRule = createRule.precondition(DirtyLogicModelQuerySpecification.instance).action(
+		val clusterSplitRule = createRule.precondition(DirtyViewModelTraceModelQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
-			constraintManager.get.splitClusters
+			val theTraceMatcher = traceMatcher.get
+			val theConstraintManager = constraintManager.get
+			traceManager.removeTraces(theTraceMatcher.unusedTraces)
+			theConstraintManager.registerVariables(theTraceMatcher.lonelyVariables)
+			theConstraintManager.splitClusters
 		].filter [
-			logicModelId == logicModelManager.logicModelId
+			traceModelId == traceModel.traceModelId
 		].build
 		builder.put(CLUSTER_SPLIT_PRIORITY, clusterSplitRule)
 		new PrioritisedRuleGroup(builder.build)
@@ -88,13 +92,13 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 				val variable = logicModelManager.newVariable
 				variables.put(variableName, variable)
 			}
-			traceManager.createVariableInstantiationTrace(ruleSpecification, match, variables)
-			constraintManager.get.registerVariables(variables.values)
+			val traceToReuse = traceMatcher.get.nextUnusedVariableInstantiationTrace
+			traceManager.createVariableInstantiationTrace(ruleSpecification, match, variables, traceToReuse)
 		// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
 			val trace = traceMatcher.get.getVariableInstantiationTrace(ruleSpecification, match)
 			constraintManager.get.unregisterVariables(trace.variables.map[value])
-			traceManager.removeTrace(trace)
+			traceManager.removeTraceLazy(trace)
 		].build
 		Collections.singleton(VARIABLE_INSTANTIATION_RULE_PRIORITY -> rule)
 	}
@@ -107,11 +111,11 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 			get(PQueryUtils.TRACE_MODEL_ID_PARAMETER) == traceManager.traceModelId
 		].action(CRUDActivationStateEnum.CREATED) [ match |
 			val interpreter = new ConstraintInterpreter(ruleSpecification, match, logicModelManager)
+			val traceToReuse = traceMatcher.get.nextUnusedConstraintTrace
 			traceManager.newConstraintTrace(ruleSpecification, match, interpreter.localVariables,
-				interpreter.constraints)
+				interpreter.constraints, traceToReuse)
 			val theConstraintManager = constraintManager.get
 			theConstraintManager.registerConstraints(interpreter.constraints)
-			theConstraintManager.registerVariables(interpreter.localVariables)
 		// println(match)
 		].action(CRUDActivationStateEnum.DELETED) [ match |
 			val trace = traceMatcher.get.getConstraintTrace(ruleSpecification, match)
@@ -119,7 +123,7 @@ class ViewModelTransformation extends BasicChainableTransformationFactory {
 			// Remove constraints first to allow clusters to update.
 			theConstraintManager.unregisterConstraints(trace.constraints)
 			theConstraintManager.unregisterVariables(trace.localVariables)
-			traceManager.removeTrace(trace)
+			traceManager.removeTraceLazy(trace)
 		].build
 		Collections.singleton(CONSTRAINT_RULE_PRIORITY -> rule)
 	}

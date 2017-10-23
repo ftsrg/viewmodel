@@ -1,7 +1,5 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.ClusterState
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelFactory
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
@@ -51,6 +49,13 @@ class LogicModelManager {
 		variable
 	}
 
+	def newEmptyCluster() {
+		val newCluster = LogicModelFactory.eINSTANCE.createCluster
+		newCluster.id = clusterId
+		clusterId++
+		newCluster
+	}
+
 	def newEquivalenceConstraint(Variable left, Variable right) {
 		val constraint = LogicModelFactory.eINSTANCE.createEquivalenceConstraint
 		constraint.left = left
@@ -97,61 +102,7 @@ class LogicModelManager {
 	}
 
 	def void removeVariables(Collection<Variable> variables) {
-		for (variable : variables) {
-			val cluster = variable.cluster
-			cluster.variables -= variable
-			if (cluster.variables.empty) {
-				cluster.state = ClusterState.UNUSED
-			}
-		}
-	}
-
-	def newCluster(Collection<Variable> variables, Cluster clusterToReuse) {
-		val cluster = if (clusterToReuse === null) {
-				val newCluster = LogicModelFactory.eINSTANCE.createCluster
-				newCluster.id = clusterId
-				clusterId++
-				newCluster
-			} else {
-				if (clusterToReuse.state != ClusterState.UNUSED || !clusterToReuse.variables.empty) {
-					throw new IllegalArgumentException("Only unused clusters can be reused.")
-				}
-				clusterToReuse.state = ClusterState.CLEAN
-				clusterToReuse
-			}
-		for (variable : variables) {
-			val oldCluster = variable.cluster
-			if (oldCluster !== null && oldCluster.variables.size <= 1) {
-				oldCluster.state = ClusterState.UNUSED
-			}
-		}
-		cluster.variables.addAll(variables)
-		if (cluster.eContainer != logicModel) {
-			logicModel.clusters += cluster
-		}
-		cluster
-	}
-
-	def markClusterDirty(Cluster cluster) {
-		cluster.state = ClusterState.DIRTY
-	}
-
-	def mergeClusters(Cluster left, Cluster right) {
-		if (left === right) {
-			return
-		}
-		if (left.variables.size >= right.variables.size) {
-			mergeClustersDirected(left, right)
-		} else {
-			mergeClustersDirected(right, left)
-		}
-	}
-
-	protected def void mergeClustersDirected(Cluster toKeep, Cluster toRemove) {
-		toKeep.variables.addAll(toRemove.variables)
-		if (toRemove.state === ClusterState.DIRTY && toKeep.state !== ClusterState.DIRTY) {
-			markClusterDirty(toKeep)
-		}
-		toRemove.state = ClusterState.UNUSED
+		// Nothing to be done, variables are removed by removing their containing
+		// Trace from the scope.
 	}
 }

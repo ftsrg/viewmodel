@@ -39,9 +39,15 @@ class JavaObjectMatchArgument extends MatchArgument {
 	}
 }
 
+enum TraceState {
+	USED
+	UNUSED
+}
+
 abstract class Trace {
 	String traceName
 	contains MatchArgumentTuple argumentTuple
+	TraceState state
 }
 
 class VariableInstantiationTrace extends Trace {

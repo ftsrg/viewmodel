@@ -3,7 +3,10 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Constraint
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
+import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ConstraintTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.Trace
+import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.TraceState
+import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.VariableInstantiationTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTraceFactory
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification
@@ -40,37 +43,57 @@ class ViewModelTraceManager {
 
 	def createVariableInstantiationTrace(
 		VariableInstantiationRuleSpecification<? extends IQuerySpecification<?>, ?> ruleSpecification,
-		IPatternMatch patternMatch, Map<String, Variable> variables) {
-		traceModel.traces += ViewModelTraceFactory.eINSTANCE.createVariableInstantiationTrace => [
-			traceName = ruleSpecification.preconditionPattern.fullyQualifiedName
-			argumentTuple = createArgumentTuple(ruleSpecification.preconditionPattern.parameterNames, patternMatch)
-			for (pair : variables.entrySet) {
-				it.variables += ViewModelTraceFactory.eINSTANCE.createStringVariablePair => [
-					key = pair.key
-					value = pair.value
-				]
-			}
-		]
-	}
-
-	def newConstraintTrace(ConstraintRuleSpecification<? extends IQuerySpecification<?>, ?> ruleSpecification,
-		IPatternMatch patternMatch, Collection<Variable> localVariables, Collection<Constraint> constraints) {
-		val trace = ViewModelTraceFactory.eINSTANCE.createConstraintTrace => [
-			traceName = ruleSpecification.name
-			argumentTuple = createArgumentTuple(ruleSpecification.parameters, patternMatch)
-			for (variable : localVariables) {
-				it.localVariables += variable
-			}
-			// it.localVariables.addAll(localVariables)
-			for (constraint : constraints) {
-				it.constraints += constraint
-			}
-		]
+		IPatternMatch patternMatch, Map<String, Variable> variables, VariableInstantiationTrace traceToReuse) {
+		val trace = traceToReuse ?: ViewModelTraceFactory.eINSTANCE.createVariableInstantiationTrace
+		trace.traceName = ruleSpecification.preconditionPattern.fullyQualifiedName
+		trace.argumentTuple = createArgumentTuple(ruleSpecification.preconditionPattern.parameterNames, patternMatch)
+		trace.state = TraceState.USED
+		for (pair : variables.entrySet) {
+			trace.variables += ViewModelTraceFactory.eINSTANCE.createStringVariablePair => [
+				key = pair.key
+				value = pair.value
+			]
+		}
 		traceModel.traces += trace
 	}
 
-	def removeTrace(Trace trace) {
-		traceModel.traces -= trace
+	def newConstraintTrace(ConstraintRuleSpecification<? extends IQuerySpecification<?>, ?> ruleSpecification,
+		IPatternMatch patternMatch, Collection<Variable> localVariables, Collection<Constraint> constraints,
+		ConstraintTrace traceToReuse) {
+		val trace = traceToReuse ?: ViewModelTraceFactory.eINSTANCE.createConstraintTrace
+		trace.traceName = ruleSpecification.name
+		trace.argumentTuple = createArgumentTuple(ruleSpecification.parameters, patternMatch)
+		trace.state = TraceState.USED
+		// Do not use addAll(), because it is slow due to uniqueness checking.
+		for (variable : localVariables) {
+			trace.localVariables += variable
+		}
+		for (constraint : constraints) {
+			trace.constraints += constraint
+		}
+		traceModel.traces += trace
+	}
+
+	def removeTraceLazy(Trace trace) {
+		trace.state = TraceState.UNUSED
+		trace.traceName = null
+		trace.argumentTuple = null
+		switch (trace) {
+			VariableInstantiationTrace:
+				trace.variables.clear
+			ConstraintTrace: {
+				trace.localVariables.clear
+				trace.constraints.clear
+			}
+			default:
+				throw new IllegalArgumentException("Unknown trace: " + trace)
+		}
+	}
+
+	def removeTraces(Collection<Trace> traces) {
+		if (!traces.empty) {
+			traceModel.traces.removeAll(traces)
+		}
 	}
 
 	protected def createArgumentTuple(Iterable<String> argumentNames, IPatternMatch originalMatch) {

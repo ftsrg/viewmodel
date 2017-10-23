@@ -3,29 +3,57 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ConstraintTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.Trace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.VariableInstantiationTrace
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.LonelyVariableMatcher
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.UnusedConstraintTraceMatcher
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.UnusedTraceMatcher
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.UnusedVariableInstantiationTraceMatcher
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util.LonelyVariableQuerySpecification
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util.UnusedConstraintTraceQuerySpecification
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util.UnusedTraceQuerySpecification
+import hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util.UnusedVariableInstantiationTraceQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.ConstraintRuleSpecification
 import hu.bme.mit.inf.viewmodel.runtime.specification.VariableInstantiationRuleSpecification
 import java.util.Map
 import org.eclipse.viatra.query.runtime.api.GenericPatternMatcher
+import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.IPatternMatch
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 
 class ViewModelTraceMatcher {
-	val String traceModelId
+	public static val DEFAULT_QUERY_GROUP = new GenericQueryGroup(#{
+		LonelyVariableQuerySpecification.instance,
+		UnusedVariableInstantiationTraceQuerySpecification.instance,
+		UnusedConstraintTraceQuerySpecification.instance,
+		UnusedTraceQuerySpecification.instance
+	})
+	
+	val ViewModelTraceManager viewModelTraceManager
 	val Map<IQuerySpecification<?>, GenericPatternMatcher> variableInstantiationMatchers
 	val Map<String, GenericPatternMatcher> constraintMatchers
+	val LonelyVariableMatcher lonelyVariableMatcher
+	val UnusedVariableInstantiationTraceMatcher unusedVariableInstantiationTraceMatcher
+	val UnusedConstraintTraceMatcher unusedConstraintTraceMatcher
+	val UnusedTraceMatcher unusedTraceMatcher
 
-	new(ViatraQueryEngine queryEngine, String traceModelId,
+	new(ViatraQueryEngine queryEngine, ViewModelTraceManager viewModelTraceManager,
 		Map<IQuerySpecification<?>, TraceQuerySpecification> variableInstantiationQueries,
 		Map<String, TraceQuerySpecification> constraintQueries) {
-		this.traceModelId = traceModelId
+		this.viewModelTraceManager = viewModelTraceManager
 		variableInstantiationMatchers = variableInstantiationQueries.mapValues [ querySpecification |
 			querySpecification.getMatcher(queryEngine)
 		]
 		constraintMatchers = constraintQueries.mapValues [ querySpecification |
 			querySpecification.getMatcher(queryEngine)
 		]
+		lonelyVariableMatcher = LonelyVariableMatcher.on(queryEngine)
+		unusedVariableInstantiationTraceMatcher = UnusedVariableInstantiationTraceMatcher.on(queryEngine)
+		unusedConstraintTraceMatcher = UnusedConstraintTraceMatcher.on(queryEngine)
+		unusedTraceMatcher = UnusedTraceMatcher.on(queryEngine)
+	}
+	
+	def getTraceModelId() {
+		viewModelTraceManager.traceModelId
 	}
 
 	def getVariableInstantiationTrace(
@@ -39,6 +67,22 @@ class ViewModelTraceMatcher {
 	def getConstraintTrace(ConstraintRuleSpecification<?, ?> ruleSpecification, IPatternMatch patternMatch) {
 		val matcher = getConstraintTraceMatcher(ruleSpecification.name)
 		getTrace(matcher, ruleSpecification.parameters, patternMatch, ConstraintTrace)
+	}
+	
+	def getLonelyVariables() {
+		lonelyVariableMatcher.getAllValuesOfVar(traceModelId)
+	}
+	
+	def getNextUnusedVariableInstantiationTrace() {
+		unusedVariableInstantiationTraceMatcher.getOneArbitraryMatch(traceModelId, null)?.trace
+	}
+	
+	def getNextUnusedConstraintTrace() {
+		unusedConstraintTraceMatcher.getOneArbitraryMatch(traceModelId, null)?.trace
+	}
+	
+	def getUnusedTraces() {
+		unusedTraceMatcher.getAllValuesOfTrace(traceModelId)
 	}
 
 	protected def getVariableInstantiationTraceMatcher(IQuerySpecification<?> preconditionSpecification) {

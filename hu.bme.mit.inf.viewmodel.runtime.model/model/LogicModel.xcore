@@ -16,7 +16,7 @@ class LogicModel {
 
 class Variable {
 	long ^id
-	refers Cluster cluster opposite variables
+	refers Cluster cluster
 	op String toString() {
 		"_" + ^id
 	}
@@ -80,15 +80,13 @@ class RelationConstraint extends BinaryConstraint {
 enum ClusterState {
 	CLEAN
 	DIRTY
-	UNUSED
 }
 
 class Cluster {
 	long ^id
 	ClusterState state
-	refers unordered Variable[] variables opposite cluster
 	op String toString() {
-		"c" + ^id + "{" + variables.join(", ") + "}"
+		"c" + ^id
 	}
 	op boolean isDirty() {
 		state != ClusterState.CLEAN
