@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: hu.bme.mit.inf.viewmodel.runtime.queries
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.runtime.queries;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: BME MIT FTSRG
+Export-Package: hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel,
+  hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util,
+  hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace,
+  hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util,
+  hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace,
+  hu.bme.mit.inf.viewmodel.runtime.queries.viewmodeltrace.util
+Require-Bundle: org.eclipse.emf.ecore,
+  org.eclipse.viatra.query.runtime,
+  org.eclipse.xtext.xbase.lib,
+  org.apache.commons.lang,
+  hu.bme.mit.inf.viewmodel.runtime.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.apache.log4j

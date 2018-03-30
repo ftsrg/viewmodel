@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="hu.bme.mit.inf.viewmodel.language.feature"
+      label="ViewModel SDK"
+      version="0.1.0.qualifier"
+      provider-name="BME MIT FTSRG">
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.language"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.language.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.language.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.language.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.patternlanguage.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <requires>
+      <import
+            feature="hu.bme.mit.inf.viewmodel.runtime.feature"
+            version="0.1.0"
+            match="compatible"/>
+   </requires>
+</feature>

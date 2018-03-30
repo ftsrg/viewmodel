@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="hu.bme.mit.inf.viewmodel.runtime.feature"
+      label="ViewModel SDK"
+      version="0.1.0.qualifier"
+      provider-name="BME MIT FTSRG">
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.runtime.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.runtime.queries"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ViewModel Runtime
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.runtime;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: BME MIT FTSRG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.viatra.query.runtime;visibility:=reexport,
+ org.eclipse.viatra.transformation.evm;visibility:=reexport,
+ org.eclipse.viatra.transformation.runtime.emf;visibility:=reexport,
+ hu.bme.mit.inf.viewmodel.runtime.model;visibility:=reexport,
+ hu.bme.mit.inf.viewmodel.runtime.queries
+Export-Package: hu.bme.mit.inf.viewmodel.runtime.specification,
+ hu.bme.mit.inf.viewmodel.runtime.specification.viatraquery,
+ hu.bme.mit.inf.viewmodel.runtime.transformation,
+ hu.bme.mit.inf.viewmodel.runtime.transformation.common,
+ hu.bme.mit.inf.viewmodel.runtime.transformation.interpreter,
+ hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation,
+ hu.bme.mit.inf.viewmodel.runtime.utils
+

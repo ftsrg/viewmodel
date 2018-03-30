@@ -1,0 +1,69 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel
+
+// Must not use import "http://www.eclipse.org/emf/2002/Ecore",
+// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+private pattern childEClass(Parent : EClass, Child : EClass) {
+	EClass.eSuperTypes(Child, Parent);
+}
+
+pattern conformsTo(Ancestor : EClass, Child : EClass) {
+	Ancestor == Child;
+} or {
+	find childEClass+(Ancestor, Child);
+}
+
+pattern hasEOpposite(Rel : EReference) {
+	EReference.eOpposite(Rel, _);
+}
+
+pattern isContainment(Rel : EReference) {
+	EReference.containment(Rel, true);
+}
+
+private pattern strongRelationLargerUpperBound(Rel : EReference) {
+	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check(OppositeBound >= 0);
+	check(RelBound < 0 || RelBound > OppositeBound);
+}
+
+private pattern uniqueName(Rel : EStructuralFeature, Name : java String) {
+	EClass.eStructuralFeatures(Type, Rel);
+	EPackage.eClassifiers(Package, Type);
+	EPackage.nsURI(Package, NsUri);
+	EClass.name(Type, ClassName);
+	EStructuralFeature.name(Rel, RelName);
+	Name == eval(NsUri + "#" + ClassName + "." + RelName);
+}
+
+private pattern strongRelationEqualUpperBound(Rel : EReference) {
+	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check((RelBound < 0 && OppositeBound < 0) || RelBound == OppositeBound);
+	find uniqueName(Rel, RelName);
+	find uniqueName(Opposite, OppositeName);
+	check(RelName.compareTo(OppositeName) < 0);
+}
+
+pattern strongRelation(Rel : EStructuralFeature) {
+	neg find hasEOpposite(Rel);
+} or {
+	find hasEOpposite(Rel);
+	find isContainment(Rel);
+} or {
+	// Must be a separate pattern, or the VIATRA Maven plugin reports a cyclic linking error.
+	// See https://bugs.eclipse.org/bugs/show_bug.cgi?id=464120
+	find strongRelationLargerUpperBound(Rel);
+} or {
+	find strongRelationEqualUpperBound(Rel);
+}
+
+

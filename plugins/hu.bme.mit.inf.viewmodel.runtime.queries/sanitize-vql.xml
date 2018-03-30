@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyTask" basedir="." >
+	<target name="clean">
+		<delete dir="vql-gen"/>
+	</target>
+	<target name="main">
+		<copy todir="vql-gen">
+			<fileset dir="src" includes="**/**.vql" />
+			<filterchain>
+				<tokenfilter>
+					<replacestring from="platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore" to="http://www.eclipse.org/emf/2002/Ecore"/>
+				</tokenfilter>
+			</filterchain>
+		</copy>
+	</target>
+</project>

@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hu.bme.mit.inf.viewmodel</groupId>
+	<version>0.1.0-SNAPSHOT</version>
+	<artifactId>hu.bme.mit.inf.viewmodel</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>plugins/hu.bme.mit.inf.viewmodel.language</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.language.ide</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.language.model</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.language.ui</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.patternlanguage.validation</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.runtime</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.runtime.model</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.runtime.queries</module>
+
+		<module>features/hu.bme.mit.inf.viewmodel.language.feature</module>
+		<module>features/hu.bme.mit.inf.viewmodel.runtime.feature</module>
+
+		<module>tests/hu.bme.mit.inf.viewmodel.language.tests</module>
+		<module>tests/hu.bme.mit.inf.viewmodel.language.ui.tests</module>
+
+		<module>releng/hu.bme.mit.inf.viewmodel.target</module>
+		<module>releng/hu.bme.mit.inf.viewmodel.repository</module>
+	</modules>
+</project>

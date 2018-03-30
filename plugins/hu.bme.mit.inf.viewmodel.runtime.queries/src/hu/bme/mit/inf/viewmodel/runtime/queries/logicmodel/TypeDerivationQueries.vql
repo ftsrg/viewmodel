@@ -1,0 +1,68 @@
+package hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel
+
+import "http://inf.mit.bme.hu/emf/2017/LogicModel"
+// Must not use import "http://www.eclipse.org/emf/2002/Ecore",
+// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
+import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+
+import java org.apache.commons.lang.ClassUtils
+
+pattern concreteClusterType(Rep : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Rep, Type);
+	neg find notHighestCommonConcreteSubtypeOfTypes(Rep, Type);
+}
+
+private pattern notHighestCommonConcreteSubtypeOfTypes(Rep : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Rep, Type);
+	find commonConcreteSubtypeOfTypes(Rep, OtherType);
+	neg find conformsTo(Type, OtherType);
+}
+
+private pattern commonConcreteSubtypeOfTypes(Rep : Cluster, Type : EClass) {
+	find concreteSubtypeOfClusterType(Rep, Type);
+	neg find notACommonConcreteSubtypeOfPossibleTypes(Rep, Type);
+}
+
+private pattern notACommonConcreteSubtypeOfPossibleTypes(Rep : Cluster, Type : EClass) {
+	find concreteSubtypeOfClusterType(Rep, Type);
+	find requiredClusterType(Rep, PossibleType);
+	neg find conformsTo(PossibleType, Type);
+}
+
+private pattern concreteSubtypeOfClusterType(Rep : Cluster, Type : EClass) {
+	find requiredClusterType(Rep, SuperType);
+	find conformsTo(SuperType, Type);
+	EClass.abstract(Type, false);
+}
+
+pattern requiredClusterType(Rep : Cluster, Type : EClass) {
+	find representedVariable(Rep, Var);
+	EClassConstraint.variable(Constraint, Var);
+	EClassConstraint.targetEClass(Constraint, Type);
+} or {
+	find clusterRelation(Rep, _, Ref);
+	EStructuralFeature.eContainingClass(Ref, Type); 
+} or {
+	find clusterRelation(_, Rep, Ref);
+	EStructuralFeature.eType(Ref, Type); 
+}
+
+private pattern requiredJavaClusterTypeOrPrimitive(Rep : Cluster, JavaType : java Object) {
+	find clusterRelation(_, Rep, Ref);
+	EStructuralFeature.eType(Ref, Type);
+	EDataType(Type);
+	EClassifier.instanceClass(Type, JavaType);
+} or {
+	find representedVariable(Rep, Var);
+	JavaClassConstraint.variable(Const, Var);
+	JavaClassConstraint.targetClass(Const, JavaType);
+}
+
+// Must use JavaType : java Object instead of : java Class,
+// because the code generation will otherwise try to generate a (java.lang.Class<T>) cast.
+pattern requiredJavaClusterType(Rep : Cluster, JavaType : java Object) {
+	find requiredJavaClusterTypeOrPrimitive(Rep, JavaTypeOrPrimitive);
+	// Added casts to avoid errors in the VIATRA Maven build.
+	JavaType == eval(ClassUtils.primitiveToWrapper(JavaTypeOrPrimitive as Class<?>) as Object);
+}
+
