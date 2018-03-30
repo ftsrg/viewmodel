@@ -1,15 +1,13 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
-import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.ManifestationTraceQueries
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableConcreteVariableQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableEObjectConstantValueQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableJavaObjectConstantValueQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace.util.ManifestableRelationQuerySpecification
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.BasicChainableTransformationFactory
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.CreateDeletePriority
-import hu.bme.mit.inf.viewmodel.runtime.transformation.common.Lazy
 import hu.bme.mit.inf.viewmodel.runtime.transformation.common.PrioritisedRuleGroup
+import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.evm.specific.crud.CRUDActivationStateEnum
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRuleFactory
@@ -18,18 +16,17 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 @FinalFieldsConstructor
 class ViewModelManifestation extends BasicChainableTransformationFactory {
 	static val MANIFESTATION_PRIORITY = CreateDeletePriority.of(20, -10)
-	static val CONSTNAT_MANIFESTATION_PRIORITY = CreateDeletePriority.of(19, -9)
+	static val CONSTANT_MANIFESTATION_PRIORITY = CreateDeletePriority.of(19, -9)
 	static val REFERENCE_PRIORITY = CreateDeletePriority.of(10, -20)
 
-	val ManifestationTraceManager traceManager
+	val IManifestationTraceManager traceManager
 	extension val EventDrivenTransformationRuleFactory = new EventDrivenTransformationRuleFactory
 
 	override getQueryGroup() {
-		ManifestationTraceQueries.instance
+		new GenericQueryGroup(emptySet)
 	}
 
 	override createRuleGroup(ViatraQueryEngine queryEngine) {
-		val traceMatcher = Lazy.of[traceManager.getMatcher(queryEngine)]
 		PrioritisedRuleGroup.of(
 			MANIFESTATION_PRIORITY ->
 				createRule.precondition(ManifestableConcreteVariableQuerySpecification.instance).action(
@@ -38,25 +35,25 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 					traceManager.manifestInterpretedEObject(rep, type)
 				].action(CRUDActivationStateEnum.DELETED) [
 					// println("DELETED " + rep + " : " + type.name)
-					removeManifestation(rep, traceMatcher.get)
+					traceManager.removeManifestation(rep)
 				].filter[traceModelId == traceManager.traceModelId].build,
-			CONSTNAT_MANIFESTATION_PRIORITY ->
+			CONSTANT_MANIFESTATION_PRIORITY ->
 				createRule.precondition(ManifestableEObjectConstantValueQuerySpecification.instance).action(
 					CRUDActivationStateEnum.CREATED) [
 					// println("CREATED " + rep + " = " + value)
 					traceManager.manifestUninterpretedEObject(rep, value)
 				].action(CRUDActivationStateEnum.DELETED) [
 					// println("DELETED " + rep + " = " + value)
-					removeManifestation(rep, traceMatcher.get)
+					traceManager.removeManifestation(rep)
 				].filter[traceModelId == traceManager.traceModelId].build,
-			CONSTNAT_MANIFESTATION_PRIORITY ->
+			CONSTANT_MANIFESTATION_PRIORITY ->
 				createRule.precondition(ManifestableJavaObjectConstantValueQuerySpecification.instance).action(
 					CRUDActivationStateEnum.CREATED) [
 					// println("CREATED " + rep + " = " + value)
 					traceManager.manifestPrimitive(rep, value)
 				].action(CRUDActivationStateEnum.DELETED) [
 					// println("DELETED " + rep + " = " + value)
-					removeManifestation(rep, traceMatcher.get)
+					traceManager.removeManifestation(rep)
 				].filter[traceModelId == traceManager.traceModelId].build,
 			REFERENCE_PRIORITY ->
 				createRule.precondition(ManifestableRelationQuerySpecification.instance).action(
@@ -68,10 +65,5 @@ class ViewModelManifestation extends BasicChainableTransformationFactory {
 					traceManager.unsetRelation(leftManifestation, rightManifestation, relation)
 				].filter[traceModelId == traceManager.traceModelId].build
 		)
-	}
-
-	protected def removeManifestation(Cluster cluster, ManifestationTraceMatcher traceMatcher) {
-		val manifestation = traceMatcher.getManifestation(cluster.id)
-		traceManager.removeManifestation(manifestation)
 	}
 }

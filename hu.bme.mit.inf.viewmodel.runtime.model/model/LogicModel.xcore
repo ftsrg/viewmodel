@@ -6,6 +6,7 @@ package hu.bme.mit.inf.viewmodel.runtime.model.logicmodel
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
+import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Manifestation
 
 class LogicModel {
 	String logicModelId
@@ -85,8 +86,9 @@ enum ClusterState {
 class Cluster {
 	long ^id
 	ClusterState state
+	contains Manifestation manifestation
 	op String toString() {
-		"c" + ^id
+		"c" + ^id + (manifestation?.toString ?: "")
 	}
 	op boolean isDirty() {
 		state != ClusterState.CLEAN

@@ -2,90 +2,39 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
-import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Variable
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.InterpretedManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Manifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTrace
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTraceFactory
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.PrimitiveManifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.UninterpretedManifestation
 import java.util.List
-import java.util.UUID
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
-import org.eclipse.xtend.lib.annotations.Accessors
-import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
-@FinalFieldsConstructor
-class ManifestationTraceManager {
-	@Accessors(PUBLIC_GETTER) val ManifestationTrace manifestationTrace
-
-	extension val ManifestationTraceFactory = ManifestationTraceFactory.eINSTANCE
+class ManifestationTraceManager extends AbstractManifestationTraceManager {
 
 	new(LogicModel logicModel) {
-		this(ManifestationTraceFactory.eINSTANCE.createManifestationTrace => [
-			it.traceModelId = UUID.randomUUID.toString
-			it.logicModel = logicModel
-		])
+		super(logicModel)
 	}
 
 	new(Resource resource, LogicModel logicModel) {
-		this(logicModel)
-		resource.contents += manifestationTrace
+		super(resource, logicModel)
 	}
 
-	def getLogicModel() {
-		manifestationTrace.logicModel
-	}
-
-	def getResults() {
-		manifestationTrace.results
-	}
-
-	def getTraceModelId() {
-		manifestationTrace.traceModelId
-	}
-
-	def getMatcher(ViatraQueryEngine queryEngine) {
-		new ManifestationTraceMatcher(traceModelId, queryEngine)
-	}
-
-	def void manifestInterpretedEObject(Cluster cluster, EClass type) {
+	protected override doManifestInterpretedEObject(Cluster cluster, EClass type) {
 		val manifestedEObject = type.EPackage.EFactoryInstance.create(type)
 		manifestationTrace.results += manifestedEObject
-		manifestationTrace.manifestations += createInterpretedManifestation => [
-			it.clusterId = cluster.id
+		cluster.manifestation = createInterpretedManifestation => [
 			it.manifestedEObject = manifestedEObject
 			it.type = type
 		]
 	}
 
-	def void manifestUninterpretedEObject(Cluster cluster, EObject sourceEObject) {
-		manifestationTrace.manifestations += createUninterpretedManifestation => [
-			it.clusterId = cluster.id
-			it.sourceEObject = sourceEObject
-		]
+	protected override doRemoveInterpretedManifestation(InterpretedManifestation manifestation) {
+		manifestationTrace.results -= manifestation.manifestedEObject
 	}
 
-	def void manifestPrimitive(Cluster cluster, Object value) {
-		manifestationTrace.manifestations += createPrimitiveManifestation => [
-			it.clusterId = cluster.id
-			it.value = value
-		]
-	}
-
-	def void removeManifestation(Manifestation manifestation) {
-		manifestationTrace.manifestations -= manifestation
-		if (manifestation instanceof InterpretedManifestation) {
-			manifestationTrace.results -= manifestation.manifestedEObject
-		}
-	}
-
-	def void setRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
+	override setRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
 		EStructuralFeature targetFeature) {
 		val left = leftManifestation.manifestedEObject
 		if (targetFeature instanceof EReference && (targetFeature as EReference).EOpposite !== null) {
@@ -110,7 +59,7 @@ class ManifestationTraceManager {
 		}
 	}
 
-	def unsetRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
+	override unsetRelation(InterpretedManifestation leftManifestation, Manifestation rightManifestation,
 		EStructuralFeature targetFeature) {
 		val left = leftManifestation.manifestedEObject
 		if (targetFeature instanceof EReference) {
@@ -150,24 +99,6 @@ class ManifestationTraceManager {
 				val defaultValue = feature.defaultValue
 				left.eSet(feature, defaultValue)
 			}
-		}
-	}
-
-	protected def getManifestedEObject(Manifestation manifestation) {
-		switch (manifestation) {
-			InterpretedManifestation: manifestation.manifestedEObject
-			UninterpretedManifestation: throw new IllegalArgumentException("Attempt to modify a source object.")
-			PrimitiveManifestation: throw new IllegalArgumentException("Attempt to modify a primitive object.")
-			default: throw new IllegalArgumentException("Unknown manifestation: " + manifestation)
-		}
-	}
-
-	protected def getManifestedObject(Manifestation manifestation) {
-		switch (manifestation) {
-			InterpretedManifestation: manifestation.manifestedEObject
-			UninterpretedManifestation: manifestation.sourceEObject
-			PrimitiveManifestation: manifestation.value
-			default: throw new IllegalArgumentException("Unknown manifestation: " + manifestation)
 		}
 	}
 }

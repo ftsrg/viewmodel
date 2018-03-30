@@ -5,6 +5,7 @@ import "http://inf.mit.bme.hu/emf/2017/ViewModelTrace"
 import "http://www.eclipse.org/emf/2002/Ecore"
 
 import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.dirtyLogicModel
+import hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.representedVariable
 
 pattern namedTrace(TraceModelId : EString, Name : EString, Tuple : MatchArgumentTuple, Trace : Trace) {
 	ViewModelTrace.traceModelId(TraceModel, TraceModelId);
@@ -41,6 +42,7 @@ pattern lonelyVariable(TraceModelId : EString, Var : Variable) {
 	ViewModelTrace.traces(TraceModel, Trace);
 	Trace.state(Trace, TraceState::USED);
 	find tracedVariable(Trace, Var);
+	neg find representedVariable(_, Var);
 }
 
 private pattern tracedVariable(Trace : Trace, Var : Variable) {

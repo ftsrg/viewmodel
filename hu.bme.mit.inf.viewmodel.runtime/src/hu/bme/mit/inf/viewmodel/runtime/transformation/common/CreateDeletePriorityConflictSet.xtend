@@ -55,7 +55,7 @@ class CreateDeletePriorityConflictSet implements ChangeableConflictSet {
 			activations.put(priority.deletePriority, activation)
 		} else {
 			activations.remove(priority.deletePriority, activation)
-			activations.put(priority.deletePriority, activation)
+			activations.put(priority.createPriority, activation)
 		}
 	}
 

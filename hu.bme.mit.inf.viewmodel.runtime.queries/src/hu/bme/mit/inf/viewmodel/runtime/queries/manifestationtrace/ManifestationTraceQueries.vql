@@ -53,14 +53,8 @@ private pattern properlyManifested(TraceModelId : EString, Rep : Cluster, Man : 
 }
 
 private pattern manifestedCluster(TraceModelId : EString, Rep : Cluster, Manifestation : Manifestation) {
-	Cluster.id(Rep, RepId);
-	find manifestation(TraceModelId, RepId, Manifestation);
-}
-
-pattern manifestation(TraceModelId : EString, RepId : ELong, Manifestation : Manifestation) {
-	ManifestationTrace.traceModelId(Trace, TraceModelId);
-	ManifestationTrace.manifestations(Trace, Manifestation);
-	Manifestation.clusterId(Manifestation, RepId);
+	find tracedCluster(TraceModelId, Rep);
+	Cluster.manifestation(Rep, Manifestation);
 }
 
 private pattern tracedCluster(TraceModelId : EString, Rep : Cluster) {

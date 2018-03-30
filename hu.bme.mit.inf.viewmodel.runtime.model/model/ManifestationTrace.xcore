@@ -11,32 +11,30 @@ class ManifestationTrace {
 	String traceModelId
 	refers LogicModel logicModel
 	contains unordered EObject[] results
-	contains unordered Manifestation[] manifestations
 }
 
 abstract class Manifestation {
-	long clusterId
 }
 
 class InterpretedManifestation extends Manifestation {
 	refers EClass ^type
 	refers EObject manifestedEObject
 	op String toString() {
-		"_" + clusterId + " : " + ^type.name
+		": " + ^type.name
 	}
 }
 
 class UninterpretedManifestation extends Manifestation {
 	refers EObject sourceEObject
 	op String toString() {
-		"_" + clusterId + " = " + sourceEObject
+		"= " + sourceEObject
 	}
 }
 
 class PrimitiveManifestation extends Manifestation {
 	Object value
 	op String toString() {
-		"_" + clusterId + " = " + value
+		"= " + value
 	}
 }
 

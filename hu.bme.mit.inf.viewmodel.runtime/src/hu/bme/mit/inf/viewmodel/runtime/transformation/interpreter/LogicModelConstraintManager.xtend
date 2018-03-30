@@ -235,9 +235,6 @@ class LogicModelConstraintManager {
 		if (clusterToReuse === null) {
 			logicModelManager.newEmptyCluster
 		} else {
-			if (unusedClusterMatcher.getOneArbitraryMatch(logicModelId, clusterToReuse) === null) {
-				throw new IllegalArgumentException("Only unused clusters can be reused.")
-			}
 			clusterToReuse.state = ClusterState.CLEAN
 			clusterToReuse
 		}
