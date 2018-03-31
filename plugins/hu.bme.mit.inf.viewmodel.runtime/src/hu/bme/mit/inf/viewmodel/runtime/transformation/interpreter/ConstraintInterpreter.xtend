@@ -129,6 +129,10 @@ class ConstraintInterpreter {
 		variable
 	}
 
+	private def getVariable(VariableInstantiationTrace trace, String key) {
+		trace.variables.findFirst[it.key == key]?.value
+	}
+
 	protected dispatch def Variable getVariable(LocalVariableReference reference) {
 		val variable = localVariables.get(reference.variableName)
 		if (variable === null) {

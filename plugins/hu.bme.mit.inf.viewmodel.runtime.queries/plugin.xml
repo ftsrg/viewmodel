@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
-  <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.ClusteringQueries">
+  <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.conformsTo"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.hasEOpposite"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.isContainment"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.uniqueName"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.strongRelationLargerUpperBound"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.strongRelationEqualUpperBound"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.strongRelation"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.dirtyLogicModel"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.unusedCluster"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.dirtyCluster"/>
@@ -12,28 +19,13 @@
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.javaObjectCluster"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.strongClusterRelation"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.clusterRelation"/>
-    </group>
-  </extension>
-  <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.EcoreQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.EcoreQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.EcoreQueries">
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.conformsTo"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.hasEOpposite"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.isContainment"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.strongRelation"/>
-    </group>
-  </extension>
-  <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.LogicModelQueries">
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.concreteRelation"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.concreteVariable"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.eObjectConstantValue"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.javaObjectConstantValue"/>
-    </group>
-  </extension>
-  <extension id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.TypeDerivationQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.TypeDerivationQueries" id="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.TypeDerivationQueries">
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.concreteClusterType"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.requiredClusterType"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.requiredJavaClusterTypeOrPrimitive"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.requiredJavaClusterType"/>
     </group>
   </extension>

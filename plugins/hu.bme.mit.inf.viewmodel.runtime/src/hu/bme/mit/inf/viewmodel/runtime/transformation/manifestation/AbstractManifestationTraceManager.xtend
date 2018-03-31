@@ -2,14 +2,14 @@ package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.BinaryConstraint
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.InterpretedManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelFactory
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Manifestation
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.ManifestationTrace
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.PrimitiveManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.UnaryConstraint
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.InterpretedManifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Manifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTrace
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTraceFactory
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.PrimitiveManifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.UninterpretedManifestation
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.UninterpretedManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ConstraintTrace
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTrace
 import java.util.UUID
@@ -23,10 +23,10 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 abstract class AbstractManifestationTraceManager implements IManifestationTraceManager {
 	@Accessors(PUBLIC_GETTER) val ManifestationTrace manifestationTrace
 
-	protected extension val ManifestationTraceFactory = ManifestationTraceFactory.eINSTANCE
+	protected extension val LogicModelFactory = LogicModelFactory.eINSTANCE
 
 	new(LogicModel logicModel) {
-		this(ManifestationTraceFactory.eINSTANCE.createManifestationTrace => [
+		this(LogicModelFactory.eINSTANCE.createManifestationTrace => [
 			it.traceModelId = UUID.randomUUID.toString
 			it.logicModel = logicModel
 		])

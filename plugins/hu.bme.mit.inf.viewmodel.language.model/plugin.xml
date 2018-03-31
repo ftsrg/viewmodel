@@ -11,7 +11,7 @@
       <package
             uri="http://inf.mit.bme.hu/emf/2017/ViewModelLanguage"
             class="hu.bme.mit.inf.viewmodel.language.model.viewmodellanguage.ViewModelLanguagePackage"
-            genModel="model/ViewModelLanguage.xcore"/>
+            genModel="model/viewmodellanguage.genmodel"/>
    </extension>
 
 </plugin>

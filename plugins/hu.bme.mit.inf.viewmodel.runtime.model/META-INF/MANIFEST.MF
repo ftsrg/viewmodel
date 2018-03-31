@@ -12,15 +12,7 @@ Export-Package: hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace,
  hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.util,
  hu.bme.mit.inf.viewmodel.runtime.model.logicmodel,
  hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.impl,
- hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.util,
- hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace,
- hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.impl,
- hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.util
+ hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.emf.ecore.xcore.lib,
- hu.bme.mit.inf.viewmodel.runtime.model;visibility:=reexport,
- org.eclipse.xtext.xbase;visibility:=reexport,
- org.eclipse.xtext.common.types;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

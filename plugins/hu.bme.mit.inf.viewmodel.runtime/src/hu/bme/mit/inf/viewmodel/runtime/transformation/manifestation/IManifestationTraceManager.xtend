@@ -1,9 +1,9 @@
 package hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation
 
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Cluster
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.InterpretedManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.InterpretedManifestation
-import hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.Manifestation
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.Manifestation
 import java.util.List
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject

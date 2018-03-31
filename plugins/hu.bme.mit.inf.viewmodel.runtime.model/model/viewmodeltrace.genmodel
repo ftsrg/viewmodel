@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.viewmodel.runtime.model/emf-gen"
+    modelPluginID="hu.bme.mit.inf.viewmodel.runtime.model" runtimeJar="true" modelName="ViewModelTrace"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="logicmodel.genmodel#//logicmodel"
+    decoration="Live" oSGiCompatible="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>viewmodeltrace.ecore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="ViewModelTrace" basePackage="hu.bme.mit.inf.viewmodel.runtime.model"
+      disposableProviderFactory="true" fileExtensions="viewmodeltrace" ecorePackage="viewmodeltrace.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="viewmodeltrace.ecore#//TraceState">
+      <genEnumLiterals ecoreEnumLiteral="viewmodeltrace.ecore#//TraceState/USED"/>
+      <genEnumLiterals ecoreEnumLiteral="viewmodeltrace.ecore#//TraceState/UNUSED"/>
+    </genEnums>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//ViewModelTrace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//ViewModelTrace/traceModelId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//ViewModelTrace/logicModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//ViewModelTrace/traces"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//MatchArgumentTuple">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//MatchArgumentTuple/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="viewmodeltrace.ecore#//MatchArgument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//MatchArgument/parameterName"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//EObjectMatchArgument">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//EObjectMatchArgument/value"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//JavaObjectMatchArgument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//JavaObjectMatchArgument/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="viewmodeltrace.ecore#//Trace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//Trace/traceName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//Trace/argumentTuple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//Trace/state"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//VariableInstantiationTrace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//VariableInstantiationTrace/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//StringVariablePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodeltrace.ecore#//StringVariablePair/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//StringVariablePair/value"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodeltrace.ecore#//ConstraintTrace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//ConstraintTrace/localVariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodeltrace.ecore#//ConstraintTrace/constraints"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

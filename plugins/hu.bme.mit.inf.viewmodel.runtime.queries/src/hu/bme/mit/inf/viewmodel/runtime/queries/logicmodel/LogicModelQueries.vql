@@ -1,9 +1,153 @@
 package hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel
 
 import "http://inf.mit.bme.hu/emf/2017/LogicModel"
-// Must not use import "http://www.eclipse.org/emf/2002/Ecore",
-// because Xcore already loads Ecore.ecore into the ResourceSet with a platform resource URI.
-import "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+import java org.apache.commons.lang.ClassUtils
+
+//
+// ECore queries
+//
+
+private pattern childEClass(Parent : EClass, Child : EClass) {
+	EClass.eSuperTypes(Child, Parent);
+}
+
+pattern conformsTo(Ancestor : EClass, Child : EClass) {
+	Ancestor == Child;
+} or {
+	find childEClass+(Ancestor, Child);
+}
+
+pattern hasEOpposite(Rel : EReference) {
+	EReference.eOpposite(Rel, _);
+}
+
+pattern isContainment(Rel : EReference) {
+	EReference.containment(Rel, true);
+}
+
+pattern uniqueName(Rel : EStructuralFeature, Name : java String) {
+	EClass.eStructuralFeatures(Type, Rel);
+	EPackage.eClassifiers(Package, Type);
+	EPackage.nsURI(Package, NsUri);
+	EClass.name(Type, ClassName);
+	EStructuralFeature.name(Rel, RelName);
+	Name == eval(NsUri + "#" + ClassName + "." + RelName);
+}
+
+pattern strongRelationLargerUpperBound(Rel : EReference) {
+	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check(OppositeBound >= 0);
+	check(RelBound < 0 || RelBound > OppositeBound);
+}
+
+pattern strongRelationEqualUpperBound(Rel : EReference) {
+	EReference.eOpposite(Rel, Opposite);
+	neg find isContainment(Rel);
+	neg find isContainment(Opposite);
+	EStructuralFeature.upperBound(Rel, RelBound);
+	EStructuralFeature.upperBound(Opposite, OppositeBound);
+	check((RelBound < 0 && OppositeBound < 0) || RelBound == OppositeBound);
+	find uniqueName(Rel, RelName);
+	find uniqueName(Opposite, OppositeName);
+	check(RelName.compareTo(OppositeName) < 0);
+}
+
+pattern strongRelation(Rel : EStructuralFeature) {
+	neg find hasEOpposite(Rel);
+} or {
+	find hasEOpposite(Rel);
+	find isContainment(Rel);
+} or {
+	find strongRelationLargerUpperBound(Rel);
+} or {
+	find strongRelationEqualUpperBound(Rel);
+}
+
+//
+// Clustering queries
+//
+
+pattern dirtyLogicModel(LogicModelId : EString) {
+	find dirtyCluster(LogicModelId, _);
+} or {
+	find unusedCluster(LogicModelId, _);
+}
+
+pattern unusedCluster(LogicModelId : EString, Rep : Cluster) {
+	LogicModel.logicModelId(Model, LogicModelId);
+	LogicModel.clusters(Model, Rep);
+	neg find representedVariable(Rep, _);
+}
+
+pattern dirtyCluster(LogicModelId : EString, Rep : Cluster) {
+	LogicModel.logicModelId(Model, LogicModelId);
+	LogicModel.clusters(Model, Rep);
+	Cluster.state(Rep, ClusterState::DIRTY);
+	find representedVariable(Rep, _);
+}
+
+pattern representedVariable(Rep : Cluster, Var : Variable) {
+	Variable.cluster(Var, Rep);
+}
+
+pattern equivalenceConstraint(Left : Variable, Right : Variable) {
+	EquivalenceConstraint.left(Constraint, Left);
+	EquivalenceConstraint.right(Constraint, Right);
+}
+
+pattern anyEObjectConstantValue(Var : Variable, Value : EObject) {
+	ConstantEObjectConstraint.variable(Const, Var);
+	ConstantEObjectConstraint.value(Const, Value);
+}
+
+pattern anyJavaObjectConstantValue(Var : Variable, Value : EJavaObject) {
+	ConstantJavaObjectConstraint.variable(Const, Var);
+	ConstantJavaObjectConstraint.value(Const, Value);
+}
+
+pattern eObjectCluster(Model : LogicModel, Rep : Cluster, Value : EObject) {
+	LogicModel.clusters(Model, Rep);
+	find anyEObjectConstantValue(Var, Value);
+	find representedVariable(Rep, Var);
+}
+
+pattern javaObjectCluster(Model : LogicModel, Rep : Cluster, Value : EJavaObject) {
+	LogicModel.clusters(Model, Rep);
+	find anyJavaObjectConstantValue(Var, Value);
+	find representedVariable(Rep, Var);
+}
+
+pattern strongClusterRelation(LeftRep : Cluster, RightRep : Cluster, Rel : EStructuralFeature) {
+	find clusterRelation(LeftRep, RightRep, Rel);
+	find strongRelation(Rel);
+}
+
+pattern clusterRelation(LeftRep : Cluster, RightRep : Cluster, Rel : EStructuralFeature) {
+	find representedVariable(LeftRep, Left);
+	find representedVariable(RightRep, Right);
+	find variableRelation(Left, Right, Rel);
+} or {
+	find representedVariable(LeftRep, Left);
+	find representedVariable(RightRep, Right);
+	find variableRelation(Right, Left, Opposite);
+	EReference.eOpposite(Rel, Opposite);
+}
+
+private pattern variableRelation(Left : Variable, Right : Variable, Relation : EStructuralFeature) {
+	RelationConstraint.left(Constraint, Left);
+	RelationConstraint.right(Constraint, Right);
+	RelationConstraint.targetRelation(Constraint, Relation);
+}
+
+//
+// LogicModel queries
+//
 
 pattern concreteRelation(LeftRep : Cluster, RightRep : Cluster, Rel : EStructuralFeature) {
 	find strongClusterRelation(LeftRep, RightRep, Rel);
@@ -44,6 +188,10 @@ pattern concreteVariable(Rep : Cluster, Type : EClass) {
 	neg find javaObjectConstantValue(Rep, _);
 	find concreteClusterType(Rep, Type);
 }
+
+//
+// Type derivation queries
+//
 
 pattern eObjectConstantValue(Rep : Cluster, Value : EObject) {
 	neg find constantJavaObjectConstraint(Rep, _);
@@ -96,3 +244,61 @@ private pattern constantJavaObjectConstraint(Rep : Cluster, Const : ConstantJava
 	find representedVariable(Rep, Var);
 	ConstantJavaObjectConstraint.variable(Const, Var);
 }
+
+pattern concreteClusterType(Rep : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Rep, Type);
+	neg find notHighestCommonConcreteSubtypeOfTypes(Rep, Type);
+}
+
+private pattern notHighestCommonConcreteSubtypeOfTypes(Rep : Cluster, Type : EClass) {
+	find commonConcreteSubtypeOfTypes(Rep, Type);
+	find commonConcreteSubtypeOfTypes(Rep, OtherType);
+	neg find conformsTo(Type, OtherType);
+}
+
+private pattern commonConcreteSubtypeOfTypes(Rep : Cluster, Type : EClass) {
+	find concreteSubtypeOfClusterType(Rep, Type);
+	neg find notACommonConcreteSubtypeOfPossibleTypes(Rep, Type);
+}
+
+private pattern notACommonConcreteSubtypeOfPossibleTypes(Rep : Cluster, Type : EClass) {
+	find concreteSubtypeOfClusterType(Rep, Type);
+	find requiredClusterType(Rep, PossibleType);
+	neg find conformsTo(PossibleType, Type);
+}
+
+private pattern concreteSubtypeOfClusterType(Rep : Cluster, Type : EClass) {
+	find requiredClusterType(Rep, SuperType);
+	find conformsTo(SuperType, Type);
+	EClass.abstract(Type, false);
+}
+
+pattern requiredClusterType(Rep : Cluster, Type : EClass) {
+	find representedVariable(Rep, Var);
+	EClassConstraint.variable(Constraint, Var);
+	EClassConstraint.targetEClass(Constraint, Type);
+} or {
+	find clusterRelation(Rep, _, Ref);
+	EStructuralFeature.eContainingClass(Ref, Type); 
+} or {
+	find clusterRelation(_, Rep, Ref);
+	EStructuralFeature.eType(Ref, Type); 
+}
+
+pattern requiredJavaClusterTypeOrPrimitive(Rep : Cluster, JavaType : java Object) {
+	find clusterRelation(_, Rep, Ref);
+	EStructuralFeature.eType(Ref, Type);
+	EDataType(Type);
+	EClassifier.instanceClass(Type, JavaType);
+} or {
+	find representedVariable(Rep, Var);
+	JavaClassConstraint.variable(Const, Var);
+	JavaClassConstraint.targetClass(Const, JavaType);
+}
+
+pattern requiredJavaClusterType(Rep : Cluster, JavaType : java Object) {
+	find requiredJavaClusterTypeOrPrimitive(Rep, JavaTypeOrPrimitive);
+	// Added casts to avoid errors in the VIATRA Maven build.
+	JavaType == eval(ClassUtils.primitiveToWrapper(JavaTypeOrPrimitive as Class<?>) as Object);
+}
+

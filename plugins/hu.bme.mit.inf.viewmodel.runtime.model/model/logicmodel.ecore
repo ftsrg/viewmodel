@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="logicmodel" nsURI="http://inf.mit.bme.hu/emf/2017/LogicModel"
+    nsPrefix="logicmodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelDirectory" value="/hu.bme.mit.inf.viewmodel.runtime.model/src-gen"/>
+    <details key="prefix" value="LogicModel"/>
+    <details key="fileExtensions" value="logicmodel"/>
+    <details key="providerName" value="BME MIT FTSRG"/>
+    <details key="operationReflection" value="false"/>
+    <details key="basePackage" value="hu.bme.mit.inf.viewmodel.runtime.model"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicModelId" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clusters" ordered="false"
+        upperBound="-1" eType="#//Cluster" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cluster" eType="#//Cluster"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryConstraint" abstract="true" eSuperTypes="#//Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryConstraint" abstract="true" eSuperTypes="#//Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClassConstraint" eSuperTypes="#//UnaryConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetEClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaClassConstraint" eSuperTypes="#//UnaryConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetClass" unique="false">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantEObjectConstraint" eSuperTypes="#//UnaryConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantJavaObjectConstraint" eSuperTypes="#//UnaryConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" unique="false">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EquivalenceConstraint" eSuperTypes="#//BinaryConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationConstraint" eSuperTypes="#//BinaryConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetRelation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ClusterState">
+    <eLiterals name="CLEAN"/>
+    <eLiterals name="DIRTY"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cluster">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" unique="false" eType="#//ClusterState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manifestation" eType="#//Manifestation"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManifestationTrace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceModelId" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logicModel" eType="#//LogicModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="results" ordered="false"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manifestation" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InterpretedManifestation" eSuperTypes="#//Manifestation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manifestedEObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UninterpretedManifestation" eSuperTypes="#//Manifestation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceEObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveManifestation" eSuperTypes="#//Manifestation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.viewmodel.runtime.model/emf-gen"
+    modelPluginID="hu.bme.mit.inf.viewmodel.runtime.model" runtimeJar="true" modelName="LogicModel"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="8.0" language="en" decoration="Live"
+    oSGiCompatible="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>logicmodel.ecore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="LogicModel" basePackage="hu.bme.mit.inf.viewmodel.runtime.model"
+      disposableProviderFactory="true" fileExtensions="logicmodel" ecorePackage="logicmodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="logicmodel.ecore#//ClusterState">
+      <genEnumLiterals ecoreEnumLiteral="logicmodel.ecore#//ClusterState/CLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="logicmodel.ecore#//ClusterState/DIRTY"/>
+    </genEnums>
+    <genClasses ecoreClass="logicmodel.ecore#//LogicModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//LogicModel/logicModelId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logicmodel.ecore#//LogicModel/clusters"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//Variable/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//Variable/cluster"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="logicmodel.ecore#//Constraint"/>
+    <genClasses image="false" ecoreClass="logicmodel.ecore#//UnaryConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//UnaryConstraint/variable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="logicmodel.ecore#//BinaryConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//BinaryConstraint/left"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//BinaryConstraint/right"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//EClassConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//EClassConstraint/targetEClass"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//JavaClassConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//JavaClassConstraint/targetClass"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//ConstantEObjectConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//ConstantEObjectConstraint/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//ConstantEObjectConstraint/valueType"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//ConstantJavaObjectConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//ConstantJavaObjectConstraint/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//ConstantJavaObjectConstraint/valueType"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//EquivalenceConstraint"/>
+    <genClasses ecoreClass="logicmodel.ecore#//RelationConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//RelationConstraint/targetRelation"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//Cluster">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//Cluster/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//Cluster/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logicmodel.ecore#//Cluster/manifestation"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//ManifestationTrace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//ManifestationTrace/traceModelId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//ManifestationTrace/logicModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logicmodel.ecore#//ManifestationTrace/results"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="logicmodel.ecore#//Manifestation"/>
+    <genClasses ecoreClass="logicmodel.ecore#//InterpretedManifestation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//InterpretedManifestation/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//InterpretedManifestation/manifestedEObject"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//UninterpretedManifestation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference logicmodel.ecore#//UninterpretedManifestation/sourceEObject"/>
+    </genClasses>
+    <genClasses ecoreClass="logicmodel.ecore#//PrimitiveManifestation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logicmodel.ecore#//PrimitiveManifestation/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -8,11 +8,6 @@
 <repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecore.xcore.feature.group" version="1.4.0.v20160526-0606"/>
-<unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.4.0.v20160526-0606"/>
-<repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.12/xcore"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20171013-1050"/>
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/milestones/"/>
 </location>

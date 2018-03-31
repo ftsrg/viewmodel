@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="viewmodellanguage" nsURI="http://inf.mit.bme.hu/emf/2017/ViewModelLanguage"
+    nsPrefix="viewmodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelDirectory" value="/hu.bme.mit.inf.viewmodel.language.model/src-gen"/>
+    <details key="prefix" value="ViewModelLanguage"/>
+    <details key="fileExtensions" value="viewmodellanguage"/>
+    <details key="providerName" value="BME MIT FTSRG"/>
+    <details key="operationReflection" value="false"/>
+    <details key="basePackage" value="hu.bme.mit.inf.viewmodel.language.model"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewDefinitionModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importSection" eType="#//ImportSection"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleDefinitions" upperBound="-1"
+        eType="#//RuleDefinition" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportSection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespaceImports" upperBound="-1"
+        eType="#//NamespaceImport" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamespaceImport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//PatternReference"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//PatternReference"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lookups" upperBound="-1"
+        eType="#//Lookup" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="ecore:EClass ../../org.eclipse.viatra.query.patternlanguage/model/generated/PatternLanguage.ecore#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="../../org.eclipse.viatra.query.patternlanguage/model/generated/PatternLanguage.ecore#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lookup">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleDefinition" eType="#//RuleDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditionArguments"
+        upperBound="-1" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//LookupResult"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atomic" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LookupResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultArguments" upperBound="-1"
+        eType="#//Variable"/>
+  </eClassifiers>
+</ecore:EPackage>

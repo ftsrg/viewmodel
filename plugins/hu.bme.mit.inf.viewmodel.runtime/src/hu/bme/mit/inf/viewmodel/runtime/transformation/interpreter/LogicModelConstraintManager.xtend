@@ -177,6 +177,10 @@ class LogicModelConstraintManager {
 			mergeClusters(left, right)
 		}
 	}
+	
+	private def dirty(Cluster cluster) {
+		cluster.state != ClusterState.CLEAN
+	}
 
 	protected def splitClusterLazy(Cluster cluster) {
 		cluster.state = ClusterState.DIRTY

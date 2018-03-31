@@ -12,7 +12,7 @@
       <package
             uri="http://inf.mit.bme.hu/emf/2017/ViewModelTrace"
             class="hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTracePackage"
-            genModel="model/ViewModelTrace.xcore"/>
+            genModel="model/viewmodeltrace.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -20,15 +20,7 @@
       <package
             uri="http://inf.mit.bme.hu/emf/2017/LogicModel"
             class="hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelPackage"
-            genModel="model/LogicModel.xcore"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated ManifestationTrace -->
-      <package
-            uri="http://inf.mit.bme.hu/emf/2017/ManifestationTrace"
-            class="hu.bme.mit.inf.viewmodel.runtime.model.manifestationtrace.ManifestationTracePackage"
-            genModel="model/ManifestationTrace.xcore"/>
+            genModel="model/logicmodel.genmodel"/>
    </extension>
 
 </plugin>

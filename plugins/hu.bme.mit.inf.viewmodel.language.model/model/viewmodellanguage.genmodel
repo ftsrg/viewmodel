@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/hu.bme.mit.inf.viewmodel.language.model/emf-gen"
+    editDirectory="" editorDirectory="" modelPluginID="hu.bme.mit.inf.viewmodel.language.model"
+    forceOverwrite="true" modelName="ViewModelLanguage" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="org.eclipse.xtext.xbase.edit" editorPluginID="org.eclipse.xtext.xbase.edit"
+    runtimeVersion="2.9" usedGenPackages="../../org.eclipse.viatra.query.patternlanguage/model/generated/PatternLanguage.genmodel#//patternLanguage ../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>viewmodellanguage.ecore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="ViewModelLanguage" basePackage="hu.bme.mit.inf.viewmodel.language.model"
+      disposableProviderFactory="true" fileExtensions="viewmodellanguage" ecorePackage="viewmodellanguage.ecore#/">
+    <genClasses ecoreClass="viewmodellanguage.ecore#//ViewDefinitionModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodellanguage.ecore#//ViewDefinitionModel/packageName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//ViewDefinitionModel/importSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//ViewDefinitionModel/ruleDefinitions"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//ImportSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//ImportSection/namespaceImports"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//NamespaceImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodellanguage.ecore#//NamespaceImport/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//RuleDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//RuleDefinition/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//RuleDefinition/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//RuleDefinition/result"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//RuleDefinition/lookups"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//PatternReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//PatternReference/pattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//PatternReference/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//Variable"/>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//Lookup">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//Lookup/ruleDefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//Lookup/preconditionArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//Lookup/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute viewmodellanguage.ecore#//Lookup/atomic"/>
+    </genClasses>
+    <genClasses ecoreClass="viewmodellanguage.ecore#//LookupResult">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference viewmodellanguage.ecore#//LookupResult/resultArguments"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

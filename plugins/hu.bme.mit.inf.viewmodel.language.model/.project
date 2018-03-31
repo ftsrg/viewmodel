@@ -6,11 +6,6 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -35,16 +30,24 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
-		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1493821447045</id>
+			<id>1522497995234</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-projectRelativePath-matches-false-false-target/classes/model/*.xcore</arguments>
+				<arguments>1.0-projectRelativePath-matches-false-false-target/classes/model/*.ecore</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1522497995236</id>
+			<name></name>
+			<type>22</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-target/classes/model/*.genmodel</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
