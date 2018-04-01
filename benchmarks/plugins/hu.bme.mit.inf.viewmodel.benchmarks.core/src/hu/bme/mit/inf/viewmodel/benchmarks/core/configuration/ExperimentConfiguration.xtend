@@ -10,13 +10,13 @@ class ExperimentConfiguration {
 	@SerializedName("model")
 	String modelName
 
-	@SerializedName("case")
+	@SerializedName("transformationCase")
 	TransformationCase transformationCase
 
 	@SerializedName("experiment")
 	String experimentName
 
-	@SerializedName("modification")
+	@SerializedName("modificationMix")
 	String modificationMixName
 
 	def getModificationMixNameOrDefault() {

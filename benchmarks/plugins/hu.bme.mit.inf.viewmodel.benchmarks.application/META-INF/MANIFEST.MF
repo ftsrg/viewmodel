@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ViewModel Benchmarks Application
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.application;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: BME MIT FTSRG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.core.runtime,
+ hu.bme.mit.inf.viewmodel.benchmarks.core,
+ hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver

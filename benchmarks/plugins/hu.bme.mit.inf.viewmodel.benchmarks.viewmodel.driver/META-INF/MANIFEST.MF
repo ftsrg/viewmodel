@@ -15,3 +15,4 @@ Require-Bundle: com.google.guava,
  hu.bme.mit.inf.viewmodel.runtime,
  hu.bme.mit.inf.viewmodel.benchmarks.core,
  hu.bme.mit.inf.viewmodel.benchmarks.viewmodel
+Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver

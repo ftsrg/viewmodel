@@ -17,10 +17,7 @@ class BenchmarksConfiguration {
 
 	@SerializedName("iterations")
 	int iterations
-	
-	@SerializedName("saveTargets")
-	boolean saveTargets
-	
+
 	@SerializedName("gcSleep")
 	int gcSleep
 
@@ -30,7 +27,16 @@ class BenchmarksConfiguration {
 	@SerializedName("outputPath")
 	String outputPath
 
-	@SerializedName("modifications")
+	@SerializedName("logFileName")
+	String logFileName
+	
+	@SerializedName("saveTargets")
+	boolean saveTargets
+
+	@SerializedName("timestampOutput")
+	boolean timestampOutput
+
+	@SerializedName("modificationMixes")
 	Map<String, Map<ModelModification, Integer>> modificationMixes
 
 	@SerializedName("experiments")

@@ -7,12 +7,16 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>features/hu.bme.mit.inf.viewmodel.benchmarks.feature</module>
+
+		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.application</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.core</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.models</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.queries</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver</module>
 
+		<module>releng/hu.bme.mit.inf.viewmodel.benchmarks.repository</module>
 		<module>releng/hu.bme.mit.inf.viewmodel.benchmarks.target</module>
 	</modules>
 </project>

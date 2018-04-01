@@ -33,7 +33,7 @@ abstract class ExperimentContext {
 	new(BenchmarksConfiguration benchmarksConfiguration, ExperimentConfiguration experimentConfiguration) {
 		gcSleep = benchmarksConfiguration.gcSleep
 		seed = benchmarksConfiguration.randomSeed
-		modelPath = benchmarksConfiguration.modelPath + File.pathSeparator + experimentConfiguration.modelName + ".xmi"
+		modelPath = benchmarksConfiguration.modelPath + File.separator + experimentConfiguration.modelName + ".xmi"
 		transformationCase = experimentConfiguration.transformationCase
 		val mixName = experimentConfiguration.modificationMixName
 		modelModificationMix = if (mixName === null) {
@@ -63,6 +63,7 @@ abstract class ExperimentContext {
 	def applyModelModification() {
 		if (modelModificationMix === null) {
 			// Nothing to modify.
+			return
 		}
 		if (modelModifications === null) {
 			throw new IllegalStateException("The model is not loaded, or the current experiment has no model modification mix.")

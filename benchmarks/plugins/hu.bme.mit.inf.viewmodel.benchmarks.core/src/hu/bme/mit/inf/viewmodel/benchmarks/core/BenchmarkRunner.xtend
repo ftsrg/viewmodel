@@ -1,31 +1,56 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.core
 
+import com.google.gson.GsonBuilder
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.BenchmarksConfiguration
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.ExperimentConfiguration
 import hu.bme.mit.inf.viewmodel.benchmarks.core.context.LoggingContext
 import hu.bme.mit.inf.viewmodel.benchmarks.core.context.WarmupContext
 import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.IDriverFactory
 import java.io.File
+import java.io.FileReader
 import java.io.PrintWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Map
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 
-@FinalFieldsConstructor
 class BenchmarkRunner {
-	val BenchmarksConfiguration benchmarkConfiguration
+	val BenchmarksConfiguration benchmarksConfiguration
 	val Map<String, IDriverFactory> driverFactories
 
+	String outputPath
 	PrintWriter logOutput
 
-	def runBenchmarks() {
-		val dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss")
-		val dirName = benchmarkConfiguration.outputPath + File.pathSeparator + dateFormat.format(new Date)
-		new File(dirName).mkdirs
-		logOutput = BenchmarkUtils.newLogFile(dirName + File.pathSeparator + BenchmarkUtils.LOG_NAME)
+	@FinalFieldsConstructor
+	new() {
+	}
+	
+	new(String configFilePath, Map<String, IDriverFactory> driverFactories) {
+		this(loadConfigFile(configFilePath), driverFactories)
+	}
+	
+	private static def loadConfigFile(String configFilePath) {
+		val gson = new GsonBuilder().create
+		val reader = new FileReader(configFilePath)
 		try {
-			for (experimentConfiguration : benchmarkConfiguration.experimentConfigurations) {
+			gson.fromJson(reader, BenchmarksConfiguration)
+		} finally {
+			reader.close
+		}
+	}
+
+	def runBenchmarks() {
+		outputPath = if (benchmarksConfiguration.timestampOutput) {
+			val dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss")
+			benchmarksConfiguration.outputPath + File.separator + dateFormat.format(new Date)
+		} else {
+			benchmarksConfiguration.outputPath
+		}
+		new File(outputPath).mkdirs
+		val logFileName = benchmarksConfiguration.logFileName ?: BenchmarkUtils.LOG_NAME
+		logOutput = BenchmarkUtils.newLogFile(outputPath + File.separator + logFileName)
+		try {
+			for (experimentConfiguration : benchmarksConfiguration.experimentConfigurations) {
 				runExperiment(experimentConfiguration)
 			}
 		} finally {
@@ -39,8 +64,8 @@ class BenchmarkRunner {
 		if (factory === null) {
 			throw new IllegalArgumentException("Unknown experiment: " + experimentConfiguration.experimentName)
 		}
-		val reruns = benchmarkConfiguration.iterations
-		for (var int rerun = -benchmarkConfiguration.warmupIterations; rerun < reruns; rerun++) {
+		val reruns = benchmarksConfiguration.iterations
+		for (var int rerun = -benchmarksConfiguration.warmupIterations; rerun < reruns; rerun++) {
 			val context = createContext(experimentConfiguration, rerun)
 			try {
 				val driver = factory.createDriver(context)
@@ -49,6 +74,7 @@ class BenchmarkRunner {
 				} finally {
 					driver.dispose
 				}
+				context.waitForGc
 			} finally {
 				context.dispose
 			}
@@ -57,9 +83,9 @@ class BenchmarkRunner {
 
 	def createContext(ExperimentConfiguration experimentConfiguration, int rerun) {
 		if (rerun < 0) {
-			new WarmupContext(benchmarkConfiguration, experimentConfiguration)
+			new WarmupContext(benchmarksConfiguration, experimentConfiguration)
 		} else {
-			new LoggingContext(benchmarkConfiguration, experimentConfiguration, rerun, logOutput)
+			new LoggingContext(benchmarksConfiguration, experimentConfiguration, rerun, outputPath, logOutput)
 		}
 	}
 }

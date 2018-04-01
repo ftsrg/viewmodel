@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="hu.bme.mit.inf.viewmodel.benchmarks.feature"
+      label="ViewModel Benchmarks"
+      version="0.1.0.qualifier"
+      provider-name="BME MIT FTSRG">
+
+   <plugin
+         id="hu.bme.mit.inf.viewmodel.benchmarks.application"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <!-- Required by the VIATRA Query logger. -->
+   <plugin
+         id="org.eclipse.xtext.logging"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <requires>
+      <import
+            feature="hu.bme.mit.inf.viewmodel.runtime.feature"
+            version="0.1.0"
+            match="compatible"/>
+   </requires>
+</feature>

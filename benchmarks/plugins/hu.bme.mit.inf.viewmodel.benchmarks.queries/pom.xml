@@ -43,13 +43,13 @@
 						<configuration>
 							<metamodels>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.railway.RailwayPackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayPackage</packageClass>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.stochasticpetrinet.StochasticPetriNetPackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.stochasticpetrinet.StochasticPetriNetPackage</packageClass>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.virtualswitchview.VirtualSwitchViewPackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.virtualswitchview.VirtualSwitchViewPackage</packageClass>
 								</metamodel>
 							</metamodels>
 						</configuration>

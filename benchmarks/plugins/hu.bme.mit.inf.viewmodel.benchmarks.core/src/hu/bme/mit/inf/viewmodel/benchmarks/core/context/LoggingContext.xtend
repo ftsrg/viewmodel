@@ -17,19 +17,19 @@ class LoggingContext extends ExperimentContext {
 	val PrintWriter logWriter
 
 	new(BenchmarksConfiguration benchmarksConfiguration, ExperimentConfiguration experimentConfiguration, int rerun,
-		PrintWriter logWriter) {
+		String globalOutputPath, PrintWriter logWriter) {
 		super(benchmarksConfiguration, experimentConfiguration)
 		saveTargets = benchmarksConfiguration.saveTargets
 		val modelName = experimentConfiguration.modelName
 		val caseName = experimentConfiguration.getTransformationCase
 		val experimentName = experimentConfiguration.experimentName
 		val modificationName = experimentConfiguration.modificationMixNameOrDefault
-		outputPath = #[benchmarksConfiguration.outputPath, modelName, caseName, experimentName, modificationName,
-			rerun].join(File.pathSeparator)
+		outputPath = #[globalOutputPath, modelName, caseName, experimentName, modificationName,
+			rerun].join(File.separator)
 		if (saveTargets) {
 			new File(outputPath).mkdirs
 		}
-		logPrefix = '''«modelName»,«caseName»,«experimentName»,«modificationName»,rerun,'''
+		logPrefix = '''«modelName»,«caseName»,«experimentName»,«modificationName»,«rerun»,'''
 		this.logWriter = logWriter
 	}
 
@@ -46,7 +46,7 @@ class LoggingContext extends ExperimentContext {
 		val resource = new XMIResourceImpl
 		resource.contents += EcoreUtil.copyAll(eObjects)
 		resource.encoding = "utf-8"
-		val outputStream = new FileOutputStream(outputPath + File.pathSeparator + fileName)
+		val outputStream = new FileOutputStream(outputPath + File.separator + fileName)
 		try {
 			resource.save(outputStream, emptyMap)
 		} finally {
