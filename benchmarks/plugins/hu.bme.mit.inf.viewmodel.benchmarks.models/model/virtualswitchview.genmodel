@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.viewmodel.benchmarks.models/emf-gen"
+    modelPluginID="hu.bme.mit.inf.viewmodel.benchmarks.models" modelName="VirtualSwitchView"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>virtualswitchview.ecore</foreignModel>
+  <genPackages prefix="VirtualSwitchView" basePackage="hu.bme.mit.inf.viewmodel.benchmarks.models"
+      disposableProviderFactory="true" ecorePackage="virtualswitchview.ecore#/">
+    <genClasses ecoreClass="virtualswitchview.ecore#//VirtualSwitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute virtualswitchview.ecore#//VirtualSwitch/countConnectedInFailure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference virtualswitchview.ecore#//VirtualSwitch/connectedTo"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

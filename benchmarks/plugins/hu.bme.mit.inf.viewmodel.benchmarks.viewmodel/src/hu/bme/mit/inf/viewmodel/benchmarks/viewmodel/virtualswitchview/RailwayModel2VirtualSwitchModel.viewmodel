@@ -1,0 +1,14 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.virtualswitchview
+
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.*
+
+rule virtualSwitches(_) => createVirtualSwitch(_);
+
+rule connectedTo(Left, Right) => connectVirtualSwitches(VirtualLeft, VirtualRight) {
+	lookup virtualSwitches(Left) => (VirtualLeft);
+	lookup virtualSwitches(Right) => (VirtualRight);
+}
+
+rule countConnectedInFailure(Switch, N) => setConnectedSwitchesInFailureCount(VirtualSwitch, N) {
+	lookup virtualSwitches(Switch) => (VirtualSwitch);
+}

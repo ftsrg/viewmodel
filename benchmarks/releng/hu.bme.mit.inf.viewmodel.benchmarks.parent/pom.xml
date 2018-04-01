@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hu.bme.mit.inf.viewmodel</groupId>
+		<artifactId>hu.bme.mit.inf.viewmodel.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../../../releng/hu.bme.mit.inf.viewmodel.parent/</relativePath>
+	</parent>
+	<artifactId>hu.bme.mit.inf.viewmodel.benchmarks.parent</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho-version>1.0.0</tycho-version>
+		<xtext-version>2.13.0</xtext-version>
+		<xtext-antlr-generator-version>[2.1.1, 3)</xtext-antlr-generator-version>
+		<emf-mwe2-launch-version>2.9.1.201705291010</emf-mwe2-launch-version>
+		<viatra-version>1.7.2</viatra-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>hu.bme.mit.inf.viewmodel</groupId>
+							<artifactId>hu.bme.mit.inf.viewmodel.benchmarks.target</artifactId>
+							<version>${project.version}</version>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

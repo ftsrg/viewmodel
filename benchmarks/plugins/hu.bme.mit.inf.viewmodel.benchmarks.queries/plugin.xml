@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.trackElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.semaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.route"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.switch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.setSwitchFailed"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.setSwitchOperational"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.PetriNetTemplates" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.PetriNetTemplates" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.PetriNetTemplates">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createPetriNet"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createRoute"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.setInitialMarking"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createSemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.connectRequiredElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createSensor"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createSensorGroup"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.connectSensorToGroup"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TrainBenchmarkQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TrainBenchmarkQueries" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TrainBenchmarkQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwayContainer"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.route"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRoute"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRoute"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeFollowsSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedSemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalSemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeSignalsSemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySensor"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeRequiresSensor"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeRequiresSensor2"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.TrainBenchmarkQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.TrainBenchmarkQueries" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.TrainBenchmarkQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.virtualSwitches"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.connectedTo"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.countConnectedInFailure"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.VirtualSwitchTemplates" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.VirtualSwitchTemplates" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.VirtualSwitchTemplates">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.createVirtualSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.connectVirtualSwitches"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.setConnectedSwitchesInFailureCount"/>
+    </group>
+  </extension>
+</plugin>

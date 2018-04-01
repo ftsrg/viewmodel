@@ -248,25 +248,6 @@
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>
-											org.eclipse.tycho.extras
-										</groupId>
-										<artifactId>
-											tycho-eclipserun-plugin
-										</artifactId>
-										<versionRange>
-											[1.0.0,)
-										</versionRange>
-										<goals>
-											<goal>eclipse-run</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
 											org.codehaus.mojo
 										</groupId>
 										<artifactId>

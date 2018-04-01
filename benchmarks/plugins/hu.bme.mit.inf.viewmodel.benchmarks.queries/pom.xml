@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>hu.bme.mit.inf.viewmodel</groupId>
-		<artifactId>hu.bme.mit.inf.viewmodel.parent</artifactId>
+		<artifactId>hu.bme.mit.inf.viewmodel.benchmarks.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>../../releng/hu.bme.mit.inf.viewmodel.parent/</relativePath>
+		<relativePath>../../releng/hu.bme.mit.inf.viewmodel.benchmarks.parent/</relativePath>
 	</parent>
-	<artifactId>hu.bme.mit.inf.viewmodel.runtime.queries</artifactId>
+	<artifactId>hu.bme.mit.inf.viewmodel.benchmarks.queries</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
 	<profiles>
@@ -43,13 +43,13 @@
 						<configuration>
 							<metamodels>
 								<metamodel>
-									<packageClass>org.eclipse.emf.ecore.EcorePackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.railway.RailwayPackage</packageClass>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModelPackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.stochasticpetrinet.StochasticPetriNetPackage</packageClass>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ViewModelTracePackage</packageClass>
+									<packageClass>hu.bme.mit.inf.viewmodel.benchmark.models.virtualswitchview.VirtualSwitchViewPackage</packageClass>
 								</metamodel>
 							</metamodels>
 						</configuration>

@@ -14,7 +14,9 @@
 		<profile>
 			<id>generate-xtext</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>!skipXtextGenerator</name>
+				</property>
 			</activation>
 			<build>
 				<plugins>

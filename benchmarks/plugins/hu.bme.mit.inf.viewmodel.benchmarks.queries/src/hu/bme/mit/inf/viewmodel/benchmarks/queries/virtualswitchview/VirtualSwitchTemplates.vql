@@ -1,0 +1,18 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview
+
+import "http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview"
+
+@Template
+pattern createVirtualSwitch(Switch : VirtualSwitch) {
+	VirtualSwitch(Switch);
+}
+
+@Template
+pattern connectVirtualSwitches(Left : VirtualSwitch, Right : VirtualSwitch) {
+	VirtualSwitch.connectedTo(Left, Right);
+}
+
+@Template
+pattern setConnectedSwitchesInFailureCount(Switch : VirtualSwitch, N : java Integer) {
+	VirtualSwitch.countConnectedInFailure(Switch, N);
+}

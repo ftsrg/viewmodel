@@ -1,0 +1,87 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet
+
+import "http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+
+pattern railwayContainer(Container : RailwayContainer) {
+	RailwayContainer(Container);
+}
+
+pattern route(Container : RailwayContainer, Route : Route) {
+	RailwayContainer.routes(Container, Route);
+}
+
+pattern failedRoute(Container : RailwayContainer, Route : Route) {
+	find routeFollowsSwitch(Container, Route, Switch);
+	find failedSwitch(_, Switch);
+} or {
+	find routeSignalsSemaphore(Container, Route, Semaphore);
+	find failedSemaphore(_, Semaphore);
+}
+
+pattern operationalRoute(Container : RailwayContainer, Route : Route) {
+	find route(Container, Route);
+	neg find failedRoute(Container, Route);
+}
+
+pattern railwaySwitch(Container : RailwayContainer, Switch : Switch) {
+	RailwayContainer.regions.elements(Container, Switch);
+}
+
+pattern failedSwitch(Container : RailwayContainer, Switch : Switch) {
+	find railwaySwitch(Container, Switch);
+	Switch.currentPosition(Switch, Position::FAILURE);
+}
+
+pattern operationalSwitch(Container : RailwayContainer, Switch : Switch) {
+	find railwaySwitch(Container, Switch);
+	neg find failedSwitch(Container, Switch);
+}
+
+pattern routeFollowsSwitch(Container : RailwayContainer, Route : Route, Switch : Switch) {
+	find route(Container, Route);
+	find railwaySwitch(Container, Switch);
+	Route.follows(Route, Position);
+	Switch.positions(Switch, Position);
+}
+
+pattern railwaySemaphore(Container : RailwayContainer, Semaphore : Semaphore) {
+	RailwayContainer.regions.elements(Container, Segment);
+	Segment.semaphores(Segment, Semaphore);
+}
+
+pattern failedSemaphore(Container : RailwayContainer, Semaphore : Semaphore) {
+	find railwaySemaphore(Container, Semaphore);
+	Semaphore.signal(Semaphore, Signal::FAILURE);
+}
+
+pattern operationalSemaphore(Container : RailwayContainer, Semaphore : Semaphore) {
+	find railwaySemaphore(Container, Semaphore);
+	neg find failedSemaphore(Container, Semaphore);
+}
+
+pattern routeSignalsSemaphore(Container : RailwayContainer, Route : Route, Semaphore : Semaphore) {
+	find route(Container, Route);
+	find routeSignalsSemaphoreHelper(Route, Semaphore);
+}
+
+private pattern routeSignalsSemaphoreHelper(Route : Route, Semaphore : Semaphore) {
+	Route.entry(Route, Semaphore);
+} or {
+	Route.exit(Route, Semaphore);
+}
+
+pattern railwaySensor(Container : RailwayContainer, Sensor : Sensor) {
+	RailwayContainer.regions.sensors(Container, Sensor);
+}
+
+pattern routeRequiresSensor(Container : RailwayContainer, Route : Route, Element : TrackElement, Sensor : Sensor) {
+	find route(Container, Route);
+	find railwaySensor(Container, Sensor);
+	Route.requires(Route, Sensor);
+	Sensor.monitors(Sensor, Element);
+}
+
+pattern routeRequiresSensor2(Container : RailwayContainer, Route : Route, Sensor : Sensor) {
+	find routeRequiresSensor(Container, Route, _, Sensor);
+}
+

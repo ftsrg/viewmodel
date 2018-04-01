@@ -1,0 +1,46 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview
+
+import "http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+
+pattern virtualSwitches(Switch : Switch) {
+	neg find switchesInFailure(Switch);
+}
+
+pattern connectedTo(Left : Switch, Right : Switch) {
+	find virtualSwitches(Left);
+	find virtualSwitches(Right);
+	find connectedSwitches(Left, Right);
+}
+
+pattern countConnectedInFailure(Switch : Switch, N : java Integer) {
+	// Must suppress this match if the switch is in failure,
+	// otherwise a virtual switch will be nevertheless created.
+	find virtualSwitches(Switch);
+	N == count find connectedSwitchesInFailure(Switch, _);
+}
+
+private pattern switchesInFailure(Switch : Switch) {
+	Switch.currentPosition(Switch, Position::FAILURE);
+}
+
+private pattern connectedSwitches(Left : Switch, Right : Switch) {
+	TrackElement.connectsTo(Left, Right);
+} or {
+	TrackElement.connectsTo(Left, Segment);
+	Segment(Segment);
+	TrackElement.connectsTo(Segment, Right);
+} or {
+	TrackElement.connectsTo(Left, LeftSegment);
+	find connectedSegments+(LeftSegment, RightSegment);
+	TrackElement.connectsTo(RightSegment, Right);
+}
+
+private pattern connectedSegments(Left : Segment, Right : Segment) {
+	TrackElement.connectsTo(Left, Right);
+}
+
+private pattern connectedSwitchesInFailure(Left : Switch, Right : Switch) {
+	find connectedSwitches(Left, Right);
+	neg find switchesInFailure(Left);
+	find switchesInFailure(Right);
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated railway -->
+      <package
+            uri="http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayPackage"
+            genModel="model/railway.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated stochasticpetrinet -->
+      <package
+            uri="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.stochasticpetrinet.StochasticPetriNetPackage"
+            genModel="model/stochasticpetrinet.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated virtualswitchview -->
+      <package
+            uri="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.virtualswitchview.VirtualSwitchViewPackage"
+            genModel="model/virtualswitchview.genmodel"/>
+   </extension>
+
+</plugin>

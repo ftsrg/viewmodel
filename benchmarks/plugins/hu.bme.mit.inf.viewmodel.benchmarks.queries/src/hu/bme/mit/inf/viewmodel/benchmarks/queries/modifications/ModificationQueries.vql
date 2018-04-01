@@ -1,0 +1,27 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications
+
+import "http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+
+pattern trackElement(Element : TrackElement) {
+	TrackElement(Element);
+}
+
+pattern semaphore(Semaphore : Semaphore) {
+	Semaphore(Semaphore);
+}
+
+pattern route(Route : Route) {
+	Route(Route);
+}
+
+pattern ^switch(Switch : Switch) {
+	Switch(Switch);
+}
+
+pattern setSwitchFailed(Switch : Switch) {
+	neg find setSwitchOperational(Switch);
+}
+
+pattern setSwitchOperational(Switch : Switch) {
+	Switch.currentPosition(Switch, Position::FAILURE);
+}

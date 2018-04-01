@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="virtualswitchview" nsURI="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview"
+    nsPrefix="virtualswitchview">
+  <eClassifiers xsi:type="ecore:EClass" name="VirtualSwitch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="countConnectedInFailure"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//VirtualSwitch"/>
+  </eClassifiers>
+</ecore:EPackage>

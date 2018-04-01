@@ -25,4 +25,18 @@
 		<module>releng/hu.bme.mit.inf.viewmodel.target</module>
 		<module>releng/hu.bme.mit.inf.viewmodel.repository</module>
 	</modules>
+
+	<profiles>
+		<profile>
+			<id>benchmarks</id>
+			<activation>
+				<property>
+					<name>compileBenchmarks</name>
+				</property>
+			</activation>
+			<modules>
+				<module>benchmarks</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>

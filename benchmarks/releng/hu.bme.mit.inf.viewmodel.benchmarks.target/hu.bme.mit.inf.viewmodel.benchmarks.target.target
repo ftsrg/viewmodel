@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="hu.bme.mit.inf.viewmodel.benchmarks.target" sequenceNumber="64">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.ide" version="4.7.3.M20180301-0715"/>
+<unit id="org.eclipse.platform.sdk" version="4.7.3.M20180301-0715"/>
+<unit id="org.eclipse.sdk.ide" version="4.7.3.M20180301-0715"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20171013-1050"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/milestones/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.inject.multibindings.source" version="3.0.0.v201402270930"/>
+<unit id="com.google.inject.source" version="3.0.0.v201312141243"/>
+<unit id="javax.annotation" version="1.2.0.v201401042248"/>
+<unit id="javax.annotation.source" version="1.2.0.v201401042248"/>
+<unit id="org.hamcrest.library" version="1.3.0.v201505072020"/>
+<unit id="org.hamcrest.library.source" version="1.3.0.v201505072020"/>
+<unit id="org.slf4j.impl.log4j12" version="1.7.2.v20131105-2200"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170609-0928"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.13.3.v20180301-0715"/>
+<unit id="org.eclipse.pde.feature.group" version="3.13.3.v20180301-1154"/>
+<repository location="http://download.eclipse.org/releases/oxygen/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.viatra.query.sdk.extensions.feature.feature.group" version="0.17.2.201803211255"/>
+<unit id="org.eclipse.viatra.query.sdk.feature.source.feature.group" version="1.7.2.201803211255"/>
+<repository location="http://download.eclipse.org/viatra/updates/release/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.9.1.201705291011"/>
+<repository location="http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1"/>
+</location>
+</locations>
+</target>

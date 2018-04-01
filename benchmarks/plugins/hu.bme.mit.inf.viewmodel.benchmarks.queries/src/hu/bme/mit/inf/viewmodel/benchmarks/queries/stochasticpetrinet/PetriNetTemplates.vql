@@ -1,0 +1,114 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet
+
+import "http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet"
+
+@Template
+pattern createPetriNet(Net : PetriNet) {
+	PetriNet(Net);
+}
+
+@Template
+pattern createRoute(Net : PetriNet, Operational : Place, Failed : Place, Repair : Transition) {
+	find createPlace(Net, Operational);
+	find createPlace(Net, Failed);
+	PetriNet.nodes(Net, Repair);
+	find createArc(Repair, Failed, ArcKind::INPUT);
+	find createArc(Repair, Operational, ArcKind::OUTPUT);
+}
+
+@Template
+pattern setInitialMarking(Place : Place) {
+	Place.tokens(Place, 1);
+}
+
+@Template
+pattern createSwitch(Net : PetriNet, Operational : Place, Failed : Place) {
+	find createRepairModel(Net, Operational, Failed);
+}
+
+@Template
+pattern createSemaphore(Net : PetriNet, Operational : Place, Failed : Place) {
+	find createRepairModel(Net, Operational, Failed);
+}
+
+@Template
+pattern connectRequiredElement(
+	Net : PetriNet, SlaveUp : Place, SlaveDown : Place,
+	MasterUp : Place, MasterDown : Place, MasterRepair : ImmediateTransition
+) {
+	find createImmediateTransition(Net, MasterFail);
+	find createArc(MasterFail, SlaveDown, ArcKind::INPUT);
+	find createArc(MasterFail, SlaveDown, ArcKind::OUTPUT);
+	find createArc(MasterFail, MasterUp, ArcKind::INPUT);
+	find createArc(MasterFail, MasterDown, ArcKind::OUTPUT);
+	find createArc(MasterRepair, SlaveUp, ArcKind::INPUT);
+	find createArc(MasterRepair, SlaveUp, ArcKind::OUTPUT);
+}
+
+@Template
+pattern createSensor(Net : PetriNet, Operational : Place, Failed : Place) {
+	find createRepairModel(Net, Operational, Failed);
+	find setInitialMarking(Operational);
+}
+
+@Template
+pattern createSensorGroup(
+	Net : PetriNet, Operational : Place, Failed : Place, Fail : ImmediateTransition,
+	RouteUp : Place, RouteDown : Place, RouteRepair : Transition
+) {
+	find createPlace(Net, Operational);
+	find setInitialMarking(Operational);
+	find createPlace(Net, Failed);
+	find createImmediateTransition(Net, Fail);
+	find connectRequiredElement(Net, Operational, Failed, RouteUp, RouteDown, RouteRepair);
+}
+
+@Template
+pattern connectSensorToGroup(
+	Net : PetriNet, SensorUp : Place, SensorDown : Place,
+	GroupUp : Place, GroupDown : Place, GroupFail : Transition
+) {
+	find createImmediateTransition(Net, GroupRepair);
+	find createArc(GroupRepair, SensorUp, ArcKind::INPUT);
+	find createArc(GroupRepair, SensorUp, ArcKind::OUTPUT);
+	find createArc(GroupRepair, GroupUp, ArcKind::INPUT);
+	find createArc(GroupRepair, GroupDown, ArcKind::OUTPUT);
+	find createArc(GroupFail, SensorDown, ArcKind::INPUT);
+	find createArc(GroupFail, SensorDown, ArcKind::OUTPUT);
+}
+
+@Template
+private pattern createRepairModel(
+	Net : PetriNet, Operational : Place, Failed : Place
+) {
+	find createPlace(Net, Operational);
+	find createPlace(Net, Failed);
+	find createTimedTransition(Net, Fail);
+	find createArc(Fail, Operational, ArcKind::INPUT);
+	find createArc(Fail, Failed, ArcKind::OUTPUT);
+	find createTimedTransition(Net, Repair);
+	find createArc(Repair, Failed, ArcKind::INPUT);
+	find createArc(Repair, Operational, ArcKind::OUTPUT);
+}
+
+@Template
+private pattern createPlace(Net : PetriNet, Place : Place) {
+	PetriNet.nodes(Net, Place);
+}
+
+@Template
+private pattern createTimedTransition(Net : PetriNet, Tran : TimedTransition) {
+	PetriNet.nodes(Net, Tran);
+}
+
+@Template
+private pattern createImmediateTransition(Net : PetriNet, Tran : ImmediateTransition) {
+	PetriNet.nodes(Net, Tran);
+}
+
+@Template
+private pattern createArc(Tran : Transition, Place : Place, Kind : ArcKind) {
+	Arc.transition(Arc, Tran);
+	Arc.place(Arc, Place);
+	Arc.kind(Arc, Kind);
+}
