@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="hu.bme.mit.inf.viewmodel.benchmarks.target" sequenceNumber="66">
+<?pde version="3.8"?><target name="hu.bme.mit.inf.viewmodel.benchmarks.target" sequenceNumber="68">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.ide" version="4.7.3.M20180301-0715"/>
@@ -38,6 +38,12 @@
 <unit id="org.eclipse.jdt.feature.group" version="3.13.3.v20180301-0715"/>
 <unit id="org.eclipse.pde.feature.group" version="3.13.3.v20180301-1154"/>
 <repository location="http://download.eclipse.org/releases/oxygen/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.m2m.atl.emftvm.feature.group" version="3.8.0.v201705182014"/>
+<unit id="org.eclipse.m2m.atl.feature.group" version="3.8.0.v201705182014"/>
+<unit id="org.eclipse.m2m.atl.sdk.feature.group" version="3.8.0.v201705182014"/>
+<repository location="http://download.eclipse.org/mmt/atl/updates/releases/3.8"/>
 </location>
 </locations>
 </target>

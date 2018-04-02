@@ -1,0 +1,235 @@
+-- @path SPN=http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview
+-- @path Railway=http://www.semanticweb.org/ontologies/2015/trainbenchmark
+
+module TrainBenchmark2PetriNet;
+create OUT : SPN from IN : Railway;
+
+rule RailwayContainer {
+	from
+		railwayContainer : Railway!RailwayContainer
+	to
+		petriNet : SPN!PetriNet
+}
+
+rule Route {
+	from
+		route : Railway!Route
+	using {
+		isOperational : Boolean = route.follows->forAll(sp | sp.target.currentPosition <> #FAILURE) and
+			(if route.entry.oclIsUndefined() then true else route.entry.signal <> #FAILURE endif) and
+			(if route.exit.oclIsUndefined() then true else route.exit.signal <> #FAILURE endif);
+		operationalTokens : Integer = if (isOperational) then 1 else 0 endif;
+		railwayContainer : Railway!RailwayContainer = route.refImmediateComposite();
+	}
+	to
+		operational : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- operationalTokens
+		),
+		failed : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- 1 - operationalTokens
+		),
+		-- Type changed from abstract SPN!Transition to the concrete class.
+		repair : SPN!ImmediateTransition (
+			petriNet <- railwayContainer
+		),
+		failedToRepair : SPN!Arc (
+			kind <- #INPUT,
+			place <- failed,
+			transition <- repair
+		),
+		repairToOperational : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- operational,
+			transition <- repair
+		)
+	do {
+		for (element in route.follows->collect(p | p.target)->asSet()) {
+			thisModule.RequiredElement(route, element);
+		}
+		if (not route.entry.oclIsUndefined()) {
+			thisModule.RequiredElement(route, route.entry);
+		}
+		if (not route.exit.oclIsUndefined()) {
+			thisModule.RequiredElement(route, route.exit);
+		}
+		for (element in route.requires) {
+			thisModule.RequiredElement(route, element);
+		}
+	}
+}
+
+rule Switch {
+	from
+		switch : Railway!Switch
+	using {
+		isOperational : Boolean = switch.currentPosition <> #FAILURE;
+		operationalTokens : Integer = if (isOperational) then 1 else 0 endif;
+		railwayContainer : Railway!RailwayContainer = switch.refImmediateComposite().refImmediateComposite();
+	}
+	to
+		operational : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- operationalTokens
+		),
+		failed : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- 1 - operationalTokens
+		),
+		fail : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		repair : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		operationalToFail : SPN!Arc (
+			kind <- #INPUT,
+			place <- operational,
+			transition <- fail
+		),
+		failToFailed : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- failed,
+			transition <- fail
+		),
+		failedToRepair : SPN!Arc (
+			kind <- #INPUT,
+			place <- failed,
+			transition <- repair
+		),
+		repairToOperational : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- operational,
+			transition <- repair
+		)
+}
+
+rule Semaphore {
+	from
+		semaphore : Railway!Semaphore
+	using {
+		isOperational : Boolean = semaphore.signal <> #FAILURE;
+		operationalTokens : Integer = if (isOperational) then 1 else 0 endif;
+		railwayContainer : Railway!RailwayContainer = semaphore.refImmediateComposite().refImmediateComposite().refImmediateComposite();
+	}
+	to
+		operational : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- operationalTokens
+		),
+		failed : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- 1 - operationalTokens
+		),
+		fail : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		repair : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		operationalToFail : SPN!Arc (
+			kind <- #INPUT,
+			place <- operational,
+			transition <- fail
+		),
+		failToFailed : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- failed,
+			transition <- fail
+		),
+		failedToRepair : SPN!Arc (
+			kind <- #INPUT,
+			place <- failed,
+			transition <- repair
+		),
+		repairToOperational : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- operational,
+			transition <- repair
+		)
+}
+
+rule Sensor {
+	from
+		sensor : Railway!Sensor
+	using {
+		railwayContainer : Railway!RailwayContainer = sensor.refImmediateComposite().refImmediateComposite();
+	}
+	to
+		operational : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- 1
+		),
+		failed : SPN!Place (
+			petriNet <- railwayContainer,
+			tokens <- 0
+		),
+		fail : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		repair : SPN!TimedTransition (
+			petriNet <- railwayContainer
+		),
+		operationalToFail : SPN!Arc (
+			kind <- #INPUT,
+			place <- operational,
+			transition <- fail
+		),
+		failToFailed : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- failed,
+			transition <- fail
+		),
+		failedToRepair : SPN!Arc (
+			kind <- #INPUT,
+			place <- failed,
+			transition <- repair
+		),
+		repairToOperational : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- operational,
+			transition <- repair
+		)
+}
+
+rule RequiredElement(route : Railway!Route, element : Railway!RailwayElement) {
+	using {
+		railwayContainer : Railway!RailwayContainer = route.refImmediateComposite();
+	}
+	to
+		fail : SPN!ImmediateTransition (
+			petriNet <- railwayContainer
+		),
+		routeOperationalToFail : SPN!Arc (
+			kind <- #INPUT,
+			place <- route,
+			transition <- fail
+		),
+		failToRouteFailed : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- thisModule.resolveTemp(route, 'failed'),
+			transition <- fail
+		),
+		elementFailedToFail : SPN!Arc (
+			kind <- #INPUT,
+			place <- thisModule.resolveTemp(element, 'failed'),
+			transition <- fail
+		),
+		failToElementFailed : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- thisModule.resolveTemp(element, 'failed'),
+			transition <- fail
+		),
+		elementOperationalToRepair : SPN!Arc (
+			kind <- #INPUT,
+			place <- element,
+			transition <- thisModule.resolveTemp(route, 'repair')
+		),
+		repairToElementOperational : SPN!Arc (
+			kind <- #OUTPUT,
+			place <- element,
+			transition <- thisModule.resolveTemp(route, 'repair')
+		)
+}
+

@@ -1,0 +1,34 @@
+-- @path VS=http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview
+-- @path Railway=http://www.semanticweb.org/ontologies/2015/trainbenchmark
+
+module RailwayModel2VirtualSwitchModel;
+create OUT : VS from IN : Railway;
+
+helper def: connectsToDfs(elements : Set(Railway!TrackElement), visited : Set(Railway!TrackElement)) : Set(Railway!TrackElement) =
+	if (elements->isEmpty()) then
+		visited
+	else
+		let neighbors : Set(Railway!TrackElement) = elements->collect(e | e.connectsTo)->flatten().asSet() in
+		let visited2 : Set(Railway!TrackElement) = visited->union(neighbors) in
+		let elements2 : Set(Railway!TrackElement) = (neighbors - visited)->select(e | e.oclIsKindOf(Railway!Segment)) in
+		thisModule.connectsToDfs(elements2, visited2)
+	endif;
+
+helper context Railway!Switch def: connectedSwitches() : Set(Railway!Switch) =
+	thisModule.connectsToDfs(Set{self}, Set{self})->select(e | e.oclIsKindOf(Railway!Switch))->excluding(self);
+
+rule Switch {
+	from
+		switch : Railway!Switch (
+			switch.currentPosition <> #FAILURE
+		)
+	using {
+		connectedSwitches : Set(Railway!Switch) = switch.connectedSwitches();
+		connectedInFailure : Integer = connectedSwitches->select(s | s.currentPosition = #FAILURE)->size();
+	}
+	to
+		virtualSwitch : VS!VirtualSwitch (
+			connectedTo <- connectedSwitches->select(s | s.currentPosition <> #FAILURE),
+			countConnectedInFailure <- connectedInFailure
+		)
+}

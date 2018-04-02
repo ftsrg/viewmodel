@@ -1,0 +1,3529 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<stochasticpetrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stochasticpetrinet="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet">
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.1"/>
+    <arcs place="//@nodes.0" kind="OUTPUT"/>
+    <arcs place="//@nodes.159"/>
+    <arcs place="//@nodes.159" kind="OUTPUT"/>
+    <arcs place="//@nodes.163"/>
+    <arcs place="//@nodes.163" kind="OUTPUT"/>
+    <arcs place="//@nodes.167"/>
+    <arcs place="//@nodes.167" kind="OUTPUT"/>
+    <arcs place="//@nodes.15"/>
+    <arcs place="//@nodes.15" kind="OUTPUT"/>
+    <arcs place="//@nodes.139"/>
+    <arcs place="//@nodes.139" kind="OUTPUT"/>
+    <arcs place="//@nodes.155"/>
+    <arcs place="//@nodes.155" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.4"/>
+    <arcs place="//@nodes.3" kind="OUTPUT"/>
+    <arcs place="//@nodes.139"/>
+    <arcs place="//@nodes.139" kind="OUTPUT"/>
+    <arcs place="//@nodes.171"/>
+    <arcs place="//@nodes.171" kind="OUTPUT"/>
+    <arcs place="//@nodes.175"/>
+    <arcs place="//@nodes.175" kind="OUTPUT"/>
+    <arcs place="//@nodes.179"/>
+    <arcs place="//@nodes.179" kind="OUTPUT"/>
+    <arcs place="//@nodes.183"/>
+    <arcs place="//@nodes.183" kind="OUTPUT"/>
+    <arcs place="//@nodes.187"/>
+    <arcs place="//@nodes.187" kind="OUTPUT"/>
+    <arcs place="//@nodes.191"/>
+    <arcs place="//@nodes.191" kind="OUTPUT"/>
+    <arcs place="//@nodes.195"/>
+    <arcs place="//@nodes.195" kind="OUTPUT"/>
+    <arcs place="//@nodes.199"/>
+    <arcs place="//@nodes.199" kind="OUTPUT"/>
+    <arcs place="//@nodes.203"/>
+    <arcs place="//@nodes.203" kind="OUTPUT"/>
+    <arcs place="//@nodes.207"/>
+    <arcs place="//@nodes.207" kind="OUTPUT"/>
+    <arcs place="//@nodes.211"/>
+    <arcs place="//@nodes.211" kind="OUTPUT"/>
+    <arcs place="//@nodes.215"/>
+    <arcs place="//@nodes.215" kind="OUTPUT"/>
+    <arcs place="//@nodes.219"/>
+    <arcs place="//@nodes.219" kind="OUTPUT"/>
+    <arcs place="//@nodes.223"/>
+    <arcs place="//@nodes.223" kind="OUTPUT"/>
+    <arcs place="//@nodes.227"/>
+    <arcs place="//@nodes.227" kind="OUTPUT"/>
+    <arcs place="//@nodes.231"/>
+    <arcs place="//@nodes.231" kind="OUTPUT"/>
+    <arcs place="//@nodes.235"/>
+    <arcs place="//@nodes.235" kind="OUTPUT"/>
+    <arcs place="//@nodes.239"/>
+    <arcs place="//@nodes.239" kind="OUTPUT"/>
+    <arcs place="//@nodes.243"/>
+    <arcs place="//@nodes.243" kind="OUTPUT"/>
+    <arcs place="//@nodes.247"/>
+    <arcs place="//@nodes.247" kind="OUTPUT"/>
+    <arcs place="//@nodes.251"/>
+    <arcs place="//@nodes.251" kind="OUTPUT"/>
+    <arcs place="//@nodes.255"/>
+    <arcs place="//@nodes.255" kind="OUTPUT"/>
+    <arcs place="//@nodes.259"/>
+    <arcs place="//@nodes.259" kind="OUTPUT"/>
+    <arcs place="//@nodes.263"/>
+    <arcs place="//@nodes.263" kind="OUTPUT"/>
+    <arcs place="//@nodes.267"/>
+    <arcs place="//@nodes.267" kind="OUTPUT"/>
+    <arcs place="//@nodes.271"/>
+    <arcs place="//@nodes.271" kind="OUTPUT"/>
+    <arcs place="//@nodes.275"/>
+    <arcs place="//@nodes.275" kind="OUTPUT"/>
+    <arcs place="//@nodes.279"/>
+    <arcs place="//@nodes.279" kind="OUTPUT"/>
+    <arcs place="//@nodes.19"/>
+    <arcs place="//@nodes.19" kind="OUTPUT"/>
+    <arcs place="//@nodes.143"/>
+    <arcs place="//@nodes.143" kind="OUTPUT"/>
+    <arcs place="//@nodes.23"/>
+    <arcs place="//@nodes.23" kind="OUTPUT"/>
+    <arcs place="//@nodes.27"/>
+    <arcs place="//@nodes.27" kind="OUTPUT"/>
+    <arcs place="//@nodes.31"/>
+    <arcs place="//@nodes.31" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.7"/>
+    <arcs place="//@nodes.6" kind="OUTPUT"/>
+    <arcs place="//@nodes.143"/>
+    <arcs place="//@nodes.143" kind="OUTPUT"/>
+    <arcs place="//@nodes.283"/>
+    <arcs place="//@nodes.283" kind="OUTPUT"/>
+    <arcs place="//@nodes.287"/>
+    <arcs place="//@nodes.287" kind="OUTPUT"/>
+    <arcs place="//@nodes.291"/>
+    <arcs place="//@nodes.291" kind="OUTPUT"/>
+    <arcs place="//@nodes.295"/>
+    <arcs place="//@nodes.295" kind="OUTPUT"/>
+    <arcs place="//@nodes.299"/>
+    <arcs place="//@nodes.299" kind="OUTPUT"/>
+    <arcs place="//@nodes.303"/>
+    <arcs place="//@nodes.303" kind="OUTPUT"/>
+    <arcs place="//@nodes.307"/>
+    <arcs place="//@nodes.307" kind="OUTPUT"/>
+    <arcs place="//@nodes.35"/>
+    <arcs place="//@nodes.35" kind="OUTPUT"/>
+    <arcs place="//@nodes.147"/>
+    <arcs place="//@nodes.147" kind="OUTPUT"/>
+    <arcs place="//@nodes.39"/>
+    <arcs place="//@nodes.39" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.10"/>
+    <arcs place="//@nodes.9" kind="OUTPUT"/>
+    <arcs place="//@nodes.147"/>
+    <arcs place="//@nodes.147" kind="OUTPUT"/>
+    <arcs place="//@nodes.311"/>
+    <arcs place="//@nodes.311" kind="OUTPUT"/>
+    <arcs place="//@nodes.315"/>
+    <arcs place="//@nodes.315" kind="OUTPUT"/>
+    <arcs place="//@nodes.319"/>
+    <arcs place="//@nodes.319" kind="OUTPUT"/>
+    <arcs place="//@nodes.323"/>
+    <arcs place="//@nodes.323" kind="OUTPUT"/>
+    <arcs place="//@nodes.327"/>
+    <arcs place="//@nodes.327" kind="OUTPUT"/>
+    <arcs place="//@nodes.331"/>
+    <arcs place="//@nodes.331" kind="OUTPUT"/>
+    <arcs place="//@nodes.335"/>
+    <arcs place="//@nodes.335" kind="OUTPUT"/>
+    <arcs place="//@nodes.339"/>
+    <arcs place="//@nodes.339" kind="OUTPUT"/>
+    <arcs place="//@nodes.343"/>
+    <arcs place="//@nodes.343" kind="OUTPUT"/>
+    <arcs place="//@nodes.347"/>
+    <arcs place="//@nodes.347" kind="OUTPUT"/>
+    <arcs place="//@nodes.351"/>
+    <arcs place="//@nodes.351" kind="OUTPUT"/>
+    <arcs place="//@nodes.355"/>
+    <arcs place="//@nodes.355" kind="OUTPUT"/>
+    <arcs place="//@nodes.359"/>
+    <arcs place="//@nodes.359" kind="OUTPUT"/>
+    <arcs place="//@nodes.363"/>
+    <arcs place="//@nodes.363" kind="OUTPUT"/>
+    <arcs place="//@nodes.367"/>
+    <arcs place="//@nodes.367" kind="OUTPUT"/>
+    <arcs place="//@nodes.371"/>
+    <arcs place="//@nodes.371" kind="OUTPUT"/>
+    <arcs place="//@nodes.375"/>
+    <arcs place="//@nodes.375" kind="OUTPUT"/>
+    <arcs place="//@nodes.379"/>
+    <arcs place="//@nodes.379" kind="OUTPUT"/>
+    <arcs place="//@nodes.383"/>
+    <arcs place="//@nodes.383" kind="OUTPUT"/>
+    <arcs place="//@nodes.387"/>
+    <arcs place="//@nodes.387" kind="OUTPUT"/>
+    <arcs place="//@nodes.391"/>
+    <arcs place="//@nodes.391" kind="OUTPUT"/>
+    <arcs place="//@nodes.395"/>
+    <arcs place="//@nodes.395" kind="OUTPUT"/>
+    <arcs place="//@nodes.399"/>
+    <arcs place="//@nodes.399" kind="OUTPUT"/>
+    <arcs place="//@nodes.403"/>
+    <arcs place="//@nodes.403" kind="OUTPUT"/>
+    <arcs place="//@nodes.407"/>
+    <arcs place="//@nodes.407" kind="OUTPUT"/>
+    <arcs place="//@nodes.411"/>
+    <arcs place="//@nodes.411" kind="OUTPUT"/>
+    <arcs place="//@nodes.415"/>
+    <arcs place="//@nodes.415" kind="OUTPUT"/>
+    <arcs place="//@nodes.419"/>
+    <arcs place="//@nodes.419" kind="OUTPUT"/>
+    <arcs place="//@nodes.423"/>
+    <arcs place="//@nodes.423" kind="OUTPUT"/>
+    <arcs place="//@nodes.427"/>
+    <arcs place="//@nodes.427" kind="OUTPUT"/>
+    <arcs place="//@nodes.431"/>
+    <arcs place="//@nodes.431" kind="OUTPUT"/>
+    <arcs place="//@nodes.435"/>
+    <arcs place="//@nodes.435" kind="OUTPUT"/>
+    <arcs place="//@nodes.439"/>
+    <arcs place="//@nodes.439" kind="OUTPUT"/>
+    <arcs place="//@nodes.443"/>
+    <arcs place="//@nodes.443" kind="OUTPUT"/>
+    <arcs place="//@nodes.447"/>
+    <arcs place="//@nodes.447" kind="OUTPUT"/>
+    <arcs place="//@nodes.451"/>
+    <arcs place="//@nodes.451" kind="OUTPUT"/>
+    <arcs place="//@nodes.455"/>
+    <arcs place="//@nodes.455" kind="OUTPUT"/>
+    <arcs place="//@nodes.459"/>
+    <arcs place="//@nodes.459" kind="OUTPUT"/>
+    <arcs place="//@nodes.463"/>
+    <arcs place="//@nodes.463" kind="OUTPUT"/>
+    <arcs place="//@nodes.467"/>
+    <arcs place="//@nodes.467" kind="OUTPUT"/>
+    <arcs place="//@nodes.471"/>
+    <arcs place="//@nodes.471" kind="OUTPUT"/>
+    <arcs place="//@nodes.475"/>
+    <arcs place="//@nodes.475" kind="OUTPUT"/>
+    <arcs place="//@nodes.479"/>
+    <arcs place="//@nodes.479" kind="OUTPUT"/>
+    <arcs place="//@nodes.483"/>
+    <arcs place="//@nodes.483" kind="OUTPUT"/>
+    <arcs place="//@nodes.43"/>
+    <arcs place="//@nodes.43" kind="OUTPUT"/>
+    <arcs place="//@nodes.151"/>
+    <arcs place="//@nodes.151" kind="OUTPUT"/>
+    <arcs place="//@nodes.47"/>
+    <arcs place="//@nodes.47" kind="OUTPUT"/>
+    <arcs place="//@nodes.51"/>
+    <arcs place="//@nodes.51" kind="OUTPUT"/>
+    <arcs place="//@nodes.55"/>
+    <arcs place="//@nodes.55" kind="OUTPUT"/>
+    <arcs place="//@nodes.59"/>
+    <arcs place="//@nodes.59" kind="OUTPUT"/>
+    <arcs place="//@nodes.63"/>
+    <arcs place="//@nodes.63" kind="OUTPUT"/>
+    <arcs place="//@nodes.67"/>
+    <arcs place="//@nodes.67" kind="OUTPUT"/>
+    <arcs place="//@nodes.71"/>
+    <arcs place="//@nodes.71" kind="OUTPUT"/>
+    <arcs place="//@nodes.75"/>
+    <arcs place="//@nodes.75" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.13"/>
+    <arcs place="//@nodes.12" kind="OUTPUT"/>
+    <arcs place="//@nodes.151"/>
+    <arcs place="//@nodes.151" kind="OUTPUT"/>
+    <arcs place="//@nodes.487"/>
+    <arcs place="//@nodes.487" kind="OUTPUT"/>
+    <arcs place="//@nodes.491"/>
+    <arcs place="//@nodes.491" kind="OUTPUT"/>
+    <arcs place="//@nodes.495"/>
+    <arcs place="//@nodes.495" kind="OUTPUT"/>
+    <arcs place="//@nodes.499"/>
+    <arcs place="//@nodes.499" kind="OUTPUT"/>
+    <arcs place="//@nodes.503"/>
+    <arcs place="//@nodes.503" kind="OUTPUT"/>
+    <arcs place="//@nodes.507"/>
+    <arcs place="//@nodes.507" kind="OUTPUT"/>
+    <arcs place="//@nodes.511"/>
+    <arcs place="//@nodes.511" kind="OUTPUT"/>
+    <arcs place="//@nodes.515"/>
+    <arcs place="//@nodes.515" kind="OUTPUT"/>
+    <arcs place="//@nodes.519"/>
+    <arcs place="//@nodes.519" kind="OUTPUT"/>
+    <arcs place="//@nodes.523"/>
+    <arcs place="//@nodes.523" kind="OUTPUT"/>
+    <arcs place="//@nodes.527"/>
+    <arcs place="//@nodes.527" kind="OUTPUT"/>
+    <arcs place="//@nodes.531"/>
+    <arcs place="//@nodes.531" kind="OUTPUT"/>
+    <arcs place="//@nodes.535"/>
+    <arcs place="//@nodes.535" kind="OUTPUT"/>
+    <arcs place="//@nodes.539"/>
+    <arcs place="//@nodes.539" kind="OUTPUT"/>
+    <arcs place="//@nodes.543"/>
+    <arcs place="//@nodes.543" kind="OUTPUT"/>
+    <arcs place="//@nodes.547"/>
+    <arcs place="//@nodes.547" kind="OUTPUT"/>
+    <arcs place="//@nodes.551"/>
+    <arcs place="//@nodes.551" kind="OUTPUT"/>
+    <arcs place="//@nodes.555"/>
+    <arcs place="//@nodes.555" kind="OUTPUT"/>
+    <arcs place="//@nodes.559"/>
+    <arcs place="//@nodes.559" kind="OUTPUT"/>
+    <arcs place="//@nodes.563"/>
+    <arcs place="//@nodes.563" kind="OUTPUT"/>
+    <arcs place="//@nodes.567"/>
+    <arcs place="//@nodes.567" kind="OUTPUT"/>
+    <arcs place="//@nodes.571"/>
+    <arcs place="//@nodes.571" kind="OUTPUT"/>
+    <arcs place="//@nodes.575"/>
+    <arcs place="//@nodes.575" kind="OUTPUT"/>
+    <arcs place="//@nodes.579"/>
+    <arcs place="//@nodes.579" kind="OUTPUT"/>
+    <arcs place="//@nodes.583"/>
+    <arcs place="//@nodes.583" kind="OUTPUT"/>
+    <arcs place="//@nodes.587"/>
+    <arcs place="//@nodes.587" kind="OUTPUT"/>
+    <arcs place="//@nodes.591"/>
+    <arcs place="//@nodes.591" kind="OUTPUT"/>
+    <arcs place="//@nodes.595"/>
+    <arcs place="//@nodes.595" kind="OUTPUT"/>
+    <arcs place="//@nodes.599"/>
+    <arcs place="//@nodes.599" kind="OUTPUT"/>
+    <arcs place="//@nodes.603"/>
+    <arcs place="//@nodes.603" kind="OUTPUT"/>
+    <arcs place="//@nodes.607"/>
+    <arcs place="//@nodes.607" kind="OUTPUT"/>
+    <arcs place="//@nodes.611"/>
+    <arcs place="//@nodes.611" kind="OUTPUT"/>
+    <arcs place="//@nodes.615"/>
+    <arcs place="//@nodes.615" kind="OUTPUT"/>
+    <arcs place="//@nodes.619"/>
+    <arcs place="//@nodes.619" kind="OUTPUT"/>
+    <arcs place="//@nodes.623"/>
+    <arcs place="//@nodes.623" kind="OUTPUT"/>
+    <arcs place="//@nodes.627"/>
+    <arcs place="//@nodes.627" kind="OUTPUT"/>
+    <arcs place="//@nodes.631"/>
+    <arcs place="//@nodes.631" kind="OUTPUT"/>
+    <arcs place="//@nodes.635"/>
+    <arcs place="//@nodes.635" kind="OUTPUT"/>
+    <arcs place="//@nodes.639"/>
+    <arcs place="//@nodes.639" kind="OUTPUT"/>
+    <arcs place="//@nodes.643"/>
+    <arcs place="//@nodes.643" kind="OUTPUT"/>
+    <arcs place="//@nodes.647"/>
+    <arcs place="//@nodes.647" kind="OUTPUT"/>
+    <arcs place="//@nodes.651"/>
+    <arcs place="//@nodes.651" kind="OUTPUT"/>
+    <arcs place="//@nodes.655"/>
+    <arcs place="//@nodes.655" kind="OUTPUT"/>
+    <arcs place="//@nodes.659"/>
+    <arcs place="//@nodes.659" kind="OUTPUT"/>
+    <arcs place="//@nodes.663"/>
+    <arcs place="//@nodes.663" kind="OUTPUT"/>
+    <arcs place="//@nodes.667"/>
+    <arcs place="//@nodes.667" kind="OUTPUT"/>
+    <arcs place="//@nodes.671"/>
+    <arcs place="//@nodes.671" kind="OUTPUT"/>
+    <arcs place="//@nodes.675"/>
+    <arcs place="//@nodes.675" kind="OUTPUT"/>
+    <arcs place="//@nodes.679"/>
+    <arcs place="//@nodes.679" kind="OUTPUT"/>
+    <arcs place="//@nodes.683"/>
+    <arcs place="//@nodes.683" kind="OUTPUT"/>
+    <arcs place="//@nodes.687"/>
+    <arcs place="//@nodes.687" kind="OUTPUT"/>
+    <arcs place="//@nodes.691"/>
+    <arcs place="//@nodes.691" kind="OUTPUT"/>
+    <arcs place="//@nodes.695"/>
+    <arcs place="//@nodes.695" kind="OUTPUT"/>
+    <arcs place="//@nodes.699"/>
+    <arcs place="//@nodes.699" kind="OUTPUT"/>
+    <arcs place="//@nodes.703"/>
+    <arcs place="//@nodes.703" kind="OUTPUT"/>
+    <arcs place="//@nodes.707"/>
+    <arcs place="//@nodes.707" kind="OUTPUT"/>
+    <arcs place="//@nodes.711"/>
+    <arcs place="//@nodes.711" kind="OUTPUT"/>
+    <arcs place="//@nodes.715"/>
+    <arcs place="//@nodes.715" kind="OUTPUT"/>
+    <arcs place="//@nodes.719"/>
+    <arcs place="//@nodes.719" kind="OUTPUT"/>
+    <arcs place="//@nodes.723"/>
+    <arcs place="//@nodes.723" kind="OUTPUT"/>
+    <arcs place="//@nodes.727"/>
+    <arcs place="//@nodes.727" kind="OUTPUT"/>
+    <arcs place="//@nodes.731"/>
+    <arcs place="//@nodes.731" kind="OUTPUT"/>
+    <arcs place="//@nodes.735"/>
+    <arcs place="//@nodes.735" kind="OUTPUT"/>
+    <arcs place="//@nodes.739"/>
+    <arcs place="//@nodes.739" kind="OUTPUT"/>
+    <arcs place="//@nodes.743"/>
+    <arcs place="//@nodes.743" kind="OUTPUT"/>
+    <arcs place="//@nodes.747"/>
+    <arcs place="//@nodes.747" kind="OUTPUT"/>
+    <arcs place="//@nodes.751"/>
+    <arcs place="//@nodes.751" kind="OUTPUT"/>
+    <arcs place="//@nodes.755"/>
+    <arcs place="//@nodes.755" kind="OUTPUT"/>
+    <arcs place="//@nodes.759"/>
+    <arcs place="//@nodes.759" kind="OUTPUT"/>
+    <arcs place="//@nodes.763"/>
+    <arcs place="//@nodes.763" kind="OUTPUT"/>
+    <arcs place="//@nodes.767"/>
+    <arcs place="//@nodes.767" kind="OUTPUT"/>
+    <arcs place="//@nodes.771"/>
+    <arcs place="//@nodes.771" kind="OUTPUT"/>
+    <arcs place="//@nodes.775"/>
+    <arcs place="//@nodes.775" kind="OUTPUT"/>
+    <arcs place="//@nodes.779"/>
+    <arcs place="//@nodes.779" kind="OUTPUT"/>
+    <arcs place="//@nodes.79"/>
+    <arcs place="//@nodes.79" kind="OUTPUT"/>
+    <arcs place="//@nodes.155"/>
+    <arcs place="//@nodes.155" kind="OUTPUT"/>
+    <arcs place="//@nodes.83"/>
+    <arcs place="//@nodes.83" kind="OUTPUT"/>
+    <arcs place="//@nodes.87"/>
+    <arcs place="//@nodes.87" kind="OUTPUT"/>
+    <arcs place="//@nodes.91"/>
+    <arcs place="//@nodes.91" kind="OUTPUT"/>
+    <arcs place="//@nodes.95"/>
+    <arcs place="//@nodes.95" kind="OUTPUT"/>
+    <arcs place="//@nodes.99"/>
+    <arcs place="//@nodes.99" kind="OUTPUT"/>
+    <arcs place="//@nodes.103"/>
+    <arcs place="//@nodes.103" kind="OUTPUT"/>
+    <arcs place="//@nodes.107"/>
+    <arcs place="//@nodes.107" kind="OUTPUT"/>
+    <arcs place="//@nodes.111"/>
+    <arcs place="//@nodes.111" kind="OUTPUT"/>
+    <arcs place="//@nodes.115"/>
+    <arcs place="//@nodes.115" kind="OUTPUT"/>
+    <arcs place="//@nodes.119"/>
+    <arcs place="//@nodes.119" kind="OUTPUT"/>
+    <arcs place="//@nodes.123"/>
+    <arcs place="//@nodes.123" kind="OUTPUT"/>
+    <arcs place="//@nodes.127"/>
+    <arcs place="//@nodes.127" kind="OUTPUT"/>
+    <arcs place="//@nodes.131"/>
+    <arcs place="//@nodes.131" kind="OUTPUT"/>
+    <arcs place="//@nodes.135"/>
+    <arcs place="//@nodes.135" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.15"/>
+    <arcs place="//@nodes.16" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.16"/>
+    <arcs place="//@nodes.15" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.19"/>
+    <arcs place="//@nodes.20" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.20"/>
+    <arcs place="//@nodes.19" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.23"/>
+    <arcs place="//@nodes.24" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.24"/>
+    <arcs place="//@nodes.23" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.27"/>
+    <arcs place="//@nodes.28" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.28"/>
+    <arcs place="//@nodes.27" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.31"/>
+    <arcs place="//@nodes.32" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.32"/>
+    <arcs place="//@nodes.31" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.35"/>
+    <arcs place="//@nodes.36" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.36"/>
+    <arcs place="//@nodes.35" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.39"/>
+    <arcs place="//@nodes.40" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.40"/>
+    <arcs place="//@nodes.39" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.43"/>
+    <arcs place="//@nodes.44" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.44"/>
+    <arcs place="//@nodes.43" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.47"/>
+    <arcs place="//@nodes.48" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.48"/>
+    <arcs place="//@nodes.47" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.51"/>
+    <arcs place="//@nodes.52" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.52"/>
+    <arcs place="//@nodes.51" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.55"/>
+    <arcs place="//@nodes.56" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.56"/>
+    <arcs place="//@nodes.55" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.59"/>
+    <arcs place="//@nodes.60" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.60"/>
+    <arcs place="//@nodes.59" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.63"/>
+    <arcs place="//@nodes.64" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.64"/>
+    <arcs place="//@nodes.63" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.67"/>
+    <arcs place="//@nodes.68" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.68"/>
+    <arcs place="//@nodes.67" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.71"/>
+    <arcs place="//@nodes.72" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.72"/>
+    <arcs place="//@nodes.71" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.75"/>
+    <arcs place="//@nodes.76" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.76"/>
+    <arcs place="//@nodes.75" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.79"/>
+    <arcs place="//@nodes.80" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.80"/>
+    <arcs place="//@nodes.79" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.83"/>
+    <arcs place="//@nodes.84" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.84"/>
+    <arcs place="//@nodes.83" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.87"/>
+    <arcs place="//@nodes.88" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.88"/>
+    <arcs place="//@nodes.87" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.91"/>
+    <arcs place="//@nodes.92" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.92"/>
+    <arcs place="//@nodes.91" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.95"/>
+    <arcs place="//@nodes.96" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.96"/>
+    <arcs place="//@nodes.95" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.99"/>
+    <arcs place="//@nodes.100" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.100"/>
+    <arcs place="//@nodes.99" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.103"/>
+    <arcs place="//@nodes.104" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.104"/>
+    <arcs place="//@nodes.103" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.107"/>
+    <arcs place="//@nodes.108" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.108"/>
+    <arcs place="//@nodes.107" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.111"/>
+    <arcs place="//@nodes.112" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.112"/>
+    <arcs place="//@nodes.111" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.115"/>
+    <arcs place="//@nodes.116" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.116"/>
+    <arcs place="//@nodes.115" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.119"/>
+    <arcs place="//@nodes.120" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.120"/>
+    <arcs place="//@nodes.119" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.123"/>
+    <arcs place="//@nodes.124" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.124"/>
+    <arcs place="//@nodes.123" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.127"/>
+    <arcs place="//@nodes.128" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.128"/>
+    <arcs place="//@nodes.127" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.131"/>
+    <arcs place="//@nodes.132" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.132"/>
+    <arcs place="//@nodes.131" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.135"/>
+    <arcs place="//@nodes.136" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.136"/>
+    <arcs place="//@nodes.135" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.139"/>
+    <arcs place="//@nodes.140" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.140"/>
+    <arcs place="//@nodes.139" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.143"/>
+    <arcs place="//@nodes.144" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.144"/>
+    <arcs place="//@nodes.143" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.147"/>
+    <arcs place="//@nodes.148" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.148"/>
+    <arcs place="//@nodes.147" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.151"/>
+    <arcs place="//@nodes.152" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.152"/>
+    <arcs place="//@nodes.151" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.155"/>
+    <arcs place="//@nodes.156" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.156"/>
+    <arcs place="//@nodes.155" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.159"/>
+    <arcs place="//@nodes.160" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.160"/>
+    <arcs place="//@nodes.159" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.163"/>
+    <arcs place="//@nodes.164" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.164"/>
+    <arcs place="//@nodes.163" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.167"/>
+    <arcs place="//@nodes.168" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.168"/>
+    <arcs place="//@nodes.167" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.171"/>
+    <arcs place="//@nodes.172" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.172"/>
+    <arcs place="//@nodes.171" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.175"/>
+    <arcs place="//@nodes.176" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.176"/>
+    <arcs place="//@nodes.175" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.179"/>
+    <arcs place="//@nodes.180" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.180"/>
+    <arcs place="//@nodes.179" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.183"/>
+    <arcs place="//@nodes.184" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.184"/>
+    <arcs place="//@nodes.183" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.187"/>
+    <arcs place="//@nodes.188" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.188"/>
+    <arcs place="//@nodes.187" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.191"/>
+    <arcs place="//@nodes.192" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.192"/>
+    <arcs place="//@nodes.191" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.195"/>
+    <arcs place="//@nodes.196" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.196"/>
+    <arcs place="//@nodes.195" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.199"/>
+    <arcs place="//@nodes.200" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.200"/>
+    <arcs place="//@nodes.199" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.203"/>
+    <arcs place="//@nodes.204" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.204"/>
+    <arcs place="//@nodes.203" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.207"/>
+    <arcs place="//@nodes.208" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.208"/>
+    <arcs place="//@nodes.207" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.211"/>
+    <arcs place="//@nodes.212" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.212"/>
+    <arcs place="//@nodes.211" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.215"/>
+    <arcs place="//@nodes.216" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.216"/>
+    <arcs place="//@nodes.215" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.219"/>
+    <arcs place="//@nodes.220" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.220"/>
+    <arcs place="//@nodes.219" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.223"/>
+    <arcs place="//@nodes.224" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.224"/>
+    <arcs place="//@nodes.223" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.227"/>
+    <arcs place="//@nodes.228" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.228"/>
+    <arcs place="//@nodes.227" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.231"/>
+    <arcs place="//@nodes.232" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.232"/>
+    <arcs place="//@nodes.231" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.235"/>
+    <arcs place="//@nodes.236" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.236"/>
+    <arcs place="//@nodes.235" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.239"/>
+    <arcs place="//@nodes.240" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.240"/>
+    <arcs place="//@nodes.239" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.243"/>
+    <arcs place="//@nodes.244" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.244"/>
+    <arcs place="//@nodes.243" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.247"/>
+    <arcs place="//@nodes.248" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.248"/>
+    <arcs place="//@nodes.247" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.251"/>
+    <arcs place="//@nodes.252" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.252"/>
+    <arcs place="//@nodes.251" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.255"/>
+    <arcs place="//@nodes.256" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.256"/>
+    <arcs place="//@nodes.255" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.259"/>
+    <arcs place="//@nodes.260" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.260"/>
+    <arcs place="//@nodes.259" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.263"/>
+    <arcs place="//@nodes.264" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.264"/>
+    <arcs place="//@nodes.263" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.267"/>
+    <arcs place="//@nodes.268" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.268"/>
+    <arcs place="//@nodes.267" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.271"/>
+    <arcs place="//@nodes.272" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.272"/>
+    <arcs place="//@nodes.271" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.275"/>
+    <arcs place="//@nodes.276" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.276"/>
+    <arcs place="//@nodes.275" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.279"/>
+    <arcs place="//@nodes.280" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.280"/>
+    <arcs place="//@nodes.279" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.283"/>
+    <arcs place="//@nodes.284" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.284"/>
+    <arcs place="//@nodes.283" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.287"/>
+    <arcs place="//@nodes.288" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.288"/>
+    <arcs place="//@nodes.287" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.291"/>
+    <arcs place="//@nodes.292" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.292"/>
+    <arcs place="//@nodes.291" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.295"/>
+    <arcs place="//@nodes.296" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.296"/>
+    <arcs place="//@nodes.295" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.299"/>
+    <arcs place="//@nodes.300" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.300"/>
+    <arcs place="//@nodes.299" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.303"/>
+    <arcs place="//@nodes.304" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.304"/>
+    <arcs place="//@nodes.303" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.307"/>
+    <arcs place="//@nodes.308" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.308"/>
+    <arcs place="//@nodes.307" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.311"/>
+    <arcs place="//@nodes.312" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.312"/>
+    <arcs place="//@nodes.311" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.315"/>
+    <arcs place="//@nodes.316" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.316"/>
+    <arcs place="//@nodes.315" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.319"/>
+    <arcs place="//@nodes.320" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.320"/>
+    <arcs place="//@nodes.319" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.323"/>
+    <arcs place="//@nodes.324" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.324"/>
+    <arcs place="//@nodes.323" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.327"/>
+    <arcs place="//@nodes.328" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.328"/>
+    <arcs place="//@nodes.327" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.331"/>
+    <arcs place="//@nodes.332" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.332"/>
+    <arcs place="//@nodes.331" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.335"/>
+    <arcs place="//@nodes.336" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.336"/>
+    <arcs place="//@nodes.335" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.339"/>
+    <arcs place="//@nodes.340" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.340"/>
+    <arcs place="//@nodes.339" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.343"/>
+    <arcs place="//@nodes.344" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.344"/>
+    <arcs place="//@nodes.343" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.347"/>
+    <arcs place="//@nodes.348" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.348"/>
+    <arcs place="//@nodes.347" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.351"/>
+    <arcs place="//@nodes.352" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.352"/>
+    <arcs place="//@nodes.351" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.355"/>
+    <arcs place="//@nodes.356" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.356"/>
+    <arcs place="//@nodes.355" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.359"/>
+    <arcs place="//@nodes.360" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.360"/>
+    <arcs place="//@nodes.359" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.363"/>
+    <arcs place="//@nodes.364" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.364"/>
+    <arcs place="//@nodes.363" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.367"/>
+    <arcs place="//@nodes.368" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.368"/>
+    <arcs place="//@nodes.367" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.371"/>
+    <arcs place="//@nodes.372" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.372"/>
+    <arcs place="//@nodes.371" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.375"/>
+    <arcs place="//@nodes.376" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.376"/>
+    <arcs place="//@nodes.375" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.379"/>
+    <arcs place="//@nodes.380" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.380"/>
+    <arcs place="//@nodes.379" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.383"/>
+    <arcs place="//@nodes.384" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.384"/>
+    <arcs place="//@nodes.383" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.387"/>
+    <arcs place="//@nodes.388" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.388"/>
+    <arcs place="//@nodes.387" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.391"/>
+    <arcs place="//@nodes.392" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.392"/>
+    <arcs place="//@nodes.391" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.395"/>
+    <arcs place="//@nodes.396" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.396"/>
+    <arcs place="//@nodes.395" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.399"/>
+    <arcs place="//@nodes.400" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.400"/>
+    <arcs place="//@nodes.399" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.403"/>
+    <arcs place="//@nodes.404" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.404"/>
+    <arcs place="//@nodes.403" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.407"/>
+    <arcs place="//@nodes.408" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.408"/>
+    <arcs place="//@nodes.407" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.411"/>
+    <arcs place="//@nodes.412" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.412"/>
+    <arcs place="//@nodes.411" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.415"/>
+    <arcs place="//@nodes.416" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.416"/>
+    <arcs place="//@nodes.415" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.419"/>
+    <arcs place="//@nodes.420" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.420"/>
+    <arcs place="//@nodes.419" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.423"/>
+    <arcs place="//@nodes.424" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.424"/>
+    <arcs place="//@nodes.423" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.427"/>
+    <arcs place="//@nodes.428" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.428"/>
+    <arcs place="//@nodes.427" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.431"/>
+    <arcs place="//@nodes.432" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.432"/>
+    <arcs place="//@nodes.431" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.435"/>
+    <arcs place="//@nodes.436" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.436"/>
+    <arcs place="//@nodes.435" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.439"/>
+    <arcs place="//@nodes.440" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.440"/>
+    <arcs place="//@nodes.439" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.443"/>
+    <arcs place="//@nodes.444" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.444"/>
+    <arcs place="//@nodes.443" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.447"/>
+    <arcs place="//@nodes.448" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.448"/>
+    <arcs place="//@nodes.447" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.451"/>
+    <arcs place="//@nodes.452" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.452"/>
+    <arcs place="//@nodes.451" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.455"/>
+    <arcs place="//@nodes.456" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.456"/>
+    <arcs place="//@nodes.455" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.459"/>
+    <arcs place="//@nodes.460" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.460"/>
+    <arcs place="//@nodes.459" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.463"/>
+    <arcs place="//@nodes.464" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.464"/>
+    <arcs place="//@nodes.463" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.467"/>
+    <arcs place="//@nodes.468" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.468"/>
+    <arcs place="//@nodes.467" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.471"/>
+    <arcs place="//@nodes.472" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.472"/>
+    <arcs place="//@nodes.471" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.475"/>
+    <arcs place="//@nodes.476" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.476"/>
+    <arcs place="//@nodes.475" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.479"/>
+    <arcs place="//@nodes.480" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.480"/>
+    <arcs place="//@nodes.479" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.483"/>
+    <arcs place="//@nodes.484" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.484"/>
+    <arcs place="//@nodes.483" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.487"/>
+    <arcs place="//@nodes.488" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.488"/>
+    <arcs place="//@nodes.487" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.491"/>
+    <arcs place="//@nodes.492" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.492"/>
+    <arcs place="//@nodes.491" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.495"/>
+    <arcs place="//@nodes.496" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.496"/>
+    <arcs place="//@nodes.495" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.499"/>
+    <arcs place="//@nodes.500" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.500"/>
+    <arcs place="//@nodes.499" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.503"/>
+    <arcs place="//@nodes.504" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.504"/>
+    <arcs place="//@nodes.503" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.507"/>
+    <arcs place="//@nodes.508" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.508"/>
+    <arcs place="//@nodes.507" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.511"/>
+    <arcs place="//@nodes.512" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.512"/>
+    <arcs place="//@nodes.511" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.515"/>
+    <arcs place="//@nodes.516" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.516"/>
+    <arcs place="//@nodes.515" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.519"/>
+    <arcs place="//@nodes.520" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.520"/>
+    <arcs place="//@nodes.519" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.523"/>
+    <arcs place="//@nodes.524" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.524"/>
+    <arcs place="//@nodes.523" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.527"/>
+    <arcs place="//@nodes.528" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.528"/>
+    <arcs place="//@nodes.527" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.531"/>
+    <arcs place="//@nodes.532" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.532"/>
+    <arcs place="//@nodes.531" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.535"/>
+    <arcs place="//@nodes.536" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.536"/>
+    <arcs place="//@nodes.535" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.539"/>
+    <arcs place="//@nodes.540" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.540"/>
+    <arcs place="//@nodes.539" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.543"/>
+    <arcs place="//@nodes.544" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.544"/>
+    <arcs place="//@nodes.543" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.547"/>
+    <arcs place="//@nodes.548" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.548"/>
+    <arcs place="//@nodes.547" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.551"/>
+    <arcs place="//@nodes.552" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.552"/>
+    <arcs place="//@nodes.551" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.555"/>
+    <arcs place="//@nodes.556" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.556"/>
+    <arcs place="//@nodes.555" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.559"/>
+    <arcs place="//@nodes.560" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.560"/>
+    <arcs place="//@nodes.559" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.563"/>
+    <arcs place="//@nodes.564" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.564"/>
+    <arcs place="//@nodes.563" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.567"/>
+    <arcs place="//@nodes.568" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.568"/>
+    <arcs place="//@nodes.567" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.571"/>
+    <arcs place="//@nodes.572" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.572"/>
+    <arcs place="//@nodes.571" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.575"/>
+    <arcs place="//@nodes.576" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.576"/>
+    <arcs place="//@nodes.575" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.579"/>
+    <arcs place="//@nodes.580" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.580"/>
+    <arcs place="//@nodes.579" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.583"/>
+    <arcs place="//@nodes.584" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.584"/>
+    <arcs place="//@nodes.583" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.587"/>
+    <arcs place="//@nodes.588" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.588"/>
+    <arcs place="//@nodes.587" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.591"/>
+    <arcs place="//@nodes.592" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.592"/>
+    <arcs place="//@nodes.591" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.595"/>
+    <arcs place="//@nodes.596" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.596"/>
+    <arcs place="//@nodes.595" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.599"/>
+    <arcs place="//@nodes.600" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.600"/>
+    <arcs place="//@nodes.599" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.603"/>
+    <arcs place="//@nodes.604" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.604"/>
+    <arcs place="//@nodes.603" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.607"/>
+    <arcs place="//@nodes.608" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.608"/>
+    <arcs place="//@nodes.607" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.611"/>
+    <arcs place="//@nodes.612" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.612"/>
+    <arcs place="//@nodes.611" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.615"/>
+    <arcs place="//@nodes.616" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.616"/>
+    <arcs place="//@nodes.615" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.619"/>
+    <arcs place="//@nodes.620" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.620"/>
+    <arcs place="//@nodes.619" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.623"/>
+    <arcs place="//@nodes.624" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.624"/>
+    <arcs place="//@nodes.623" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.627"/>
+    <arcs place="//@nodes.628" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.628"/>
+    <arcs place="//@nodes.627" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.631"/>
+    <arcs place="//@nodes.632" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.632"/>
+    <arcs place="//@nodes.631" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.635"/>
+    <arcs place="//@nodes.636" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.636"/>
+    <arcs place="//@nodes.635" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.639"/>
+    <arcs place="//@nodes.640" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.640"/>
+    <arcs place="//@nodes.639" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.643"/>
+    <arcs place="//@nodes.644" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.644"/>
+    <arcs place="//@nodes.643" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.647"/>
+    <arcs place="//@nodes.648" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.648"/>
+    <arcs place="//@nodes.647" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.651"/>
+    <arcs place="//@nodes.652" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.652"/>
+    <arcs place="//@nodes.651" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.655"/>
+    <arcs place="//@nodes.656" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.656"/>
+    <arcs place="//@nodes.655" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.659"/>
+    <arcs place="//@nodes.660" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.660"/>
+    <arcs place="//@nodes.659" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.663"/>
+    <arcs place="//@nodes.664" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.664"/>
+    <arcs place="//@nodes.663" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.667"/>
+    <arcs place="//@nodes.668" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.668"/>
+    <arcs place="//@nodes.667" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.671"/>
+    <arcs place="//@nodes.672" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.672"/>
+    <arcs place="//@nodes.671" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.675"/>
+    <arcs place="//@nodes.676" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.676"/>
+    <arcs place="//@nodes.675" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.679"/>
+    <arcs place="//@nodes.680" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.680"/>
+    <arcs place="//@nodes.679" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.683"/>
+    <arcs place="//@nodes.684" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.684"/>
+    <arcs place="//@nodes.683" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.687"/>
+    <arcs place="//@nodes.688" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.688"/>
+    <arcs place="//@nodes.687" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.691"/>
+    <arcs place="//@nodes.692" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.692"/>
+    <arcs place="//@nodes.691" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.695"/>
+    <arcs place="//@nodes.696" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.696"/>
+    <arcs place="//@nodes.695" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.699"/>
+    <arcs place="//@nodes.700" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.700"/>
+    <arcs place="//@nodes.699" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.703"/>
+    <arcs place="//@nodes.704" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.704"/>
+    <arcs place="//@nodes.703" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.707"/>
+    <arcs place="//@nodes.708" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.708"/>
+    <arcs place="//@nodes.707" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.711"/>
+    <arcs place="//@nodes.712" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.712"/>
+    <arcs place="//@nodes.711" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.715"/>
+    <arcs place="//@nodes.716" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.716"/>
+    <arcs place="//@nodes.715" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.719"/>
+    <arcs place="//@nodes.720" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.720"/>
+    <arcs place="//@nodes.719" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.723"/>
+    <arcs place="//@nodes.724" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.724"/>
+    <arcs place="//@nodes.723" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.727"/>
+    <arcs place="//@nodes.728" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.728"/>
+    <arcs place="//@nodes.727" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.731"/>
+    <arcs place="//@nodes.732" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.732"/>
+    <arcs place="//@nodes.731" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.735"/>
+    <arcs place="//@nodes.736" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.736"/>
+    <arcs place="//@nodes.735" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.739"/>
+    <arcs place="//@nodes.740" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.740"/>
+    <arcs place="//@nodes.739" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.743"/>
+    <arcs place="//@nodes.744" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.744"/>
+    <arcs place="//@nodes.743" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.747"/>
+    <arcs place="//@nodes.748" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.748"/>
+    <arcs place="//@nodes.747" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.751"/>
+    <arcs place="//@nodes.752" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.752"/>
+    <arcs place="//@nodes.751" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.755"/>
+    <arcs place="//@nodes.756" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.756"/>
+    <arcs place="//@nodes.755" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.759"/>
+    <arcs place="//@nodes.760" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.760"/>
+    <arcs place="//@nodes.759" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.763"/>
+    <arcs place="//@nodes.764" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.764"/>
+    <arcs place="//@nodes.763" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.767"/>
+    <arcs place="//@nodes.768" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.768"/>
+    <arcs place="//@nodes.767" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.771"/>
+    <arcs place="//@nodes.772" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.772"/>
+    <arcs place="//@nodes.771" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.775"/>
+    <arcs place="//@nodes.776" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.776"/>
+    <arcs place="//@nodes.775" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:Place" tokens="1"/>
+  <nodes xsi:type="stochasticpetrinet:Place"/>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.779"/>
+    <arcs place="//@nodes.780" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:TimedTransition">
+    <arcs place="//@nodes.780"/>
+    <arcs place="//@nodes.779" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.160"/>
+    <arcs place="//@nodes.160" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.164"/>
+    <arcs place="//@nodes.164" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.168"/>
+    <arcs place="//@nodes.168" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.16"/>
+    <arcs place="//@nodes.16" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.140"/>
+    <arcs place="//@nodes.140" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.0"/>
+    <arcs place="//@nodes.1" kind="OUTPUT"/>
+    <arcs place="//@nodes.156"/>
+    <arcs place="//@nodes.156" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.140"/>
+    <arcs place="//@nodes.140" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.172"/>
+    <arcs place="//@nodes.172" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.176"/>
+    <arcs place="//@nodes.176" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.180"/>
+    <arcs place="//@nodes.180" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.184"/>
+    <arcs place="//@nodes.184" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.188"/>
+    <arcs place="//@nodes.188" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.192"/>
+    <arcs place="//@nodes.192" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.196"/>
+    <arcs place="//@nodes.196" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.200"/>
+    <arcs place="//@nodes.200" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.204"/>
+    <arcs place="//@nodes.204" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.208"/>
+    <arcs place="//@nodes.208" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.212"/>
+    <arcs place="//@nodes.212" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.216"/>
+    <arcs place="//@nodes.216" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.220"/>
+    <arcs place="//@nodes.220" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.224"/>
+    <arcs place="//@nodes.224" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.228"/>
+    <arcs place="//@nodes.228" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.232"/>
+    <arcs place="//@nodes.232" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.236"/>
+    <arcs place="//@nodes.236" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.240"/>
+    <arcs place="//@nodes.240" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.244"/>
+    <arcs place="//@nodes.244" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.248"/>
+    <arcs place="//@nodes.248" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.252"/>
+    <arcs place="//@nodes.252" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.256"/>
+    <arcs place="//@nodes.256" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.260"/>
+    <arcs place="//@nodes.260" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.264"/>
+    <arcs place="//@nodes.264" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.268"/>
+    <arcs place="//@nodes.268" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.272"/>
+    <arcs place="//@nodes.272" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.276"/>
+    <arcs place="//@nodes.276" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.280"/>
+    <arcs place="//@nodes.280" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.20"/>
+    <arcs place="//@nodes.20" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.144"/>
+    <arcs place="//@nodes.144" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.24"/>
+    <arcs place="//@nodes.24" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.28"/>
+    <arcs place="//@nodes.28" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.3"/>
+    <arcs place="//@nodes.4" kind="OUTPUT"/>
+    <arcs place="//@nodes.32"/>
+    <arcs place="//@nodes.32" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.144"/>
+    <arcs place="//@nodes.144" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.284"/>
+    <arcs place="//@nodes.284" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.288"/>
+    <arcs place="//@nodes.288" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.292"/>
+    <arcs place="//@nodes.292" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.296"/>
+    <arcs place="//@nodes.296" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.300"/>
+    <arcs place="//@nodes.300" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.304"/>
+    <arcs place="//@nodes.304" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.308"/>
+    <arcs place="//@nodes.308" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.36"/>
+    <arcs place="//@nodes.36" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.148"/>
+    <arcs place="//@nodes.148" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.6"/>
+    <arcs place="//@nodes.7" kind="OUTPUT"/>
+    <arcs place="//@nodes.40"/>
+    <arcs place="//@nodes.40" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.148"/>
+    <arcs place="//@nodes.148" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.312"/>
+    <arcs place="//@nodes.312" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.316"/>
+    <arcs place="//@nodes.316" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.320"/>
+    <arcs place="//@nodes.320" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.324"/>
+    <arcs place="//@nodes.324" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.328"/>
+    <arcs place="//@nodes.328" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.332"/>
+    <arcs place="//@nodes.332" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.336"/>
+    <arcs place="//@nodes.336" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.340"/>
+    <arcs place="//@nodes.340" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.344"/>
+    <arcs place="//@nodes.344" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.348"/>
+    <arcs place="//@nodes.348" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.352"/>
+    <arcs place="//@nodes.352" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.356"/>
+    <arcs place="//@nodes.356" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.360"/>
+    <arcs place="//@nodes.360" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.364"/>
+    <arcs place="//@nodes.364" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.368"/>
+    <arcs place="//@nodes.368" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.372"/>
+    <arcs place="//@nodes.372" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.376"/>
+    <arcs place="//@nodes.376" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.380"/>
+    <arcs place="//@nodes.380" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.384"/>
+    <arcs place="//@nodes.384" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.388"/>
+    <arcs place="//@nodes.388" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.392"/>
+    <arcs place="//@nodes.392" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.396"/>
+    <arcs place="//@nodes.396" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.400"/>
+    <arcs place="//@nodes.400" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.404"/>
+    <arcs place="//@nodes.404" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.408"/>
+    <arcs place="//@nodes.408" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.412"/>
+    <arcs place="//@nodes.412" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.416"/>
+    <arcs place="//@nodes.416" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.420"/>
+    <arcs place="//@nodes.420" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.424"/>
+    <arcs place="//@nodes.424" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.428"/>
+    <arcs place="//@nodes.428" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.432"/>
+    <arcs place="//@nodes.432" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.436"/>
+    <arcs place="//@nodes.436" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.440"/>
+    <arcs place="//@nodes.440" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.444"/>
+    <arcs place="//@nodes.444" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.448"/>
+    <arcs place="//@nodes.448" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.452"/>
+    <arcs place="//@nodes.452" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.456"/>
+    <arcs place="//@nodes.456" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.460"/>
+    <arcs place="//@nodes.460" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.464"/>
+    <arcs place="//@nodes.464" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.468"/>
+    <arcs place="//@nodes.468" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.472"/>
+    <arcs place="//@nodes.472" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.476"/>
+    <arcs place="//@nodes.476" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.480"/>
+    <arcs place="//@nodes.480" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.484"/>
+    <arcs place="//@nodes.484" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.44"/>
+    <arcs place="//@nodes.44" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.152"/>
+    <arcs place="//@nodes.152" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.48"/>
+    <arcs place="//@nodes.48" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.52"/>
+    <arcs place="//@nodes.52" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.56"/>
+    <arcs place="//@nodes.56" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.60"/>
+    <arcs place="//@nodes.60" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.64"/>
+    <arcs place="//@nodes.64" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.68"/>
+    <arcs place="//@nodes.68" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.72"/>
+    <arcs place="//@nodes.72" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.9"/>
+    <arcs place="//@nodes.10" kind="OUTPUT"/>
+    <arcs place="//@nodes.76"/>
+    <arcs place="//@nodes.76" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.152"/>
+    <arcs place="//@nodes.152" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.488"/>
+    <arcs place="//@nodes.488" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.492"/>
+    <arcs place="//@nodes.492" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.496"/>
+    <arcs place="//@nodes.496" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.500"/>
+    <arcs place="//@nodes.500" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.504"/>
+    <arcs place="//@nodes.504" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.508"/>
+    <arcs place="//@nodes.508" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.512"/>
+    <arcs place="//@nodes.512" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.516"/>
+    <arcs place="//@nodes.516" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.520"/>
+    <arcs place="//@nodes.520" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.524"/>
+    <arcs place="//@nodes.524" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.528"/>
+    <arcs place="//@nodes.528" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.532"/>
+    <arcs place="//@nodes.532" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.536"/>
+    <arcs place="//@nodes.536" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.540"/>
+    <arcs place="//@nodes.540" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.544"/>
+    <arcs place="//@nodes.544" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.548"/>
+    <arcs place="//@nodes.548" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.552"/>
+    <arcs place="//@nodes.552" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.556"/>
+    <arcs place="//@nodes.556" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.560"/>
+    <arcs place="//@nodes.560" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.564"/>
+    <arcs place="//@nodes.564" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.568"/>
+    <arcs place="//@nodes.568" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.572"/>
+    <arcs place="//@nodes.572" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.576"/>
+    <arcs place="//@nodes.576" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.580"/>
+    <arcs place="//@nodes.580" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.584"/>
+    <arcs place="//@nodes.584" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.588"/>
+    <arcs place="//@nodes.588" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.592"/>
+    <arcs place="//@nodes.592" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.596"/>
+    <arcs place="//@nodes.596" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.600"/>
+    <arcs place="//@nodes.600" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.604"/>
+    <arcs place="//@nodes.604" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.608"/>
+    <arcs place="//@nodes.608" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.612"/>
+    <arcs place="//@nodes.612" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.616"/>
+    <arcs place="//@nodes.616" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.620"/>
+    <arcs place="//@nodes.620" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.624"/>
+    <arcs place="//@nodes.624" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.628"/>
+    <arcs place="//@nodes.628" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.632"/>
+    <arcs place="//@nodes.632" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.636"/>
+    <arcs place="//@nodes.636" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.640"/>
+    <arcs place="//@nodes.640" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.644"/>
+    <arcs place="//@nodes.644" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.648"/>
+    <arcs place="//@nodes.648" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.652"/>
+    <arcs place="//@nodes.652" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.656"/>
+    <arcs place="//@nodes.656" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.660"/>
+    <arcs place="//@nodes.660" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.664"/>
+    <arcs place="//@nodes.664" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.668"/>
+    <arcs place="//@nodes.668" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.672"/>
+    <arcs place="//@nodes.672" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.676"/>
+    <arcs place="//@nodes.676" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.680"/>
+    <arcs place="//@nodes.680" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.684"/>
+    <arcs place="//@nodes.684" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.688"/>
+    <arcs place="//@nodes.688" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.692"/>
+    <arcs place="//@nodes.692" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.696"/>
+    <arcs place="//@nodes.696" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.700"/>
+    <arcs place="//@nodes.700" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.704"/>
+    <arcs place="//@nodes.704" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.708"/>
+    <arcs place="//@nodes.708" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.712"/>
+    <arcs place="//@nodes.712" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.716"/>
+    <arcs place="//@nodes.716" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.720"/>
+    <arcs place="//@nodes.720" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.724"/>
+    <arcs place="//@nodes.724" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.728"/>
+    <arcs place="//@nodes.728" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.732"/>
+    <arcs place="//@nodes.732" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.736"/>
+    <arcs place="//@nodes.736" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.740"/>
+    <arcs place="//@nodes.740" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.744"/>
+    <arcs place="//@nodes.744" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.748"/>
+    <arcs place="//@nodes.748" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.752"/>
+    <arcs place="//@nodes.752" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.756"/>
+    <arcs place="//@nodes.756" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.760"/>
+    <arcs place="//@nodes.760" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.764"/>
+    <arcs place="//@nodes.764" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.768"/>
+    <arcs place="//@nodes.768" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.772"/>
+    <arcs place="//@nodes.772" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.776"/>
+    <arcs place="//@nodes.776" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.780"/>
+    <arcs place="//@nodes.780" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.80"/>
+    <arcs place="//@nodes.80" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.156"/>
+    <arcs place="//@nodes.156" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.84"/>
+    <arcs place="//@nodes.84" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.88"/>
+    <arcs place="//@nodes.88" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.92"/>
+    <arcs place="//@nodes.92" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.96"/>
+    <arcs place="//@nodes.96" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.100"/>
+    <arcs place="//@nodes.100" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.104"/>
+    <arcs place="//@nodes.104" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.108"/>
+    <arcs place="//@nodes.108" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.112"/>
+    <arcs place="//@nodes.112" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.116"/>
+    <arcs place="//@nodes.116" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.120"/>
+    <arcs place="//@nodes.120" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.124"/>
+    <arcs place="//@nodes.124" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.128"/>
+    <arcs place="//@nodes.128" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.132"/>
+    <arcs place="//@nodes.132" kind="OUTPUT"/>
+  </nodes>
+  <nodes xsi:type="stochasticpetrinet:ImmediateTransition">
+    <arcs place="//@nodes.12"/>
+    <arcs place="//@nodes.13" kind="OUTPUT"/>
+    <arcs place="//@nodes.136"/>
+    <arcs place="//@nodes.136" kind="OUTPUT"/>
+  </nodes>
+</stochasticpetrinet:PetriNet>

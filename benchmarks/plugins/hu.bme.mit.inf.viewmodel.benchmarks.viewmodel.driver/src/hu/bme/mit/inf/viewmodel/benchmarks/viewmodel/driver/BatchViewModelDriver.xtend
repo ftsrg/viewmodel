@@ -9,12 +9,11 @@ class BatchViewModelDriver extends ViewModelDriver {
 	}
 	
 	override protected doRunExperiment() {
-		logMemory("initial")
 		stopwatch("modelLoad") [
 			loadModel()
 			applyModelModification()
 		]
-		logSource("modelLoad")
+		logSource("batch")
 		gcBarrier
 		stopwatch("modelQuery") [
 			createQueryEngine()
@@ -28,7 +27,7 @@ class BatchViewModelDriver extends ViewModelDriver {
 		stopwatch("s2ptExecute") [
 			viewTransformation.startExecution(executionSchema)
 		]
-		logViewModelTrace("s2ptExecute")
+		logViewModelTrace("batch")
 		gcBarrier
 		stopwatch("pt2tRete") [
 			manifestationTransformation.queryGroup.prepare(queryEngine)
@@ -36,8 +35,8 @@ class BatchViewModelDriver extends ViewModelDriver {
 		stopwatch("pt2tExecute") [
 			manifestationTransformation.startExecution(executionSchema)
 		]
-		logManifestationTrace("pt2tExecute")
-		logTarget("pt2tExecute")
+		logManifestationTrace("batch")
+		logTarget("batch")
 		serializeModel("batch.xmi", manifestationManager.results)
 	}
 	

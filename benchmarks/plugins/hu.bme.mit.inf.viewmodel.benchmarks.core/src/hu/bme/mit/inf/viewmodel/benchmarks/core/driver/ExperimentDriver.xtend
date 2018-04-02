@@ -32,9 +32,16 @@ abstract class ExperimentDriver implements IExperimentDriver {
 	abstract protected def void doRunExperiment()
 
 	protected def loadModel() {
-		resourceSet = new ResourceSetImpl
+		if (resourceSet === null) {
+			resourceSet = new ResourceSetImpl
+		}
 		railwayContainer = loadModel(resourceSet)
 		resource = railwayContainer.eResource
+	}
+
+	protected def logSource(String checkpoint) {
+		val allSourcesIterator = resource.allContents
+		logModelStatistics(checkpoint, "source", allSourcesIterator)
 	}
 
 	protected def logModelStatistics(String checkpoint, String category, Iterator<EObject> iterator) {

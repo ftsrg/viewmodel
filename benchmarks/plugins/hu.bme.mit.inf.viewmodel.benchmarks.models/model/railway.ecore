@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="railway" nsURI="http://www.semanticweb.org/ontologies/2015/trainbenchmark"
     nsPrefix="railway">
   <eClassifiers xsi:type="ecore:EClass" name="RailwayElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RailwayContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="routes" upperBound="-1"
@@ -19,7 +19,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Route" eSuperTypes="#//RailwayElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="follows" upperBound="-1"
         eType="#//SwitchPosition" containment="true" resolveProxies="false" eOpposite="#//SwitchPosition/route"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requires" lowerBound="2"
@@ -39,7 +39,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Segment" eSuperTypes="#//TrackElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" unique="false"
-        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semaphores" upperBound="-1"
         eType="#//Semaphore" containment="true" resolveProxies="false"/>
   </eClassifiers>

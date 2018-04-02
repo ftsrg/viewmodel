@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.application
 
 import com.google.common.collect.ImmutableMap
+import hu.bme.mit.inf.viewmodel.benchmarks.atl.driver.AtlDrivers
 import hu.bme.mit.inf.viewmodel.benchmarks.core.BenchmarkRunner
 import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.IDriverFactory
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver.ViewModelDrivers
@@ -22,7 +23,10 @@ class BenchmarksMain {
 	}
 	
 	protected def Map<String, IDriverFactory> getDriverFactories() {
-		ImmutableMap.builder.putAll(ViewModelDrivers.DRIVER_FACTORIES).build
+		ImmutableMap.builder
+			.putAll(AtlDrivers.DRIVER_FACTORIES)
+			.putAll(ViewModelDrivers.DRIVER_FACTORIES)
+			.build
 	}
 	
 	public static def void main(String[] args) {

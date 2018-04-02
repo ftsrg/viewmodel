@@ -10,6 +10,8 @@
 		<module>features/hu.bme.mit.inf.viewmodel.benchmarks.feature</module>
 
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.application</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.atl</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.atl.driver</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.core</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.models</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.queries</module>

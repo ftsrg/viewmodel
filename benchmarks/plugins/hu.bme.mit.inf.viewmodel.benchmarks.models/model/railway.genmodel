@@ -3,8 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.viewmodel.benchmarks.models/emf-gen"
     modelPluginID="hu.bme.mit.inf.viewmodel.benchmarks.models" modelName="Railway"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
-    operationReflection="true">
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>railway.ecore</foreignModel>
   <genPackages prefix="Railway" basePackage="hu.bme.mit.inf.viewmodel.benchmarks.models"
       disposableProviderFactory="true" ecorePackage="railway.ecore#/">

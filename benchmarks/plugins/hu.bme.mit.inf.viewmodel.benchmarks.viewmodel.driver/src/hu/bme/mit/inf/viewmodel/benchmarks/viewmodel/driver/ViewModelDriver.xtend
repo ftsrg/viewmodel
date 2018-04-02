@@ -100,11 +100,6 @@ abstract class ViewModelDriver extends ExperimentDriver {
 			conflictResolver)
 	}
 
-	protected def logSource(String checkpoint) {
-		val allSourcesIterator = resource.allContents
-		logModelStatistics(checkpoint, "source", allSourcesIterator)
-	}
-
 	protected def logViewModelTrace(String checkpoint) {
 		var int variableInstantiationTraces = 0
 		var int constraintTraces = 0
