@@ -1,0 +1,10 @@
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-128.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-4.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-512.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-64.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-8.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-16.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-1.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-256.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-2.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/railway-batch-32.xmi filter=lfs diff=lfs merge=lfs -text
