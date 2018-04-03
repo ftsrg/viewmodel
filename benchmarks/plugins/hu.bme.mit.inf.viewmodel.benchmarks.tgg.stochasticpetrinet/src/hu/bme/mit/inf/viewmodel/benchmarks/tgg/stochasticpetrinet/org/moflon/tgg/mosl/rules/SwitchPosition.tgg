@@ -1,0 +1,11 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule SwitchPosition #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcSwitch : Switch {
+		++-positions->srcSwitchPosition
+	}
+	++srcSwitchPosition : SwitchPosition
+}

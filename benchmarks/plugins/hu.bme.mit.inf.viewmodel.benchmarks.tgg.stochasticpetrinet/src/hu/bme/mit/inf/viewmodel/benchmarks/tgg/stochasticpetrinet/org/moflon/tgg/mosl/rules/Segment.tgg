@@ -1,0 +1,12 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Segment #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcRegion : Region {
+		++-elements->srcSegment
+	}
+	++srcSegment : Segment
+}
+

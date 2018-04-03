@@ -1,6 +1,6 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet
 
-import "http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"
 
 @Template
 pattern createPetriNet(Net : PetriNet) {

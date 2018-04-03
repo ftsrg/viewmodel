@@ -1,0 +1,56 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Route #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		++-routes->srcRoute
+	}
+	++srcRoute : Route
+}
+
+#target {
+	trgPetrinet : PetriNet
+	++trgOperational : Place {
+		// How can the failed state of a route expressed based on its required RailwayElements?
+		tokens := 1
+		++-petriNet->trgPetrinet
+	}
+	++trgFailed : Place {
+		tokens := 0
+		++-petriNet->trgPetrinet
+	}
+	++trgRepair : ImmediateTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgFailedToRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgFailed
+		++-transition->trgRepair
+	}
+	++trgRepairToOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgOperational
+		++-transition->trgRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	++routeOperationalCorr : RouteToOperational {
+		#src->srcRoute
+		#trg->trgOperational
+	}
+	++routeFailedCorr : RouteToFailed {
+		#src->srcRoute
+		#trg->trgFailed
+	}
+	++routeRepairCorr : RouteToRepair {
+		#src->srcRoute
+		#trg->trgRepair
+	}
+}

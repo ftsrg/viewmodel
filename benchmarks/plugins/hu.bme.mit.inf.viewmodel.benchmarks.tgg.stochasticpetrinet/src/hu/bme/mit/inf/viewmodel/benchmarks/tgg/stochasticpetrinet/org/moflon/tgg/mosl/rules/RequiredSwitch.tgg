@@ -1,0 +1,86 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule RequiredSwitch #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-routes->srcRoute
+	}
+	srcRoute : Route {
+		++-follows->srcSwitchPosition
+	}
+	srcSwitchPosition : SwitchPosition {
+		-target->srcSwitch
+	}
+	srcSwitch : Switch
+}
+
+#target {
+	trgPetrinet : PetriNet
+	trgRouteOperational : Place
+	trgRouteFailed : Place
+	trgSwitchOperational : Place
+	trgSwitchFailed : Place
+	++trgRouteFail : ImmediateTransition {
+		++-petriNet->trgPetrinet
+	}
+	trgRouteRepair : Transition
+	++trgRouteOperationalToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgRouteOperational
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToRouteFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgRouteFailed
+		++-transition->trgRouteFail
+	}
+	++trgSwitchFailedToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSwitchFailed
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToSwitchFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSwitchFailed
+		++-transition->trgRouteFail
+	}
+	++trgSwitchOperationalToRouteRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSwitchOperational
+		++-transition->trgRouteRepair
+	}
+	++trgRouteRepairToSwitchOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSwitchOperational
+		++-transition->trgRouteRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	routeOperationalCorr : RouteToOperational {
+		#src->srcRoute
+		#trg->trgRouteOperational
+	}
+	routeFailedCorr : RouteToFailed {
+		#src->srcRoute
+		#trg->trgRouteFailed
+	}
+	routeRepairCorr : RouteToRepair {
+		#src->srcRoute
+		#trg->trgRouteRepair
+	}
+	switchOperationalCorr : SwitchToOperational {
+		#src->srcSwitch
+		#trg->trgSwitchOperational
+	}
+	switchFailedCorr : SwitchToFailed {
+		#src->srcSwitch
+		#trg->trgSwitchFailed
+	}
+}

@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated railway -->
       <package
-            uri="http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
             class="hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayPackage"
             genModel="model/railway.genmodel"/>
    </extension>
@@ -17,7 +17,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated stochasticpetrinet -->
       <package
-            uri="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet"
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"
             class="hu.bme.mit.inf.viewmodel.benchmarks.models.stochasticpetrinet.StochasticPetriNetPackage"
             genModel="model/stochasticpetrinet.genmodel"/>
    </extension>
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated virtualswitchview -->
       <package
-            uri="http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview"
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore"
             class="hu.bme.mit.inf.viewmodel.benchmarks.models.virtualswitchview.VirtualSwitchViewPackage"
             genModel="model/virtualswitchview.genmodel"/>
    </extension>

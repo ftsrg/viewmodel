@@ -1,0 +1,67 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Sensor #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-regions->srcRegion
+	}
+	srcRegion : Region {
+		++-sensors->srcSensor
+	}
+	++srcSensor : Sensor
+}
+
+#target {
+	trgPetrinet : PetriNet
+	++trgOperational : Place {
+		tokens := 1
+		++-petriNet->trgPetrinet
+	}
+	++trgFailed : Place {
+		tokens := 0
+		++-petriNet->trgPetrinet
+	}
+	++trgFail : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgRepair : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgOperationToFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgOperational
+		++-transition->trgFail
+	}
+	++trgFailToFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgFailed
+		++-transition->trgFail
+	}
+	++trgFailedToRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgFailed
+		++-transition->trgRepair
+	}
+	++trgRepairToOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgOperational
+		++-transition->trgRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	++sensorOperationalCoor : SensorToOperational {
+		#src->srcSensor
+		#trg->trgOperational
+	}
+	++sensorFailedCorr : SensorToFailed {
+		#src->srcSensor
+		#trg->trgFailed
+	}
+}

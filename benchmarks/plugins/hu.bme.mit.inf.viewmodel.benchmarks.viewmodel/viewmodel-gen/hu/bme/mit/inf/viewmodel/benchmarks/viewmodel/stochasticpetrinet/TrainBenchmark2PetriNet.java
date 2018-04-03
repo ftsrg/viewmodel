@@ -41,8 +41,8 @@ public final class TrainBenchmark2PetriNet {
   
   public static ViewSpecification<IQuerySpecification<?>, IQuerySpecification<?>> createSpecification() throws ViatraQueryException {
     return ViewSpecification.createOrThrow(b0 -> b0
-    		.addRequiredMetamodel("http://www.semanticweb.org/ontologies/2015/trainbenchmark")
-    		.addRequiredMetamodel("http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet")
+    		.addRequiredMetamodel("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore")
+    		.addRequiredMetamodel("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore")
     		.addVariableInstantiationRuleOrThrow(b -> b
     			.setPreconditionPattern(RailwayContainerQuerySpecification.instance())
     			.addVariable("_<1>")

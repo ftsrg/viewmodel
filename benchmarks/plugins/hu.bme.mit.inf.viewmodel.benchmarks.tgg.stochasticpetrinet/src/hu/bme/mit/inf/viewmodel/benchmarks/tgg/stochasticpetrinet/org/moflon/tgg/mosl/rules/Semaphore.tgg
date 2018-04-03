@@ -1,0 +1,72 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Semaphore #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-regions->srcRegion
+	}
+	srcRegion : Region {
+		-elements->srcSegment
+	}
+	srcSegment : Segment {
+		++-semaphores->srcSemaphore
+	}
+	++srcSemaphore : Semaphore
+}
+
+#target {
+	trgPetrinet : PetriNet
+	++trgOperational : Place {
+		++-petriNet->trgPetrinet
+	}
+	++trgFailed : Place {
+		++-petriNet->trgPetrinet
+	}
+	++trgFail : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgRepair : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgOperationToFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgOperational
+		++-transition->trgFail
+	}
+	++trgFailToFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgFailed
+		++-transition->trgFail
+	}
+	++trgFailedToRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgFailed
+		++-transition->trgRepair
+	}
+	++trgRepairToOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgOperational
+		++-transition->trgRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	++semaphoreOperationalCorr : SemaphoreToOperational {
+		#src->srcSemaphore
+		#trg->trgOperational
+	}
+	++semaphoreFailedCorr : SemaphoreToFailed {
+		#src->srcSemaphore
+		#trg->trgFailed
+	}
+}
+
+#attributeConditions {
+	signalToMarking(srcSemaphore.signal, trgOperational.tokens, trgFailed.tokens)
+}

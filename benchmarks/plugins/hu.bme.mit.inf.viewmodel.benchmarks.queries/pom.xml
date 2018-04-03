@@ -43,15 +43,29 @@
 						<configuration>
 							<metamodels>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayPackage</packageClass>
+									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.genmodel</genmodelUri>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.stochasticpetrinet.StochasticPetriNetPackage</packageClass>
+									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.genmodel</genmodelUri>
 								</metamodel>
 								<metamodel>
-									<packageClass>hu.bme.mit.inf.viewmodel.benchmarks.models.virtualswitchview.VirtualSwitchViewPackage</packageClass>
+									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.genmodel</genmodelUri>
 								</metamodel>
 							</metamodels>
+							<uriMappings>
+								<uriMapping>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore</targetUri>
+								</uriMapping>
+								<uriMapping>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore</targetUri>
+								</uriMapping>
+								<uriMapping>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore</targetUri>
+								</uriMapping>
+							</uriMappings>
 						</configuration>
 					</plugin>
 				</plugins>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.moflon.core.propertycontainer:MoflonPropertiesContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.moflon.core.propertycontainer="platform:/plugin/org.moflon.core.propertycontainer/model/Propertycontainer.ecore" projectName="hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet">
+  <metaModelProject MetaModelProjectName="NO_META_MODEL_PROJECT_NAME_SET_YET"/>
+  <replaceGenModel/>
+  <sdmCodegeneratorHandlerId value="DEMOCLES_REVERSE_NAVI"/>
+  <tGGBuildMode buildMode="FORWARD"/>
+  <additionalUsedGenPackages value="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.genmodel"/>
+  <additionalUsedGenPackages value="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.genmodel"/>
+</org.moflon.core.propertycontainer:MoflonPropertiesContainer>

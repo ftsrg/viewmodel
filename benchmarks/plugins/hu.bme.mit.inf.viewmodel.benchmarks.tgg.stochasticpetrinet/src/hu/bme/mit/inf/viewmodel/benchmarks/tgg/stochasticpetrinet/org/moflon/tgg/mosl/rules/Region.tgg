@@ -1,0 +1,12 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Region #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		++-regions->srcRegion
+	}
+	++srcRegion : Region
+}
+

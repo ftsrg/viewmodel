@@ -1,0 +1,69 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule Switch #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-regions->srcRegion
+	}
+	srcRegion : Region {
+		++-elements->srcSwitch
+	}
+	++srcSwitch : Switch
+}
+
+#target {
+	trgPetrinet : PetriNet
+	++trgOperational : Place {
+		++-petriNet->trgPetrinet
+	}
+	++trgFailed : Place {
+		++-petriNet->trgPetrinet
+	}
+	++trgFail : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgRepair : TimedTransition {
+		++-petriNet->trgPetrinet
+	}
+	++trgOperationToFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgOperational
+		++-transition->trgFail
+	}
+	++trgFailToFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgFailed
+		++-transition->trgFail
+	}
+	++trgFailedToRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgFailed
+		++-transition->trgRepair
+	}
+	++trgRepairToOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgOperational
+		++-transition->trgRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	++switchOperationalCorr : SwitchToOperational {
+		#src->srcSwitch
+		#trg->trgOperational
+	}
+	++switchFailedCorr : SwitchToFailed {
+		#src->srcSwitch
+		#trg->trgFailed
+	}
+}
+
+#attributeConditions {
+	positionToMarking(srcSwitch.currentPosition, trgOperational.tokens, trgFailed.tokens)
+}

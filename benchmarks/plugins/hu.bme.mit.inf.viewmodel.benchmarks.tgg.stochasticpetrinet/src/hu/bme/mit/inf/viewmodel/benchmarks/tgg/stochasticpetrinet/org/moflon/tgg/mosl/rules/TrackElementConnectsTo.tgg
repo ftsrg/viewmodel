@@ -1,0 +1,11 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule TrackElementConnectsTo #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcTrackElement1 : TrackElement {
+		++-connectsTo->srcTrackElement2
+	}
+	srcTrackElement2 : TrackElement
+}

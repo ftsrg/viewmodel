@@ -39,7 +39,7 @@ public interface StochasticPetriNetPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet";
+	String eNS_URI = "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore";
 
 	/**
 	 * The package namespace name.

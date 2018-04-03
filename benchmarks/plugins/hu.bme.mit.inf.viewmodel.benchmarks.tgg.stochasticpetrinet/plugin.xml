@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.StochasticpetrinetPackage" genModel="model/Stochasticpetrinet.genmodel" uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore"/>
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.RulesPackage" genModel="model/Stochasticpetrinet.genmodel" uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules"/>
+  </extension>
+</plugin>

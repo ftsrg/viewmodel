@@ -27,8 +27,8 @@ public final class RailwayModel2VirtualSwitchModel {
   
   public static ViewSpecification<IQuerySpecification<?>, IQuerySpecification<?>> createSpecification() throws ViatraQueryException {
     return ViewSpecification.createOrThrow(b0 -> b0
-    		.addRequiredMetamodel("http://www.semanticweb.org/ontologies/2015/trainbenchmark")
-    		.addRequiredMetamodel("http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview")
+    		.addRequiredMetamodel("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore")
+    		.addRequiredMetamodel("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore")
     		.addVariableInstantiationRuleOrThrow(b -> b
     			.setPreconditionPattern(VirtualSwitchesQuerySpecification.instance())
     			.addVariable("_<1>")

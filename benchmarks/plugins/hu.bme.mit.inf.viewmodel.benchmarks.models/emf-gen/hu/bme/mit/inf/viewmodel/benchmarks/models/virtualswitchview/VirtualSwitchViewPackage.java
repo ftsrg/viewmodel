@@ -38,7 +38,7 @@ public interface VirtualSwitchViewPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview";
+	String eNS_URI = "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore";
 
 	/**
 	 * The package namespace name.

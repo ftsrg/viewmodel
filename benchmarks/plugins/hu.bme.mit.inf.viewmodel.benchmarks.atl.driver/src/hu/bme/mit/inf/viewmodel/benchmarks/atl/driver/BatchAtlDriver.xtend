@@ -23,7 +23,7 @@ import org.eclipse.xtend.lib.annotations.Data
 
 class BatchAtlDriver extends ExperimentDriver {
 	static val MODULE_ROOT = "/hu.bme.mit.inf.viewmodel.benchmarks.atl/transformation/"
-	static val INPUT_METAMODEL_URI = URI.createURI("http://www.semanticweb.org/ontologies/2015/trainbenchmark")
+	static val INPUT_METAMODEL_URI = URI.createURI("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore")
 	static val INPUT_METAMODEL_NAME = "Railway"
 	static val INPUT_MODEL_NAME = "IN"
 	static val OUTPUT_MODEL_NAME = "OUT"
@@ -142,11 +142,11 @@ class BatchAtlDriver extends ExperimentDriver {
 			case PETRI_NET:
 				new AtlTransformationCase(
 					URI.createPlatformPluginURI(MODULE_ROOT + "TrainBenchmark2PetriNet.asm", false),
-					URI.createURI("http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet"), "SPN")
+					URI.createURI("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"), "SPN")
 			case VIRTUAL_SWITCH:
 				new AtlTransformationCase(
 					URI.createPlatformPluginURI(MODULE_ROOT + "RailwayModel2VirtualSwitchModel.asm", false),
-					URI.createURI("http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview"), "VS")
+					URI.createURI("platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore"), "VS")
 			default:
 				throw new IllegalArgumentException("Unknown case: " + transformationCase)
 		}

@@ -73,11 +73,11 @@ abstract class ExperimentContext {
 
 	def stopwatch(String intervalName, Runnable r) {
 		val start = System.currentTimeMillis
-		logValue(intervalName, "start", start)
+		logValue(intervalName, "time", "start", start)
 		r.run
 		val end = System.currentTimeMillis
-		logValue(intervalName, "end", end)
-		logValue(intervalName, "duration", end - start)
+		logValue(intervalName, "time", "end", end)
+		logValue(intervalName, "time", "duration", end - start)
 		logMemory(intervalName)
 	}
 

@@ -39,7 +39,7 @@ public interface RailwayPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.semanticweb.org/ontologies/2015/trainbenchmark";
+	String eNS_URI = "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore";
 
 	/**
 	 * The package namespace name.

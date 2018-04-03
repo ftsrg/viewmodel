@@ -1,0 +1,11 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule SensorMonitors #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcSensor : Sensor {
+		++-monitors->srcTrackElement
+	}
+	srcTrackElement : TrackElement
+}

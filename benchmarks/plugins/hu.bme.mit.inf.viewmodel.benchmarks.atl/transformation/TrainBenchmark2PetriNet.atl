@@ -1,4 +1,4 @@
--- @path SPN=http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-virtualswitchview
+-- @path SPN=http://inf.mit.bme.hu/emf/2018/viewmodel-benchmark-stochasticpetrinet
 -- @path Railway=http://www.semanticweb.org/ontologies/2015/trainbenchmark
 
 module TrainBenchmark2PetriNet;

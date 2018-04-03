@@ -2,6 +2,7 @@ package hu.bme.mit.inf.viewmodel.benchmarks.core.driver
 
 import hu.bme.mit.inf.viewmodel.benchmarks.core.context.ExperimentContext
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer
+import java.util.Collections
 import java.util.Iterator
 import java.util.List
 import org.eclipse.emf.ecore.EAttribute
@@ -40,8 +41,12 @@ abstract class ExperimentDriver implements IExperimentDriver {
 	}
 
 	protected def logSource(String checkpoint) {
-		val allSourcesIterator = resource.allContents
-		logModelStatistics(checkpoint, "source", allSourcesIterator)
+		logModelStatistics(checkpoint, "source", railwayContainer)
+	}
+	
+	protected def logModelStatistics(String checkpoint, String category, EObject eObject) {
+		val iterator = Collections.singleton(eObject).iterator + eObject.eAllContents
+		logModelStatistics(checkpoint, category, iterator)
 	}
 
 	protected def logModelStatistics(String checkpoint, String category, Iterator<EObject> iterator) {

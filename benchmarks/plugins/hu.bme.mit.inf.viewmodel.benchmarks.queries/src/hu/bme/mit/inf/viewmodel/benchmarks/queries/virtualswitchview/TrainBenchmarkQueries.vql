@@ -1,6 +1,6 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview
 
-import "http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
 
 pattern virtualSwitches(Switch : Switch) {
 	neg find switchesInFailure(Switch);

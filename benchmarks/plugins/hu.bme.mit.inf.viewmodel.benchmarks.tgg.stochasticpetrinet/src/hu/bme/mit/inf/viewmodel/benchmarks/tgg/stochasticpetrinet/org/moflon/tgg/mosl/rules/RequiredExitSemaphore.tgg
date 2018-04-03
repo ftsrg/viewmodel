@@ -1,0 +1,83 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule RequiredExitSemaphore #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-routes->srcRoute
+	}
+	srcRoute : Route {
+		++-exit->srcSemaphore
+	}
+	srcSemaphore : Semaphore
+}
+
+#target {
+	trgPetrinet : PetriNet
+	trgRouteOperational : Place
+	trgRouteFailed : Place
+	trgSemaphoreOperational : Place
+	trgSemaphoreFailed : Place
+	++trgRouteFail : ImmediateTransition {
+		++-petriNet->trgPetrinet
+	}
+	trgRouteRepair : Transition
+	++trgRouteOperationalToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgRouteOperational
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToRouteFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgRouteFailed
+		++-transition->trgRouteFail
+	}
+	++trgSemaphoreFailedToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSemaphoreFailed
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToSemaphoreFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSemaphoreFailed
+		++-transition->trgRouteFail
+	}
+	++trgSemaphoreOperationalToRouteRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSemaphoreOperational
+		++-transition->trgRouteRepair
+	}
+	++trgRouteRepairToSemaphoreOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSemaphoreOperational
+		++-transition->trgRouteRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	routeOperationalCorr : RouteToOperational {
+		#src->srcRoute
+		#trg->trgRouteOperational
+	}
+	routeFailedCorr : RouteToFailed {
+		#src->srcRoute
+		#trg->trgRouteFailed
+	}
+	routeRepairCorr : RouteToRepair {
+		#src->srcRoute
+		#trg->trgRouteRepair
+	}
+	semaphoreOperationalCorr : SemaphoreToOperational {
+		#src->srcSemaphore
+		#trg->trgSemaphoreOperational
+	}
+	semaphoreFailedCorr : SemaphoreToFailed {
+		#src->srcSemaphore
+		#trg->trgSemaphoreFailed
+	}
+}

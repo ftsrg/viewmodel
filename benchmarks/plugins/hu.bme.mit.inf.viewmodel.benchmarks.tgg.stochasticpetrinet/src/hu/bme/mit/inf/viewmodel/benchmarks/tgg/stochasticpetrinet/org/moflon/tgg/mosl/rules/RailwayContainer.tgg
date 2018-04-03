@@ -1,0 +1,19 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule RailwayContainer #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	++srcContainer : RailwayContainer
+}
+
+#target {
+	++trgPetrinet : PetriNet
+}
+
+#correspondence {
+	++containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+}

@@ -1,6 +1,6 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet
 
-import "http://www.semanticweb.org/ontologies/2015/trainbenchmark"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
 
 pattern railwayContainer(Container : RailwayContainer) {
 	RailwayContainer(Container);

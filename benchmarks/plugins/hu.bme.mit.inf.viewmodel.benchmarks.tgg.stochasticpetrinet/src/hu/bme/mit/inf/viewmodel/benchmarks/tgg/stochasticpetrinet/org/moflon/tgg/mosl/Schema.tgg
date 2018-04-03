@@ -1,0 +1,78 @@
+#import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
+#import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"
+
+#schema hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	railway
+}
+
+#target {
+	stochasticpetrinet
+}
+
+#correspondence {
+	RailwayContainerToPetriNet {
+		#src->RailwayContainer
+		#trg->PetriNet
+	}
+
+	RouteToOperational {
+		#src->Route
+		#trg->Place
+	}
+
+	RouteToFailed {
+		#src->Route
+		#trg->Place
+	}
+
+	RouteToRepair {
+		#src->Route
+		#trg->Transition
+	}
+
+	SwitchToOperational {
+		#src->Switch
+		#trg->Place
+	}
+
+	SwitchToFailed {
+		#src->Switch
+		#trg->Place
+	}
+
+	SemaphoreToOperational {
+		#src->Semaphore
+		#trg->Place
+	}
+
+	SemaphoreToFailed {
+		#src->Semaphore
+		#trg->Place
+	}
+
+	SensorToOperational {
+		#src->Sensor
+		#trg->Place
+	}
+
+	SensorToFailed {
+		#src->Sensor
+		#trg->Place
+	}
+}
+
+#attributeConditions {
+	#userDefined
+	positionToMarking(0:Position, 1:EInt, 2:EInt) {
+		#sync: BBB, BBF, BFB, BFF
+		#gen: BBB, BBF, BFB, BFF
+	}
+	
+	#userDefined
+	signalToMarking(0:Signal, 1:EInt, 2:EInt) {
+		#sync: BBB, BBF, BFB, BFF
+		#gen: BBB, BBF, BFB, BFF
+	}
+}

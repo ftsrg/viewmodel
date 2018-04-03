@@ -1,0 +1,83 @@
+#using hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.*
+#using AttrCondDefLibrary.*
+
+#rule RequiredSensor #with hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+
+#source {
+	srcContainer : RailwayContainer {
+		-routes->srcRoute
+	}
+	srcRoute : Route {
+		++-requires->srcSensor
+	}
+	srcSensor : Sensor
+}
+
+#target {
+	trgPetrinet : PetriNet
+	trgRouteOperational : Place
+	trgRouteFailed : Place
+	trgSensorOperational : Place
+	trgSensorFailed : Place
+	++trgRouteFail : ImmediateTransition {
+		++-petriNet->trgPetrinet
+	}
+	trgRouteRepair : Transition
+	++trgRouteOperationalToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgRouteOperational
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToRouteFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgRouteFailed
+		++-transition->trgRouteFail
+	}
+	++trgSensorFailedToRouteFail : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSensorFailed
+		++-transition->trgRouteFail
+	}
+	++trgRouteFailToSensorFailed : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSensorFailed
+		++-transition->trgRouteFail
+	}
+	++trgSensorOperationalToRouteRepair : Arc {
+		kind := enum::ArcKind::INPUT
+		++-place->trgSensorOperational
+		++-transition->trgRouteRepair
+	}
+	++trgRouteRepairToSensorOperational : Arc {
+		kind := enum::ArcKind::OUTPUT
+		++-place->trgSensorOperational
+		++-transition->trgRouteRepair
+	}
+}
+
+#correspondence {
+	containerCorr : RailwayContainerToPetriNet {
+		#src->srcContainer
+		#trg->trgPetrinet
+	}
+	routeOperationalCorr : RouteToOperational {
+		#src->srcRoute
+		#trg->trgRouteOperational
+	}
+	routeFailedCorr : RouteToFailed {
+		#src->srcRoute
+		#trg->trgRouteFailed
+	}
+	routeRepairCorr : RouteToRepair {
+		#src->srcRoute
+		#trg->trgRouteRepair
+	}
+	sensorOperationalCorr : SensorToOperational {
+		#src->srcSensor
+		#trg->trgSensorOperational
+	}
+	sensorFailedCorr : SensorToFailed {
+		#src->srcSensor
+		#trg->trgSensorFailed
+	}
+}
