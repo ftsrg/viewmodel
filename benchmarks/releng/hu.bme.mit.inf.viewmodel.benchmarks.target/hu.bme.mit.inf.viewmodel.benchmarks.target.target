@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="hu.bme.mit.inf.viewmodel.benchmarks.target" sequenceNumber="68">
+<?pde version="3.8"?><target name="hu.bme.mit.inf.viewmodel.benchmarks.target" sequenceNumber="75">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.ide" version="4.7.3.M20180301-0715"/>
-<unit id="org.eclipse.platform.sdk" version="4.7.3.M20180301-0715"/>
-<unit id="org.eclipse.sdk.ide" version="4.7.3.M20180301-0715"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.9.1.201705291011"/>
+<repository location="http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20171013-1050"/>
@@ -15,10 +13,6 @@
 <unit id="org.eclipse.viatra.query.sdk.extensions.feature.feature.group" version="0.17.2.201803211255"/>
 <unit id="org.eclipse.viatra.query.sdk.feature.source.feature.group" version="1.7.2.201803211255"/>
 <repository location="http://download.eclipse.org/viatra/updates/release/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.9.1.201705291011"/>
-<repository location="http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.google.gson" version="2.2.4.v201311231704"/>
@@ -33,6 +27,18 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.ide" version="4.7.3.M20180301-0715"/>
+<unit id="org.eclipse.platform.sdk" version="4.7.3.M20180301-0715"/>
+<unit id="org.eclipse.sdk.ide" version="4.7.3.M20180301-0715"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.m2m.atl.emftvm.feature.group" version="3.8.0.v201705182014"/>
+<unit id="org.eclipse.m2m.atl.feature.group" version="3.8.0.v201705182014"/>
+<unit id="org.eclipse.m2m.atl.sdk.feature.group" version="3.8.0.v201705182014"/>
+<repository location="http://download.eclipse.org/mmt/atl/updates/releases/3.8"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170609-0928"/>
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.3.v20180301-1149"/>
 <unit id="org.eclipse.jdt.feature.group" version="3.13.3.v20180301-0715"/>
@@ -40,10 +46,17 @@
 <repository location="http://download.eclipse.org/releases/oxygen/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.m2m.atl.emftvm.feature.group" version="3.8.0.v201705182014"/>
-<unit id="org.eclipse.m2m.atl.feature.group" version="3.8.0.v201705182014"/>
-<unit id="org.eclipse.m2m.atl.sdk.feature.group" version="3.8.0.v201705182014"/>
-<repository location="http://download.eclipse.org/mmt/atl/updates/releases/3.8"/>
+<unit id="org.moflon.core.feature.feature.group" version="1.1.0.201803211612"/>
+<repository location="https://raw.githubusercontent.com/eMoflon/emoflon-core-updatesite/emoflon-core_1.1.0/stable/updatesite/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="net.sourceforge.plantuml.lib.feature.feature.group" version="1.2017.15"/>
+<repository location="http://files.idi.ntnu.no/publish/plantuml/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.moflon.ide.feature.feature.group" version="3.1.0.201803250929"/>
+<unit id="org.moflon.tgg.mosl.feature.feature.group" version="3.0.0.201803250929"/>
+<repository location="http://emoflon.org/eclipse-plugin/beta/updatesite/"/>
 </location>
 </locations>
 </target>

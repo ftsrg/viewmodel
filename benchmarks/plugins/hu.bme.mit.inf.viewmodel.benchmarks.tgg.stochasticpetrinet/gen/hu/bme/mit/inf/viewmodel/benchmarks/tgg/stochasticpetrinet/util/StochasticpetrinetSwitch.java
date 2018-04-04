@@ -77,11 +77,11 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case StochasticpetrinetPackage.SWITCH_TO_OPERATIONAL: {
-			SwitchToOperational switchToOperational = (SwitchToOperational) theEObject;
-			T result = caseSwitchToOperational(switchToOperational);
+		case StochasticpetrinetPackage.ROUTE_TO_OPERATIONAL: {
+			RouteToOperational routeToOperational = (RouteToOperational) theEObject;
+			T result = caseRouteToOperational(routeToOperational);
 			if (result == null)
-				result = caseAbstractCorrespondence(switchToOperational);
+				result = caseAbstractCorrespondence(routeToOperational);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -104,11 +104,38 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case StochasticpetrinetPackage.SWITCH_TO_FAILED: {
+			SwitchToFailed switchToFailed = (SwitchToFailed) theEObject;
+			T result = caseSwitchToFailed(switchToFailed);
+			if (result == null)
+				result = caseAbstractCorrespondence(switchToFailed);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StochasticpetrinetPackage.ROUTE_TO_REPAIR: {
+			RouteToRepair routeToRepair = (RouteToRepair) theEObject;
+			T result = caseRouteToRepair(routeToRepair);
+			if (result == null)
+				result = caseAbstractCorrespondence(routeToRepair);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case StochasticpetrinetPackage.SEMAPHORE_TO_OPERATIONAL: {
 			SemaphoreToOperational semaphoreToOperational = (SemaphoreToOperational) theEObject;
 			T result = caseSemaphoreToOperational(semaphoreToOperational);
 			if (result == null)
 				result = caseAbstractCorrespondence(semaphoreToOperational);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StochasticpetrinetPackage.SWITCH_TO_OPERATIONAL: {
+			SwitchToOperational switchToOperational = (SwitchToOperational) theEObject;
+			T result = caseSwitchToOperational(switchToOperational);
+			if (result == null)
+				result = caseAbstractCorrespondence(switchToOperational);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -122,38 +149,11 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case StochasticpetrinetPackage.SWITCH_TO_FAILED: {
-			SwitchToFailed switchToFailed = (SwitchToFailed) theEObject;
-			T result = caseSwitchToFailed(switchToFailed);
-			if (result == null)
-				result = caseAbstractCorrespondence(switchToFailed);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case StochasticpetrinetPackage.RAILWAY_CONTAINER_TO_PETRI_NET: {
 			RailwayContainerToPetriNet railwayContainerToPetriNet = (RailwayContainerToPetriNet) theEObject;
 			T result = caseRailwayContainerToPetriNet(railwayContainerToPetriNet);
 			if (result == null)
 				result = caseAbstractCorrespondence(railwayContainerToPetriNet);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case StochasticpetrinetPackage.ROUTE_TO_OPERATIONAL: {
-			RouteToOperational routeToOperational = (RouteToOperational) theEObject;
-			T result = caseRouteToOperational(routeToOperational);
-			if (result == null)
-				result = caseAbstractCorrespondence(routeToOperational);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case StochasticpetrinetPackage.ROUTE_TO_REPAIR: {
-			RouteToRepair routeToRepair = (RouteToRepair) theEObject;
-			T result = caseRouteToRepair(routeToRepair);
-			if (result == null)
-				result = caseAbstractCorrespondence(routeToRepair);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -179,17 +179,17 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Switch To Operational</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Route To Operational</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Switch To Operational</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Route To Operational</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSwitchToOperational(SwitchToOperational object) {
+	public T caseRouteToOperational(RouteToOperational object) {
 		return null;
 	}
 
@@ -224,6 +224,36 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch To Failed</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch To Failed</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchToFailed(SwitchToFailed object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route To Repair</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route To Repair</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouteToRepair(RouteToRepair object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Semaphore To Operational</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -235,6 +265,21 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSemaphoreToOperational(SemaphoreToOperational object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch To Operational</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch To Operational</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchToOperational(SwitchToOperational object) {
 		return null;
 	}
 
@@ -254,21 +299,6 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Switch To Failed</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Switch To Failed</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSwitchToFailed(SwitchToFailed object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Railway Container To Petri Net</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -280,36 +310,6 @@ public class StochasticpetrinetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRailwayContainerToPetriNet(RailwayContainerToPetriNet object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Route To Operational</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Route To Operational</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRouteToOperational(RouteToOperational object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Route To Repair</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Route To Repair</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRouteToRepair(RouteToRepair object) {
 		return null;
 	}
 

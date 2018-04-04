@@ -42,8 +42,8 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion);
+	boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			Region srcRegion, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,8 +67,8 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion);
+	void registerObjectsToMatch_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			Region srcRegion, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion);
+	CSP isAppropriate_solveCsp_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			Region srcRegion, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,9 +93,9 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
-			Region srcRegion, RailwayContainerToPetriNet containerCorr);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainerToPetriNet containerCorr,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion, PetriNet trgPetrinet,
+			RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,10 +111,11 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject trgFail, EObject trgOperational,
-			EObject sensorFailedCorr, EObject trgFailed, EObject sensorOperationalCoor, EObject trgRepair,
-			EObject srcContainer, EObject trgFailToFailed, EObject trgRepairToOperational, EObject trgFailedToRepair,
-			EObject srcSensor, EObject trgOperationToFail, EObject srcRegion, EObject containerCorr);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgFailToFailed, EObject trgFail,
+			EObject sensorFailedCorr, EObject trgOperationToFail, EObject trgFailedToRepair, EObject containerCorr,
+			EObject srcSensor, EObject trgRepair, EObject trgRepairToOperational, EObject srcRegion,
+			EObject trgOperational, EObject trgFailed, EObject sensorOperationalCoor, EObject trgPetrinet,
+			EObject srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,7 +131,7 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_42(EMoflonEdge _edge_sensors);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_18(EMoflonEdge _edge_sensors);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,8 +155,8 @@ public interface Sensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion);
+	boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion,
+			RailwayContainer srcContainer);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

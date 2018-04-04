@@ -93,8 +93,8 @@ public interface Route extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
-			PetriNet trgPetrinet, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
-			RailwayContainerToPetriNet containerCorr);
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,10 +110,10 @@ public interface Route extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeOperationalCorr, EObject srcContainer,
-			EObject trgFailedToRepair, EObject trgPetrinet, EObject trgRepairToOperational, EObject routeFailedCorr,
-			EObject srcRoute, EObject trgFailed, EObject trgRepair, EObject trgOperational, EObject routeRepairCorr,
-			EObject containerCorr);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeFailedCorr, EObject trgOperational,
+			EObject routeRepairCorr, EObject trgFailed, EObject srcContainer, EObject trgFailedToRepair,
+			EObject containerCorr, EObject trgPetrinet, EObject trgRepairToOperational, EObject trgRepair,
+			EObject srcRoute, EObject routeOperationalCorr);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +129,7 @@ public interface Route extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_43(EMoflonEdge _edge_routes);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_13(EMoflonEdge _edge_routes);
 
 	/**
 	 * <!-- begin-user-doc -->

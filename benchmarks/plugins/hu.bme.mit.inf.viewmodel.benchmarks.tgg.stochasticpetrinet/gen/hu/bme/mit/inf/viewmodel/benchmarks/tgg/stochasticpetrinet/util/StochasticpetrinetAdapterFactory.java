@@ -74,8 +74,8 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSwitchToOperational(SwitchToOperational object) {
-			return createSwitchToOperationalAdapter();
+		public Adapter caseRouteToOperational(RouteToOperational object) {
+			return createRouteToOperationalAdapter();
 		}
 
 		@Override
@@ -89,8 +89,23 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSwitchToFailed(SwitchToFailed object) {
+			return createSwitchToFailedAdapter();
+		}
+
+		@Override
+		public Adapter caseRouteToRepair(RouteToRepair object) {
+			return createRouteToRepairAdapter();
+		}
+
+		@Override
 		public Adapter caseSemaphoreToOperational(SemaphoreToOperational object) {
 			return createSemaphoreToOperationalAdapter();
+		}
+
+		@Override
+		public Adapter caseSwitchToOperational(SwitchToOperational object) {
+			return createSwitchToOperationalAdapter();
 		}
 
 		@Override
@@ -99,23 +114,8 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSwitchToFailed(SwitchToFailed object) {
-			return createSwitchToFailedAdapter();
-		}
-
-		@Override
 		public Adapter caseRailwayContainerToPetriNet(RailwayContainerToPetriNet object) {
 			return createRailwayContainerToPetriNetAdapter();
-		}
-
-		@Override
-		public Adapter caseRouteToOperational(RouteToOperational object) {
-			return createRouteToOperationalAdapter();
-		}
-
-		@Override
-		public Adapter caseRouteToRepair(RouteToRepair object) {
-			return createRouteToRepairAdapter();
 		}
 
 		@Override
@@ -157,16 +157,16 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational <em>Switch To Operational</em>}'.
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
 	 * @generated
 	 */
-	public Adapter createSwitchToOperationalAdapter() {
+	public Adapter createRouteToOperationalAdapter() {
 		return null;
 	}
 
@@ -199,6 +199,34 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
+	 * @generated
+	 */
+	public Adapter createSwitchToFailedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
+	 * @generated
+	 */
+	public Adapter createRouteToRepairAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational <em>Semaphore To Operational</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -209,6 +237,20 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSemaphoreToOperationalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational <em>Switch To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational
+	 * @generated
+	 */
+	public Adapter createSwitchToOperationalAdapter() {
 		return null;
 	}
 
@@ -227,20 +269,6 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
-	 * @generated
-	 */
-	public Adapter createSwitchToFailedAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RailwayContainerToPetriNet <em>Railway Container To Petri Net</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -251,34 +279,6 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRailwayContainerToPetriNetAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
-	 * @generated
-	 */
-	public Adapter createRouteToOperationalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
-	 * @generated
-	 */
-	public Adapter createRouteToRepairAdapter() {
 		return null;
 	}
 

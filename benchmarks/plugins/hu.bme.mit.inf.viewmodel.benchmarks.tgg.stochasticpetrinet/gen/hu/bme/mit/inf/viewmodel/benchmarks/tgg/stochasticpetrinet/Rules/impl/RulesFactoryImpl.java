@@ -55,34 +55,34 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
-			return createTrackElementConnectsTo();
-		case RulesPackage.SWITCH_POSITION:
-			return createSwitchPosition();
-		case RulesPackage.REQUIRED_EXIT_SEMAPHORE:
-			return createRequiredExitSemaphore();
-		case RulesPackage.REQUIRED_SENSOR:
-			return createRequiredSensor();
+		case RulesPackage.ROUTE:
+			return createRoute();
+		case RulesPackage.REGION:
+			return createRegion();
 		case RulesPackage.SWITCH:
 			return createSwitch();
+		case RulesPackage.RAILWAY_CONTAINER:
+			return createRailwayContainer();
+		case RulesPackage.SWITCH_POSITION:
+			return createSwitchPosition();
 		case RulesPackage.SEMAPHORE:
 			return createSemaphore();
 		case RulesPackage.SENSOR:
 			return createSensor();
-		case RulesPackage.ROUTE:
-			return createRoute();
+		case RulesPackage.REQUIRED_SWITCH:
+			return createRequiredSwitch();
+		case RulesPackage.REQUIRED_SENSOR:
+			return createRequiredSensor();
+		case RulesPackage.SEGMENT:
+			return createSegment();
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE:
 			return createRequiredEntrySemaphore();
 		case RulesPackage.SENSOR_MONITORS:
 			return createSensorMonitors();
-		case RulesPackage.RAILWAY_CONTAINER:
-			return createRailwayContainer();
-		case RulesPackage.SEGMENT:
-			return createSegment();
-		case RulesPackage.REQUIRED_SWITCH:
-			return createRequiredSwitch();
-		case RulesPackage.REGION:
-			return createRegion();
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
+			return createTrackElementConnectsTo();
+		case RulesPackage.REQUIRED_EXIT_SEMAPHORE:
+			return createRequiredExitSemaphore();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,9 +93,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrackElementConnectsTo createTrackElementConnectsTo() {
-		TrackElementConnectsToImpl trackElementConnectsTo = new TrackElementConnectsToImpl();
-		return trackElementConnectsTo;
+	public Route createRoute() {
+		RouteImpl route = new RouteImpl();
+		return route;
 	}
 
 	/**
@@ -103,29 +103,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwitchPosition createSwitchPosition() {
-		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
-		return switchPosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredExitSemaphore createRequiredExitSemaphore() {
-		RequiredExitSemaphoreImpl requiredExitSemaphore = new RequiredExitSemaphoreImpl();
-		return requiredExitSemaphore;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredSensor createRequiredSensor() {
-		RequiredSensorImpl requiredSensor = new RequiredSensorImpl();
-		return requiredSensor;
+	public Region createRegion() {
+		RegionImpl region = new RegionImpl();
+		return region;
 	}
 
 	/**
@@ -136,6 +116,26 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public Switch createSwitch() {
 		SwitchImpl switch_ = new SwitchImpl();
 		return switch_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RailwayContainer createRailwayContainer() {
+		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
+		return railwayContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchPosition createSwitchPosition() {
+		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
+		return switchPosition;
 	}
 
 	/**
@@ -163,9 +163,29 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Route createRoute() {
-		RouteImpl route = new RouteImpl();
-		return route;
+	public RequiredSwitch createRequiredSwitch() {
+		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
+		return requiredSwitch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredSensor createRequiredSensor() {
+		RequiredSensorImpl requiredSensor = new RequiredSensorImpl();
+		return requiredSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Segment createSegment() {
+		SegmentImpl segment = new SegmentImpl();
+		return segment;
 	}
 
 	/**
@@ -193,9 +213,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RailwayContainer createRailwayContainer() {
-		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
-		return railwayContainer;
+	public TrackElementConnectsTo createTrackElementConnectsTo() {
+		TrackElementConnectsToImpl trackElementConnectsTo = new TrackElementConnectsToImpl();
+		return trackElementConnectsTo;
 	}
 
 	/**
@@ -203,29 +223,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Segment createSegment() {
-		SegmentImpl segment = new SegmentImpl();
-		return segment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredSwitch createRequiredSwitch() {
-		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
-		return requiredSwitch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Region createRegion() {
-		RegionImpl region = new RegionImpl();
-		return region;
+	public RequiredExitSemaphore createRequiredExitSemaphore() {
+		RequiredExitSemaphoreImpl requiredExitSemaphore = new RequiredExitSemaphoreImpl();
+		return requiredExitSemaphore;
 	}
 
 	/**

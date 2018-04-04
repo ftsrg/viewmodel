@@ -68,38 +68,20 @@ public class RulesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO: {
-			TrackElementConnectsTo trackElementConnectsTo = (TrackElementConnectsTo) theEObject;
-			T result = caseTrackElementConnectsTo(trackElementConnectsTo);
+		case RulesPackage.ROUTE: {
+			Route route = (Route) theEObject;
+			T result = caseRoute(route);
 			if (result == null)
-				result = caseAbstractRule(trackElementConnectsTo);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.SWITCH_POSITION: {
-			SwitchPosition switchPosition = (SwitchPosition) theEObject;
-			T result = caseSwitchPosition(switchPosition);
-			if (result == null)
-				result = caseAbstractRule(switchPosition);
+				result = caseAbstractRule(route);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.REQUIRED_EXIT_SEMAPHORE: {
-			RequiredExitSemaphore requiredExitSemaphore = (RequiredExitSemaphore) theEObject;
-			T result = caseRequiredExitSemaphore(requiredExitSemaphore);
+		case RulesPackage.REGION: {
+			Region region = (Region) theEObject;
+			T result = caseRegion(region);
 			if (result == null)
-				result = caseAbstractRule(requiredExitSemaphore);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.REQUIRED_SENSOR: {
-			RequiredSensor requiredSensor = (RequiredSensor) theEObject;
-			T result = caseRequiredSensor(requiredSensor);
-			if (result == null)
-				result = caseAbstractRule(requiredSensor);
+				result = caseAbstractRule(region);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -109,6 +91,24 @@ public class RulesSwitch<T> extends Switch<T> {
 			T result = caseSwitch(switch_);
 			if (result == null)
 				result = caseAbstractRule(switch_);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.RAILWAY_CONTAINER: {
+			RailwayContainer railwayContainer = (RailwayContainer) theEObject;
+			T result = caseRailwayContainer(railwayContainer);
+			if (result == null)
+				result = caseAbstractRule(railwayContainer);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.SWITCH_POSITION: {
+			SwitchPosition switchPosition = (SwitchPosition) theEObject;
+			T result = caseSwitchPosition(switchPosition);
+			if (result == null)
+				result = caseAbstractRule(switchPosition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -131,11 +131,29 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.ROUTE: {
-			Route route = (Route) theEObject;
-			T result = caseRoute(route);
+		case RulesPackage.REQUIRED_SWITCH: {
+			RequiredSwitch requiredSwitch = (RequiredSwitch) theEObject;
+			T result = caseRequiredSwitch(requiredSwitch);
 			if (result == null)
-				result = caseAbstractRule(route);
+				result = caseAbstractRule(requiredSwitch);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.REQUIRED_SENSOR: {
+			RequiredSensor requiredSensor = (RequiredSensor) theEObject;
+			T result = caseRequiredSensor(requiredSensor);
+			if (result == null)
+				result = caseAbstractRule(requiredSensor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.SEGMENT: {
+			Segment segment = (Segment) theEObject;
+			T result = caseSegment(segment);
+			if (result == null)
+				result = caseAbstractRule(segment);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -158,38 +176,20 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.RAILWAY_CONTAINER: {
-			RailwayContainer railwayContainer = (RailwayContainer) theEObject;
-			T result = caseRailwayContainer(railwayContainer);
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO: {
+			TrackElementConnectsTo trackElementConnectsTo = (TrackElementConnectsTo) theEObject;
+			T result = caseTrackElementConnectsTo(trackElementConnectsTo);
 			if (result == null)
-				result = caseAbstractRule(railwayContainer);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.SEGMENT: {
-			Segment segment = (Segment) theEObject;
-			T result = caseSegment(segment);
-			if (result == null)
-				result = caseAbstractRule(segment);
+				result = caseAbstractRule(trackElementConnectsTo);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.REQUIRED_SWITCH: {
-			RequiredSwitch requiredSwitch = (RequiredSwitch) theEObject;
-			T result = caseRequiredSwitch(requiredSwitch);
+		case RulesPackage.REQUIRED_EXIT_SEMAPHORE: {
+			RequiredExitSemaphore requiredExitSemaphore = (RequiredExitSemaphore) theEObject;
+			T result = caseRequiredExitSemaphore(requiredExitSemaphore);
 			if (result == null)
-				result = caseAbstractRule(requiredSwitch);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.REGION: {
-			Region region = (Region) theEObject;
-			T result = caseRegion(region);
-			if (result == null)
-				result = caseAbstractRule(region);
+				result = caseAbstractRule(requiredExitSemaphore);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -200,62 +200,32 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Track Element Connects To</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Route</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Track Element Connects To</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Route</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTrackElementConnectsTo(TrackElementConnectsTo object) {
+	public T caseRoute(Route object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Switch Position</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Region</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Switch Position</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Region</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSwitchPosition(SwitchPosition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Exit Semaphore</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Exit Semaphore</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequiredExitSemaphore(RequiredExitSemaphore object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Sensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Sensor</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequiredSensor(RequiredSensor object) {
+	public T caseRegion(Region object) {
 		return null;
 	}
 
@@ -271,6 +241,36 @@ public class RulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSwitch(hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.Switch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Railway Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Railway Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRailwayContainer(RailwayContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Position</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchPosition(SwitchPosition object) {
 		return null;
 	}
 
@@ -305,17 +305,47 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Route</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Required Switch</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Route</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Required Switch</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRoute(Route object) {
+	public T caseRequiredSwitch(RequiredSwitch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiredSensor(RequiredSensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Segment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSegment(Segment object) {
 		return null;
 	}
 
@@ -350,62 +380,32 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Railway Container</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Track Element Connects To</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Railway Container</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Track Element Connects To</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRailwayContainer(RailwayContainer object) {
+	public T caseTrackElementConnectsTo(TrackElementConnectsTo object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Segment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Required Exit Semaphore</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Segment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Required Exit Semaphore</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSegment(Segment object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Switch</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Switch</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequiredSwitch(RequiredSwitch object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Region</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Region</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRegion(Region object) {
+	public T caseRequiredExitSemaphore(RequiredExitSemaphore object) {
 		return null;
 	}
 

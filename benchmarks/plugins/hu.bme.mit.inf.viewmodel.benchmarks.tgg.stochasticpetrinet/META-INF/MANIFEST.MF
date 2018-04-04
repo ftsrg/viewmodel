@@ -1,13 +1,12 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet;singleton:=true
-Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetr
- inet.org.moflon.tie,
- hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.util,
- hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet,
- hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.util,
- hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl,
+Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet,
  hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules,
- hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.impl
+ hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.impl,
+ hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.Rules.util,
+ hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl,
+ hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.org.moflon.tie,
+ hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.util
 Bundle-Name: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

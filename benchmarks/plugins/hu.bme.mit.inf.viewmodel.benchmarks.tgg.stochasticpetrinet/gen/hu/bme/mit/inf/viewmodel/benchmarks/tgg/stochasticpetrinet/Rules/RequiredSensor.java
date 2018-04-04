@@ -50,7 +50,7 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, Route srcRoute, Sensor srcSensor, RailwayContainer srcContainer);
+	boolean isAppropriate_FWD(Match match, Sensor srcSensor, Route srcRoute, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, Route srcRoute, Sensor srcSensor, RailwayContainer srcContainer);
+	void registerObjectsToMatch_FWD(Match match, Sensor srcSensor, Route srcRoute, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,7 +82,7 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, Route srcRoute, Sensor srcSensor, RailwayContainer srcContainer);
+	CSP isAppropriate_solveCsp_FWD(Match match, Sensor srcSensor, Route srcRoute, RailwayContainer srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +98,12 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Place trgRouteOperational,
-			SensorToFailed sensorFailedCorr, Route srcRoute, Sensor srcSensor, RailwayContainer srcContainer,
-			Transition trgRouteRepair, RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			Place trgSensorFailed, SensorToOperational sensorOperationalCorr, RouteToFailed routeFailedCorr,
-			RouteToOperational routeOperationalCorr, Place trgSensorOperational, Place trgRouteFailed,
-			PetriNet trgPetrinet);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, Place trgRouteOperational,
+			Place trgSensorFailed, RouteToFailed routeFailedCorr, RouteToRepair routeRepairCorr,
+			SensorToFailed sensorFailedCorr, Sensor srcSensor, Route srcRoute,
+			SensorToOperational sensorOperationalCorr, Place trgRouteFailed, RailwayContainerToPetriNet containerCorr,
+			RouteToOperational routeOperationalCorr, Transition trgRouteRepair, RailwayContainer srcContainer,
+			Place trgSensorOperational);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,13 +119,13 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRouteOperational, EObject sensorFailedCorr,
-			EObject trgSensorOperationalToRouteRepair, EObject srcRoute, EObject srcSensor, EObject srcContainer,
-			EObject trgRouteRepair, EObject containerCorr, EObject routeRepairCorr, EObject trgRouteFailToSensorFailed,
-			EObject trgSensorFailed, EObject trgRouteFail, EObject trgSensorFailedToRouteFail,
-			EObject trgRouteRepairToSensorOperational, EObject trgRouteFailToRouteFailed, EObject sensorOperationalCorr,
-			EObject routeFailedCorr, EObject routeOperationalCorr, EObject trgSensorOperational, EObject trgRouteFailed,
-			EObject trgRouteOperationalToRouteFail, EObject trgPetrinet);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject trgRouteOperational,
+			EObject trgSensorFailed, EObject routeFailedCorr, EObject routeRepairCorr, EObject sensorFailedCorr,
+			EObject srcSensor, EObject srcRoute, EObject sensorOperationalCorr, EObject trgRouteFail,
+			EObject trgRouteFailed, EObject trgRouteOperationalToRouteFail, EObject trgSensorFailedToRouteFail,
+			EObject containerCorr, EObject trgRouteFailToSensorFailed, EObject trgSensorOperationalToRouteRepair,
+			EObject routeOperationalCorr, EObject trgRouteRepairToSensorOperational, EObject trgRouteFailToRouteFailed,
+			EObject trgRouteRepair, EObject srcContainer, EObject trgSensorOperational);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,7 +141,7 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_39(EMoflonEdge _edge_requires);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_20(EMoflonEdge _edge_requires);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,7 +165,7 @@ public interface RequiredSensor extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(Route srcRoute, Sensor srcSensor, RailwayContainer srcContainer);
+	boolean checkDEC_FWD(Sensor srcSensor, Route srcRoute, RailwayContainer srcContainer);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

@@ -58,24 +58,24 @@ public class StochasticpetrinetFactoryImpl extends EFactoryImpl implements Stoch
 		switch (eClass.getClassifierID()) {
 		case StochasticpetrinetPackage.SENSOR_TO_FAILED:
 			return createSensorToFailed();
-		case StochasticpetrinetPackage.SWITCH_TO_OPERATIONAL:
-			return createSwitchToOperational();
+		case StochasticpetrinetPackage.ROUTE_TO_OPERATIONAL:
+			return createRouteToOperational();
 		case StochasticpetrinetPackage.SENSOR_TO_OPERATIONAL:
 			return createSensorToOperational();
 		case StochasticpetrinetPackage.SEMAPHORE_TO_FAILED:
 			return createSemaphoreToFailed();
-		case StochasticpetrinetPackage.SEMAPHORE_TO_OPERATIONAL:
-			return createSemaphoreToOperational();
-		case StochasticpetrinetPackage.ROUTE_TO_FAILED:
-			return createRouteToFailed();
 		case StochasticpetrinetPackage.SWITCH_TO_FAILED:
 			return createSwitchToFailed();
-		case StochasticpetrinetPackage.RAILWAY_CONTAINER_TO_PETRI_NET:
-			return createRailwayContainerToPetriNet();
-		case StochasticpetrinetPackage.ROUTE_TO_OPERATIONAL:
-			return createRouteToOperational();
 		case StochasticpetrinetPackage.ROUTE_TO_REPAIR:
 			return createRouteToRepair();
+		case StochasticpetrinetPackage.SEMAPHORE_TO_OPERATIONAL:
+			return createSemaphoreToOperational();
+		case StochasticpetrinetPackage.SWITCH_TO_OPERATIONAL:
+			return createSwitchToOperational();
+		case StochasticpetrinetPackage.ROUTE_TO_FAILED:
+			return createRouteToFailed();
+		case StochasticpetrinetPackage.RAILWAY_CONTAINER_TO_PETRI_NET:
+			return createRailwayContainerToPetriNet();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -96,9 +96,9 @@ public class StochasticpetrinetFactoryImpl extends EFactoryImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwitchToOperational createSwitchToOperational() {
-		SwitchToOperationalImpl switchToOperational = new SwitchToOperationalImpl();
-		return switchToOperational;
+	public RouteToOperational createRouteToOperational() {
+		RouteToOperationalImpl routeToOperational = new RouteToOperationalImpl();
+		return routeToOperational;
 	}
 
 	/**
@@ -126,9 +126,39 @@ public class StochasticpetrinetFactoryImpl extends EFactoryImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SwitchToFailed createSwitchToFailed() {
+		SwitchToFailedImpl switchToFailed = new SwitchToFailedImpl();
+		return switchToFailed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RouteToRepair createRouteToRepair() {
+		RouteToRepairImpl routeToRepair = new RouteToRepairImpl();
+		return routeToRepair;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SemaphoreToOperational createSemaphoreToOperational() {
 		SemaphoreToOperationalImpl semaphoreToOperational = new SemaphoreToOperationalImpl();
 		return semaphoreToOperational;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchToOperational createSwitchToOperational() {
+		SwitchToOperationalImpl switchToOperational = new SwitchToOperationalImpl();
+		return switchToOperational;
 	}
 
 	/**
@@ -146,39 +176,9 @@ public class StochasticpetrinetFactoryImpl extends EFactoryImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwitchToFailed createSwitchToFailed() {
-		SwitchToFailedImpl switchToFailed = new SwitchToFailedImpl();
-		return switchToFailed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public RailwayContainerToPetriNet createRailwayContainerToPetriNet() {
 		RailwayContainerToPetriNetImpl railwayContainerToPetriNet = new RailwayContainerToPetriNetImpl();
 		return railwayContainerToPetriNet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RouteToOperational createRouteToOperational() {
-		RouteToOperationalImpl routeToOperational = new RouteToOperationalImpl();
-		return routeToOperational;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RouteToRepair createRouteToRepair() {
-		RouteToRepairImpl routeToRepair = new RouteToRepairImpl();
-		return routeToRepair;
 	}
 
 	/**

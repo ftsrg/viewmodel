@@ -43,8 +43,9 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, Region srcRegion, Segment srcSegment, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore);
+	boolean isAppropriate_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
+			Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,8 +69,9 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, Region srcRegion, Segment srcSegment, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore);
+	void registerObjectsToMatch_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
+			Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,8 +79,9 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, Region srcRegion, Segment srcSegment, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore);
+	CSP isAppropriate_solveCsp_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
+			Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,8 +98,9 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Region srcRegion,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Segment srcSegment,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore);
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
+			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
+			PetriNet trgPetrinet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +116,11 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgFailToFailed, EObject srcRegion,
-			EObject trgOperational, EObject trgFail, EObject semaphoreFailedCorr, EObject trgRepairToOperational,
-			EObject trgRepair, EObject semaphoreOperationalCorr, EObject trgFailed, EObject trgFailedToRepair,
-			EObject containerCorr, EObject trgPetrinet, EObject trgOperationToFail, EObject srcSegment,
-			EObject srcContainer, EObject srcSemaphore);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgFailed, EObject srcRegion,
+			EObject trgFailedToRepair, EObject trgRepair, EObject trgOperationToFail, EObject srcSemaphore,
+			EObject trgFail, EObject containerCorr, EObject srcContainer, EObject semaphoreOperationalCorr,
+			EObject trgRepairToOperational, EObject trgFailToFailed, EObject srcSegment, EObject trgPetrinet,
+			EObject trgOperational, EObject semaphoreFailedCorr);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,7 +136,7 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_41(EMoflonEdge _edge_semaphores);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_17(EMoflonEdge _edge_semaphores);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,8 +160,8 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(Region srcRegion, Segment srcSegment, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore);
+	boolean checkDEC_FWD(Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
+			RailwayContainer srcContainer, Segment srcSegment);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

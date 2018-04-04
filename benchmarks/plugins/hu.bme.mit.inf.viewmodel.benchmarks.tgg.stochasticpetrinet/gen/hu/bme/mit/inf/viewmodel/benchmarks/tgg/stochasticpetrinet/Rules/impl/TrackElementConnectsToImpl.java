@@ -77,55 +77,55 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+	public boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 
 		Object[] result1_black = TrackElementConnectsToImpl
-				.pattern_TrackElementConnectsTo_0_1_initialbindings_blackBBBB(this, match, srcTrackElement1,
-						srcTrackElement2);
+				.pattern_TrackElementConnectsTo_0_1_initialbindings_blackBBBB(this, match, srcTrackElement2,
+						srcTrackElement1);
 		if (result1_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcTrackElement1] = " + srcTrackElement1 + ", "
-					+ "[srcTrackElement2] = " + srcTrackElement2 + ".");
+					+ "[match] = " + match + ", " + "[srcTrackElement2] = " + srcTrackElement2 + ", "
+					+ "[srcTrackElement1] = " + srcTrackElement1 + ".");
 		}
 
 		Object[] result2_bindingAndBlack = TrackElementConnectsToImpl
-				.pattern_TrackElementConnectsTo_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcTrackElement1,
-						srcTrackElement2);
+				.pattern_TrackElementConnectsTo_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcTrackElement2,
+						srcTrackElement1);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcTrackElement1] = " + srcTrackElement1 + ", "
-					+ "[srcTrackElement2] = " + srcTrackElement2 + ".");
+					+ "[match] = " + match + ", " + "[srcTrackElement2] = " + srcTrackElement2 + ", "
+					+ "[srcTrackElement1] = " + srcTrackElement1 + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = TrackElementConnectsToImpl
-					.pattern_TrackElementConnectsTo_0_4_collectelementstobetranslated_blackBBB(match, srcTrackElement1,
-							srcTrackElement2);
+					.pattern_TrackElementConnectsTo_0_4_collectelementstobetranslated_blackBBB(match, srcTrackElement2,
+							srcTrackElement1);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcTrackElement1] = " + srcTrackElement1 + ", " + "[srcTrackElement2] = " + srcTrackElement2
+						+ "[srcTrackElement2] = " + srcTrackElement2 + ", " + "[srcTrackElement1] = " + srcTrackElement1
 						+ ".");
 			}
 			TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_4_collectelementstobetranslated_greenBBBF(match,
-					srcTrackElement1, srcTrackElement2);
+					srcTrackElement2, srcTrackElement1);
 			//nothing EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = (EMoflonEdge) result4_green[3];
 
 			Object[] result5_black = TrackElementConnectsToImpl
-					.pattern_TrackElementConnectsTo_0_5_collectcontextelements_blackBBB(match, srcTrackElement1,
-							srcTrackElement2);
+					.pattern_TrackElementConnectsTo_0_5_collectcontextelements_blackBBB(match, srcTrackElement2,
+							srcTrackElement1);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcTrackElement1] = " + srcTrackElement1 + ", " + "[srcTrackElement2] = " + srcTrackElement2
+						+ "[srcTrackElement2] = " + srcTrackElement2 + ", " + "[srcTrackElement1] = " + srcTrackElement1
 						+ ".");
 			}
 			TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_5_collectcontextelements_greenBBB(match,
-					srcTrackElement1, srcTrackElement2);
+					srcTrackElement2, srcTrackElement1);
 
 			// 
 			TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_6_registerobjectstomatch_expressionBBBB(this,
-					match, srcTrackElement1, srcTrackElement2);
+					match, srcTrackElement2, srcTrackElement1);
 			return TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_7_expressionF();
 		} else {
 			return TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_0_8_expressionF();
@@ -146,8 +146,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		TrackElement srcTrackElement1 = (TrackElement) result1_bindingAndBlack[0];
-		TrackElement srcTrackElement2 = (TrackElement) result1_bindingAndBlack[1];
+		TrackElement srcTrackElement2 = (TrackElement) result1_bindingAndBlack[0];
+		TrackElement srcTrackElement1 = (TrackElement) result1_bindingAndBlack[1];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[2];
 
 		Object[] result2_green = TrackElementConnectsToImpl
@@ -158,21 +158,21 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = TrackElementConnectsToImpl
-				.pattern_TrackElementConnectsTo_1_3_bookkeepingforedges_blackBBB(ruleresult, srcTrackElement1,
-						srcTrackElement2);
+				.pattern_TrackElementConnectsTo_1_3_bookkeepingforedges_blackBBB(ruleresult, srcTrackElement2,
+						srcTrackElement1);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[srcTrackElement1] = " + srcTrackElement1 + ", " + "[srcTrackElement2] = "
-					+ srcTrackElement2 + ".");
+					+ ", " + "[srcTrackElement2] = " + srcTrackElement2 + ", " + "[srcTrackElement1] = "
+					+ srcTrackElement1 + ".");
 		}
 		TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_1_3_bookkeepingforedges_greenBBBF(ruleresult,
-				srcTrackElement1, srcTrackElement2);
+				srcTrackElement2, srcTrackElement1);
 		//nothing EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = (EMoflonEdge) result3_green[3];
 
 		// 
 		// 
 		TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_1_5_registerobjects_expressionBBBB(this, ruleresult,
-				srcTrackElement1, srcTrackElement2);
+				srcTrackElement2, srcTrackElement1);
 		return TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_1_6_expressionFB(ruleresult);
 	}
 
@@ -201,25 +201,25 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		TrackElement srcTrackElement1 = (TrackElement) result2_binding[0];
-		TrackElement srcTrackElement2 = (TrackElement) result2_binding[1];
+		TrackElement srcTrackElement2 = (TrackElement) result2_binding[0];
+		TrackElement srcTrackElement1 = (TrackElement) result2_binding[1];
 		for (Object[] result2_black : TrackElementConnectsToImpl
-				.pattern_TrackElementConnectsTo_2_2_corematch_blackBBB(srcTrackElement1, srcTrackElement2, match)) {
+				.pattern_TrackElementConnectsTo_2_2_corematch_blackBBB(srcTrackElement2, srcTrackElement1, match)) {
 			// ForEach 
 			for (Object[] result3_black : TrackElementConnectsToImpl
-					.pattern_TrackElementConnectsTo_2_3_findcontext_blackBB(srcTrackElement1, srcTrackElement2)) {
+					.pattern_TrackElementConnectsTo_2_3_findcontext_blackBB(srcTrackElement2, srcTrackElement1)) {
 				Object[] result3_green = TrackElementConnectsToImpl
-						.pattern_TrackElementConnectsTo_2_3_findcontext_greenBBFF(srcTrackElement1, srcTrackElement2);
+						.pattern_TrackElementConnectsTo_2_3_findcontext_greenBBFF(srcTrackElement2, srcTrackElement1);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[2];
 				//nothing EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = (EMoflonEdge) result3_green[3];
 
 				Object[] result4_bindingAndBlack = TrackElementConnectsToImpl
 						.pattern_TrackElementConnectsTo_2_4_solveCSP_bindingAndBlackFBBBB(this, isApplicableMatch,
-								srcTrackElement1, srcTrackElement2);
+								srcTrackElement2, srcTrackElement1);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcTrackElement1] = "
-							+ srcTrackElement1 + ", " + "[srcTrackElement2] = " + srcTrackElement2 + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcTrackElement2] = "
+							+ srcTrackElement2 + ", " + "[srcTrackElement1] = " + srcTrackElement1 + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -249,9 +249,9 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		match.registerObject("srcTrackElement1", srcTrackElement1);
+	public void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		match.registerObject("srcTrackElement2", srcTrackElement2);
+		match.registerObject("srcTrackElement1", srcTrackElement1);
 
 	}
 
@@ -260,7 +260,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -289,8 +289,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement1,
-			TrackElement srcTrackElement2) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement2,
+			TrackElement srcTrackElement1) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -305,8 +305,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcTrackElement1", srcTrackElement1);
 		isApplicableMatch.registerObject("srcTrackElement2", srcTrackElement2);
+		isApplicableMatch.registerObject("srcTrackElement1", srcTrackElement1);
 		return csp;
 	}
 
@@ -324,9 +324,9 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement1, EObject srcTrackElement2) {
-		ruleresult.registerObject("srcTrackElement1", srcTrackElement1);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement2, EObject srcTrackElement1) {
 		ruleresult.registerObject("srcTrackElement2", srcTrackElement2);
+		ruleresult.registerObject("srcTrackElement1", srcTrackElement1);
 
 	}
 
@@ -344,7 +344,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_36(EMoflonEdge _edge_connectsTo) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_24(EMoflonEdge _edge_connectsTo) {
 
 		Object[] result1_bindingAndBlack = TrackElementConnectsToImpl
 				.pattern_TrackElementConnectsTo_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -361,8 +361,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		// ForEach 
 		for (Object[] result2_black : TrackElementConnectsToImpl
 				.pattern_TrackElementConnectsTo_10_2_testcorematchandDECs_blackFFB(_edge_connectsTo)) {
-			TrackElement srcTrackElement1 = (TrackElement) result2_black[0];
-			TrackElement srcTrackElement2 = (TrackElement) result2_black[1];
+			TrackElement srcTrackElement2 = (TrackElement) result2_black[0];
+			TrackElement srcTrackElement1 = (TrackElement) result2_black[1];
 			Object[] result2_green = TrackElementConnectsToImpl
 					.pattern_TrackElementConnectsTo_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -370,7 +370,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 			// 
 			if (TrackElementConnectsToImpl
 					.pattern_TrackElementConnectsTo_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(this,
-							match, srcTrackElement1, srcTrackElement2)) {
+							match, srcTrackElement2, srcTrackElement1)) {
 				// 
 				if (TrackElementConnectsToImpl
 						.pattern_TrackElementConnectsTo_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(
@@ -444,9 +444,9 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(TrackElement srcTrackElement1, TrackElement srcTrackElement2) {// 
+	public boolean checkDEC_FWD(TrackElement srcTrackElement2, TrackElement srcTrackElement1) {// 
 		Object[] result1_black = TrackElementConnectsToImpl
-				.pattern_TrackElementConnectsTo_13_1_matchtggpattern_blackBB(srcTrackElement1, srcTrackElement2);
+				.pattern_TrackElementConnectsTo_13_1_matchtggpattern_blackBB(srcTrackElement2, srcTrackElement1);
 		if (result1_black != null) {
 			return TrackElementConnectsToImpl.pattern_TrackElementConnectsTo_13_2_expressionF();
 		} else {
@@ -490,8 +490,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 			return null;
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPROPRIATE_FWD_EMOFLON_EDGE_36__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_36((EMoflonEdge) arguments.get(0));
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPROPRIATE_FWD_EMOFLON_EDGE_24__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_24((EMoflonEdge) arguments.get(0));
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPLICABLE_CC__MATCH_MATCH:
@@ -503,19 +503,19 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_1_initialbindings_blackBBBB(
-			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
-			return new Object[] { _this, match, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { _this, match, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_2_SolveCSP_bindingFBBBB(TrackElementConnectsTo _this,
-			Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcTrackElement1, srcTrackElement2);
+			Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcTrackElement2, srcTrackElement1);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { csp, _this, match, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
@@ -525,9 +525,9 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_2_SolveCSP_bindingAndBlackFBBBB(
-			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		Object[] result_pattern_TrackElementConnectsTo_0_2_SolveCSP_binding = pattern_TrackElementConnectsTo_0_2_SolveCSP_bindingFBBBB(
-				_this, match, srcTrackElement1, srcTrackElement2);
+				_this, match, srcTrackElement2, srcTrackElement1);
 		if (result_pattern_TrackElementConnectsTo_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_TrackElementConnectsTo_0_2_SolveCSP_binding[0];
 
@@ -535,7 +535,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 					csp);
 			if (result_pattern_TrackElementConnectsTo_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcTrackElement1, srcTrackElement2 };
+				return new Object[] { csp, _this, match, srcTrackElement2, srcTrackElement1 };
 			}
 		}
 		return null;
@@ -549,15 +549,15 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_4_collectelementstobetranslated_blackBBB(Match match,
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
-			return new Object[] { match, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { match, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_4_collectelementstobetranslated_greenBBBF(Match match,
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcTrackElement1__srcTrackElement2____connectsTo_name_prime = "connectsTo";
 		srcTrackElement1__srcTrackElement2____connectsTo.setSrc(srcTrackElement1);
@@ -565,28 +565,28 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		match.getToBeTranslatedEdges().add(srcTrackElement1__srcTrackElement2____connectsTo);
 		srcTrackElement1__srcTrackElement2____connectsTo
 				.setName(srcTrackElement1__srcTrackElement2____connectsTo_name_prime);
-		return new Object[] { match, srcTrackElement1, srcTrackElement2,
+		return new Object[] { match, srcTrackElement2, srcTrackElement1,
 				srcTrackElement1__srcTrackElement2____connectsTo };
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_5_collectcontextelements_blackBBB(Match match,
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
-			return new Object[] { match, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { match, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_0_5_collectcontextelements_greenBBB(Match match,
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		match.getContextNodes().add(srcTrackElement1);
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		match.getContextNodes().add(srcTrackElement2);
-		return new Object[] { match, srcTrackElement1, srcTrackElement2 };
+		match.getContextNodes().add(srcTrackElement1);
+		return new Object[] { match, srcTrackElement2, srcTrackElement1 };
 	}
 
 	public static final void pattern_TrackElementConnectsTo_0_6_registerobjectstomatch_expressionBBBB(
-			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		_this.registerObjectsToMatch_FWD(match, srcTrackElement1, srcTrackElement2);
+			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
+		_this.registerObjectsToMatch_FWD(match, srcTrackElement2, srcTrackElement1);
 
 	}
 
@@ -602,28 +602,28 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 
 	public static final Object[] pattern_TrackElementConnectsTo_1_1_performtransformation_bindingFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcTrackElement1");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcTrackElement2");
-		EObject tmpSrcTrackElement1 = _localVariable_0;
-		EObject tmpSrcTrackElement2 = _localVariable_1;
-		if (tmpSrcTrackElement1 instanceof TrackElement) {
-			TrackElement srcTrackElement1 = (TrackElement) tmpSrcTrackElement1;
-			if (tmpSrcTrackElement2 instanceof TrackElement) {
-				TrackElement srcTrackElement2 = (TrackElement) tmpSrcTrackElement2;
-				return new Object[] { srcTrackElement1, srcTrackElement2, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcTrackElement2");
+		EObject _localVariable_1 = isApplicableMatch.getObject("srcTrackElement1");
+		EObject tmpSrcTrackElement2 = _localVariable_0;
+		EObject tmpSrcTrackElement1 = _localVariable_1;
+		if (tmpSrcTrackElement2 instanceof TrackElement) {
+			TrackElement srcTrackElement2 = (TrackElement) tmpSrcTrackElement2;
+			if (tmpSrcTrackElement1 instanceof TrackElement) {
+				TrackElement srcTrackElement1 = (TrackElement) tmpSrcTrackElement1;
+				return new Object[] { srcTrackElement2, srcTrackElement1, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_1_1_performtransformation_blackBBFBB(
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2, TrackElementConnectsTo _this,
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1, TrackElementConnectsTo _this,
 			IsApplicableMatch isApplicableMatch) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
 			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 				if (tmpCsp instanceof CSP) {
 					CSP csp = (CSP) tmpCsp;
-					return new Object[] { srcTrackElement1, srcTrackElement2, csp, _this, isApplicableMatch };
+					return new Object[] { srcTrackElement2, srcTrackElement1, csp, _this, isApplicableMatch };
 				}
 			}
 		}
@@ -635,15 +635,15 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		Object[] result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding = pattern_TrackElementConnectsTo_1_1_performtransformation_bindingFFB(
 				isApplicableMatch);
 		if (result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding != null) {
-			TrackElement srcTrackElement1 = (TrackElement) result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding[0];
-			TrackElement srcTrackElement2 = (TrackElement) result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding[1];
+			TrackElement srcTrackElement2 = (TrackElement) result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding[0];
+			TrackElement srcTrackElement1 = (TrackElement) result_pattern_TrackElementConnectsTo_1_1_performtransformation_binding[1];
 
 			Object[] result_pattern_TrackElementConnectsTo_1_1_performtransformation_black = pattern_TrackElementConnectsTo_1_1_performtransformation_blackBBFBB(
-					srcTrackElement1, srcTrackElement2, _this, isApplicableMatch);
+					srcTrackElement2, srcTrackElement1, _this, isApplicableMatch);
 			if (result_pattern_TrackElementConnectsTo_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_TrackElementConnectsTo_1_1_performtransformation_black[2];
 
-				return new Object[] { srcTrackElement1, srcTrackElement2, csp, _this, isApplicableMatch };
+				return new Object[] { srcTrackElement2, srcTrackElement1, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -655,15 +655,15 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_1_3_bookkeepingforedges_blackBBB(
-			PerformRuleResult ruleresult, EObject srcTrackElement1, EObject srcTrackElement2) {
+			PerformRuleResult ruleresult, EObject srcTrackElement2, EObject srcTrackElement1) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
-			return new Object[] { ruleresult, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { ruleresult, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_1_3_bookkeepingforedges_greenBBBF(
-			PerformRuleResult ruleresult, EObject srcTrackElement1, EObject srcTrackElement2) {
+			PerformRuleResult ruleresult, EObject srcTrackElement2, EObject srcTrackElement1) {
 		EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "TrackElementConnectsTo";
 		String srcTrackElement1__srcTrackElement2____connectsTo_name_prime = "connectsTo";
@@ -673,14 +673,14 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		srcTrackElement1__srcTrackElement2____connectsTo
 				.setName(srcTrackElement1__srcTrackElement2____connectsTo_name_prime);
-		return new Object[] { ruleresult, srcTrackElement1, srcTrackElement2,
+		return new Object[] { ruleresult, srcTrackElement2, srcTrackElement1,
 				srcTrackElement1__srcTrackElement2____connectsTo };
 	}
 
 	public static final void pattern_TrackElementConnectsTo_1_5_registerobjects_expressionBBBB(
-			TrackElementConnectsTo _this, PerformRuleResult ruleresult, EObject srcTrackElement1,
-			EObject srcTrackElement2) {
-		_this.registerObjects_FWD(ruleresult, srcTrackElement1, srcTrackElement2);
+			TrackElementConnectsTo _this, PerformRuleResult ruleresult, EObject srcTrackElement2,
+			EObject srcTrackElement1) {
+		_this.registerObjects_FWD(ruleresult, srcTrackElement2, srcTrackElement1);
 
 	}
 
@@ -742,62 +742,62 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_2_2_corematch_bindingFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcTrackElement1");
-		EObject _localVariable_1 = match.getObject("srcTrackElement2");
-		EObject tmpSrcTrackElement1 = _localVariable_0;
-		EObject tmpSrcTrackElement2 = _localVariable_1;
-		if (tmpSrcTrackElement1 instanceof TrackElement) {
-			TrackElement srcTrackElement1 = (TrackElement) tmpSrcTrackElement1;
-			if (tmpSrcTrackElement2 instanceof TrackElement) {
-				TrackElement srcTrackElement2 = (TrackElement) tmpSrcTrackElement2;
-				return new Object[] { srcTrackElement1, srcTrackElement2, match };
+		EObject _localVariable_0 = match.getObject("srcTrackElement2");
+		EObject _localVariable_1 = match.getObject("srcTrackElement1");
+		EObject tmpSrcTrackElement2 = _localVariable_0;
+		EObject tmpSrcTrackElement1 = _localVariable_1;
+		if (tmpSrcTrackElement2 instanceof TrackElement) {
+			TrackElement srcTrackElement2 = (TrackElement) tmpSrcTrackElement2;
+			if (tmpSrcTrackElement1 instanceof TrackElement) {
+				TrackElement srcTrackElement1 = (TrackElement) tmpSrcTrackElement1;
+				return new Object[] { srcTrackElement2, srcTrackElement1, match };
 			}
 		}
 		return null;
 	}
 
 	public static final Iterable<Object[]> pattern_TrackElementConnectsTo_2_2_corematch_blackBBB(
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2, Match match) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
-			_result.add(new Object[] { srcTrackElement1, srcTrackElement2, match });
+			_result.add(new Object[] { srcTrackElement2, srcTrackElement1, match });
 		}
 		return _result;
 	}
 
 	public static final Iterable<Object[]> pattern_TrackElementConnectsTo_2_3_findcontext_blackBB(
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
 			if (srcTrackElement1.getConnectsTo().contains(srcTrackElement2)) {
-				_result.add(new Object[] { srcTrackElement1, srcTrackElement2 });
+				_result.add(new Object[] { srcTrackElement2, srcTrackElement1 });
 			}
 		}
 		return _result;
 	}
 
-	public static final Object[] pattern_TrackElementConnectsTo_2_3_findcontext_greenBBFF(TrackElement srcTrackElement1,
-			TrackElement srcTrackElement2) {
+	public static final Object[] pattern_TrackElementConnectsTo_2_3_findcontext_greenBBFF(TrackElement srcTrackElement2,
+			TrackElement srcTrackElement1) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge srcTrackElement1__srcTrackElement2____connectsTo = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcTrackElement1__srcTrackElement2____connectsTo_name_prime = "connectsTo";
-		isApplicableMatch.getAllContextElements().add(srcTrackElement1);
 		isApplicableMatch.getAllContextElements().add(srcTrackElement2);
+		isApplicableMatch.getAllContextElements().add(srcTrackElement1);
 		srcTrackElement1__srcTrackElement2____connectsTo.setSrc(srcTrackElement1);
 		srcTrackElement1__srcTrackElement2____connectsTo.setTrg(srcTrackElement2);
 		isApplicableMatch.getAllContextElements().add(srcTrackElement1__srcTrackElement2____connectsTo);
 		srcTrackElement1__srcTrackElement2____connectsTo
 				.setName(srcTrackElement1__srcTrackElement2____connectsTo_name_prime);
-		return new Object[] { srcTrackElement1, srcTrackElement2, isApplicableMatch,
+		return new Object[] { srcTrackElement2, srcTrackElement1, isApplicableMatch,
 				srcTrackElement1__srcTrackElement2____connectsTo };
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_2_4_solveCSP_bindingFBBBB(TrackElementConnectsTo _this,
-			IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcTrackElement1, srcTrackElement2);
+			IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcTrackElement2, srcTrackElement1);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcTrackElement1, srcTrackElement2 };
+			return new Object[] { csp, _this, isApplicableMatch, srcTrackElement2, srcTrackElement1 };
 		}
 		return null;
 	}
@@ -807,10 +807,10 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_2_4_solveCSP_bindingAndBlackFBBBB(
-			TrackElementConnectsTo _this, IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement1,
-			TrackElement srcTrackElement2) {
+			TrackElementConnectsTo _this, IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement2,
+			TrackElement srcTrackElement1) {
 		Object[] result_pattern_TrackElementConnectsTo_2_4_solveCSP_binding = pattern_TrackElementConnectsTo_2_4_solveCSP_bindingFBBBB(
-				_this, isApplicableMatch, srcTrackElement1, srcTrackElement2);
+				_this, isApplicableMatch, srcTrackElement2, srcTrackElement1);
 		if (result_pattern_TrackElementConnectsTo_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_TrackElementConnectsTo_2_4_solveCSP_binding[0];
 
@@ -818,7 +818,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 					csp);
 			if (result_pattern_TrackElementConnectsTo_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcTrackElement1, srcTrackElement2 };
+				return new Object[] { csp, _this, isApplicableMatch, srcTrackElement2, srcTrackElement1 };
 			}
 		}
 		return null;
@@ -917,7 +917,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 				TrackElement srcTrackElement2 = (TrackElement) tmpSrcTrackElement2;
 				if (!srcTrackElement1.equals(srcTrackElement2)) {
 					if (srcTrackElement1.getConnectsTo().contains(srcTrackElement2)) {
-						_result.add(new Object[] { srcTrackElement1, srcTrackElement2, _edge_connectsTo });
+						_result.add(new Object[] { srcTrackElement2, srcTrackElement1, _edge_connectsTo });
 					}
 				}
 			}
@@ -937,8 +937,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final boolean pattern_TrackElementConnectsTo_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(
-			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcTrackElement1, srcTrackElement2);
+			TrackElementConnectsTo _this, Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcTrackElement2, srcTrackElement1);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -972,10 +972,10 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	}
 
 	public static final Object[] pattern_TrackElementConnectsTo_13_1_matchtggpattern_blackBB(
-			TrackElement srcTrackElement1, TrackElement srcTrackElement2) {
+			TrackElement srcTrackElement2, TrackElement srcTrackElement1) {
 		if (!srcTrackElement1.equals(srcTrackElement2)) {
 			if (srcTrackElement1.getConnectsTo().contains(srcTrackElement2)) {
-				return new Object[] { srcTrackElement1, srcTrackElement2 };
+				return new Object[] { srcTrackElement2, srcTrackElement1 };
 			}
 		}
 		return null;

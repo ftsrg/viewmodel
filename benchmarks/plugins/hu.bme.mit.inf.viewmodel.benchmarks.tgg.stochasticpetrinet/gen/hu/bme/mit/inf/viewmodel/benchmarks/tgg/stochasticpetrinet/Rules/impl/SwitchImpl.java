@@ -156,92 +156,93 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) result1_bindingAndBlack[0];
-		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[1];
-		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[2];
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[3];
+		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[0];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[1];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) result1_bindingAndBlack[2];
+		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[3];
 		Region srcRegion = (Region) result1_bindingAndBlack[4];
 		CSP csp = (CSP) result1_bindingAndBlack[5];
-		Object[] result1_green = SwitchImpl.pattern_Switch_1_1_performtransformation_greenFFFFBFFFBFFFB(srcSwitch,
-				trgPetrinet, csp);
-		TimedTransition trgRepair = (TimedTransition) result1_green[0];
-		Arc trgRepairToOperational = (Arc) result1_green[1];
-		SwitchToFailed switchFailedCorr = (SwitchToFailed) result1_green[2];
+		Object[] result1_green = SwitchImpl.pattern_Switch_1_1_performtransformation_greenFFFFFFFFBBFFB(trgPetrinet,
+				srcSwitch, csp);
+		Place trgOperational = (Place) result1_green[0];
+		Place trgFailed = (Place) result1_green[1];
+		TimedTransition trgRepair = (TimedTransition) result1_green[2];
 		Arc trgFailedToRepair = (Arc) result1_green[3];
+		Arc trgRepairToOperational = (Arc) result1_green[4];
 		Arc trgFailToFailed = (Arc) result1_green[5];
-		Place trgOperational = (Place) result1_green[6];
+		TimedTransition trgFail = (TimedTransition) result1_green[6];
 		Arc trgOperationToFail = (Arc) result1_green[7];
-		TimedTransition trgFail = (TimedTransition) result1_green[9];
-		Place trgFailed = (Place) result1_green[10];
+		SwitchToFailed switchFailedCorr = (SwitchToFailed) result1_green[10];
 		SwitchToOperational switchOperationalCorr = (SwitchToOperational) result1_green[11];
 
-		Object[] result2_black = SwitchImpl.pattern_Switch_1_2_collecttranslatedelements_blackBBBBBBBBBBB(trgRepair,
-				trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch, trgFailToFailed, trgOperational,
-				trgOperationToFail, trgFail, trgFailed, switchOperationalCorr);
+		Object[] result2_black = SwitchImpl.pattern_Switch_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
+				trgOperational, trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational, trgFailToFailed,
+				trgFail, trgOperationToFail, srcSwitch, switchFailedCorr, switchOperationalCorr);
 		if (result2_black == null) {
-			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgRepair] = " + trgRepair + ", "
-					+ "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[switchFailedCorr] = "
-					+ switchFailedCorr + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[srcSwitch] = "
-					+ srcSwitch + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", " + "[trgOperational] = "
-					+ trgOperational + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", " + "[trgFail] = "
-					+ trgFail + ", " + "[trgFailed] = " + trgFailed + ", " + "[switchOperationalCorr] = "
-					+ switchOperationalCorr + ".");
+			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgOperational] = "
+					+ trgOperational + ", " + "[trgFailed] = " + trgFailed + ", " + "[trgRepair] = " + trgRepair + ", "
+					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[trgRepairToOperational] = "
+					+ trgRepairToOperational + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", " + "[trgFail] = "
+					+ trgFail + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", " + "[srcSwitch] = "
+					+ srcSwitch + ", " + "[switchFailedCorr] = " + switchFailedCorr + ", "
+					+ "[switchOperationalCorr] = " + switchOperationalCorr + ".");
 		}
-		Object[] result2_green = SwitchImpl.pattern_Switch_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(trgRepair,
-				trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch, trgFailToFailed, trgOperational,
-				trgOperationToFail, trgFail, trgFailed, switchOperationalCorr);
+		Object[] result2_green = SwitchImpl.pattern_Switch_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
+				trgOperational, trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational, trgFailToFailed,
+				trgFail, trgOperationToFail, srcSwitch, switchFailedCorr, switchOperationalCorr);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = SwitchImpl.pattern_Switch_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBB(ruleresult,
-				trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch, trgFailToFailed,
-				trgOperational, trgOperationToFail, srcContainer, trgPetrinet, containerCorr, srcRegion, trgFail,
-				trgFailed, switchOperationalCorr);
+				trgOperational, trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational, trgFailToFailed,
+				trgFail, trgOperationToFail, trgPetrinet, containerCorr, srcSwitch, switchFailedCorr, srcContainer,
+				switchOperationalCorr, srcRegion);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[trgRepair] = " + trgRepair + ", " + "[trgRepairToOperational] = "
-					+ trgRepairToOperational + ", " + "[switchFailedCorr] = " + switchFailedCorr + ", "
-					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[srcSwitch] = " + srcSwitch + ", "
-					+ "[trgFailToFailed] = " + trgFailToFailed + ", " + "[trgOperational] = " + trgOperational + ", "
-					+ "[trgOperationToFail] = " + trgOperationToFail + ", " + "[srcContainer] = " + srcContainer + ", "
-					+ "[trgPetrinet] = " + trgPetrinet + ", " + "[containerCorr] = " + containerCorr + ", "
-					+ "[srcRegion] = " + srcRegion + ", " + "[trgFail] = " + trgFail + ", " + "[trgFailed] = "
-					+ trgFailed + ", " + "[switchOperationalCorr] = " + switchOperationalCorr + ".");
+					+ ", " + "[trgOperational] = " + trgOperational + ", " + "[trgFailed] = " + trgFailed + ", "
+					+ "[trgRepair] = " + trgRepair + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", "
+					+ "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[trgFailToFailed] = "
+					+ trgFailToFailed + ", " + "[trgFail] = " + trgFail + ", " + "[trgOperationToFail] = "
+					+ trgOperationToFail + ", " + "[trgPetrinet] = " + trgPetrinet + ", " + "[containerCorr] = "
+					+ containerCorr + ", " + "[srcSwitch] = " + srcSwitch + ", " + "[switchFailedCorr] = "
+					+ switchFailedCorr + ", " + "[srcContainer] = " + srcContainer + ", " + "[switchOperationalCorr] = "
+					+ switchOperationalCorr + ", " + "[srcRegion] = " + srcRegion + ".");
 		}
 		SwitchImpl.pattern_Switch_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(ruleresult,
-				trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch, trgFailToFailed,
-				trgOperational, trgOperationToFail, trgPetrinet, srcRegion, trgFail, trgFailed, switchOperationalCorr);
-		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[14];
-		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[15];
-		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[16];
-		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[17];
-		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[18];
-		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[19];
-		//nothing EMoflonEdge switchFailedCorr__srcSwitch____source = (EMoflonEdge) result3_green[20];
-		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[21];
-		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[22];
-		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[23];
-		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[24];
-		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[25];
-		//nothing EMoflonEdge srcRegion__srcSwitch____elements = (EMoflonEdge) result3_green[26];
-		//nothing EMoflonEdge switchOperationalCorr__srcSwitch____source = (EMoflonEdge) result3_green[27];
-		//nothing EMoflonEdge trgFailToFailed__trgFailed____place = (EMoflonEdge) result3_green[28];
-		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[29];
-		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[30];
-		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[31];
-		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[32];
-		//nothing EMoflonEdge switchOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[33];
-		//nothing EMoflonEdge switchFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[34];
-		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[35];
-		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[36];
-		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[37];
-		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[38];
+				trgOperational, trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational, trgFailToFailed,
+				trgFail, trgOperationToFail, trgPetrinet, srcSwitch, switchFailedCorr, switchOperationalCorr,
+				srcRegion);
+		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[14];
+		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[15];
+		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[16];
+		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[17];
+		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[18];
+		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[19];
+		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[20];
+		//nothing EMoflonEdge trgFailToFailed__trgFailed____place = (EMoflonEdge) result3_green[21];
+		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[22];
+		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[23];
+		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[24];
+		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[25];
+		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[26];
+		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[27];
+		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[28];
+		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[29];
+		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[30];
+		//nothing EMoflonEdge switchFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[31];
+		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[32];
+		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[33];
+		//nothing EMoflonEdge switchFailedCorr__srcSwitch____source = (EMoflonEdge) result3_green[34];
+		//nothing EMoflonEdge switchOperationalCorr__srcSwitch____source = (EMoflonEdge) result3_green[35];
+		//nothing EMoflonEdge switchOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[36];
+		//nothing EMoflonEdge srcRegion__srcSwitch____elements = (EMoflonEdge) result3_green[37];
+		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[38];
 
 		// 
 		// 
-		SwitchImpl.pattern_Switch_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(this, ruleresult, trgRepair,
-				trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch, trgFailToFailed, trgOperational,
-				trgOperationToFail, srcContainer, trgPetrinet, containerCorr, srcRegion, trgFail, trgFailed,
-				switchOperationalCorr);
+		SwitchImpl.pattern_Switch_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(this, ruleresult, trgOperational,
+				trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational, trgFailToFailed, trgFail,
+				trgOperationToFail, trgPetrinet, containerCorr, srcSwitch, switchFailedCorr, srcContainer,
+				switchOperationalCorr, srcRegion);
 		return SwitchImpl.pattern_Switch_1_6_expressionFB(ruleresult);
 	}
 
@@ -270,28 +271,28 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) result2_binding[0];
 		RailwayContainer srcContainer = (RailwayContainer) result2_binding[1];
 		Region srcRegion = (Region) result2_binding[2];
-		for (Object[] result2_black : SwitchImpl.pattern_Switch_2_2_corematch_blackBBFFBB(srcSwitch, srcContainer,
+		for (Object[] result2_black : SwitchImpl.pattern_Switch_2_2_corematch_blackFFBBBB(srcSwitch, srcContainer,
 				srcRegion, match)) {
-			PetriNet trgPetrinet = (PetriNet) result2_black[2];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[3];
+			PetriNet trgPetrinet = (PetriNet) result2_black[0];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[1];
 			// ForEach 
-			for (Object[] result3_black : SwitchImpl.pattern_Switch_2_3_findcontext_blackBBBBB(srcSwitch, srcContainer,
-					trgPetrinet, containerCorr, srcRegion)) {
-				Object[] result3_green = SwitchImpl.pattern_Switch_2_3_findcontext_greenBBBBBFFFFF(srcSwitch,
-						srcContainer, trgPetrinet, containerCorr, srcRegion);
+			for (Object[] result3_black : SwitchImpl.pattern_Switch_2_3_findcontext_blackBBBBB(trgPetrinet,
+					containerCorr, srcSwitch, srcContainer, srcRegion)) {
+				Object[] result3_green = SwitchImpl.pattern_Switch_2_3_findcontext_greenBBBBBFFFFF(trgPetrinet,
+						containerCorr, srcSwitch, srcContainer, srcRegion);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
 				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[6];
 				//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result3_green[7];
-				//nothing EMoflonEdge srcRegion__srcSwitch____elements = (EMoflonEdge) result3_green[8];
-				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[9];
+				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[8];
+				//nothing EMoflonEdge srcRegion__srcSwitch____elements = (EMoflonEdge) result3_green[9];
 
 				Object[] result4_bindingAndBlack = SwitchImpl.pattern_Switch_2_4_solveCSP_bindingAndBlackFBBBBBBB(this,
-						isApplicableMatch, srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion);
+						isApplicableMatch, trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSwitch] = " + srcSwitch + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[trgPetrinet] = " + trgPetrinet + ", "
-							+ "[containerCorr] = " + containerCorr + ", " + "[srcRegion] = " + srcRegion + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[trgPetrinet] = " + trgPetrinet
+							+ ", " + "[containerCorr] = " + containerCorr + ", " + "[srcSwitch] = " + srcSwitch + ", "
+							+ "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -364,9 +365,10 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr,
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
-			PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr, Region srcRegion) {// Create CSP
+			Region srcRegion) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -394,10 +396,10 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		positionToMarking.solve(var_srcSwitch_currentPosition, var_trgOperational_tokens, var_trgFailed_tokens);
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcSwitch", srcSwitch);
-		isApplicableMatch.registerObject("srcContainer", srcContainer);
 		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
 		isApplicableMatch.registerObject("containerCorr", containerCorr);
+		isApplicableMatch.registerObject("srcSwitch", srcSwitch);
+		isApplicableMatch.registerObject("srcContainer", srcContainer);
 		isApplicableMatch.registerObject("srcRegion", srcRegion);
 		return csp;
 	}
@@ -416,26 +418,25 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRepair, EObject trgRepairToOperational,
-			EObject switchFailedCorr, EObject trgFailedToRepair, EObject srcSwitch, EObject trgFailToFailed,
-			EObject trgOperational, EObject trgOperationToFail, EObject srcContainer, EObject trgPetrinet,
-			EObject containerCorr, EObject srcRegion, EObject trgFail, EObject trgFailed,
-			EObject switchOperationalCorr) {
-		ruleresult.registerObject("trgRepair", trgRepair);
-		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
-		ruleresult.registerObject("switchFailedCorr", switchFailedCorr);
-		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
-		ruleresult.registerObject("srcSwitch", srcSwitch);
-		ruleresult.registerObject("trgFailToFailed", trgFailToFailed);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgOperational, EObject trgFailed,
+			EObject trgRepair, EObject trgFailedToRepair, EObject trgRepairToOperational, EObject trgFailToFailed,
+			EObject trgFail, EObject trgOperationToFail, EObject trgPetrinet, EObject containerCorr, EObject srcSwitch,
+			EObject switchFailedCorr, EObject srcContainer, EObject switchOperationalCorr, EObject srcRegion) {
 		ruleresult.registerObject("trgOperational", trgOperational);
+		ruleresult.registerObject("trgFailed", trgFailed);
+		ruleresult.registerObject("trgRepair", trgRepair);
+		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
+		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
+		ruleresult.registerObject("trgFailToFailed", trgFailToFailed);
+		ruleresult.registerObject("trgFail", trgFail);
 		ruleresult.registerObject("trgOperationToFail", trgOperationToFail);
-		ruleresult.registerObject("srcContainer", srcContainer);
 		ruleresult.registerObject("trgPetrinet", trgPetrinet);
 		ruleresult.registerObject("containerCorr", containerCorr);
-		ruleresult.registerObject("srcRegion", srcRegion);
-		ruleresult.registerObject("trgFail", trgFail);
-		ruleresult.registerObject("trgFailed", trgFailed);
+		ruleresult.registerObject("srcSwitch", srcSwitch);
+		ruleresult.registerObject("switchFailedCorr", switchFailedCorr);
+		ruleresult.registerObject("srcContainer", srcContainer);
 		ruleresult.registerObject("switchOperationalCorr", switchOperationalCorr);
+		ruleresult.registerObject("srcRegion", srcRegion);
 
 	}
 
@@ -454,7 +455,7 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_40(EMoflonEdge _edge_elements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_15(EMoflonEdge _edge_elements) {
 
 		Object[] result1_bindingAndBlack = SwitchImpl.pattern_Switch_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
 		if (result1_bindingAndBlack == null) {
@@ -516,12 +517,12 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 
 		CheckAttributeHelper __helper = new CheckAttributeHelper(__tripleMatch);
 
-		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
 
-		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -536,6 +537,10 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 			return ruleResult;
 		}
 
+		Variable var_trgOperational_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgOperational", true, csp);
+		var_trgOperational_tokens.setValue(__helper.getValue("trgOperational", "tokens"));
+		var_trgOperational_tokens.setType("int");
+
 		Variable var_srcSwitch_currentPosition = CSPFactoryHelper.eINSTANCE.createVariable("srcSwitch", true, csp);
 		var_srcSwitch_currentPosition.setValue(__helper.getValue("srcSwitch", "currentPosition"));
 		var_srcSwitch_currentPosition.setType("railway.Position");
@@ -543,10 +548,6 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		Variable var_trgFailed_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgFailed", true, csp);
 		var_trgFailed_tokens.setValue(__helper.getValue("trgFailed", "tokens"));
 		var_trgFailed_tokens.setType("int");
-
-		Variable var_trgOperational_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgOperational", true, csp);
-		var_trgOperational_tokens.setValue(__helper.getValue("trgOperational", "tokens"));
-		var_trgOperational_tokens.setType("int");
 
 		PositionToMarking positionToMarking0 = new PositionToMarking();
 		csp.getConstraints().add(positionToMarking0);
@@ -557,14 +558,14 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		if (csp.check()) {
 			ruleResult.setSuccess(true);
 		} else {
-			var_trgFailed_tokens.setBound(false);
 			var_trgOperational_tokens.setBound(false);
+			var_trgFailed_tokens.setBound(false);
 			positionToMarking0.solve(var_srcSwitch_currentPosition, var_trgOperational_tokens, var_trgFailed_tokens);
 			if (csp.check()) {
 				ruleResult.setSuccess(true);
 				ruleResult.setRequiredChange(true);
-				__helper.setValue("trgFailed", "tokens", var_trgFailed_tokens.getValue());
 				__helper.setValue("trgOperational", "tokens", var_trgOperational_tokens.getValue());
+				__helper.setValue("trgFailed", "tokens", var_trgFailed_tokens.getValue());
 			} else {
 				ruleResult.setSuccess(false);
 				return ruleResult;
@@ -630,11 +631,11 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 					(RailwayContainer) arguments.get(2), (Region) arguments.get(3));
 		case RulesPackage.SWITCH___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SWITCH___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SWITCH_RAILWAYCONTAINER_PETRINET_RAILWAYCONTAINERTOPETRINET_REGION:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) arguments.get(1),
-					(RailwayContainer) arguments.get(2), (PetriNet) arguments.get(3),
-					(RailwayContainerToPetriNet) arguments.get(4), (Region) arguments.get(5));
+		case RulesPackage.SWITCH___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PETRINET_RAILWAYCONTAINERTOPETRINET_SWITCH_RAILWAYCONTAINER_REGION:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (PetriNet) arguments.get(1),
+					(RailwayContainerToPetriNet) arguments.get(2),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) arguments.get(3),
+					(RailwayContainer) arguments.get(4), (Region) arguments.get(5));
 		case RulesPackage.SWITCH___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SWITCH___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
@@ -647,8 +648,8 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 			return null;
 		case RulesPackage.SWITCH___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SWITCH___IS_APPROPRIATE_FWD_EMOFLON_EDGE_40__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_40((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SWITCH___IS_APPROPRIATE_FWD_EMOFLON_EDGE_15__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_15((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SWITCH___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SWITCH___IS_APPLICABLE_CC__MATCH_MATCH:
@@ -760,27 +761,27 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 
 	public static final Object[] pattern_Switch_1_1_performtransformation_bindingFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcSwitch");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcContainer");
-		EObject _localVariable_2 = isApplicableMatch.getObject("trgPetrinet");
-		EObject _localVariable_3 = isApplicableMatch.getObject("containerCorr");
+		EObject _localVariable_0 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_1 = isApplicableMatch.getObject("containerCorr");
+		EObject _localVariable_2 = isApplicableMatch.getObject("srcSwitch");
+		EObject _localVariable_3 = isApplicableMatch.getObject("srcContainer");
 		EObject _localVariable_4 = isApplicableMatch.getObject("srcRegion");
-		EObject tmpSrcSwitch = _localVariable_0;
-		EObject tmpSrcContainer = _localVariable_1;
-		EObject tmpTrgPetrinet = _localVariable_2;
-		EObject tmpContainerCorr = _localVariable_3;
+		EObject tmpTrgPetrinet = _localVariable_0;
+		EObject tmpContainerCorr = _localVariable_1;
+		EObject tmpSrcSwitch = _localVariable_2;
+		EObject tmpSrcContainer = _localVariable_3;
 		EObject tmpSrcRegion = _localVariable_4;
-		if (tmpSrcSwitch instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) tmpSrcSwitch;
-			if (tmpSrcContainer instanceof RailwayContainer) {
-				RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-				if (tmpTrgPetrinet instanceof PetriNet) {
-					PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
-					if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
-						RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+		if (tmpTrgPetrinet instanceof PetriNet) {
+			PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+			if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
+				RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+				if (tmpSrcSwitch instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) {
+					hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) tmpSrcSwitch;
+					if (tmpSrcContainer instanceof RailwayContainer) {
+						RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
 						if (tmpSrcRegion instanceof Region) {
 							Region srcRegion = (Region) tmpSrcRegion;
-							return new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion,
+							return new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion,
 									isApplicableMatch };
 						}
 					}
@@ -790,14 +791,14 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		return null;
 	}
 
-	public static final Object[] pattern_Switch_1_1_performtransformation_blackBBBBBFBB(
+	public static final Object[] pattern_Switch_1_1_performtransformation_blackBBBBBFBB(PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr,
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
-			PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr, Region srcRegion, Switch _this,
-			IsApplicableMatch isApplicableMatch) {
+			Region srcRegion, Switch _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion, csp, _this,
+				return new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion, csp, _this,
 						isApplicableMatch };
 			}
 		}
@@ -809,87 +810,87 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		Object[] result_pattern_Switch_1_1_performtransformation_binding = pattern_Switch_1_1_performtransformation_bindingFFFFFB(
 				isApplicableMatch);
 		if (result_pattern_Switch_1_1_performtransformation_binding != null) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) result_pattern_Switch_1_1_performtransformation_binding[0];
-			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Switch_1_1_performtransformation_binding[1];
-			PetriNet trgPetrinet = (PetriNet) result_pattern_Switch_1_1_performtransformation_binding[2];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Switch_1_1_performtransformation_binding[3];
+			PetriNet trgPetrinet = (PetriNet) result_pattern_Switch_1_1_performtransformation_binding[0];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Switch_1_1_performtransformation_binding[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch) result_pattern_Switch_1_1_performtransformation_binding[2];
+			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Switch_1_1_performtransformation_binding[3];
 			Region srcRegion = (Region) result_pattern_Switch_1_1_performtransformation_binding[4];
 
 			Object[] result_pattern_Switch_1_1_performtransformation_black = pattern_Switch_1_1_performtransformation_blackBBBBBFBB(
-					srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion, _this, isApplicableMatch);
+					trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion, _this, isApplicableMatch);
 			if (result_pattern_Switch_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_Switch_1_1_performtransformation_black[5];
 
-				return new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion, csp, _this,
+				return new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion, csp, _this,
 						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Switch_1_1_performtransformation_greenFFFFBFFFBFFFB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, PetriNet trgPetrinet, CSP csp) {
-		TimedTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
-		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
-		SwitchToFailed switchFailedCorr = StochasticpetrinetFactory.eINSTANCE.createSwitchToFailed();
-		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgFailToFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
+	public static final Object[] pattern_Switch_1_1_performtransformation_greenFFFFFFFFBBFFB(PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, CSP csp) {
 		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
-		Arc trgOperationToFail = StochasticPetriNetFactory.eINSTANCE.createArc();
-		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
 		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
+		TimedTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
+		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Arc trgFailToFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
+		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
+		Arc trgOperationToFail = StochasticPetriNetFactory.eINSTANCE.createArc();
+		SwitchToFailed switchFailedCorr = StochasticpetrinetFactory.eINSTANCE.createSwitchToFailed();
 		SwitchToOperational switchOperationalCorr = StochasticpetrinetFactory.eINSTANCE.createSwitchToOperational();
-		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
-		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
-		ArcKind trgFailToFailed_kind_prime = ArcKind.OUTPUT;
 		Object _localVariable_0 = csp.getValue("trgOperational", "tokens");
-		ArcKind trgOperationToFail_kind_prime = ArcKind.INPUT;
 		Object _localVariable_1 = csp.getValue("trgFailed", "tokens");
-		trgRepair.setPetriNet(trgPetrinet);
-		trgRepairToOperational.setTransition(trgRepair);
-		switchFailedCorr.setSource(srcSwitch);
-		trgFailedToRepair.setTransition(trgRepair);
-		trgRepairToOperational.setPlace(trgOperational);
+		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
+		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
+		ArcKind trgFailToFailed_kind_prime = ArcKind.OUTPUT;
+		ArcKind trgOperationToFail_kind_prime = ArcKind.INPUT;
 		trgOperational.setPetriNet(trgPetrinet);
-		trgOperationToFail.setPlace(trgOperational);
+		trgFailed.setPetriNet(trgPetrinet);
+		trgRepair.setPetriNet(trgPetrinet);
+		trgFailedToRepair.setTransition(trgRepair);
+		trgFailedToRepair.setPlace(trgFailed);
+		trgRepairToOperational.setPlace(trgOperational);
+		trgRepairToOperational.setTransition(trgRepair);
+		trgFailToFailed.setPlace(trgFailed);
 		trgFailToFailed.setTransition(trgFail);
 		trgFail.setPetriNet(trgPetrinet);
 		trgOperationToFail.setTransition(trgFail);
-		trgFailedToRepair.setPlace(trgFailed);
-		trgFailToFailed.setPlace(trgFailed);
+		trgOperationToFail.setPlace(trgOperational);
 		switchFailedCorr.setTarget(trgFailed);
-		trgFailed.setPetriNet(trgPetrinet);
+		switchFailedCorr.setSource(srcSwitch);
 		switchOperationalCorr.setSource(srcSwitch);
 		switchOperationalCorr.setTarget(trgOperational);
-		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
-		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
-		trgFailToFailed.setKind(trgFailToFailed_kind_prime);
 		int trgOperational_tokens_prime = (int) _localVariable_0;
-		trgOperationToFail.setKind(trgOperationToFail_kind_prime);
 		int trgFailed_tokens_prime = (int) _localVariable_1;
+		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
+		trgFailToFailed.setKind(trgFailToFailed_kind_prime);
+		trgOperationToFail.setKind(trgOperationToFail_kind_prime);
 		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
 		trgFailed.setTokens(Integer.valueOf(trgFailed_tokens_prime));
-		return new Object[] { trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair, srcSwitch,
-				trgFailToFailed, trgOperational, trgOperationToFail, trgPetrinet, trgFail, trgFailed,
+		return new Object[] { trgOperational, trgFailed, trgRepair, trgFailedToRepair, trgRepairToOperational,
+				trgFailToFailed, trgFail, trgOperationToFail, trgPetrinet, srcSwitch, switchFailedCorr,
 				switchOperationalCorr, csp };
 	}
 
-	public static final Object[] pattern_Switch_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
-			TimedTransition trgRepair, Arc trgRepairToOperational, SwitchToFailed switchFailedCorr,
-			Arc trgFailedToRepair, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			Arc trgFailToFailed, Place trgOperational, Arc trgOperationToFail, TimedTransition trgFail, Place trgFailed,
+	public static final Object[] pattern_Switch_1_2_collecttranslatedelements_blackBBBBBBBBBBB(Place trgOperational,
+			Place trgFailed, TimedTransition trgRepair, Arc trgFailedToRepair, Arc trgRepairToOperational,
+			Arc trgFailToFailed, TimedTransition trgFail, Arc trgOperationToFail,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, SwitchToFailed switchFailedCorr,
 			SwitchToOperational switchOperationalCorr) {
-		if (!trgFailedToRepair.equals(trgRepairToOperational)) {
-			if (!trgFailedToRepair.equals(trgOperationToFail)) {
-				if (!trgFailToFailed.equals(trgRepairToOperational)) {
+		if (!trgFailed.equals(trgOperational)) {
+			if (!trgFailedToRepair.equals(trgRepairToOperational)) {
+				if (!trgFailedToRepair.equals(trgOperationToFail)) {
 					if (!trgFailToFailed.equals(trgFailedToRepair)) {
-						if (!trgFailToFailed.equals(trgOperationToFail)) {
-							if (!trgOperationToFail.equals(trgRepairToOperational)) {
+						if (!trgFailToFailed.equals(trgRepairToOperational)) {
+							if (!trgFailToFailed.equals(trgOperationToFail)) {
 								if (!trgFail.equals(trgRepair)) {
-									if (!trgFailed.equals(trgOperational)) {
-										return new Object[] { trgRepair, trgRepairToOperational, switchFailedCorr,
-												trgFailedToRepair, srcSwitch, trgFailToFailed, trgOperational,
-												trgOperationToFail, trgFail, trgFailed, switchOperationalCorr };
+									if (!trgOperationToFail.equals(trgRepairToOperational)) {
+										return new Object[] { trgOperational, trgFailed, trgRepair, trgFailedToRepair,
+												trgRepairToOperational, trgFailToFailed, trgFail, trgOperationToFail,
+												srcSwitch, switchFailedCorr, switchOperationalCorr };
 									}
 								}
 							}
@@ -901,243 +902,242 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		return null;
 	}
 
-	public static final Object[] pattern_Switch_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
-			TimedTransition trgRepair, Arc trgRepairToOperational, SwitchToFailed switchFailedCorr,
-			Arc trgFailedToRepair, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			Arc trgFailToFailed, Place trgOperational, Arc trgOperationToFail, TimedTransition trgFail, Place trgFailed,
+	public static final Object[] pattern_Switch_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(Place trgOperational,
+			Place trgFailed, TimedTransition trgRepair, Arc trgFailedToRepair, Arc trgRepairToOperational,
+			Arc trgFailToFailed, TimedTransition trgFail, Arc trgOperationToFail,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, SwitchToFailed switchFailedCorr,
 			SwitchToOperational switchOperationalCorr) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
-		ruleresult.getCreatedElements().add(trgRepair);
-		ruleresult.getCreatedElements().add(trgRepairToOperational);
-		ruleresult.getCreatedLinkElements().add(switchFailedCorr);
-		ruleresult.getCreatedElements().add(trgFailedToRepair);
-		ruleresult.getTranslatedElements().add(srcSwitch);
-		ruleresult.getCreatedElements().add(trgFailToFailed);
 		ruleresult.getCreatedElements().add(trgOperational);
-		ruleresult.getCreatedElements().add(trgOperationToFail);
-		ruleresult.getCreatedElements().add(trgFail);
 		ruleresult.getCreatedElements().add(trgFailed);
+		ruleresult.getCreatedElements().add(trgRepair);
+		ruleresult.getCreatedElements().add(trgFailedToRepair);
+		ruleresult.getCreatedElements().add(trgRepairToOperational);
+		ruleresult.getCreatedElements().add(trgFailToFailed);
+		ruleresult.getCreatedElements().add(trgFail);
+		ruleresult.getCreatedElements().add(trgOperationToFail);
+		ruleresult.getTranslatedElements().add(srcSwitch);
+		ruleresult.getCreatedLinkElements().add(switchFailedCorr);
 		ruleresult.getCreatedLinkElements().add(switchOperationalCorr);
-		return new Object[] { ruleresult, trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair,
-				srcSwitch, trgFailToFailed, trgOperational, trgOperationToFail, trgFail, trgFailed,
+		return new Object[] { ruleresult, trgOperational, trgFailed, trgRepair, trgFailedToRepair,
+				trgRepairToOperational, trgFailToFailed, trgFail, trgOperationToFail, srcSwitch, switchFailedCorr,
 				switchOperationalCorr };
 	}
 
 	public static final Object[] pattern_Switch_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject trgRepair, EObject trgRepairToOperational, EObject switchFailedCorr,
-			EObject trgFailedToRepair, EObject srcSwitch, EObject trgFailToFailed, EObject trgOperational,
-			EObject trgOperationToFail, EObject srcContainer, EObject trgPetrinet, EObject containerCorr,
-			EObject srcRegion, EObject trgFail, EObject trgFailed, EObject switchOperationalCorr) {
-		if (!trgRepair.equals(trgRepairToOperational)) {
-			if (!switchFailedCorr.equals(trgRepair)) {
-				if (!switchFailedCorr.equals(trgRepairToOperational)) {
-					if (!switchFailedCorr.equals(trgFailedToRepair)) {
-						if (!switchFailedCorr.equals(trgFailToFailed)) {
-							if (!switchFailedCorr.equals(trgOperational)) {
-								if (!switchFailedCorr.equals(trgOperationToFail)) {
-									if (!switchFailedCorr.equals(trgPetrinet)) {
-										if (!switchFailedCorr.equals(trgFail)) {
-											if (!switchFailedCorr.equals(trgFailed)) {
-												if (!switchFailedCorr.equals(switchOperationalCorr)) {
+			PerformRuleResult ruleresult, EObject trgOperational, EObject trgFailed, EObject trgRepair,
+			EObject trgFailedToRepair, EObject trgRepairToOperational, EObject trgFailToFailed, EObject trgFail,
+			EObject trgOperationToFail, EObject trgPetrinet, EObject containerCorr, EObject srcSwitch,
+			EObject switchFailedCorr, EObject srcContainer, EObject switchOperationalCorr, EObject srcRegion) {
+		if (!trgOperational.equals(trgRepair)) {
+			if (!trgOperational.equals(trgRepairToOperational)) {
+				if (!trgOperational.equals(trgPetrinet)) {
+					if (!trgFailed.equals(trgOperational)) {
+						if (!trgFailed.equals(trgRepair)) {
+							if (!trgFailed.equals(trgFailedToRepair)) {
+								if (!trgFailed.equals(trgRepairToOperational)) {
+									if (!trgFailed.equals(trgOperationToFail)) {
+										if (!trgFailed.equals(trgPetrinet)) {
+											if (!trgRepair.equals(trgRepairToOperational)) {
+												if (!trgFailedToRepair.equals(trgOperational)) {
 													if (!trgFailedToRepair.equals(trgRepair)) {
 														if (!trgFailedToRepair.equals(trgRepairToOperational)) {
-															if (!trgFailedToRepair.equals(trgOperational)) {
-																if (!trgFailedToRepair.equals(trgOperationToFail)) {
-																	if (!trgFailedToRepair.equals(trgPetrinet)) {
-																		if (!srcSwitch.equals(trgRepair)) {
-																			if (!srcSwitch
-																					.equals(trgRepairToOperational)) {
-																				if (!srcSwitch
-																						.equals(switchFailedCorr)) {
-																					if (!srcSwitch.equals(
-																							trgFailedToRepair)) {
-																						if (!srcSwitch.equals(
-																								trgFailToFailed)) {
-																							if (!srcSwitch.equals(
-																									trgOperational)) {
-																								if (!srcSwitch.equals(
-																										trgOperationToFail)) {
-																									if (!srcSwitch
-																											.equals(trgPetrinet)) {
-																										if (!srcSwitch
-																												.equals(trgFail)) {
-																											if (!srcSwitch
-																													.equals(trgFailed)) {
-																												if (!srcSwitch
-																														.equals(switchOperationalCorr)) {
-																													if (!trgFailToFailed
-																															.equals(trgRepair)) {
-																														if (!trgFailToFailed
-																																.equals(trgRepairToOperational)) {
-																															if (!trgFailToFailed
-																																	.equals(trgFailedToRepair)) {
-																																if (!trgFailToFailed
+															if (!trgFailedToRepair.equals(trgOperationToFail)) {
+																if (!trgFailedToRepair.equals(trgPetrinet)) {
+																	if (!trgFailToFailed.equals(trgOperational)) {
+																		if (!trgFailToFailed.equals(trgFailed)) {
+																			if (!trgFailToFailed.equals(trgRepair)) {
+																				if (!trgFailToFailed
+																						.equals(trgFailedToRepair)) {
+																					if (!trgFailToFailed.equals(
+																							trgRepairToOperational)) {
+																						if (!trgFailToFailed.equals(
+																								trgOperationToFail)) {
+																							if (!trgFailToFailed.equals(
+																									trgPetrinet)) {
+																								if (!trgFail.equals(
+																										trgOperational)) {
+																									if (!trgFail.equals(
+																											trgFailed)) {
+																										if (!trgFail
+																												.equals(trgRepair)) {
+																											if (!trgFail
+																													.equals(trgFailedToRepair)) {
+																												if (!trgFail
+																														.equals(trgRepairToOperational)) {
+																													if (!trgFail
+																															.equals(trgFailToFailed)) {
+																														if (!trgFail
+																																.equals(trgOperationToFail)) {
+																															if (!trgFail
+																																	.equals(trgPetrinet)) {
+																																if (!trgOperationToFail
 																																		.equals(trgOperational)) {
-																																	if (!trgFailToFailed
-																																			.equals(trgOperationToFail)) {
-																																		if (!trgFailToFailed
-																																				.equals(trgPetrinet)) {
-																																			if (!trgFailToFailed
-																																					.equals(trgFailed)) {
-																																				if (!trgOperational
+																																	if (!trgOperationToFail
+																																			.equals(trgRepair)) {
+																																		if (!trgOperationToFail
+																																				.equals(trgRepairToOperational)) {
+																																			if (!trgOperationToFail
+																																					.equals(trgPetrinet)) {
+																																				if (!trgPetrinet
 																																						.equals(trgRepair)) {
-																																					if (!trgOperational
+																																					if (!trgPetrinet
 																																							.equals(trgRepairToOperational)) {
-																																						if (!trgOperational
-																																								.equals(trgPetrinet)) {
-																																							if (!trgOperationToFail
-																																									.equals(trgRepair)) {
-																																								if (!trgOperationToFail
-																																										.equals(trgRepairToOperational)) {
-																																									if (!trgOperationToFail
-																																											.equals(trgOperational)) {
-																																										if (!trgOperationToFail
-																																												.equals(trgPetrinet)) {
-																																											if (!srcContainer
-																																													.equals(trgRepair)) {
-																																												if (!srcContainer
-																																														.equals(trgRepairToOperational)) {
-																																													if (!srcContainer
-																																															.equals(switchFailedCorr)) {
-																																														if (!srcContainer
-																																																.equals(trgFailedToRepair)) {
-																																															if (!srcContainer
+																																						if (!containerCorr
+																																								.equals(trgOperational)) {
+																																							if (!containerCorr
+																																									.equals(trgFailed)) {
+																																								if (!containerCorr
+																																										.equals(trgRepair)) {
+																																									if (!containerCorr
+																																											.equals(trgFailedToRepair)) {
+																																										if (!containerCorr
+																																												.equals(trgRepairToOperational)) {
+																																											if (!containerCorr
+																																													.equals(trgFailToFailed)) {
+																																												if (!containerCorr
+																																														.equals(trgFail)) {
+																																													if (!containerCorr
+																																															.equals(trgOperationToFail)) {
+																																														if (!containerCorr
+																																																.equals(trgPetrinet)) {
+																																															if (!containerCorr
 																																																	.equals(srcSwitch)) {
-																																																if (!srcContainer
-																																																		.equals(trgFailToFailed)) {
-																																																	if (!srcContainer
-																																																			.equals(trgOperational)) {
-																																																		if (!srcContainer
-																																																				.equals(trgOperationToFail)) {
-																																																			if (!srcContainer
-																																																					.equals(trgPetrinet)) {
-																																																				if (!srcContainer
-																																																						.equals(srcRegion)) {
-																																																					if (!srcContainer
-																																																							.equals(trgFail)) {
-																																																						if (!srcContainer
-																																																								.equals(trgFailed)) {
-																																																							if (!srcContainer
-																																																									.equals(switchOperationalCorr)) {
-																																																								if (!trgPetrinet
-																																																										.equals(trgRepair)) {
-																																																									if (!trgPetrinet
-																																																											.equals(trgRepairToOperational)) {
-																																																										if (!containerCorr
-																																																												.equals(trgRepair)) {
-																																																											if (!containerCorr
-																																																													.equals(trgRepairToOperational)) {
-																																																												if (!containerCorr
-																																																														.equals(switchFailedCorr)) {
-																																																													if (!containerCorr
-																																																															.equals(trgFailedToRepair)) {
-																																																														if (!containerCorr
-																																																																.equals(srcSwitch)) {
-																																																															if (!containerCorr
-																																																																	.equals(trgFailToFailed)) {
-																																																																if (!containerCorr
-																																																																		.equals(trgOperational)) {
-																																																																	if (!containerCorr
-																																																																			.equals(trgOperationToFail)) {
-																																																																		if (!containerCorr
-																																																																				.equals(srcContainer)) {
-																																																																			if (!containerCorr
-																																																																					.equals(trgPetrinet)) {
-																																																																				if (!containerCorr
-																																																																						.equals(srcRegion)) {
-																																																																					if (!containerCorr
+																																																if (!containerCorr
+																																																		.equals(switchFailedCorr)) {
+																																																	if (!containerCorr
+																																																			.equals(srcContainer)) {
+																																																		if (!containerCorr
+																																																				.equals(switchOperationalCorr)) {
+																																																			if (!containerCorr
+																																																					.equals(srcRegion)) {
+																																																				if (!srcSwitch
+																																																						.equals(trgOperational)) {
+																																																					if (!srcSwitch
+																																																							.equals(trgFailed)) {
+																																																						if (!srcSwitch
+																																																								.equals(trgRepair)) {
+																																																							if (!srcSwitch
+																																																									.equals(trgFailedToRepair)) {
+																																																								if (!srcSwitch
+																																																										.equals(trgRepairToOperational)) {
+																																																									if (!srcSwitch
+																																																											.equals(trgFailToFailed)) {
+																																																										if (!srcSwitch
+																																																												.equals(trgFail)) {
+																																																											if (!srcSwitch
+																																																													.equals(trgOperationToFail)) {
+																																																												if (!srcSwitch
+																																																														.equals(trgPetrinet)) {
+																																																													if (!srcSwitch
+																																																															.equals(switchFailedCorr)) {
+																																																														if (!srcSwitch
+																																																																.equals(switchOperationalCorr)) {
+																																																															if (!switchFailedCorr
+																																																																	.equals(trgOperational)) {
+																																																																if (!switchFailedCorr
+																																																																		.equals(trgFailed)) {
+																																																																	if (!switchFailedCorr
+																																																																			.equals(trgRepair)) {
+																																																																		if (!switchFailedCorr
+																																																																				.equals(trgFailedToRepair)) {
+																																																																			if (!switchFailedCorr
+																																																																					.equals(trgRepairToOperational)) {
+																																																																				if (!switchFailedCorr
+																																																																						.equals(trgFailToFailed)) {
+																																																																					if (!switchFailedCorr
 																																																																							.equals(trgFail)) {
-																																																																						if (!containerCorr
-																																																																								.equals(trgFailed)) {
-																																																																							if (!containerCorr
-																																																																									.equals(switchOperationalCorr)) {
-																																																																								if (!srcRegion
-																																																																										.equals(trgRepair)) {
-																																																																									if (!srcRegion
-																																																																											.equals(trgRepairToOperational)) {
-																																																																										if (!srcRegion
-																																																																												.equals(switchFailedCorr)) {
-																																																																											if (!srcRegion
-																																																																													.equals(trgFailedToRepair)) {
-																																																																												if (!srcRegion
-																																																																														.equals(srcSwitch)) {
-																																																																													if (!srcRegion
-																																																																															.equals(trgFailToFailed)) {
-																																																																														if (!srcRegion
-																																																																																.equals(trgOperational)) {
-																																																																															if (!srcRegion
-																																																																																	.equals(trgOperationToFail)) {
-																																																																																if (!srcRegion
-																																																																																		.equals(trgPetrinet)) {
-																																																																																	if (!srcRegion
-																																																																																			.equals(trgFail)) {
-																																																																																		if (!srcRegion
-																																																																																				.equals(trgFailed)) {
-																																																																																			if (!srcRegion
-																																																																																					.equals(switchOperationalCorr)) {
-																																																																																				if (!trgFail
-																																																																																						.equals(trgRepair)) {
-																																																																																					if (!trgFail
-																																																																																							.equals(trgRepairToOperational)) {
-																																																																																						if (!trgFail
-																																																																																								.equals(trgFailedToRepair)) {
-																																																																																							if (!trgFail
-																																																																																									.equals(trgFailToFailed)) {
-																																																																																								if (!trgFail
-																																																																																										.equals(trgOperational)) {
-																																																																																									if (!trgFail
-																																																																																											.equals(trgOperationToFail)) {
-																																																																																										if (!trgFail
-																																																																																												.equals(trgPetrinet)) {
-																																																																																											if (!trgFail
-																																																																																													.equals(trgFailed)) {
-																																																																																												if (!trgFailed
-																																																																																														.equals(trgRepair)) {
-																																																																																													if (!trgFailed
-																																																																																															.equals(trgRepairToOperational)) {
-																																																																																														if (!trgFailed
-																																																																																																.equals(trgFailedToRepair)) {
-																																																																																															if (!trgFailed
+																																																																						if (!switchFailedCorr
+																																																																								.equals(trgOperationToFail)) {
+																																																																							if (!switchFailedCorr
+																																																																									.equals(trgPetrinet)) {
+																																																																								if (!switchFailedCorr
+																																																																										.equals(switchOperationalCorr)) {
+																																																																									if (!srcContainer
+																																																																											.equals(trgOperational)) {
+																																																																										if (!srcContainer
+																																																																												.equals(trgFailed)) {
+																																																																											if (!srcContainer
+																																																																													.equals(trgRepair)) {
+																																																																												if (!srcContainer
+																																																																														.equals(trgFailedToRepair)) {
+																																																																													if (!srcContainer
+																																																																															.equals(trgRepairToOperational)) {
+																																																																														if (!srcContainer
+																																																																																.equals(trgFailToFailed)) {
+																																																																															if (!srcContainer
+																																																																																	.equals(trgFail)) {
+																																																																																if (!srcContainer
+																																																																																		.equals(trgOperationToFail)) {
+																																																																																	if (!srcContainer
+																																																																																			.equals(trgPetrinet)) {
+																																																																																		if (!srcContainer
+																																																																																				.equals(srcSwitch)) {
+																																																																																			if (!srcContainer
+																																																																																					.equals(switchFailedCorr)) {
+																																																																																				if (!srcContainer
+																																																																																						.equals(switchOperationalCorr)) {
+																																																																																					if (!srcContainer
+																																																																																							.equals(srcRegion)) {
+																																																																																						if (!switchOperationalCorr
+																																																																																								.equals(trgOperational)) {
+																																																																																							if (!switchOperationalCorr
+																																																																																									.equals(trgFailed)) {
+																																																																																								if (!switchOperationalCorr
+																																																																																										.equals(trgRepair)) {
+																																																																																									if (!switchOperationalCorr
+																																																																																											.equals(trgFailedToRepair)) {
+																																																																																										if (!switchOperationalCorr
+																																																																																												.equals(trgRepairToOperational)) {
+																																																																																											if (!switchOperationalCorr
+																																																																																													.equals(trgFailToFailed)) {
+																																																																																												if (!switchOperationalCorr
+																																																																																														.equals(trgFail)) {
+																																																																																													if (!switchOperationalCorr
+																																																																																															.equals(trgOperationToFail)) {
+																																																																																														if (!switchOperationalCorr
+																																																																																																.equals(trgPetrinet)) {
+																																																																																															if (!srcRegion
 																																																																																																	.equals(trgOperational)) {
-																																																																																																if (!trgFailed
-																																																																																																		.equals(trgOperationToFail)) {
-																																																																																																	if (!trgFailed
-																																																																																																			.equals(trgPetrinet)) {
-																																																																																																		if (!switchOperationalCorr
-																																																																																																				.equals(trgRepair)) {
-																																																																																																			if (!switchOperationalCorr
+																																																																																																if (!srcRegion
+																																																																																																		.equals(trgFailed)) {
+																																																																																																	if (!srcRegion
+																																																																																																			.equals(trgRepair)) {
+																																																																																																		if (!srcRegion
+																																																																																																				.equals(trgFailedToRepair)) {
+																																																																																																			if (!srcRegion
 																																																																																																					.equals(trgRepairToOperational)) {
-																																																																																																				if (!switchOperationalCorr
-																																																																																																						.equals(trgFailedToRepair)) {
-																																																																																																					if (!switchOperationalCorr
-																																																																																																							.equals(trgFailToFailed)) {
-																																																																																																						if (!switchOperationalCorr
-																																																																																																								.equals(trgOperational)) {
-																																																																																																							if (!switchOperationalCorr
-																																																																																																									.equals(trgOperationToFail)) {
-																																																																																																								if (!switchOperationalCorr
-																																																																																																										.equals(trgPetrinet)) {
-																																																																																																									if (!switchOperationalCorr
-																																																																																																											.equals(trgFail)) {
-																																																																																																										if (!switchOperationalCorr
-																																																																																																												.equals(trgFailed)) {
+																																																																																																				if (!srcRegion
+																																																																																																						.equals(trgFailToFailed)) {
+																																																																																																					if (!srcRegion
+																																																																																																							.equals(trgFail)) {
+																																																																																																						if (!srcRegion
+																																																																																																								.equals(trgOperationToFail)) {
+																																																																																																							if (!srcRegion
+																																																																																																									.equals(trgPetrinet)) {
+																																																																																																								if (!srcRegion
+																																																																																																										.equals(srcSwitch)) {
+																																																																																																									if (!srcRegion
+																																																																																																											.equals(switchFailedCorr)) {
+																																																																																																										if (!srcRegion
+																																																																																																												.equals(switchOperationalCorr)) {
 																																																																																																											return new Object[] {
 																																																																																																													ruleresult,
-																																																																																																													trgRepair,
-																																																																																																													trgRepairToOperational,
-																																																																																																													switchFailedCorr,
-																																																																																																													trgFailedToRepair,
-																																																																																																													srcSwitch,
-																																																																																																													trgFailToFailed,
 																																																																																																													trgOperational,
+																																																																																																													trgFailed,
+																																																																																																													trgRepair,
+																																																																																																													trgFailedToRepair,
+																																																																																																													trgRepairToOperational,
+																																																																																																													trgFailToFailed,
+																																																																																																													trgFail,
 																																																																																																													trgOperationToFail,
-																																																																																																													srcContainer,
 																																																																																																													trgPetrinet,
 																																																																																																													containerCorr,
-																																																																																																													srcRegion,
-																																																																																																													trgFail,
-																																																																																																													trgFailed,
-																																																																																																													switchOperationalCorr };
+																																																																																																													srcSwitch,
+																																																																																																													switchFailedCorr,
+																																																																																																													srcContainer,
+																																																																																																													switchOperationalCorr,
+																																																																																																													srcRegion };
 																																																																																																										}
 																																																																																																									}
 																																																																																																								}
@@ -1247,124 +1247,91 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 	}
 
 	public static final Object[] pattern_Switch_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject trgRepair, EObject trgRepairToOperational, EObject switchFailedCorr,
-			EObject trgFailedToRepair, EObject srcSwitch, EObject trgFailToFailed, EObject trgOperational,
-			EObject trgOperationToFail, EObject trgPetrinet, EObject srcRegion, EObject trgFail, EObject trgFailed,
-			EObject switchOperationalCorr) {
-		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge switchFailedCorr__srcSwitch____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailToFailed__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFail__trgFailToFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgOperationToFail__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcRegion__srcSwitch____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge switchOperationalCorr__srcSwitch____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+			PerformRuleResult ruleresult, EObject trgOperational, EObject trgFailed, EObject trgRepair,
+			EObject trgFailedToRepair, EObject trgRepairToOperational, EObject trgFailToFailed, EObject trgFail,
+			EObject trgOperationToFail, EObject trgPetrinet, EObject srcSwitch, EObject switchFailedCorr,
+			EObject switchOperationalCorr, EObject srcRegion) {
 		EMoflonEdge trgRepair__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgPetrinet__trgRepair____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge switchOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge switchFailedCorr__trgFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailToFailed__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFail__trgFailToFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgOperationToFail__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFail__trgOperationToFail____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgOperationToFail__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge switchFailedCorr__trgFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge switchFailedCorr__srcSwitch____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge switchOperationalCorr__srcSwitch____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge switchOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcRegion__srcSwitch____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "Switch";
-		String trgRepairToOperational__trgOperational____place_name_prime = "place";
-		String trgFailedToRepair__trgFailed____place_name_prime = "place";
-		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
-		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
-		String switchFailedCorr__srcSwitch____source_name_prime = "source";
-		String trgFailToFailed__trgFail____transition_name_prime = "transition";
-		String trgFail__trgFailToFailed____arcs_name_prime = "arcs";
-		String trgOperationToFail__trgOperational____place_name_prime = "place";
-		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
-		String srcRegion__srcSwitch____elements_name_prime = "elements";
-		String switchOperationalCorr__srcSwitch____source_name_prime = "source";
-		String trgFailToFailed__trgFailed____place_name_prime = "place";
 		String trgRepair__trgPetrinet____petriNet_name_prime = "petriNet";
 		String trgPetrinet__trgRepair____nodes_name_prime = "nodes";
-		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
-		String switchOperationalCorr__trgOperational____target_name_prime = "target";
-		String switchFailedCorr__trgFailed____target_name_prime = "target";
+		String trgRepairToOperational__trgOperational____place_name_prime = "place";
+		String trgFailToFailed__trgFail____transition_name_prime = "transition";
+		String trgFail__trgFailToFailed____arcs_name_prime = "arcs";
+		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
+		String trgFailToFailed__trgFailed____place_name_prime = "place";
+		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
 		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
 		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
 		String trgOperationToFail__trgFail____transition_name_prime = "transition";
 		String trgFail__trgOperationToFail____arcs_name_prime = "arcs";
-		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
-		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
-		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
-		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
-		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
-		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
-		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
-		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
-		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
-		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
-		switchFailedCorr__srcSwitch____source.setSrc(switchFailedCorr);
-		switchFailedCorr__srcSwitch____source.setTrg(srcSwitch);
-		ruleresult.getCreatedEdges().add(switchFailedCorr__srcSwitch____source);
-		trgFailToFailed__trgFail____transition.setSrc(trgFailToFailed);
-		trgFailToFailed__trgFail____transition.setTrg(trgFail);
-		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFail____transition);
-		trgFail__trgFailToFailed____arcs.setSrc(trgFail);
-		trgFail__trgFailToFailed____arcs.setTrg(trgFailToFailed);
-		ruleresult.getCreatedEdges().add(trgFail__trgFailToFailed____arcs);
-		trgOperationToFail__trgOperational____place.setSrc(trgOperationToFail);
-		trgOperationToFail__trgOperational____place.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgOperationToFail__trgOperational____place);
-		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
-		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
-		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
-		srcRegion__srcSwitch____elements.setSrc(srcRegion);
-		srcRegion__srcSwitch____elements.setTrg(srcSwitch);
-		ruleresult.getTranslatedEdges().add(srcRegion__srcSwitch____elements);
-		switchOperationalCorr__srcSwitch____source.setSrc(switchOperationalCorr);
-		switchOperationalCorr__srcSwitch____source.setTrg(srcSwitch);
-		ruleresult.getCreatedEdges().add(switchOperationalCorr__srcSwitch____source);
-		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
-		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
+		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
+		String trgOperationToFail__trgOperational____place_name_prime = "place";
+		String switchFailedCorr__trgFailed____target_name_prime = "target";
+		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
+		String switchFailedCorr__srcSwitch____source_name_prime = "source";
+		String switchOperationalCorr__srcSwitch____source_name_prime = "source";
+		String switchOperationalCorr__trgOperational____target_name_prime = "target";
+		String srcRegion__srcSwitch____elements_name_prime = "elements";
+		String trgFailedToRepair__trgFailed____place_name_prime = "place";
 		trgRepair__trgPetrinet____petriNet.setSrc(trgRepair);
 		trgRepair__trgPetrinet____petriNet.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(trgRepair__trgPetrinet____petriNet);
 		trgPetrinet__trgRepair____nodes.setSrc(trgPetrinet);
 		trgPetrinet__trgRepair____nodes.setTrg(trgRepair);
 		ruleresult.getCreatedEdges().add(trgPetrinet__trgRepair____nodes);
-		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
-		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
-		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFail____nodes.setTrg(trgFail);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
-		switchOperationalCorr__trgOperational____target.setSrc(switchOperationalCorr);
-		switchOperationalCorr__trgOperational____target.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(switchOperationalCorr__trgOperational____target);
-		switchFailedCorr__trgFailed____target.setSrc(switchFailedCorr);
-		switchFailedCorr__trgFailed____target.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(switchFailedCorr__trgFailed____target);
+		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
+		trgFailToFailed__trgFail____transition.setSrc(trgFailToFailed);
+		trgFailToFailed__trgFail____transition.setTrg(trgFail);
+		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFail____transition);
+		trgFail__trgFailToFailed____arcs.setSrc(trgFail);
+		trgFail__trgFailToFailed____arcs.setTrg(trgFailToFailed);
+		ruleresult.getCreatedEdges().add(trgFail__trgFailToFailed____arcs);
+		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
+		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
+		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
+		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
+		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
+		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
+		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
+		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
+		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
+		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
 		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
 		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
@@ -1377,60 +1344,93 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		trgFail__trgOperationToFail____arcs.setSrc(trgFail);
 		trgFail__trgOperationToFail____arcs.setTrg(trgOperationToFail);
 		ruleresult.getCreatedEdges().add(trgFail__trgOperationToFail____arcs);
+		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
+		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
+		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFail____nodes.setTrg(trgFail);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
+		trgOperationToFail__trgOperational____place.setSrc(trgOperationToFail);
+		trgOperationToFail__trgOperational____place.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgOperationToFail__trgOperational____place);
+		switchFailedCorr__trgFailed____target.setSrc(switchFailedCorr);
+		switchFailedCorr__trgFailed____target.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(switchFailedCorr__trgFailed____target);
+		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
+		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
+		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
+		switchFailedCorr__srcSwitch____source.setSrc(switchFailedCorr);
+		switchFailedCorr__srcSwitch____source.setTrg(srcSwitch);
+		ruleresult.getCreatedEdges().add(switchFailedCorr__srcSwitch____source);
+		switchOperationalCorr__srcSwitch____source.setSrc(switchOperationalCorr);
+		switchOperationalCorr__srcSwitch____source.setTrg(srcSwitch);
+		ruleresult.getCreatedEdges().add(switchOperationalCorr__srcSwitch____source);
+		switchOperationalCorr__trgOperational____target.setSrc(switchOperationalCorr);
+		switchOperationalCorr__trgOperational____target.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(switchOperationalCorr__trgOperational____target);
+		srcRegion__srcSwitch____elements.setSrc(srcRegion);
+		srcRegion__srcSwitch____elements.setTrg(srcSwitch);
+		ruleresult.getTranslatedEdges().add(srcRegion__srcSwitch____elements);
+		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
 		trgRepairToOperational__trgOperational____place
 				.setName(trgRepairToOperational__trgOperational____place_name_prime);
-		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
+		trgFailToFailed__trgFail____transition.setName(trgFailToFailed__trgFail____transition_name_prime);
+		trgFail__trgFailToFailed____arcs.setName(trgFail__trgFailToFailed____arcs_name_prime);
 		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
 		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
+		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
 		trgRepairToOperational__trgRepair____transition
 				.setName(trgRepairToOperational__trgRepair____transition_name_prime);
 		trgRepair__trgRepairToOperational____arcs.setName(trgRepair__trgRepairToOperational____arcs_name_prime);
-		switchFailedCorr__srcSwitch____source.setName(switchFailedCorr__srcSwitch____source_name_prime);
-		trgFailToFailed__trgFail____transition.setName(trgFailToFailed__trgFail____transition_name_prime);
-		trgFail__trgFailToFailed____arcs.setName(trgFail__trgFailToFailed____arcs_name_prime);
-		trgOperationToFail__trgOperational____place.setName(trgOperationToFail__trgOperational____place_name_prime);
-		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
-		srcRegion__srcSwitch____elements.setName(srcRegion__srcSwitch____elements_name_prime);
-		switchOperationalCorr__srcSwitch____source.setName(switchOperationalCorr__srcSwitch____source_name_prime);
-		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
-		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
-		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
-		switchOperationalCorr__trgOperational____target
-				.setName(switchOperationalCorr__trgOperational____target_name_prime);
-		switchFailedCorr__trgFailed____target.setName(switchFailedCorr__trgFailed____target_name_prime);
 		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
 		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
 		trgOperationToFail__trgFail____transition.setName(trgOperationToFail__trgFail____transition_name_prime);
 		trgFail__trgOperationToFail____arcs.setName(trgFail__trgOperationToFail____arcs_name_prime);
-		return new Object[] { ruleresult, trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair,
-				srcSwitch, trgFailToFailed, trgOperational, trgOperationToFail, trgPetrinet, srcRegion, trgFail,
-				trgFailed, switchOperationalCorr, trgRepairToOperational__trgOperational____place,
-				trgFailedToRepair__trgFailed____place, trgFailedToRepair__trgRepair____transition,
-				trgRepair__trgFailedToRepair____arcs, trgRepairToOperational__trgRepair____transition,
-				trgRepair__trgRepairToOperational____arcs, switchFailedCorr__srcSwitch____source,
+		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
+		trgOperationToFail__trgOperational____place.setName(trgOperationToFail__trgOperational____place_name_prime);
+		switchFailedCorr__trgFailed____target.setName(switchFailedCorr__trgFailed____target_name_prime);
+		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
+		switchFailedCorr__srcSwitch____source.setName(switchFailedCorr__srcSwitch____source_name_prime);
+		switchOperationalCorr__srcSwitch____source.setName(switchOperationalCorr__srcSwitch____source_name_prime);
+		switchOperationalCorr__trgOperational____target
+				.setName(switchOperationalCorr__trgOperational____target_name_prime);
+		srcRegion__srcSwitch____elements.setName(srcRegion__srcSwitch____elements_name_prime);
+		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
+		return new Object[] { ruleresult, trgOperational, trgFailed, trgRepair, trgFailedToRepair,
+				trgRepairToOperational, trgFailToFailed, trgFail, trgOperationToFail, trgPetrinet, srcSwitch,
+				switchFailedCorr, switchOperationalCorr, srcRegion, trgRepair__trgPetrinet____petriNet,
+				trgPetrinet__trgRepair____nodes, trgRepairToOperational__trgOperational____place,
 				trgFailToFailed__trgFail____transition, trgFail__trgFailToFailed____arcs,
-				trgOperationToFail__trgOperational____place, trgOperational__trgPetrinet____petriNet,
-				trgPetrinet__trgOperational____nodes, srcRegion__srcSwitch____elements,
-				switchOperationalCorr__srcSwitch____source, trgFailToFailed__trgFailed____place,
-				trgRepair__trgPetrinet____petriNet, trgPetrinet__trgRepair____nodes, trgFail__trgPetrinet____petriNet,
-				trgPetrinet__trgFail____nodes, switchOperationalCorr__trgOperational____target,
-				switchFailedCorr__trgFailed____target, trgFailed__trgPetrinet____petriNet,
+				trgFailedToRepair__trgRepair____transition, trgRepair__trgFailedToRepair____arcs,
+				trgFailToFailed__trgFailed____place, trgRepairToOperational__trgRepair____transition,
+				trgRepair__trgRepairToOperational____arcs, trgFailed__trgPetrinet____petriNet,
 				trgPetrinet__trgFailed____nodes, trgOperationToFail__trgFail____transition,
-				trgFail__trgOperationToFail____arcs };
+				trgFail__trgOperationToFail____arcs, trgFail__trgPetrinet____petriNet, trgPetrinet__trgFail____nodes,
+				trgOperationToFail__trgOperational____place, switchFailedCorr__trgFailed____target,
+				trgOperational__trgPetrinet____petriNet, trgPetrinet__trgOperational____nodes,
+				switchFailedCorr__srcSwitch____source, switchOperationalCorr__srcSwitch____source,
+				switchOperationalCorr__trgOperational____target, srcRegion__srcSwitch____elements,
+				trgFailedToRepair__trgFailed____place };
 	}
 
 	public static final void pattern_Switch_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(Switch _this,
-			PerformRuleResult ruleresult, EObject trgRepair, EObject trgRepairToOperational, EObject switchFailedCorr,
-			EObject trgFailedToRepair, EObject srcSwitch, EObject trgFailToFailed, EObject trgOperational,
-			EObject trgOperationToFail, EObject srcContainer, EObject trgPetrinet, EObject containerCorr,
-			EObject srcRegion, EObject trgFail, EObject trgFailed, EObject switchOperationalCorr) {
-		_this.registerObjects_FWD(ruleresult, trgRepair, trgRepairToOperational, switchFailedCorr, trgFailedToRepair,
-				srcSwitch, trgFailToFailed, trgOperational, trgOperationToFail, srcContainer, trgPetrinet,
-				containerCorr, srcRegion, trgFail, trgFailed, switchOperationalCorr);
+			PerformRuleResult ruleresult, EObject trgOperational, EObject trgFailed, EObject trgRepair,
+			EObject trgFailedToRepair, EObject trgRepairToOperational, EObject trgFailToFailed, EObject trgFail,
+			EObject trgOperationToFail, EObject trgPetrinet, EObject containerCorr, EObject srcSwitch,
+			EObject switchFailedCorr, EObject srcContainer, EObject switchOperationalCorr, EObject srcRegion) {
+		_this.registerObjects_FWD(ruleresult, trgOperational, trgFailed, trgRepair, trgFailedToRepair,
+				trgRepairToOperational, trgFailToFailed, trgFail, trgOperationToFail, trgPetrinet, containerCorr,
+				srcSwitch, switchFailedCorr, srcContainer, switchOperationalCorr, srcRegion);
 
 	}
 
@@ -1506,7 +1506,7 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_Switch_2_2_corematch_blackBBFFBB(
+	public static final Iterable<Object[]> pattern_Switch_2_2_corematch_blackFFBBBB(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
 			Region srcRegion, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -1514,22 +1514,23 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 				.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
 			PetriNet trgPetrinet = containerCorr.getTarget();
 			if (trgPetrinet != null) {
-				_result.add(new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion, match });
+				_result.add(new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion, match });
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_Switch_2_3_findcontext_blackBBBBB(
+	public static final Iterable<Object[]> pattern_Switch_2_3_findcontext_blackBBBBB(PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr,
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
-			PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr, Region srcRegion) {
+			Region srcRegion) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (trgPetrinet.equals(containerCorr.getTarget())) {
 			if (srcContainer.getRegions().contains(srcRegion)) {
-				if (srcRegion.getElements().contains(srcSwitch)) {
-					if (srcContainer.equals(containerCorr.getSource())) {
-						_result.add(new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion });
+				if (srcContainer.equals(containerCorr.getSource())) {
+					if (srcRegion.getElements().contains(srcSwitch)) {
+						_result.add(new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion });
 					}
 				}
 			}
@@ -1537,22 +1538,23 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		return _result;
 	}
 
-	public static final Object[] pattern_Switch_2_3_findcontext_greenBBBBBFFFFF(
+	public static final Object[] pattern_Switch_2_3_findcontext_greenBBBBBFFFFF(PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr,
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
-			PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr, Region srcRegion) {
+			Region srcRegion) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcContainer__srcRegion____regions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcRegion__srcSwitch____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcRegion__srcSwitch____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String containerCorr__trgPetrinet____target_name_prime = "target";
 		String srcContainer__srcRegion____regions_name_prime = "regions";
-		String srcRegion__srcSwitch____elements_name_prime = "elements";
 		String containerCorr__srcContainer____source_name_prime = "source";
-		isApplicableMatch.getAllContextElements().add(srcSwitch);
-		isApplicableMatch.getAllContextElements().add(srcContainer);
+		String srcRegion__srcSwitch____elements_name_prime = "elements";
 		isApplicableMatch.getAllContextElements().add(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(containerCorr);
+		isApplicableMatch.getAllContextElements().add(srcSwitch);
+		isApplicableMatch.getAllContextElements().add(srcContainer);
 		isApplicableMatch.getAllContextElements().add(srcRegion);
 		containerCorr__trgPetrinet____target.setSrc(containerCorr);
 		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
@@ -1560,30 +1562,30 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 		srcContainer__srcRegion____regions.setSrc(srcContainer);
 		srcContainer__srcRegion____regions.setTrg(srcRegion);
 		isApplicableMatch.getAllContextElements().add(srcContainer__srcRegion____regions);
-		srcRegion__srcSwitch____elements.setSrc(srcRegion);
-		srcRegion__srcSwitch____elements.setTrg(srcSwitch);
-		isApplicableMatch.getAllContextElements().add(srcRegion__srcSwitch____elements);
 		containerCorr__srcContainer____source.setSrc(containerCorr);
 		containerCorr__srcContainer____source.setTrg(srcContainer);
 		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
+		srcRegion__srcSwitch____elements.setSrc(srcRegion);
+		srcRegion__srcSwitch____elements.setTrg(srcSwitch);
+		isApplicableMatch.getAllContextElements().add(srcRegion__srcSwitch____elements);
 		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
 		srcContainer__srcRegion____regions.setName(srcContainer__srcRegion____regions_name_prime);
-		srcRegion__srcSwitch____elements.setName(srcRegion__srcSwitch____elements_name_prime);
 		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
-		return new Object[] { srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion, isApplicableMatch,
+		srcRegion__srcSwitch____elements.setName(srcRegion__srcSwitch____elements_name_prime);
+		return new Object[] { trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion, isApplicableMatch,
 				containerCorr__trgPetrinet____target, srcContainer__srcRegion____regions,
-				srcRegion__srcSwitch____elements, containerCorr__srcContainer____source };
+				containerCorr__srcContainer____source, srcRegion__srcSwitch____elements };
 	}
 
 	public static final Object[] pattern_Switch_2_4_solveCSP_bindingFBBBBBBB(Switch _this,
-			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr,
+			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
 			Region srcRegion) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSwitch, srcContainer, trgPetrinet,
-				containerCorr, srcRegion);
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, trgPetrinet, containerCorr, srcSwitch,
+				srcContainer, srcRegion);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcSwitch, srcContainer, trgPetrinet, containerCorr,
+			return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, containerCorr, srcSwitch, srcContainer,
 					srcRegion };
 		}
 		return null;
@@ -1594,19 +1596,19 @@ public class SwitchImpl extends AbstractRuleImpl implements Switch {
 	}
 
 	public static final Object[] pattern_Switch_2_4_solveCSP_bindingAndBlackFBBBBBBB(Switch _this,
-			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr,
+			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
 			Region srcRegion) {
 		Object[] result_pattern_Switch_2_4_solveCSP_binding = pattern_Switch_2_4_solveCSP_bindingFBBBBBBB(_this,
-				isApplicableMatch, srcSwitch, srcContainer, trgPetrinet, containerCorr, srcRegion);
+				isApplicableMatch, trgPetrinet, containerCorr, srcSwitch, srcContainer, srcRegion);
 		if (result_pattern_Switch_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Switch_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_Switch_2_4_solveCSP_black = pattern_Switch_2_4_solveCSP_blackB(csp);
 			if (result_pattern_Switch_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcSwitch, srcContainer, trgPetrinet,
-						containerCorr, srcRegion };
+				return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, containerCorr, srcSwitch,
+						srcContainer, srcRegion };
 			}
 		}
 		return null;
