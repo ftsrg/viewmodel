@@ -5,7 +5,8 @@ import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.IDriverFactory
 
 class AtlDrivers {
 	public static val DRIVER_FACTORIES = ImmutableMap.<String, IDriverFactory>builder
-		.put("atl-batch", [new BatchAtlDriver(it)])
+		.put("atl-batch", [new BatchAtlDriver(it, false)])
+		.put("atl-batch-imperative", [new BatchAtlDriver(it, true)])
 		.build
 
 	private new() {
