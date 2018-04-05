@@ -23,6 +23,7 @@ import hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation.Manifestati
 import hu.bme.mit.inf.viewmodel.runtime.transformation.manifestation.ViewModelManifestation
 import hu.bme.mit.inf.viewmodel.runtime.utils.BadlyBehavingFeatureUtils
 import hu.bme.mit.inf.viewmodel.runtime.utils.EmfScopeUtils
+import hu.bme.mit.inf.viewmodel.runtime.utils.NullScheduler
 import java.util.HashSet
 import org.eclipse.viatra.query.runtime.api.AdvancedViatraQueryEngine
 import org.eclipse.viatra.query.runtime.api.GenericQueryGroup

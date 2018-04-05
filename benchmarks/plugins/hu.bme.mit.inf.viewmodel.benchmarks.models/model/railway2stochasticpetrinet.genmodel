@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.viewmodel.benchmarks.models/emf-gen"
+    modelPluginID="hu.bme.mit.inf.viewmodel.benchmarks.models" modelName="Railway2StochasticPetriNet"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="railway.genmodel#//railway stochasticpetrinet.genmodel#//stochasticpetrinet"
+    operationReflection="true">
+  <foreignModel>railway2stochasticpetrinet.ecore</foreignModel>
+  <genPackages prefix="Railway2StochasticPetriNet" basePackage="hu.bme.mit.inf.viewmodel.benchmarks.models"
+      disposableProviderFactory="true" ecorePackage="railway2stochasticpetrinet.ecore#/">
+    <genClasses ecoreClass="railway2stochasticpetrinet.ecore#//Railway2StochasticPetriNetTrace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Railway2StochasticPetriNetTrace/traceLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Railway2StochasticPetriNetTrace/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="railway2stochasticpetrinet.ecore#//PetriNetModuleTraceLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//PetriNetModuleTraceLink/nodes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//PetriNetModuleTraceLink/arcs"/>
+    </genClasses>
+    <genClasses ecoreClass="railway2stochasticpetrinet.ecore#//Route2FailureModel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Route2FailureModel/route"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Route2FailureModel/operational"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Route2FailureModel/failed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//Route2FailureModel/repair"/>
+    </genClasses>
+    <genClasses ecoreClass="railway2stochasticpetrinet.ecore#//RequiredElement2FailureModel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RequiredElement2FailureModel/railwayElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RequiredElement2FailureModel/operational"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RequiredElement2FailureModel/failed"/>
+    </genClasses>
+    <genClasses ecoreClass="railway2stochasticpetrinet.ecore#//RequiredElement2Connection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RequiredElement2Connection/route"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RequiredElement2Connection/railwayElement"/>
+    </genClasses>
+    <genClasses ecoreClass="railway2stochasticpetrinet.ecore#//RailwayContainer2PetriNet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RailwayContainer2PetriNet/railwayContainer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference railway2stochasticpetrinet.ecore#//RailwayContainer2PetriNet/petriNet"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="railway2stochasticpetrinet.ecore#//TraceLink"/>
+  </genPackages>
+</genmodel:GenModel>

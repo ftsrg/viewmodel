@@ -30,4 +30,20 @@
             genModel="model/virtualswitchview.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated railway2virtualswitchview -->
+      <package
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.railway2virtualswitchview.Railway2VirtualSwitchViewPackage"
+            genModel="model/railway2virtualswitchview.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated railway2stochasticpetrinet -->
+      <package
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2stochasticpetrinet.ecore"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.railway2stochasticpetrinet.Railway2StochasticPetriNetPackage"
+            genModel="model/railway2stochasticpetrinet.genmodel"/>
+   </extension>
+
 </plugin>

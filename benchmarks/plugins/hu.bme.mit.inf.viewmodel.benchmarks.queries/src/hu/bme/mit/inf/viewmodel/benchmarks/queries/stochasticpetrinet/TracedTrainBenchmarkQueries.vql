@@ -1,0 +1,63 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet
+
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2stochasticpetrinet.ecore"
+
+pattern railwayContainerTrace(TraceModel : Railway2StochasticPetriNetTrace, Container : RailwayContainer, TraceLink : RailwayContainer2PetriNet) {
+	Railway2StochasticPetriNetTrace.traceLinks(TraceModel, TraceLink);
+	RailwayContainer2PetriNet.railwayContainer(TraceLink, Container);
+}
+
+private pattern railwayContainerTraced(TraceModel : Railway2StochasticPetriNetTrace, Container : RailwayContainer, PetriNet : PetriNet) {
+	find railwayContainerTrace(TraceModel, Container, TraceLink);
+	RailwayContainer2PetriNet.petriNet(TraceLink, PetriNet);
+}
+
+pattern routeInRailwayModel(TraceModel : Railway2StochasticPetriNetTrace, Route : Route, PetriNet : PetriNet) {
+	find railwayContainerTraced(TraceModel, Container, PetriNet);
+	find route(Container, Route);
+}
+
+pattern routeTrace(TraceModel : Railway2StochasticPetriNetTrace, Route : Route, TraceLink : Route2FailureModel) {
+	Railway2StochasticPetriNetTrace.traceLinks(TraceModel, TraceLink);
+	Route2FailureModel.route(TraceLink, Route);
+}
+
+pattern failedRouteTrace(TraceModel : Railway2StochasticPetriNetTrace, TraceLink : Route2FailureModel) {
+	find routeTrace(TraceModel, Route, TraceLink);
+	find failedRoute(_, Route);
+}
+
+pattern requiredElementInRailwayModel(TraceModel : Railway2StochasticPetriNetTrace, Element : RailwayElement, PetriNet : PetriNet) {
+	find railwayContainerTraced(TraceModel, Container, PetriNet);
+	find railwayElementWithFailureModel(Container, Element);
+}
+
+pattern requiredElementTrace(TraceModel : Railway2StochasticPetriNetTrace, Element : RailwayElement, TraceLink : RequiredElement2FailureModel) {
+	Railway2StochasticPetriNetTrace.traceLinks(TraceModel, TraceLink);
+	RequiredElement2FailureModel.railwayElement(TraceLink, Element);
+}
+
+pattern failedRequiredElementTrace(TraceModel : Railway2StochasticPetriNetTrace, Element : RailwayElement, TraceLink : RequiredElement2FailureModel) {
+	find requiredElementTrace(TraceModel, Element, TraceLink);
+	find failedRailwayElement(_, Element);
+}
+
+pattern routeRequiresElementInRailwayModel(TraceModel : Railway2StochasticPetriNetTrace, RouteLink : Route2FailureModel, ElementLink : RequiredElement2FailureModel, PetriNet : PetriNet) {
+	find routeRequiresElementInRailwayModelHelper(TraceModel, RouteLink, Element, PetriNet);
+	find requiredElementTrace(TraceModel, Element, ElementLink);
+}
+
+private pattern
+routeRequiresElementInRailwayModelHelper(TraceModel : Railway2StochasticPetriNetTrace, RouteLink : Route2FailureModel, Element : RailwayElement, PetriNet : PetriNet) {
+	find railwayContainerTraced(TraceModel, Container, PetriNet);
+	find routeTrace(TraceModel, Route, RouteLink);
+	find routeRequiresElement(Container, Route, Element);
+}
+
+pattern requiredElementConnectionTrace(TraceModel : Railway2StochasticPetriNetTrace, Route : Route, Element : RailwayElement, TraceLink : RequiredElement2Connection) {
+	Railway2StochasticPetriNetTrace.traceLinks(TraceModel, TraceLink);
+	RequiredElement2Connection.route(TraceLink, Route);
+	RequiredElement2Connection.railwayElement(TraceLink, Element);
+}

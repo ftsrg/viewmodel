@@ -17,6 +17,7 @@
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.queries</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.tgg.driver</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet</module>
+		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.viatra.driver</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel</module>
 		<module>plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver</module>
 

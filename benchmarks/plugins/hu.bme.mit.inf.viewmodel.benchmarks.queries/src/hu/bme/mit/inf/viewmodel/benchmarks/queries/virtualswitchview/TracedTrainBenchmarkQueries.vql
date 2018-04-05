@@ -1,0 +1,34 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview
+
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore"
+
+pattern
+virtualSwitchTrace(TraceModel : Railway2VirtualSwitchViewTrace, Switch : Switch, TraceLink : Switch2VirtualSwitch) {
+	Railway2VirtualSwitchViewTrace.traceLinks(TraceModel, TraceLink);
+	Switch2VirtualSwitch.^switch(TraceLink, Switch);
+}
+
+pattern
+connectedSwitchesTraced(TraceModel : Railway2VirtualSwitchViewTrace, VirtualLeft : VirtualSwitch, VirtualRight : VirtualSwitch) {
+	find connectedSwitchesTracedLeft(TraceModel, VirtualLeft, Right);
+	find virtualSwitchTraced(TraceModel, Right, VirtualRight);
+}
+
+private pattern
+connectedSwitchesTracedLeft(TraceModel : Railway2VirtualSwitchViewTrace, VirtualLeft : VirtualSwitch, Right : Switch) {
+	find connectedTo(Left, Right);
+	find virtualSwitchTraced(TraceModel, Left, VirtualLeft);
+}
+
+private pattern
+virtualSwitchTraced(TraceModel : Railway2VirtualSwitchViewTrace, Switch : Switch, VirtualSwitch : VirtualSwitch) {
+	find virtualSwitchTrace(TraceModel, Switch, TraceLink);
+	Switch2VirtualSwitch.virtualSwitch(TraceLink, VirtualSwitch);
+}
+
+pattern countConnectedInFailureTraced(TraceModel : Railway2VirtualSwitchViewTrace, VirtualSwitch : VirtualSwitch, N : java Integer) {
+	find countConnectedInFailure(Switch, N);
+	find virtualSwitchTraced(TraceModel, Switch, VirtualSwitch);
+}

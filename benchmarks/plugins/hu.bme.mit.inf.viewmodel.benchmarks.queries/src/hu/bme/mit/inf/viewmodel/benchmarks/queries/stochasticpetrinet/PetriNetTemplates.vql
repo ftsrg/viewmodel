@@ -22,16 +22,6 @@ pattern setInitialMarking(Place : Place) {
 }
 
 @Template
-pattern createSwitch(Net : PetriNet, Operational : Place, Failed : Place) {
-	find createRepairModel(Net, Operational, Failed);
-}
-
-@Template
-pattern createSemaphore(Net : PetriNet, Operational : Place, Failed : Place) {
-	find createRepairModel(Net, Operational, Failed);
-}
-
-@Template
 pattern connectRequiredElement(
 	Net : PetriNet, SlaveUp : Place, SlaveDown : Place,
 	MasterUp : Place, MasterDown : Place, MasterRepair : ImmediateTransition
@@ -46,39 +36,7 @@ pattern connectRequiredElement(
 }
 
 @Template
-pattern createSensor(Net : PetriNet, Operational : Place, Failed : Place) {
-	find createRepairModel(Net, Operational, Failed);
-	find setInitialMarking(Operational);
-}
-
-@Template
-pattern createSensorGroup(
-	Net : PetriNet, Operational : Place, Failed : Place, Fail : ImmediateTransition,
-	RouteUp : Place, RouteDown : Place, RouteRepair : Transition
-) {
-	find createPlace(Net, Operational);
-	find setInitialMarking(Operational);
-	find createPlace(Net, Failed);
-	find createImmediateTransition(Net, Fail);
-	find connectRequiredElement(Net, Operational, Failed, RouteUp, RouteDown, RouteRepair);
-}
-
-@Template
-pattern connectSensorToGroup(
-	Net : PetriNet, SensorUp : Place, SensorDown : Place,
-	GroupUp : Place, GroupDown : Place, GroupFail : Transition
-) {
-	find createImmediateTransition(Net, GroupRepair);
-	find createArc(GroupRepair, SensorUp, ArcKind::INPUT);
-	find createArc(GroupRepair, SensorUp, ArcKind::OUTPUT);
-	find createArc(GroupRepair, GroupUp, ArcKind::INPUT);
-	find createArc(GroupRepair, GroupDown, ArcKind::OUTPUT);
-	find createArc(GroupFail, SensorDown, ArcKind::INPUT);
-	find createArc(GroupFail, SensorDown, ArcKind::OUTPUT);
-}
-
-@Template
-private pattern createRepairModel(
+pattern createFailureModel(
 	Net : PetriNet, Operational : Place, Failed : Place
 ) {
 	find createPlace(Net, Operational);

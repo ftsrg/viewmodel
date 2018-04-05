@@ -5,6 +5,7 @@ import hu.bme.mit.inf.viewmodel.benchmarks.atl.driver.AtlDrivers
 import hu.bme.mit.inf.viewmodel.benchmarks.core.BenchmarkRunner
 import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.IDriverFactory
 import hu.bme.mit.inf.viewmodel.benchmarks.tgg.driver.TggDrivers
+import hu.bme.mit.inf.viewmodel.benchmarks.viatra.driver.ViatraDrivers
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver.ViewModelDrivers
 import java.util.Map
 
@@ -27,6 +28,7 @@ class BenchmarksMain {
 		ImmutableMap.builder
 			.putAll(AtlDrivers.DRIVER_FACTORIES)
 			.putAll(TggDrivers.DRIVER_FACTORIES)
+			.putAll(ViatraDrivers.DRIVER_FACTORIES)
 			.putAll(ViewModelDrivers.DRIVER_FACTORIES)
 			.build
 	}

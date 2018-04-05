@@ -9,55 +9,28 @@ rule route(Container, _) => createRoute(Net, _, _, _) {
 }
 
 rule failedRoute(Container, Route) => setInitialMarking(Failed) {
-	lookup route(Container, Route) => (Net, _, Failed, _);
+	lookup route(Container, Route) => (_, _, Failed, _);
 }
 
 rule operationalRoute(Container, Route) => setInitialMarking(Operational) {
-	lookup route(Container, Route) => (Net, Operational, _, _);
+	lookup route(Container, Route) => (_, Operational, _, _);
 }
 
-rule railwaySwitch(Container, _) => createSwitch(Net, _, _) {
+rule railwayElementWithFailureModel(Container, _) => createFailureModel(Net, _, _) {
 	lookup railwayContainer(Container) => (Net);
 }
 
-rule failedSwitch(Container, Switch) => setInitialMarking(Failed) {
-	lookup railwaySwitch(Container, Switch) => (_, _, Failed);
+rule failedRailwayElement(Container, Element) => setInitialMarking(Failed) {
+	lookup railwayElementWithFailureModel(Container, Element) => (_, _, Failed);
 }
 
-rule operationalSwitch(Container, Switch) => setInitialMarking(Operational) {
-	lookup railwaySwitch(Container, Switch) => (_, Operational, _);
+rule operationalRailwayElement(Container, Element) => setInitialMarking(Operational) {
+	lookup railwayElementWithFailureModel(Container, Element) => (_, Operational, _);
 }
 
-rule routeFollowsSwitch(Container, Route, Switch)
-	=> connectRequiredElement(Net, SwitchUp, SwitchDown, RouteUp, RouteDown, RouteRepair) {
-	lookup railwaySwitch(Container, Switch) => (Net, SwitchUp, SwitchDown);
-	lookup route(Container, Route) => (_, RouteUp, RouteDown, RouteRepair);
-}
-
-rule railwaySemaphore(Container, _) => createSemaphore(Net, _, _) {
+rule routeRequiresElement(Container, Route, Element)
+	=> connectRequiredElement(Net, ElementUp, ElementDown, RouteUp, RouteDown, RouteRepair) {
 	lookup railwayContainer(Container) => (Net);
-}
-
-rule failedSemaphore(Container, Semaphore) => setInitialMarking(Failed) {
-	lookup railwaySemaphore(Container, Semaphore) => (_, _, Failed);
-}
-
-rule operationalSemaphore(Container, Semaphore) => setInitialMarking(Operational) {
-	lookup railwaySemaphore(Container, Semaphore) => (_, Operational, _);
-}
-
-rule routeSignalsSemaphore(Container, Route, Semaphore)
-	=> connectRequiredElement(Net, SemaphoreUp, SemaphoreDown, RouteUp, RouteDown, RouteRepair) {
-	lookup railwaySemaphore(Container, Semaphore) => (Net, SemaphoreUp, SemaphoreDown);
 	lookup route(Container, Route) => (_, RouteUp, RouteDown, RouteRepair);
-}
-
-rule railwaySensor(Container, _) => createSensor(Net, _, _) {
-	lookup railwayContainer(Container) => (Net); 
-}
-
-rule routeRequiresSensor2(Container, Route, Sensor)
-	=> connectRequiredElement(Net, SensorUp, SensorDown, RouteUp, RouteDown, RouteRepair) {
-	lookup route(Container, Route) => (Net, RouteUp, RouteDown, RouteRepair);
-	lookup railwaySensor(Container, Sensor) => (_, SensorUp, SensorDown);
+	lookup railwayElementWithFailureModel(Container, Element) => (_, ElementUp, ElementDown);
 }

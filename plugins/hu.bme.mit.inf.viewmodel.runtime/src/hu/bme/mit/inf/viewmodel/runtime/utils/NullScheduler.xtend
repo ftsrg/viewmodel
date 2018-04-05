@@ -1,9 +1,10 @@
-package hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver
+package hu.bme.mit.inf.viewmodel.runtime.utils
 
 import org.eclipse.viatra.transformation.evm.api.ScheduledExecution
 import org.eclipse.viatra.transformation.evm.api.Scheduler
+import org.eclipse.viatra.transformation.evm.api.Scheduler.ISchedulerFactory
 
-package class NullScheduler extends Scheduler {
+class NullScheduler extends Scheduler {
 	
 	protected new(ScheduledExecution execution) {
 		super(execution)

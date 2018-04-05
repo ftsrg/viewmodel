@@ -13,4 +13,5 @@ Require-Bundle: com.google.guava,
  hu.bme.mit.inf.viewmodel.benchmarks.core,
  hu.bme.mit.inf.viewmodel.benchmarks.atl.driver,
  hu.bme.mit.inf.viewmodel.benchmarks.tgg.driver,
+ hu.bme.mit.inf.viewmodel.benchmarks.viatra.driver,
  hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.driver
