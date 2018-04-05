@@ -16,6 +16,8 @@ class IncrementalViewModelDriver extends ViewModelDriver {
 			chainedTransformation.startExecution(executionSchema)
 		]
 		logSource("before")
+		logLogicModel("before")
+		logViewModelTrace("before")
 		logManifestationTrace("before")
 		logTarget("before")
 		serializeModel("before.xmi", manifestationManager.results)
@@ -28,6 +30,8 @@ class IncrementalViewModelDriver extends ViewModelDriver {
 		stopwatch("synchronization") [
 			executionSchema.startUnscheduledExecution
 		]
+		logLogicModel("after")
+		logViewModelTrace("after")
 		logManifestationTrace("after")
 		logTarget("after")
 		serializeModel("after.xmi", manifestationManager.results)

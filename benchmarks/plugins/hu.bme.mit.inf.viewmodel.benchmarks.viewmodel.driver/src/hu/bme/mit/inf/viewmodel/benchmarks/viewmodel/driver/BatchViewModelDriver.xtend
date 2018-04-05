@@ -27,6 +27,7 @@ class BatchViewModelDriver extends ViewModelDriver {
 		stopwatch("s2ptExecute") [
 			viewTransformation.startExecution(executionSchema)
 		]
+		logLogicModel("batch")
 		logViewModelTrace("batch")
 		gcBarrier
 		stopwatch("pt2tRete") [

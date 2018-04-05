@@ -107,7 +107,6 @@ class LogicModelConstraintManager {
 		} else {
 			for (cluster : clusters) {
 				mergeClustersLazy(cluster, variable)
-
 			}
 		}
 	}
@@ -177,13 +176,15 @@ class LogicModelConstraintManager {
 			mergeClusters(left, right)
 		}
 	}
-	
+
 	private def dirty(Cluster cluster) {
 		cluster.state != ClusterState.CLEAN
 	}
 
 	protected def splitClusterLazy(Cluster cluster) {
-		cluster.state = ClusterState.DIRTY
+		if (!cluster.dirty) {
+			cluster.state = ClusterState.DIRTY
+		}
 	}
 
 	protected def splitClusters() {
@@ -219,6 +220,13 @@ class LogicModelConstraintManager {
 		}
 		for (newCluster : toSplit) {
 			newCluster(newCluster)
+		}
+		// We may have found variables originally not in the cluster.
+		for (variableToKeep : toKeep) {
+			// Avoid spurious notification.
+			if (variableToKeep.cluster !== cluster) {
+				variableToKeep.cluster = cluster
+			}
 		}
 		cluster.state = ClusterState.CLEAN
 	}
@@ -263,8 +271,8 @@ class LogicModelConstraintManager {
 		representedVariableMatcher.forEachMatch(toRemove, null) [
 			^var.cluster = toKeep
 		]
-		if (toRemove.state === ClusterState.DIRTY && toKeep.state !== ClusterState.DIRTY) {
-			toKeep.state = ClusterState.DIRTY
+		if (toRemove.dirty) {
+			splitClusterLazy(toKeep)
 		}
 	}
 

@@ -30,7 +30,6 @@ rule operationalRailwayElement(Container, Element) => setInitialMarking(Operatio
 
 rule routeRequiresElement(Container, Route, Element)
 	=> connectRequiredElement(Net, ElementUp, ElementDown, RouteUp, RouteDown, RouteRepair) {
-	lookup railwayContainer(Container) => (Net);
-	lookup route(Container, Route) => (_, RouteUp, RouteDown, RouteRepair);
+	lookup route(Container, Route) => (Net, RouteUp, RouteDown, RouteRepair);
 	lookup railwayElementWithFailureModel(Container, Element) => (_, ElementUp, ElementDown);
 }
