@@ -118,7 +118,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_24(EMoflonEdge _edge_connectsTo);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_11(EMoflonEdge _edge_connectsTo);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -55,147 +55,37 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case RulesPackage.ROUTE:
-			return createRoute();
-		case RulesPackage.REGION:
-			return createRegion();
-		case RulesPackage.SWITCH:
-			return createSwitch();
-		case RulesPackage.RAILWAY_CONTAINER:
-			return createRailwayContainer();
-		case RulesPackage.SWITCH_POSITION:
-			return createSwitchPosition();
-		case RulesPackage.SEMAPHORE:
-			return createSemaphore();
-		case RulesPackage.SENSOR:
-			return createSensor();
-		case RulesPackage.REQUIRED_SWITCH:
-			return createRequiredSwitch();
-		case RulesPackage.REQUIRED_SENSOR:
-			return createRequiredSensor();
-		case RulesPackage.SEGMENT:
-			return createSegment();
-		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE:
-			return createRequiredEntrySemaphore();
 		case RulesPackage.SENSOR_MONITORS:
 			return createSensorMonitors();
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
-			return createTrackElementConnectsTo();
+		case RulesPackage.REQUIRED_SENSOR:
+			return createRequiredSensor();
+		case RulesPackage.RAILWAY_CONTAINER:
+			return createRailwayContainer();
 		case RulesPackage.REQUIRED_EXIT_SEMAPHORE:
 			return createRequiredExitSemaphore();
+		case RulesPackage.SWITCH:
+			return createSwitch();
+		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE:
+			return createRequiredEntrySemaphore();
+		case RulesPackage.REGION:
+			return createRegion();
+		case RulesPackage.REQUIRED_SWITCH:
+			return createRequiredSwitch();
+		case RulesPackage.SENSOR:
+			return createSensor();
+		case RulesPackage.SEGMENT:
+			return createSegment();
+		case RulesPackage.ROUTE:
+			return createRoute();
+		case RulesPackage.SWITCH_POSITION:
+			return createSwitchPosition();
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
+			return createTrackElementConnectsTo();
+		case RulesPackage.SEMAPHORE:
+			return createSemaphore();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Route createRoute() {
-		RouteImpl route = new RouteImpl();
-		return route;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Region createRegion() {
-		RegionImpl region = new RegionImpl();
-		return region;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Switch createSwitch() {
-		SwitchImpl switch_ = new SwitchImpl();
-		return switch_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RailwayContainer createRailwayContainer() {
-		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
-		return railwayContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwitchPosition createSwitchPosition() {
-		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
-		return switchPosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Semaphore createSemaphore() {
-		SemaphoreImpl semaphore = new SemaphoreImpl();
-		return semaphore;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredSwitch createRequiredSwitch() {
-		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
-		return requiredSwitch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredSensor createRequiredSensor() {
-		RequiredSensorImpl requiredSensor = new RequiredSensorImpl();
-		return requiredSensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Segment createSegment() {
-		SegmentImpl segment = new SegmentImpl();
-		return segment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredEntrySemaphore createRequiredEntrySemaphore() {
-		RequiredEntrySemaphoreImpl requiredEntrySemaphore = new RequiredEntrySemaphoreImpl();
-		return requiredEntrySemaphore;
 	}
 
 	/**
@@ -213,9 +103,19 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrackElementConnectsTo createTrackElementConnectsTo() {
-		TrackElementConnectsToImpl trackElementConnectsTo = new TrackElementConnectsToImpl();
-		return trackElementConnectsTo;
+	public RequiredSensor createRequiredSensor() {
+		RequiredSensorImpl requiredSensor = new RequiredSensorImpl();
+		return requiredSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RailwayContainer createRailwayContainer() {
+		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
+		return railwayContainer;
 	}
 
 	/**
@@ -226,6 +126,106 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public RequiredExitSemaphore createRequiredExitSemaphore() {
 		RequiredExitSemaphoreImpl requiredExitSemaphore = new RequiredExitSemaphoreImpl();
 		return requiredExitSemaphore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Switch createSwitch() {
+		SwitchImpl switch_ = new SwitchImpl();
+		return switch_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredEntrySemaphore createRequiredEntrySemaphore() {
+		RequiredEntrySemaphoreImpl requiredEntrySemaphore = new RequiredEntrySemaphoreImpl();
+		return requiredEntrySemaphore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Region createRegion() {
+		RegionImpl region = new RegionImpl();
+		return region;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredSwitch createRequiredSwitch() {
+		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
+		return requiredSwitch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sensor createSensor() {
+		SensorImpl sensor = new SensorImpl();
+		return sensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Segment createSegment() {
+		SegmentImpl segment = new SegmentImpl();
+		return segment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Route createRoute() {
+		RouteImpl route = new RouteImpl();
+		return route;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchPosition createSwitchPosition() {
+		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
+		return switchPosition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrackElementConnectsTo createTrackElementConnectsTo() {
+		TrackElementConnectsToImpl trackElementConnectsTo = new TrackElementConnectsToImpl();
+		return trackElementConnectsTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Semaphore createSemaphore() {
+		SemaphoreImpl semaphore = new SemaphoreImpl();
+		return semaphore;
 	}
 
 	/**

@@ -344,7 +344,7 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_24(EMoflonEdge _edge_connectsTo) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_11(EMoflonEdge _edge_connectsTo) {
 
 		Object[] result1_bindingAndBlack = TrackElementConnectsToImpl
 				.pattern_TrackElementConnectsTo_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -490,8 +490,8 @@ public class TrackElementConnectsToImpl extends AbstractRuleImpl implements Trac
 			return null;
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPROPRIATE_FWD_EMOFLON_EDGE_24__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_24((EMoflonEdge) arguments.get(0));
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPROPRIATE_FWD_EMOFLON_EDGE_11__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_11((EMoflonEdge) arguments.get(0));
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO___IS_APPLICABLE_CC__MATCH_MATCH:

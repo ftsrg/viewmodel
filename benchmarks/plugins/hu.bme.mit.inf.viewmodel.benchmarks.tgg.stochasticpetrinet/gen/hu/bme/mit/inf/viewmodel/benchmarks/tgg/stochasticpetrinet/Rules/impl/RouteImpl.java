@@ -91,47 +91,47 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+	public boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
+			RailwayContainer srcContainer) {
 
-		Object[] result1_black = RouteImpl.pattern_Route_0_1_initialbindings_blackBBBB(this, match, srcContainer,
-				srcRoute);
+		Object[] result1_black = RouteImpl.pattern_Route_0_1_initialbindings_blackBBBB(this, match, srcRoute,
+				srcContainer);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcContainer] = " + srcContainer + ", " + "[srcRoute] = " + srcRoute + ".");
+							+ ", " + "[srcRoute] = " + srcRoute + ", " + "[srcContainer] = " + srcContainer + ".");
 		}
 
 		Object[] result2_bindingAndBlack = RouteImpl.pattern_Route_0_2_SolveCSP_bindingAndBlackFBBBB(this, match,
-				srcContainer, srcRoute);
+				srcRoute, srcContainer);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcContainer] = " + srcContainer + ", " + "[srcRoute] = " + srcRoute + ".");
+							+ ", " + "[srcRoute] = " + srcRoute + ", " + "[srcContainer] = " + srcContainer + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (RouteImpl.pattern_Route_0_3_CheckCSP_expressionFBB(this, csp)) {
 
-			Object[] result4_black = RouteImpl.pattern_Route_0_4_collectelementstobetranslated_blackBBB(match,
-					srcContainer, srcRoute);
+			Object[] result4_black = RouteImpl.pattern_Route_0_4_collectelementstobetranslated_blackBBB(match, srcRoute,
+					srcContainer);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcRoute] = " + srcRoute + ".");
+						+ "[srcRoute] = " + srcRoute + ", " + "[srcContainer] = " + srcContainer + ".");
 			}
-			RouteImpl.pattern_Route_0_4_collectelementstobetranslated_greenBBBF(match, srcContainer, srcRoute);
+			RouteImpl.pattern_Route_0_4_collectelementstobetranslated_greenBBBF(match, srcRoute, srcContainer);
 			//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result4_green[3];
 
-			Object[] result5_black = RouteImpl.pattern_Route_0_5_collectcontextelements_blackBBB(match, srcContainer,
-					srcRoute);
+			Object[] result5_black = RouteImpl.pattern_Route_0_5_collectcontextelements_blackBBB(match, srcRoute,
+					srcContainer);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcRoute] = " + srcRoute + ".");
+						+ "[srcRoute] = " + srcRoute + ", " + "[srcContainer] = " + srcContainer + ".");
 			}
 			RouteImpl.pattern_Route_0_5_collectcontextelements_greenBB(match, srcContainer);
 
 			// 
-			RouteImpl.pattern_Route_0_6_registerobjectstomatch_expressionBBBB(this, match, srcContainer, srcRoute);
+			RouteImpl.pattern_Route_0_6_registerobjectstomatch_expressionBBBB(this, match, srcRoute, srcContainer);
 			return RouteImpl.pattern_Route_0_7_expressionF();
 		} else {
 			return RouteImpl.pattern_Route_0_8_expressionF();
@@ -152,79 +152,78 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[0];
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[1];
-		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[2];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result1_bindingAndBlack[3];
+		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[0];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result1_bindingAndBlack[1];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[2];
+		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[3];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[4];
-		Object[] result1_green = RouteImpl.pattern_Route_1_1_performtransformation_greenFFFFFBFFBF(trgPetrinet,
+		Object[] result1_green = RouteImpl.pattern_Route_1_1_performtransformation_greenFBBFFFFFFF(trgPetrinet,
 				srcRoute);
-		RouteToFailed routeFailedCorr = (RouteToFailed) result1_green[0];
-		Place trgOperational = (Place) result1_green[1];
-		RouteToRepair routeRepairCorr = (RouteToRepair) result1_green[2];
-		Place trgFailed = (Place) result1_green[3];
-		Arc trgFailedToRepair = (Arc) result1_green[4];
-		Arc trgRepairToOperational = (Arc) result1_green[6];
-		ImmediateTransition trgRepair = (ImmediateTransition) result1_green[7];
-		RouteToOperational routeOperationalCorr = (RouteToOperational) result1_green[9];
+		Arc trgRepairToOperational = (Arc) result1_green[0];
+		RouteToFailed routeFailedCorr = (RouteToFailed) result1_green[3];
+		RouteToOperational routeOperationalCorr = (RouteToOperational) result1_green[4];
+		Place trgFailed = (Place) result1_green[5];
+		ImmediateTransition trgRepair = (ImmediateTransition) result1_green[6];
+		Place trgOperational = (Place) result1_green[7];
+		RouteToRepair routeRepairCorr = (RouteToRepair) result1_green[8];
+		Arc trgFailedToRepair = (Arc) result1_green[9];
 
-		Object[] result2_black = RouteImpl.pattern_Route_1_2_collecttranslatedelements_blackBBBBBBBBB(routeFailedCorr,
-				trgOperational, routeRepairCorr, trgFailed, trgFailedToRepair, trgRepairToOperational, trgRepair,
-				srcRoute, routeOperationalCorr);
+		Object[] result2_black = RouteImpl.pattern_Route_1_2_collecttranslatedelements_blackBBBBBBBBB(
+				trgRepairToOperational, srcRoute, routeFailedCorr, routeOperationalCorr, trgFailed, trgRepair,
+				trgOperational, routeRepairCorr, trgFailedToRepair);
 		if (result2_black == null) {
-			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[routeFailedCorr] = "
-					+ routeFailedCorr + ", " + "[trgOperational] = " + trgOperational + ", " + "[routeRepairCorr] = "
-					+ routeRepairCorr + ", " + "[trgFailed] = " + trgFailed + ", " + "[trgFailedToRepair] = "
-					+ trgFailedToRepair + ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", "
-					+ "[trgRepair] = " + trgRepair + ", " + "[srcRoute] = " + srcRoute + ", "
-					+ "[routeOperationalCorr] = " + routeOperationalCorr + ".");
+			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgRepairToOperational] = "
+					+ trgRepairToOperational + ", " + "[srcRoute] = " + srcRoute + ", " + "[routeFailedCorr] = "
+					+ routeFailedCorr + ", " + "[routeOperationalCorr] = " + routeOperationalCorr + ", "
+					+ "[trgFailed] = " + trgFailed + ", " + "[trgRepair] = " + trgRepair + ", " + "[trgOperational] = "
+					+ trgOperational + ", " + "[routeRepairCorr] = " + routeRepairCorr + ", " + "[trgFailedToRepair] = "
+					+ trgFailedToRepair + ".");
 		}
-		Object[] result2_green = RouteImpl.pattern_Route_1_2_collecttranslatedelements_greenFBBBBBBBBB(routeFailedCorr,
-				trgOperational, routeRepairCorr, trgFailed, trgFailedToRepair, trgRepairToOperational, trgRepair,
-				srcRoute, routeOperationalCorr);
+		Object[] result2_green = RouteImpl.pattern_Route_1_2_collecttranslatedelements_greenFBBBBBBBBB(
+				trgRepairToOperational, srcRoute, routeFailedCorr, routeOperationalCorr, trgFailed, trgRepair,
+				trgOperational, routeRepairCorr, trgFailedToRepair);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = RouteImpl.pattern_Route_1_3_bookkeepingforedges_blackBBBBBBBBBBBBB(ruleresult,
-				routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, srcContainer, trgFailedToRepair,
-				containerCorr, trgPetrinet, trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr);
+				trgRepairToOperational, trgPetrinet, srcRoute, routeFailedCorr, routeOperationalCorr, trgFailed,
+				containerCorr, trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair, srcContainer);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[routeFailedCorr] = " + routeFailedCorr + ", " + "[trgOperational] = " + trgOperational
-					+ ", " + "[routeRepairCorr] = " + routeRepairCorr + ", " + "[trgFailed] = " + trgFailed + ", "
-					+ "[srcContainer] = " + srcContainer + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", "
-					+ "[containerCorr] = " + containerCorr + ", " + "[trgPetrinet] = " + trgPetrinet + ", "
-					+ "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[trgRepair] = " + trgRepair
-					+ ", " + "[srcRoute] = " + srcRoute + ", " + "[routeOperationalCorr] = " + routeOperationalCorr
-					+ ".");
+					+ ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[trgPetrinet] = "
+					+ trgPetrinet + ", " + "[srcRoute] = " + srcRoute + ", " + "[routeFailedCorr] = " + routeFailedCorr
+					+ ", " + "[routeOperationalCorr] = " + routeOperationalCorr + ", " + "[trgFailed] = " + trgFailed
+					+ ", " + "[containerCorr] = " + containerCorr + ", " + "[trgRepair] = " + trgRepair + ", "
+					+ "[trgOperational] = " + trgOperational + ", " + "[routeRepairCorr] = " + routeRepairCorr + ", "
+					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[srcContainer] = " + srcContainer + ".");
 		}
 		RouteImpl.pattern_Route_1_3_bookkeepingforedges_greenBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(ruleresult,
-				routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, srcContainer, trgFailedToRepair,
-				trgPetrinet, trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr);
-		//nothing EMoflonEdge routeFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[12];
-		//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[13];
-		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[14];
-		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[15];
-		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[16];
-		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[17];
-		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[18];
-		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[19];
-		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[20];
-		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[21];
-		//nothing EMoflonEdge routeRepairCorr__trgRepair____target = (EMoflonEdge) result3_green[22];
-		//nothing EMoflonEdge routeRepairCorr__srcRoute____source = (EMoflonEdge) result3_green[23];
-		//nothing EMoflonEdge routeFailedCorr__srcRoute____source = (EMoflonEdge) result3_green[24];
-		//nothing EMoflonEdge routeOperationalCorr__srcRoute____source = (EMoflonEdge) result3_green[25];
-		//nothing EMoflonEdge routeOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[26];
-		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[27];
-		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[28];
-		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[29];
-		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[30];
+				trgRepairToOperational, trgPetrinet, srcRoute, routeFailedCorr, routeOperationalCorr, trgFailed,
+				trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair, srcContainer);
+		//nothing EMoflonEdge routeOperationalCorr__srcRoute____source = (EMoflonEdge) result3_green[12];
+		//nothing EMoflonEdge routeFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[13];
+		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[14];
+		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[15];
+		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[16];
+		//nothing EMoflonEdge routeFailedCorr__srcRoute____source = (EMoflonEdge) result3_green[17];
+		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[18];
+		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[19];
+		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[20];
+		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[21];
+		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[22];
+		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[23];
+		//nothing EMoflonEdge routeOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[24];
+		//nothing EMoflonEdge routeRepairCorr__trgRepair____target = (EMoflonEdge) result3_green[25];
+		//nothing EMoflonEdge routeRepairCorr__srcRoute____source = (EMoflonEdge) result3_green[26];
+		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[27];
+		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[28];
+		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[29];
+		//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[30];
 
 		// 
 		// 
-		RouteImpl.pattern_Route_1_5_registerobjects_expressionBBBBBBBBBBBBBB(this, ruleresult, routeFailedCorr,
-				trgOperational, routeRepairCorr, trgFailed, srcContainer, trgFailedToRepair, containerCorr, trgPetrinet,
-				trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr);
+		RouteImpl.pattern_Route_1_5_registerobjects_expressionBBBBBBBBBBBBBB(this, ruleresult, trgRepairToOperational,
+				trgPetrinet, srcRoute, routeFailedCorr, routeOperationalCorr, trgFailed, containerCorr, trgRepair,
+				trgOperational, routeRepairCorr, trgFailedToRepair, srcContainer);
 		return RouteImpl.pattern_Route_1_6_expressionFB(ruleresult);
 	}
 
@@ -250,28 +249,28 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		RailwayContainer srcContainer = (RailwayContainer) result2_binding[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result2_binding[1];
-		for (Object[] result2_black : RouteImpl.pattern_Route_2_2_corematch_blackBFFBB(srcContainer, srcRoute, match)) {
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[1];
-			PetriNet trgPetrinet = (PetriNet) result2_black[2];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result2_binding[0];
+		RailwayContainer srcContainer = (RailwayContainer) result2_binding[1];
+		for (Object[] result2_black : RouteImpl.pattern_Route_2_2_corematch_blackFBFBB(srcRoute, srcContainer, match)) {
+			PetriNet trgPetrinet = (PetriNet) result2_black[0];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[2];
 			// ForEach 
-			for (Object[] result3_black : RouteImpl.pattern_Route_2_3_findcontext_blackBBBB(srcContainer, containerCorr,
-					trgPetrinet, srcRoute)) {
-				Object[] result3_green = RouteImpl.pattern_Route_2_3_findcontext_greenBBBBFFFF(srcContainer,
-						containerCorr, trgPetrinet, srcRoute);
+			for (Object[] result3_black : RouteImpl.pattern_Route_2_3_findcontext_blackBBBB(trgPetrinet, srcRoute,
+					containerCorr, srcContainer)) {
+				Object[] result3_green = RouteImpl.pattern_Route_2_3_findcontext_greenBBBBFFFF(trgPetrinet, srcRoute,
+						containerCorr, srcContainer);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[4];
-				//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[5];
-				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[6];
+				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[5];
+				//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[6];
 				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[7];
 
 				Object[] result4_bindingAndBlack = RouteImpl.pattern_Route_2_4_solveCSP_bindingAndBlackFBBBBBB(this,
-						isApplicableMatch, srcContainer, containerCorr, trgPetrinet, srcRoute);
+						isApplicableMatch, trgPetrinet, srcRoute, containerCorr, srcContainer);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcContainer] = " + srcContainer
-							+ ", " + "[containerCorr] = " + containerCorr + ", " + "[trgPetrinet] = " + trgPetrinet
-							+ ", " + "[srcRoute] = " + srcRoute + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[trgPetrinet] = " + trgPetrinet
+							+ ", " + "[srcRoute] = " + srcRoute + ", " + "[containerCorr] = " + containerCorr + ", "
+							+ "[srcContainer] = " + srcContainer + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -299,10 +298,10 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		match.registerObject("srcContainer", srcContainer);
+	public void registerObjectsToMatch_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
 		match.registerObject("srcRoute", srcRoute);
+		match.registerObject("srcContainer", srcContainer);
 
 	}
 
@@ -311,8 +310,8 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -341,9 +340,9 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -358,10 +357,10 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcContainer", srcContainer);
-		isApplicableMatch.registerObject("containerCorr", containerCorr);
 		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
 		isApplicableMatch.registerObject("srcRoute", srcRoute);
+		isApplicableMatch.registerObject("containerCorr", containerCorr);
+		isApplicableMatch.registerObject("srcContainer", srcContainer);
 		return csp;
 	}
 
@@ -379,22 +378,22 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeFailedCorr, EObject trgOperational,
-			EObject routeRepairCorr, EObject trgFailed, EObject srcContainer, EObject trgFailedToRepair,
-			EObject containerCorr, EObject trgPetrinet, EObject trgRepairToOperational, EObject trgRepair,
-			EObject srcRoute, EObject routeOperationalCorr) {
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet,
+			EObject srcRoute, EObject routeFailedCorr, EObject routeOperationalCorr, EObject trgFailed,
+			EObject containerCorr, EObject trgRepair, EObject trgOperational, EObject routeRepairCorr,
+			EObject trgFailedToRepair, EObject srcContainer) {
+		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
+		ruleresult.registerObject("trgPetrinet", trgPetrinet);
+		ruleresult.registerObject("srcRoute", srcRoute);
 		ruleresult.registerObject("routeFailedCorr", routeFailedCorr);
+		ruleresult.registerObject("routeOperationalCorr", routeOperationalCorr);
+		ruleresult.registerObject("trgFailed", trgFailed);
+		ruleresult.registerObject("containerCorr", containerCorr);
+		ruleresult.registerObject("trgRepair", trgRepair);
 		ruleresult.registerObject("trgOperational", trgOperational);
 		ruleresult.registerObject("routeRepairCorr", routeRepairCorr);
-		ruleresult.registerObject("trgFailed", trgFailed);
-		ruleresult.registerObject("srcContainer", srcContainer);
 		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
-		ruleresult.registerObject("containerCorr", containerCorr);
-		ruleresult.registerObject("trgPetrinet", trgPetrinet);
-		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
-		ruleresult.registerObject("trgRepair", trgRepair);
-		ruleresult.registerObject("srcRoute", srcRoute);
-		ruleresult.registerObject("routeOperationalCorr", routeOperationalCorr);
+		ruleresult.registerObject("srcContainer", srcContainer);
 
 	}
 
@@ -413,7 +412,7 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_13(EMoflonEdge _edge_routes) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_9(EMoflonEdge _edge_routes) {
 
 		Object[] result1_bindingAndBlack = RouteImpl.pattern_Route_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
 		if (result1_bindingAndBlack == null) {
@@ -427,14 +426,14 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 
 		// ForEach 
 		for (Object[] result2_black : RouteImpl.pattern_Route_10_2_testcorematchandDECs_blackFFB(_edge_routes)) {
-			RailwayContainer srcContainer = (RailwayContainer) result2_black[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result2_black[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result2_black[0];
+			RailwayContainer srcContainer = (RailwayContainer) result2_black[1];
 			Object[] result2_green = RouteImpl.pattern_Route_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// 
 			if (RouteImpl.pattern_Route_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(this, match,
-					srcContainer, srcRoute)) {
+					srcRoute, srcContainer)) {
 				// 
 				if (RouteImpl.pattern_Route_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(this,
 						match)) {
@@ -474,7 +473,7 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 
 		CheckAttributeHelper __helper = new CheckAttributeHelper(__tripleMatch);
 
-		if (!__helper.hasExpectedValue("trgOperational", "tokens", 1, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -484,12 +483,12 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 			return ruleResult;
 		}
 
-		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgOperational", "tokens", 1, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
 
-		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -526,9 +525,9 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {// 
-		Object[] result1_black = RouteImpl.pattern_Route_13_1_matchtggpattern_blackBB(srcContainer, srcRoute);
+	public boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
+			RailwayContainer srcContainer) {// 
+		Object[] result1_black = RouteImpl.pattern_Route_13_1_matchtggpattern_blackBB(srcRoute, srcContainer);
 		if (result1_black != null) {
 			return RouteImpl.pattern_Route_13_2_expressionF();
 		} else {
@@ -545,26 +544,29 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.ROUTE___IS_APPROPRIATE_FWD__MATCH_RAILWAYCONTAINER_ROUTE:
-			return isAppropriate_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(2));
+		case RulesPackage.ROUTE___IS_APPROPRIATE_FWD__MATCH_ROUTE_RAILWAYCONTAINER:
+			return isAppropriate_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(1),
+					(RailwayContainer) arguments.get(2));
 		case RulesPackage.ROUTE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.ROUTE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.ROUTE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_RAILWAYCONTAINER_ROUTE:
-			registerObjectsToMatch_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(2));
+		case RulesPackage.ROUTE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ROUTE_RAILWAYCONTAINER:
+			registerObjectsToMatch_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(1),
+					(RailwayContainer) arguments.get(2));
 			return null;
-		case RulesPackage.ROUTE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_RAILWAYCONTAINER_ROUTE:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(2));
+		case RulesPackage.ROUTE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ROUTE_RAILWAYCONTAINER:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(1),
+					(RailwayContainer) arguments.get(2));
 		case RulesPackage.ROUTE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.ROUTE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_RAILWAYCONTAINER_RAILWAYCONTAINERTOPETRINET_PETRINET_ROUTE:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(RailwayContainerToPetriNet) arguments.get(2), (PetriNet) arguments.get(3),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(4));
+		case RulesPackage.ROUTE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PETRINET_ROUTE_RAILWAYCONTAINERTOPETRINET_RAILWAYCONTAINER:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (PetriNet) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(2),
+					(RailwayContainerToPetriNet) arguments.get(3), (RailwayContainer) arguments.get(4));
 		case RulesPackage.ROUTE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.ROUTE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
@@ -576,30 +578,30 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 			return null;
 		case RulesPackage.ROUTE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.ROUTE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_13__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_13((EMoflonEdge) arguments.get(0));
+		case RulesPackage.ROUTE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_9__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_9((EMoflonEdge) arguments.get(0));
 		case RulesPackage.ROUTE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.ROUTE___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.ROUTE___CHECK_DEC_FWD__RAILWAYCONTAINER_ROUTE:
-			return checkDEC_FWD((RailwayContainer) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(1));
+		case RulesPackage.ROUTE___CHECK_DEC_FWD__ROUTE_RAILWAYCONTAINER:
+			return checkDEC_FWD((hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) arguments.get(0),
+					(RailwayContainer) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_Route_0_1_initialbindings_blackBBBB(Route _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		return new Object[] { _this, match, srcContainer, srcRoute };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
+		return new Object[] { _this, match, srcRoute, srcContainer };
 	}
 
 	public static final Object[] pattern_Route_0_2_SolveCSP_bindingFBBBB(Route _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcContainer, srcRoute);
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcRoute, srcContainer);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcContainer, srcRoute };
+			return new Object[] { csp, _this, match, srcRoute, srcContainer };
 		}
 		return null;
 	}
@@ -609,16 +611,16 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final Object[] pattern_Route_0_2_SolveCSP_bindingAndBlackFBBBB(Route _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
 		Object[] result_pattern_Route_0_2_SolveCSP_binding = pattern_Route_0_2_SolveCSP_bindingFBBBB(_this, match,
-				srcContainer, srcRoute);
+				srcRoute, srcContainer);
 		if (result_pattern_Route_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Route_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_Route_0_2_SolveCSP_black = pattern_Route_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_Route_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcContainer, srcRoute };
+				return new Object[] { csp, _this, match, srcRoute, srcContainer };
 			}
 		}
 		return null;
@@ -631,12 +633,12 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final Object[] pattern_Route_0_4_collectelementstobetranslated_blackBBB(Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		return new Object[] { match, srcContainer, srcRoute };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
+		return new Object[] { match, srcRoute, srcContainer };
 	}
 
 	public static final Object[] pattern_Route_0_4_collectelementstobetranslated_greenBBBF(Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
 		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(srcRoute);
 		String srcContainer__srcRoute____routes_name_prime = "routes";
@@ -644,12 +646,12 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		srcContainer__srcRoute____routes.setTrg(srcRoute);
 		match.getToBeTranslatedEdges().add(srcContainer__srcRoute____routes);
 		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
-		return new Object[] { match, srcContainer, srcRoute, srcContainer__srcRoute____routes };
+		return new Object[] { match, srcRoute, srcContainer, srcContainer__srcRoute____routes };
 	}
 
 	public static final Object[] pattern_Route_0_5_collectcontextelements_blackBBB(Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		return new Object[] { match, srcContainer, srcRoute };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
+		return new Object[] { match, srcRoute, srcContainer };
 	}
 
 	public static final Object[] pattern_Route_0_5_collectcontextelements_greenBB(Match match,
@@ -659,8 +661,8 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final void pattern_Route_0_6_registerobjectstomatch_expressionBBBB(Route _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		_this.registerObjectsToMatch_FWD(match, srcContainer, srcRoute);
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
+		_this.registerObjectsToMatch_FWD(match, srcRoute, srcContainer);
 
 	}
 
@@ -676,23 +678,23 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 
 	public static final Object[] pattern_Route_1_1_performtransformation_bindingFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcContainer");
-		EObject _localVariable_1 = isApplicableMatch.getObject("containerCorr");
-		EObject _localVariable_2 = isApplicableMatch.getObject("trgPetrinet");
-		EObject _localVariable_3 = isApplicableMatch.getObject("srcRoute");
-		EObject tmpSrcContainer = _localVariable_0;
-		EObject tmpContainerCorr = _localVariable_1;
-		EObject tmpTrgPetrinet = _localVariable_2;
-		EObject tmpSrcRoute = _localVariable_3;
-		if (tmpSrcContainer instanceof RailwayContainer) {
-			RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-			if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
-				RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
-				if (tmpTrgPetrinet instanceof PetriNet) {
-					PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
-					if (tmpSrcRoute instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) {
-						hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) tmpSrcRoute;
-						return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_1 = isApplicableMatch.getObject("srcRoute");
+		EObject _localVariable_2 = isApplicableMatch.getObject("containerCorr");
+		EObject _localVariable_3 = isApplicableMatch.getObject("srcContainer");
+		EObject tmpTrgPetrinet = _localVariable_0;
+		EObject tmpSrcRoute = _localVariable_1;
+		EObject tmpContainerCorr = _localVariable_2;
+		EObject tmpSrcContainer = _localVariable_3;
+		if (tmpTrgPetrinet instanceof PetriNet) {
+			PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+			if (tmpSrcRoute instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) {
+				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) tmpSrcRoute;
+				if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
+					RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+					if (tmpSrcContainer instanceof RailwayContainer) {
+						RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+						return new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer, isApplicableMatch };
 					}
 				}
 			}
@@ -700,14 +702,13 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		return null;
 	}
 
-	public static final Object[] pattern_Route_1_1_performtransformation_blackBBBBFBB(RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, Route _this,
-			IsApplicableMatch isApplicableMatch) {
+	public static final Object[] pattern_Route_1_1_performtransformation_blackBBBBFBB(PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer, Route _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute, csp, _this,
+				return new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer, csp, _this,
 						isApplicableMatch };
 			}
 		}
@@ -719,224 +720,222 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		Object[] result_pattern_Route_1_1_performtransformation_binding = pattern_Route_1_1_performtransformation_bindingFFFFB(
 				isApplicableMatch);
 		if (result_pattern_Route_1_1_performtransformation_binding != null) {
-			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Route_1_1_performtransformation_binding[0];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Route_1_1_performtransformation_binding[1];
-			PetriNet trgPetrinet = (PetriNet) result_pattern_Route_1_1_performtransformation_binding[2];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result_pattern_Route_1_1_performtransformation_binding[3];
+			PetriNet trgPetrinet = (PetriNet) result_pattern_Route_1_1_performtransformation_binding[0];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) result_pattern_Route_1_1_performtransformation_binding[1];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Route_1_1_performtransformation_binding[2];
+			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Route_1_1_performtransformation_binding[3];
 
 			Object[] result_pattern_Route_1_1_performtransformation_black = pattern_Route_1_1_performtransformation_blackBBBBFBB(
-					srcContainer, containerCorr, trgPetrinet, srcRoute, _this, isApplicableMatch);
+					trgPetrinet, srcRoute, containerCorr, srcContainer, _this, isApplicableMatch);
 			if (result_pattern_Route_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_Route_1_1_performtransformation_black[4];
 
-				return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute, csp, _this,
+				return new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer, csp, _this,
 						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Route_1_1_performtransformation_greenFFFFFBFFBF(PetriNet trgPetrinet,
+	public static final Object[] pattern_Route_1_1_performtransformation_greenFBBFFFFFFF(PetriNet trgPetrinet,
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
 		RouteToFailed routeFailedCorr = StochasticpetrinetFactory.eINSTANCE.createRouteToFailed();
+		RouteToOperational routeOperationalCorr = StochasticpetrinetFactory.eINSTANCE.createRouteToOperational();
+		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
+		ImmediateTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createImmediateTransition();
 		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
 		RouteToRepair routeRepairCorr = StochasticpetrinetFactory.eINSTANCE.createRouteToRepair();
-		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
 		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
-		ImmediateTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createImmediateTransition();
-		RouteToOperational routeOperationalCorr = StochasticpetrinetFactory.eINSTANCE.createRouteToOperational();
-		int trgOperational_tokens_prime = Integer.valueOf(1);
-		int trgFailed_tokens_prime = Integer.valueOf(0);
-		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
 		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
+		int trgFailed_tokens_prime = Integer.valueOf(0);
+		int trgOperational_tokens_prime = Integer.valueOf(1);
+		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
 		routeFailedCorr.setSource(srcRoute);
-		trgOperational.setPetriNet(trgPetrinet);
-		routeRepairCorr.setSource(srcRoute);
+		routeOperationalCorr.setSource(srcRoute);
 		routeFailedCorr.setTarget(trgFailed);
 		trgFailed.setPetriNet(trgPetrinet);
-		trgFailedToRepair.setPlace(trgFailed);
-		trgRepairToOperational.setPlace(trgOperational);
-		trgFailedToRepair.setTransition(trgRepair);
 		trgRepairToOperational.setTransition(trgRepair);
-		routeRepairCorr.setTarget(trgRepair);
 		trgRepair.setPetriNet(trgPetrinet);
-		routeOperationalCorr.setSource(srcRoute);
+		trgRepairToOperational.setPlace(trgOperational);
+		trgOperational.setPetriNet(trgPetrinet);
 		routeOperationalCorr.setTarget(trgOperational);
-		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
-		trgFailed.setTokens(Integer.valueOf(trgFailed_tokens_prime));
-		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		routeRepairCorr.setTarget(trgRepair);
+		routeRepairCorr.setSource(srcRoute);
+		trgFailedToRepair.setTransition(trgRepair);
+		trgFailedToRepair.setPlace(trgFailed);
 		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
-		return new Object[] { routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, trgFailedToRepair,
-				trgPetrinet, trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr };
+		trgFailed.setTokens(Integer.valueOf(trgFailed_tokens_prime));
+		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
+		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		return new Object[] { trgRepairToOperational, trgPetrinet, srcRoute, routeFailedCorr, routeOperationalCorr,
+				trgFailed, trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair };
 	}
 
-	public static final Object[] pattern_Route_1_2_collecttranslatedelements_blackBBBBBBBBB(
-			RouteToFailed routeFailedCorr, Place trgOperational, RouteToRepair routeRepairCorr, Place trgFailed,
-			Arc trgFailedToRepair, Arc trgRepairToOperational, ImmediateTransition trgRepair,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
-			RouteToOperational routeOperationalCorr) {
+	public static final Object[] pattern_Route_1_2_collecttranslatedelements_blackBBBBBBBBB(Arc trgRepairToOperational,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RouteToFailed routeFailedCorr,
+			RouteToOperational routeOperationalCorr, Place trgFailed, ImmediateTransition trgRepair,
+			Place trgOperational, RouteToRepair routeRepairCorr, Arc trgFailedToRepair) {
 		if (!trgFailed.equals(trgOperational)) {
 			if (!trgFailedToRepair.equals(trgRepairToOperational)) {
-				return new Object[] { routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, trgFailedToRepair,
-						trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr };
+				return new Object[] { trgRepairToOperational, srcRoute, routeFailedCorr, routeOperationalCorr,
+						trgFailed, trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Route_1_2_collecttranslatedelements_greenFBBBBBBBBB(
-			RouteToFailed routeFailedCorr, Place trgOperational, RouteToRepair routeRepairCorr, Place trgFailed,
-			Arc trgFailedToRepair, Arc trgRepairToOperational, ImmediateTransition trgRepair,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
-			RouteToOperational routeOperationalCorr) {
+	public static final Object[] pattern_Route_1_2_collecttranslatedelements_greenFBBBBBBBBB(Arc trgRepairToOperational,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RouteToFailed routeFailedCorr,
+			RouteToOperational routeOperationalCorr, Place trgFailed, ImmediateTransition trgRepair,
+			Place trgOperational, RouteToRepair routeRepairCorr, Arc trgFailedToRepair) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
+		ruleresult.getCreatedElements().add(trgRepairToOperational);
+		ruleresult.getTranslatedElements().add(srcRoute);
 		ruleresult.getCreatedLinkElements().add(routeFailedCorr);
+		ruleresult.getCreatedLinkElements().add(routeOperationalCorr);
+		ruleresult.getCreatedElements().add(trgFailed);
+		ruleresult.getCreatedElements().add(trgRepair);
 		ruleresult.getCreatedElements().add(trgOperational);
 		ruleresult.getCreatedLinkElements().add(routeRepairCorr);
-		ruleresult.getCreatedElements().add(trgFailed);
 		ruleresult.getCreatedElements().add(trgFailedToRepair);
-		ruleresult.getCreatedElements().add(trgRepairToOperational);
-		ruleresult.getCreatedElements().add(trgRepair);
-		ruleresult.getTranslatedElements().add(srcRoute);
-		ruleresult.getCreatedLinkElements().add(routeOperationalCorr);
-		return new Object[] { ruleresult, routeFailedCorr, trgOperational, routeRepairCorr, trgFailed,
-				trgFailedToRepair, trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr };
+		return new Object[] { ruleresult, trgRepairToOperational, srcRoute, routeFailedCorr, routeOperationalCorr,
+				trgFailed, trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair };
 	}
 
 	public static final Object[] pattern_Route_1_3_bookkeepingforedges_blackBBBBBBBBBBBBB(PerformRuleResult ruleresult,
-			EObject routeFailedCorr, EObject trgOperational, EObject routeRepairCorr, EObject trgFailed,
-			EObject srcContainer, EObject trgFailedToRepair, EObject containerCorr, EObject trgPetrinet,
-			EObject trgRepairToOperational, EObject trgRepair, EObject srcRoute, EObject routeOperationalCorr) {
-		if (!routeFailedCorr.equals(trgOperational)) {
-			if (!routeFailedCorr.equals(routeRepairCorr)) {
-				if (!routeFailedCorr.equals(trgFailed)) {
-					if (!routeFailedCorr.equals(srcContainer)) {
-						if (!routeFailedCorr.equals(trgFailedToRepair)) {
-							if (!routeFailedCorr.equals(trgPetrinet)) {
-								if (!routeFailedCorr.equals(trgRepairToOperational)) {
-									if (!routeFailedCorr.equals(trgRepair)) {
-										if (!routeFailedCorr.equals(srcRoute)) {
-											if (!routeFailedCorr.equals(routeOperationalCorr)) {
-												if (!trgOperational.equals(trgPetrinet)) {
-													if (!trgOperational.equals(trgRepairToOperational)) {
-														if (!trgOperational.equals(trgRepair)) {
-															if (!routeRepairCorr.equals(trgOperational)) {
-																if (!routeRepairCorr.equals(trgFailed)) {
-																	if (!routeRepairCorr.equals(srcContainer)) {
-																		if (!routeRepairCorr
+			EObject trgRepairToOperational, EObject trgPetrinet, EObject srcRoute, EObject routeFailedCorr,
+			EObject routeOperationalCorr, EObject trgFailed, EObject containerCorr, EObject trgRepair,
+			EObject trgOperational, EObject routeRepairCorr, EObject trgFailedToRepair, EObject srcContainer) {
+		if (!trgPetrinet.equals(trgRepairToOperational)) {
+			if (!trgPetrinet.equals(trgRepair)) {
+				if (!srcRoute.equals(trgRepairToOperational)) {
+					if (!srcRoute.equals(trgPetrinet)) {
+						if (!srcRoute.equals(trgFailed)) {
+							if (!srcRoute.equals(trgRepair)) {
+								if (!srcRoute.equals(trgOperational)) {
+									if (!srcRoute.equals(trgFailedToRepair)) {
+										if (!routeFailedCorr.equals(trgRepairToOperational)) {
+											if (!routeFailedCorr.equals(trgPetrinet)) {
+												if (!routeFailedCorr.equals(srcRoute)) {
+													if (!routeFailedCorr.equals(routeOperationalCorr)) {
+														if (!routeFailedCorr.equals(trgFailed)) {
+															if (!routeFailedCorr.equals(trgRepair)) {
+																if (!routeFailedCorr.equals(trgOperational)) {
+																	if (!routeFailedCorr.equals(routeRepairCorr)) {
+																		if (!routeFailedCorr
 																				.equals(trgFailedToRepair)) {
-																			if (!routeRepairCorr.equals(trgPetrinet)) {
-																				if (!routeRepairCorr.equals(
+																			if (!routeFailedCorr.equals(srcContainer)) {
+																				if (!routeOperationalCorr.equals(
 																						trgRepairToOperational)) {
-																					if (!routeRepairCorr
-																							.equals(trgRepair)) {
-																						if (!routeRepairCorr
+																					if (!routeOperationalCorr
+																							.equals(trgPetrinet)) {
+																						if (!routeOperationalCorr
 																								.equals(srcRoute)) {
-																							if (!trgFailed.equals(
-																									trgOperational)) {
-																								if (!trgFailed.equals(
-																										trgFailedToRepair)) {
-																									if (!trgFailed
-																											.equals(trgPetrinet)) {
-																										if (!trgFailed
-																												.equals(trgRepairToOperational)) {
-																											if (!trgFailed
-																													.equals(trgRepair)) {
-																												if (!srcContainer
-																														.equals(trgOperational)) {
-																													if (!srcContainer
-																															.equals(trgFailed)) {
-																														if (!srcContainer
-																																.equals(trgFailedToRepair)) {
-																															if (!srcContainer
-																																	.equals(trgPetrinet)) {
-																																if (!srcContainer
-																																		.equals(trgRepairToOperational)) {
-																																	if (!srcContainer
-																																			.equals(trgRepair)) {
-																																		if (!srcContainer
-																																				.equals(srcRoute)) {
-																																			if (!trgFailedToRepair
-																																					.equals(trgOperational)) {
-																																				if (!trgFailedToRepair
-																																						.equals(trgPetrinet)) {
-																																					if (!trgFailedToRepair
-																																							.equals(trgRepairToOperational)) {
-																																						if (!trgFailedToRepair
-																																								.equals(trgRepair)) {
+																							if (!routeOperationalCorr
+																									.equals(trgFailed)) {
+																								if (!routeOperationalCorr
+																										.equals(trgRepair)) {
+																									if (!routeOperationalCorr
+																											.equals(trgOperational)) {
+																										if (!routeOperationalCorr
+																												.equals(routeRepairCorr)) {
+																											if (!routeOperationalCorr
+																													.equals(trgFailedToRepair)) {
+																												if (!routeOperationalCorr
+																														.equals(srcContainer)) {
+																													if (!trgFailed
+																															.equals(trgRepairToOperational)) {
+																														if (!trgFailed
+																																.equals(trgPetrinet)) {
+																															if (!trgFailed
+																																	.equals(trgRepair)) {
+																																if (!trgFailed
+																																		.equals(trgOperational)) {
+																																	if (!trgFailed
+																																			.equals(trgFailedToRepair)) {
+																																		if (!containerCorr
+																																				.equals(trgRepairToOperational)) {
+																																			if (!containerCorr
+																																					.equals(trgPetrinet)) {
+																																				if (!containerCorr
+																																						.equals(srcRoute)) {
+																																					if (!containerCorr
+																																							.equals(routeFailedCorr)) {
+																																						if (!containerCorr
+																																								.equals(routeOperationalCorr)) {
 																																							if (!containerCorr
-																																									.equals(routeFailedCorr)) {
+																																									.equals(trgFailed)) {
 																																								if (!containerCorr
-																																										.equals(trgOperational)) {
+																																										.equals(trgRepair)) {
 																																									if (!containerCorr
-																																											.equals(routeRepairCorr)) {
+																																											.equals(trgOperational)) {
 																																										if (!containerCorr
-																																												.equals(trgFailed)) {
+																																												.equals(routeRepairCorr)) {
 																																											if (!containerCorr
-																																													.equals(srcContainer)) {
+																																													.equals(trgFailedToRepair)) {
 																																												if (!containerCorr
-																																														.equals(trgFailedToRepair)) {
-																																													if (!containerCorr
-																																															.equals(trgPetrinet)) {
-																																														if (!containerCorr
+																																														.equals(srcContainer)) {
+																																													if (!trgRepair
+																																															.equals(trgRepairToOperational)) {
+																																														if (!trgOperational
 																																																.equals(trgRepairToOperational)) {
-																																															if (!containerCorr
-																																																	.equals(trgRepair)) {
-																																																if (!containerCorr
-																																																		.equals(srcRoute)) {
-																																																	if (!containerCorr
-																																																			.equals(routeOperationalCorr)) {
-																																																		if (!trgPetrinet
-																																																				.equals(trgRepairToOperational)) {
-																																																			if (!trgPetrinet
-																																																					.equals(trgRepair)) {
-																																																				if (!trgRepair
-																																																						.equals(trgRepairToOperational)) {
-																																																					if (!srcRoute
-																																																							.equals(trgOperational)) {
-																																																						if (!srcRoute
-																																																								.equals(trgFailed)) {
-																																																							if (!srcRoute
+																																															if (!trgOperational
+																																																	.equals(trgPetrinet)) {
+																																																if (!trgOperational
+																																																		.equals(trgRepair)) {
+																																																	if (!routeRepairCorr
+																																																			.equals(trgRepairToOperational)) {
+																																																		if (!routeRepairCorr
+																																																				.equals(trgPetrinet)) {
+																																																			if (!routeRepairCorr
+																																																					.equals(srcRoute)) {
+																																																				if (!routeRepairCorr
+																																																						.equals(trgFailed)) {
+																																																					if (!routeRepairCorr
+																																																							.equals(trgRepair)) {
+																																																						if (!routeRepairCorr
+																																																								.equals(trgOperational)) {
+																																																							if (!routeRepairCorr
 																																																									.equals(trgFailedToRepair)) {
-																																																								if (!srcRoute
-																																																										.equals(trgPetrinet)) {
-																																																									if (!srcRoute
+																																																								if (!routeRepairCorr
+																																																										.equals(srcContainer)) {
+																																																									if (!trgFailedToRepair
 																																																											.equals(trgRepairToOperational)) {
-																																																										if (!srcRoute
-																																																												.equals(trgRepair)) {
-																																																											if (!routeOperationalCorr
-																																																													.equals(trgOperational)) {
-																																																												if (!routeOperationalCorr
-																																																														.equals(routeRepairCorr)) {
-																																																													if (!routeOperationalCorr
-																																																															.equals(trgFailed)) {
-																																																														if (!routeOperationalCorr
-																																																																.equals(srcContainer)) {
-																																																															if (!routeOperationalCorr
-																																																																	.equals(trgFailedToRepair)) {
-																																																																if (!routeOperationalCorr
-																																																																		.equals(trgPetrinet)) {
-																																																																	if (!routeOperationalCorr
-																																																																			.equals(trgRepairToOperational)) {
-																																																																		if (!routeOperationalCorr
-																																																																				.equals(trgRepair)) {
-																																																																			if (!routeOperationalCorr
-																																																																					.equals(srcRoute)) {
+																																																										if (!trgFailedToRepair
+																																																												.equals(trgPetrinet)) {
+																																																											if (!trgFailedToRepair
+																																																													.equals(trgRepair)) {
+																																																												if (!trgFailedToRepair
+																																																														.equals(trgOperational)) {
+																																																													if (!srcContainer
+																																																															.equals(trgRepairToOperational)) {
+																																																														if (!srcContainer
+																																																																.equals(trgPetrinet)) {
+																																																															if (!srcContainer
+																																																																	.equals(srcRoute)) {
+																																																																if (!srcContainer
+																																																																		.equals(trgFailed)) {
+																																																																	if (!srcContainer
+																																																																			.equals(trgRepair)) {
+																																																																		if (!srcContainer
+																																																																				.equals(trgOperational)) {
+																																																																			if (!srcContainer
+																																																																					.equals(trgFailedToRepair)) {
 																																																																				return new Object[] {
 																																																																						ruleresult,
+																																																																						trgRepairToOperational,
+																																																																						trgPetrinet,
+																																																																						srcRoute,
 																																																																						routeFailedCorr,
+																																																																						routeOperationalCorr,
+																																																																						trgFailed,
+																																																																						containerCorr,
+																																																																						trgRepair,
 																																																																						trgOperational,
 																																																																						routeRepairCorr,
-																																																																						trgFailed,
-																																																																						srcContainer,
 																																																																						trgFailedToRepair,
-																																																																						containerCorr,
-																																																																						trgPetrinet,
-																																																																						trgRepairToOperational,
-																																																																						trgRepair,
-																																																																						srcRoute,
-																																																																						routeOperationalCorr };
+																																																																						srcContainer };
 																																																																			}
 																																																																		}
 																																																																	}
@@ -1007,69 +1006,54 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final Object[] pattern_Route_1_3_bookkeepingforedges_greenBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject routeFailedCorr, EObject trgOperational, EObject routeRepairCorr,
-			EObject trgFailed, EObject srcContainer, EObject trgFailedToRepair, EObject trgPetrinet,
-			EObject trgRepairToOperational, EObject trgRepair, EObject srcRoute, EObject routeOperationalCorr) {
+			PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet, EObject srcRoute,
+			EObject routeFailedCorr, EObject routeOperationalCorr, EObject trgFailed, EObject trgRepair,
+			EObject trgOperational, EObject routeRepairCorr, EObject trgFailedToRepair, EObject srcContainer) {
+		EMoflonEdge routeOperationalCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge routeFailedCorr__trgFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeRepairCorr__trgRepair____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeRepairCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge routeFailedCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeOperationalCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgRepair__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgPetrinet__trgRepair____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeRepairCorr__trgRepair____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeRepairCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "Route";
+		String routeOperationalCorr__srcRoute____source_name_prime = "source";
 		String routeFailedCorr__trgFailed____target_name_prime = "target";
-		String srcContainer__srcRoute____routes_name_prime = "routes";
-		String trgFailedToRepair__trgFailed____place_name_prime = "place";
-		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
-		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
 		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
 		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
 		String trgRepairToOperational__trgOperational____place_name_prime = "place";
-		String routeRepairCorr__trgRepair____target_name_prime = "target";
-		String routeRepairCorr__srcRoute____source_name_prime = "source";
 		String routeFailedCorr__srcRoute____source_name_prime = "source";
-		String routeOperationalCorr__srcRoute____source_name_prime = "source";
-		String routeOperationalCorr__trgOperational____target_name_prime = "target";
-		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
 		String trgRepair__trgPetrinet____petriNet_name_prime = "petriNet";
 		String trgPetrinet__trgRepair____nodes_name_prime = "nodes";
+		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
+		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
+		String routeOperationalCorr__trgOperational____target_name_prime = "target";
+		String routeRepairCorr__trgRepair____target_name_prime = "target";
+		String routeRepairCorr__srcRoute____source_name_prime = "source";
+		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
+		String trgFailedToRepair__trgFailed____place_name_prime = "place";
+		String srcContainer__srcRoute____routes_name_prime = "routes";
+		routeOperationalCorr__srcRoute____source.setSrc(routeOperationalCorr);
+		routeOperationalCorr__srcRoute____source.setTrg(srcRoute);
+		ruleresult.getCreatedEdges().add(routeOperationalCorr__srcRoute____source);
 		routeFailedCorr__trgFailed____target.setSrc(routeFailedCorr);
 		routeFailedCorr__trgFailed____target.setTrg(trgFailed);
 		ruleresult.getCreatedEdges().add(routeFailedCorr__trgFailed____target);
-		srcContainer__srcRoute____routes.setSrc(srcContainer);
-		srcContainer__srcRoute____routes.setTrg(srcRoute);
-		ruleresult.getTranslatedEdges().add(srcContainer__srcRoute____routes);
-		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
-		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
-		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
-		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
-		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
-		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
-		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
-		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
 		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
 		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
 		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
@@ -1079,78 +1063,92 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
 		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
 		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
-		routeRepairCorr__trgRepair____target.setSrc(routeRepairCorr);
-		routeRepairCorr__trgRepair____target.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(routeRepairCorr__trgRepair____target);
-		routeRepairCorr__srcRoute____source.setSrc(routeRepairCorr);
-		routeRepairCorr__srcRoute____source.setTrg(srcRoute);
-		ruleresult.getCreatedEdges().add(routeRepairCorr__srcRoute____source);
 		routeFailedCorr__srcRoute____source.setSrc(routeFailedCorr);
 		routeFailedCorr__srcRoute____source.setTrg(srcRoute);
 		ruleresult.getCreatedEdges().add(routeFailedCorr__srcRoute____source);
-		routeOperationalCorr__srcRoute____source.setSrc(routeOperationalCorr);
-		routeOperationalCorr__srcRoute____source.setTrg(srcRoute);
-		ruleresult.getCreatedEdges().add(routeOperationalCorr__srcRoute____source);
-		routeOperationalCorr__trgOperational____target.setSrc(routeOperationalCorr);
-		routeOperationalCorr__trgOperational____target.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(routeOperationalCorr__trgOperational____target);
-		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
-		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
-		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
 		trgRepair__trgPetrinet____petriNet.setSrc(trgRepair);
 		trgRepair__trgPetrinet____petriNet.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(trgRepair__trgPetrinet____petriNet);
 		trgPetrinet__trgRepair____nodes.setSrc(trgPetrinet);
 		trgPetrinet__trgRepair____nodes.setTrg(trgRepair);
 		ruleresult.getCreatedEdges().add(trgPetrinet__trgRepair____nodes);
+		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
+		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
+		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
+		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
+		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
+		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
+		routeOperationalCorr__trgOperational____target.setSrc(routeOperationalCorr);
+		routeOperationalCorr__trgOperational____target.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(routeOperationalCorr__trgOperational____target);
+		routeRepairCorr__trgRepair____target.setSrc(routeRepairCorr);
+		routeRepairCorr__trgRepair____target.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(routeRepairCorr__trgRepair____target);
+		routeRepairCorr__srcRoute____source.setSrc(routeRepairCorr);
+		routeRepairCorr__srcRoute____source.setTrg(srcRoute);
+		ruleresult.getCreatedEdges().add(routeRepairCorr__srcRoute____source);
+		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
+		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
+		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
+		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
+		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
+		srcContainer__srcRoute____routes.setSrc(srcContainer);
+		srcContainer__srcRoute____routes.setTrg(srcRoute);
+		ruleresult.getTranslatedEdges().add(srcContainer__srcRoute____routes);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		routeOperationalCorr__srcRoute____source.setName(routeOperationalCorr__srcRoute____source_name_prime);
 		routeFailedCorr__trgFailed____target.setName(routeFailedCorr__trgFailed____target_name_prime);
-		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
-		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
-		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
-		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
-		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
 		trgRepairToOperational__trgRepair____transition
 				.setName(trgRepairToOperational__trgRepair____transition_name_prime);
 		trgRepair__trgRepairToOperational____arcs.setName(trgRepair__trgRepairToOperational____arcs_name_prime);
 		trgRepairToOperational__trgOperational____place
 				.setName(trgRepairToOperational__trgOperational____place_name_prime);
-		routeRepairCorr__trgRepair____target.setName(routeRepairCorr__trgRepair____target_name_prime);
-		routeRepairCorr__srcRoute____source.setName(routeRepairCorr__srcRoute____source_name_prime);
 		routeFailedCorr__srcRoute____source.setName(routeFailedCorr__srcRoute____source_name_prime);
-		routeOperationalCorr__srcRoute____source.setName(routeOperationalCorr__srcRoute____source_name_prime);
-		routeOperationalCorr__trgOperational____target
-				.setName(routeOperationalCorr__trgOperational____target_name_prime);
-		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
 		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
 		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
-		return new Object[] { ruleresult, routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, srcContainer,
-				trgFailedToRepair, trgPetrinet, trgRepairToOperational, trgRepair, srcRoute, routeOperationalCorr,
-				routeFailedCorr__trgFailed____target, srcContainer__srcRoute____routes,
-				trgFailedToRepair__trgFailed____place, trgFailed__trgPetrinet____petriNet,
-				trgPetrinet__trgFailed____nodes, trgFailedToRepair__trgRepair____transition,
-				trgRepair__trgFailedToRepair____arcs, trgRepairToOperational__trgRepair____transition,
-				trgRepair__trgRepairToOperational____arcs, trgRepairToOperational__trgOperational____place,
+		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
+		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
+		routeOperationalCorr__trgOperational____target
+				.setName(routeOperationalCorr__trgOperational____target_name_prime);
+		routeRepairCorr__trgRepair____target.setName(routeRepairCorr__trgRepair____target_name_prime);
+		routeRepairCorr__srcRoute____source.setName(routeRepairCorr__srcRoute____source_name_prime);
+		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
+		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
+		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
+		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
+		return new Object[] { ruleresult, trgRepairToOperational, trgPetrinet, srcRoute, routeFailedCorr,
+				routeOperationalCorr, trgFailed, trgRepair, trgOperational, routeRepairCorr, trgFailedToRepair,
+				srcContainer, routeOperationalCorr__srcRoute____source, routeFailedCorr__trgFailed____target,
+				trgRepairToOperational__trgRepair____transition, trgRepair__trgRepairToOperational____arcs,
+				trgRepairToOperational__trgOperational____place, routeFailedCorr__srcRoute____source,
+				trgRepair__trgPetrinet____petriNet, trgPetrinet__trgRepair____nodes, trgFailed__trgPetrinet____petriNet,
+				trgPetrinet__trgFailed____nodes, trgOperational__trgPetrinet____petriNet,
+				trgPetrinet__trgOperational____nodes, routeOperationalCorr__trgOperational____target,
 				routeRepairCorr__trgRepair____target, routeRepairCorr__srcRoute____source,
-				routeFailedCorr__srcRoute____source, routeOperationalCorr__srcRoute____source,
-				routeOperationalCorr__trgOperational____target, trgOperational__trgPetrinet____petriNet,
-				trgPetrinet__trgOperational____nodes, trgRepair__trgPetrinet____petriNet,
-				trgPetrinet__trgRepair____nodes };
+				trgFailedToRepair__trgRepair____transition, trgRepair__trgFailedToRepair____arcs,
+				trgFailedToRepair__trgFailed____place, srcContainer__srcRoute____routes };
 	}
 
 	public static final void pattern_Route_1_5_registerobjects_expressionBBBBBBBBBBBBBB(Route _this,
-			PerformRuleResult ruleresult, EObject routeFailedCorr, EObject trgOperational, EObject routeRepairCorr,
-			EObject trgFailed, EObject srcContainer, EObject trgFailedToRepair, EObject containerCorr,
-			EObject trgPetrinet, EObject trgRepairToOperational, EObject trgRepair, EObject srcRoute,
-			EObject routeOperationalCorr) {
-		_this.registerObjects_FWD(ruleresult, routeFailedCorr, trgOperational, routeRepairCorr, trgFailed, srcContainer,
-				trgFailedToRepair, containerCorr, trgPetrinet, trgRepairToOperational, trgRepair, srcRoute,
-				routeOperationalCorr);
+			PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet, EObject srcRoute,
+			EObject routeFailedCorr, EObject routeOperationalCorr, EObject trgFailed, EObject containerCorr,
+			EObject trgRepair, EObject trgOperational, EObject routeRepairCorr, EObject trgFailedToRepair,
+			EObject srcContainer) {
+		_this.registerObjects_FWD(ruleresult, trgRepairToOperational, trgPetrinet, srcRoute, routeFailedCorr,
+				routeOperationalCorr, trgFailed, containerCorr, trgRepair, trgOperational, routeRepairCorr,
+				trgFailedToRepair, srcContainer);
 
 	}
 
@@ -1207,88 +1205,89 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final Object[] pattern_Route_2_2_corematch_bindingFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcContainer");
-		EObject _localVariable_1 = match.getObject("srcRoute");
-		EObject tmpSrcContainer = _localVariable_0;
-		EObject tmpSrcRoute = _localVariable_1;
-		if (tmpSrcContainer instanceof RailwayContainer) {
-			RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-			if (tmpSrcRoute instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) tmpSrcRoute;
-				return new Object[] { srcContainer, srcRoute, match };
+		EObject _localVariable_0 = match.getObject("srcRoute");
+		EObject _localVariable_1 = match.getObject("srcContainer");
+		EObject tmpSrcRoute = _localVariable_0;
+		EObject tmpSrcContainer = _localVariable_1;
+		if (tmpSrcRoute instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) tmpSrcRoute;
+			if (tmpSrcContainer instanceof RailwayContainer) {
+				RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+				return new Object[] { srcRoute, srcContainer, match };
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_Route_2_2_corematch_blackBFFBB(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, Match match) {
+	public static final Iterable<Object[]> pattern_Route_2_2_corematch_blackFBFBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer,
+			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		for (RailwayContainerToPetriNet containerCorr : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
 			PetriNet trgPetrinet = containerCorr.getTarget();
 			if (trgPetrinet != null) {
-				_result.add(new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute, match });
+				_result.add(new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer, match });
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_Route_2_3_findcontext_blackBBBB(RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+	public static final Iterable<Object[]> pattern_Route_2_3_findcontext_blackBBBB(PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (srcContainer.getRoutes().contains(srcRoute)) {
-			if (trgPetrinet.equals(containerCorr.getTarget())) {
+		if (trgPetrinet.equals(containerCorr.getTarget())) {
+			if (srcContainer.getRoutes().contains(srcRoute)) {
 				if (srcContainer.equals(containerCorr.getSource())) {
-					_result.add(new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute });
+					_result.add(new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer });
 				}
 			}
 		}
 		return _result;
 	}
 
-	public static final Object[] pattern_Route_2_3_findcontext_greenBBBBFFFF(RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+	public static final Object[] pattern_Route_2_3_findcontext_greenBBBBFFFF(PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
-		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		String srcContainer__srcRoute____routes_name_prime = "routes";
 		String containerCorr__trgPetrinet____target_name_prime = "target";
+		String srcContainer__srcRoute____routes_name_prime = "routes";
 		String containerCorr__srcContainer____source_name_prime = "source";
-		isApplicableMatch.getAllContextElements().add(srcContainer);
-		isApplicableMatch.getAllContextElements().add(containerCorr);
 		isApplicableMatch.getAllContextElements().add(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(srcRoute);
-		srcContainer__srcRoute____routes.setSrc(srcContainer);
-		srcContainer__srcRoute____routes.setTrg(srcRoute);
-		isApplicableMatch.getAllContextElements().add(srcContainer__srcRoute____routes);
+		isApplicableMatch.getAllContextElements().add(containerCorr);
+		isApplicableMatch.getAllContextElements().add(srcContainer);
 		containerCorr__trgPetrinet____target.setSrc(containerCorr);
 		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
+		srcContainer__srcRoute____routes.setSrc(srcContainer);
+		srcContainer__srcRoute____routes.setTrg(srcRoute);
+		isApplicableMatch.getAllContextElements().add(srcContainer__srcRoute____routes);
 		containerCorr__srcContainer____source.setSrc(containerCorr);
 		containerCorr__srcContainer____source.setTrg(srcContainer);
 		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
-		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
 		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
+		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
 		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
-		return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRoute, isApplicableMatch,
-				srcContainer__srcRoute____routes, containerCorr__trgPetrinet____target,
+		return new Object[] { trgPetrinet, srcRoute, containerCorr, srcContainer, isApplicableMatch,
+				containerCorr__trgPetrinet____target, srcContainer__srcRoute____routes,
 				containerCorr__srcContainer____source };
 	}
 
 	public static final Object[] pattern_Route_2_4_solveCSP_bindingFBBBBBB(Route _this,
-			IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcContainer, containerCorr,
-				trgPetrinet, srcRoute);
+			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, trgPetrinet, srcRoute, containerCorr,
+				srcContainer);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcContainer, containerCorr, trgPetrinet, srcRoute };
+			return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, srcRoute, containerCorr, srcContainer };
 		}
 		return null;
 	}
@@ -1298,19 +1297,19 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final Object[] pattern_Route_2_4_solveCSP_bindingAndBlackFBBBBBB(Route _this,
-			IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			RailwayContainer srcContainer) {
 		Object[] result_pattern_Route_2_4_solveCSP_binding = pattern_Route_2_4_solveCSP_bindingFBBBBBB(_this,
-				isApplicableMatch, srcContainer, containerCorr, trgPetrinet, srcRoute);
+				isApplicableMatch, trgPetrinet, srcRoute, containerCorr, srcContainer);
 		if (result_pattern_Route_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Route_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_Route_2_4_solveCSP_black = pattern_Route_2_4_solveCSP_blackB(csp);
 			if (result_pattern_Route_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcContainer, containerCorr, trgPetrinet,
-						srcRoute };
+				return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, srcRoute, containerCorr,
+						srcContainer };
 			}
 		}
 		return null;
@@ -1402,7 +1401,7 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 			if (tmpSrcRoute instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) {
 				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route) tmpSrcRoute;
 				if (srcContainer.getRoutes().contains(srcRoute)) {
-					_result.add(new Object[] { srcContainer, srcRoute, _edge_routes });
+					_result.add(new Object[] { srcRoute, srcContainer, _edge_routes });
 				}
 			}
 
@@ -1421,9 +1420,9 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 	}
 
 	public static final boolean pattern_Route_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(
-			Route _this, Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcContainer, srcRoute);
+			Route _this, Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute,
+			RailwayContainer srcContainer) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcRoute, srcContainer);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -1456,10 +1455,10 @@ public class RouteImpl extends AbstractRuleImpl implements Route {
 		return _result;
 	}
 
-	public static final Object[] pattern_Route_13_1_matchtggpattern_blackBB(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute) {
+	public static final Object[] pattern_Route_13_1_matchtggpattern_blackBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer) {
 		if (srcContainer.getRoutes().contains(srcRoute)) {
-			return new Object[] { srcContainer, srcRoute };
+			return new Object[] { srcRoute, srcContainer };
 		}
 		return null;
 	}

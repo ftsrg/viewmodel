@@ -18,4 +18,5 @@ Require-Bundle: com.google.guava,
 Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.core,
  hu.bme.mit.inf.viewmodel.benchmarks.core.configuration,
  hu.bme.mit.inf.viewmodel.benchmarks.core.context,
- hu.bme.mit.inf.viewmodel.benchmarks.core.driver
+ hu.bme.mit.inf.viewmodel.benchmarks.core.driver,
+ hu.bme.mit.inf.viewmodel.benchmarks.core.modification

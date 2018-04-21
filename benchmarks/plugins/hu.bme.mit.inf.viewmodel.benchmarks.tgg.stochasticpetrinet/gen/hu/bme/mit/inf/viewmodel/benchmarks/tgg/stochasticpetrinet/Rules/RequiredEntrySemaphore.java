@@ -50,7 +50,7 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, Semaphore srcSemaphore, Route srcRoute);
+	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, Semaphore srcSemaphore, Route srcRoute);
+	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,7 +82,7 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, Semaphore srcSemaphore, Route srcRoute);
+	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +98,12 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RouteToRepair routeRepairCorr,
-			PetriNet trgPetrinet, RouteToOperational routeOperationalCorr, RouteToFailed routeFailedCorr,
-			RailwayContainer srcContainer, Transition trgRouteRepair, Place trgSemaphoreFailed,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational,
-			SemaphoreToFailed semaphoreFailedCorr, RailwayContainerToPetriNet containerCorr, Place trgRouteFailed,
-			Semaphore srcSemaphore, Route srcRoute, Place trgRouteOperational);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RouteToOperational routeOperationalCorr,
+			Place trgSemaphoreFailed, RailwayContainer srcContainer, Route srcRoute,
+			RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
+			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
+			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
+			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,14 +119,14 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRouteRepairToSemaphoreOperational,
-			EObject routeRepairCorr, EObject trgPetrinet, EObject routeOperationalCorr, EObject routeFailedCorr,
-			EObject trgRouteOperationalToRouteFail, EObject srcContainer, EObject trgSemaphoreOperationalToRouteRepair,
-			EObject trgRouteRepair, EObject trgSemaphoreFailed, EObject trgRouteFailToSemaphoreFailed,
-			EObject semaphoreOperationalCorr, EObject trgSemaphoreOperational, EObject semaphoreFailedCorr,
-			EObject trgSemaphoreFailedToRouteFail, EObject containerCorr, EObject trgRouteFailToRouteFailed,
-			EObject trgRouteFail, EObject trgRouteFailed, EObject srcSemaphore, EObject srcRoute,
-			EObject trgRouteOperational);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeOperationalCorr, EObject trgSemaphoreFailed,
+			EObject srcContainer, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
+			EObject trgSemaphoreFailedToRouteFail, EObject containerCorr, EObject trgRouteFail, EObject routeRepairCorr,
+			EObject semaphoreFailedCorr, EObject trgRouteRepairToSemaphoreOperational, EObject trgRouteRepair,
+			EObject trgRouteFailToRouteFailed, EObject trgRouteFailToSemaphoreFailed, EObject srcSemaphore,
+			EObject trgRouteOperational, EObject trgPetrinet, EObject trgRouteFailed,
+			EObject trgRouteOperationalToRouteFail, EObject routeFailedCorr, EObject semaphoreOperationalCorr,
+			EObject trgSemaphoreOperational);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,7 +142,7 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_22(EMoflonEdge _edge_entry);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_4(EMoflonEdge _edge_entry);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,7 +166,7 @@ public interface RequiredEntrySemaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(RailwayContainer srcContainer, Semaphore srcSemaphore, Route srcRoute);
+	boolean checkDEC_FWD(RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

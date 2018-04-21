@@ -58,42 +58,7 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sensorToFailedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass routeToOperationalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sensorToOperationalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass semaphoreToFailedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass switchToFailedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass routeToRepairEClass = null;
+	private EClass routeToFailedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,6 +72,27 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass sensorToOperationalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routeToOperationalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchToFailedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass switchToOperationalEClass = null;
 
 	/**
@@ -114,14 +100,28 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass routeToFailedEClass = null;
+	private EClass railwayContainerToPetriNetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass railwayContainerToPetriNetEClass = null;
+	private EClass routeToRepairEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass semaphoreToFailedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorToFailedEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -205,12 +205,12 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSensorToFailed() {
-		if (sensorToFailedEClass == null) {
-			sensorToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
+	public EClass getRouteToFailed() {
+		if (routeToFailedEClass == null) {
+			routeToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
 					.getEClassifiers().get(0);
 		}
-		return sensorToFailedEClass;
+		return routeToFailedEClass;
 	}
 
 	/**
@@ -218,8 +218,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSensorToFailed_Source() {
-		return (EReference) getSensorToFailed().getEStructuralFeatures().get(0);
+	public EReference getRouteToFailed_Source() {
+		return (EReference) getRouteToFailed().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSensorToFailed_Target() {
-		return (EReference) getSensorToFailed().getEStructuralFeatures().get(1);
+	public EReference getRouteToFailed_Target() {
+		return (EReference) getRouteToFailed().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -236,12 +236,12 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRouteToOperational() {
-		if (routeToOperationalEClass == null) {
-			routeToOperationalEClass = (EClass) EPackage.Registry.INSTANCE
+	public EClass getSemaphoreToOperational() {
+		if (semaphoreToOperationalEClass == null) {
+			semaphoreToOperationalEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(1);
 		}
-		return routeToOperationalEClass;
+		return semaphoreToOperationalEClass;
 	}
 
 	/**
@@ -249,8 +249,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRouteToOperational_Source() {
-		return (EReference) getRouteToOperational().getEStructuralFeatures().get(0);
+	public EReference getSemaphoreToOperational_Source() {
+		return (EReference) getSemaphoreToOperational().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -258,8 +258,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRouteToOperational_Target() {
-		return (EReference) getRouteToOperational().getEStructuralFeatures().get(1);
+	public EReference getSemaphoreToOperational_Target() {
+		return (EReference) getSemaphoreToOperational().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -298,12 +298,12 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSemaphoreToFailed() {
-		if (semaphoreToFailedEClass == null) {
-			semaphoreToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
-					.getEClassifiers().get(3);
+	public EClass getRouteToOperational() {
+		if (routeToOperationalEClass == null) {
+			routeToOperationalEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(3);
 		}
-		return semaphoreToFailedEClass;
+		return routeToOperationalEClass;
 	}
 
 	/**
@@ -311,8 +311,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSemaphoreToFailed_Source() {
-		return (EReference) getSemaphoreToFailed().getEStructuralFeatures().get(0);
+	public EReference getRouteToOperational_Source() {
+		return (EReference) getRouteToOperational().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,8 +320,8 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSemaphoreToFailed_Target() {
-		return (EReference) getSemaphoreToFailed().getEStructuralFeatures().get(1);
+	public EReference getRouteToOperational_Target() {
+		return (EReference) getRouteToOperational().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -360,72 +360,10 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRouteToRepair() {
-		if (routeToRepairEClass == null) {
-			routeToRepairEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
-					.getEClassifiers().get(5);
-		}
-		return routeToRepairEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouteToRepair_Source() {
-		return (EReference) getRouteToRepair().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouteToRepair_Target() {
-		return (EReference) getRouteToRepair().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSemaphoreToOperational() {
-		if (semaphoreToOperationalEClass == null) {
-			semaphoreToOperationalEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(6);
-		}
-		return semaphoreToOperationalEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSemaphoreToOperational_Source() {
-		return (EReference) getSemaphoreToOperational().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSemaphoreToOperational_Target() {
-		return (EReference) getSemaphoreToOperational().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSwitchToOperational() {
 		if (switchToOperationalEClass == null) {
 			switchToOperationalEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(7);
+					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(5);
 		}
 		return switchToOperationalEClass;
 	}
@@ -453,41 +391,10 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRouteToFailed() {
-		if (routeToFailedEClass == null) {
-			routeToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
-					.getEClassifiers().get(8);
-		}
-		return routeToFailedEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouteToFailed_Source() {
-		return (EReference) getRouteToFailed().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouteToFailed_Target() {
-		return (EReference) getRouteToFailed().getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRailwayContainerToPetriNet() {
 		if (railwayContainerToPetriNetEClass == null) {
 			railwayContainerToPetriNetEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(9);
+					.getEPackage(StochasticpetrinetPackage.eNS_URI).getEClassifiers().get(6);
 		}
 		return railwayContainerToPetriNetEClass;
 	}
@@ -508,6 +415,99 @@ public class StochasticpetrinetPackageImpl extends EPackageImpl implements Stoch
 	 */
 	public EReference getRailwayContainerToPetriNet_Target() {
 		return (EReference) getRailwayContainerToPetriNet().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRouteToRepair() {
+		if (routeToRepairEClass == null) {
+			routeToRepairEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
+					.getEClassifiers().get(7);
+		}
+		return routeToRepairEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouteToRepair_Source() {
+		return (EReference) getRouteToRepair().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouteToRepair_Target() {
+		return (EReference) getRouteToRepair().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSemaphoreToFailed() {
+		if (semaphoreToFailedEClass == null) {
+			semaphoreToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
+					.getEClassifiers().get(8);
+		}
+		return semaphoreToFailedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSemaphoreToFailed_Source() {
+		return (EReference) getSemaphoreToFailed().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSemaphoreToFailed_Target() {
+		return (EReference) getSemaphoreToFailed().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensorToFailed() {
+		if (sensorToFailedEClass == null) {
+			sensorToFailedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(StochasticpetrinetPackage.eNS_URI)
+					.getEClassifiers().get(9);
+		}
+		return sensorToFailedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSensorToFailed_Source() {
+		return (EReference) getSensorToFailed().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSensorToFailed_Target() {
+		return (EReference) getSensorToFailed().getEStructuralFeatures().get(1);
 	}
 
 	/**

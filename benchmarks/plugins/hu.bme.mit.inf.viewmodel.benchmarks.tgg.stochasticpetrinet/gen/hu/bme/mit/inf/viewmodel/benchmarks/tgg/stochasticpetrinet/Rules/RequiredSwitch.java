@@ -51,7 +51,7 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, SwitchPosition srcSwitchPosition, RailwayContainer srcContainer,
+	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, SwitchPosition srcSwitchPosition,
 			Route srcRoute, Switch srcSwitch);
 
 	/**
@@ -76,7 +76,7 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, SwitchPosition srcSwitchPosition, RailwayContainer srcContainer,
+	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, SwitchPosition srcSwitchPosition,
 			Route srcRoute, Switch srcSwitch);
 
 	/**
@@ -85,7 +85,7 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, SwitchPosition srcSwitchPosition, RailwayContainer srcContainer,
+	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, SwitchPosition srcSwitchPosition,
 			Route srcRoute, Switch srcSwitch);
 
 	/**
@@ -102,12 +102,12 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, Place trgRouteFailed,
-			Place trgSwitchFailed, Place trgSwitchOperational, SwitchToOperational switchOperationalCorr,
-			RouteToRepair routeRepairCorr, RailwayContainerToPetriNet containerCorr, SwitchToFailed switchFailedCorr,
-			Place trgRouteOperational, RouteToFailed routeFailedCorr, RouteToOperational routeOperationalCorr,
-			SwitchPosition srcSwitchPosition, RailwayContainer srcContainer, Route srcRoute, Transition trgRouteRepair,
-			Switch srcSwitch);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RouteToOperational routeOperationalCorr,
+			RailwayContainer srcContainer, RouteToRepair routeRepairCorr, RouteToFailed routeFailedCorr,
+			SwitchToOperational switchOperationalCorr, Place trgSwitchFailed, SwitchPosition srcSwitchPosition,
+			Place trgRouteFailed, Place trgSwitchOperational, Route srcRoute, RailwayContainerToPetriNet containerCorr,
+			SwitchToFailed switchFailedCorr, Switch srcSwitch, Place trgRouteOperational, PetriNet trgPetrinet,
+			Transition trgRouteRepair);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,14 +123,14 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject trgSwitchFailedToRouteFail,
-			EObject trgRouteFailed, EObject trgSwitchFailed, EObject trgSwitchOperationalToRouteRepair,
-			EObject trgRouteFailToSwitchFailed, EObject trgSwitchOperational, EObject switchOperationalCorr,
-			EObject trgRouteFail, EObject routeRepairCorr, EObject containerCorr, EObject switchFailedCorr,
-			EObject trgRouteOperational, EObject routeFailedCorr, EObject routeOperationalCorr,
-			EObject trgRouteRepairToSwitchOperational, EObject trgRouteFailToRouteFailed, EObject srcSwitchPosition,
-			EObject trgRouteOperationalToRouteFail, EObject srcContainer, EObject srcRoute, EObject trgRouteRepair,
-			EObject srcSwitch);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRouteOperationalToRouteFail,
+			EObject routeOperationalCorr, EObject srcContainer, EObject routeRepairCorr, EObject routeFailedCorr,
+			EObject switchOperationalCorr, EObject trgSwitchFailed, EObject srcSwitchPosition,
+			EObject trgSwitchFailedToRouteFail, EObject trgRouteFailed, EObject trgSwitchOperational, EObject srcRoute,
+			EObject trgSwitchOperationalToRouteRepair, EObject containerCorr, EObject trgRouteFailToSwitchFailed,
+			EObject switchFailedCorr, EObject srcSwitch, EObject trgRouteOperational, EObject trgPetrinet,
+			EObject trgRouteFailToRouteFailed, EObject trgRouteRepairToSwitchOperational, EObject trgRouteFail,
+			EObject trgRouteRepair);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,7 +146,7 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_19(EMoflonEdge _edge_follows);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_6(EMoflonEdge _edge_follows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,7 +170,7 @@ public interface RequiredSwitch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(SwitchPosition srcSwitchPosition, RailwayContainer srcContainer, Route srcRoute,
+	boolean checkDEC_FWD(RailwayContainer srcContainer, SwitchPosition srcSwitchPosition, Route srcRoute,
 			Switch srcSwitch);
 	// <-- [user code injected with eMoflon]
 

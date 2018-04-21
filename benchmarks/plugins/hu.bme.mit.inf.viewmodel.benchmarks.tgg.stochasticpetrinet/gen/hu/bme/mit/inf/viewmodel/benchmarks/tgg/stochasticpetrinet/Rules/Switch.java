@@ -42,8 +42,8 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, Region srcRegion);
+	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,8 +67,8 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, Region srcRegion);
+	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, Region srcRegion);
+	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,10 +93,9 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
-			RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, RailwayContainer srcContainer,
-			Region srcRegion);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch, PetriNet trgPetrinet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,10 +111,11 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgOperational, EObject trgFailed, EObject trgRepair,
-			EObject trgFailedToRepair, EObject trgRepairToOperational, EObject trgFailToFailed, EObject trgFail,
-			EObject trgOperationToFail, EObject trgPetrinet, EObject containerCorr, EObject srcSwitch,
-			EObject switchFailedCorr, EObject srcContainer, EObject switchOperationalCorr, EObject srcRegion);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcContainer, EObject trgRepairToOperational,
+			EObject containerCorr, EObject trgFailed, EObject switchFailedCorr, EObject trgRepair,
+			EObject switchOperationalCorr, EObject srcRegion, EObject trgFail, EObject trgOperationToFail,
+			EObject trgFailedToRepair, EObject srcSwitch, EObject trgOperational, EObject trgPetrinet,
+			EObject trgFailToFailed);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,7 +131,7 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_15(EMoflonEdge _edge_elements);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_3(EMoflonEdge _edge_elements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,8 +155,8 @@ public interface Switch extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch,
-			RailwayContainer srcContainer, Region srcRegion);
+	boolean checkDEC_FWD(RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch srcSwitch);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

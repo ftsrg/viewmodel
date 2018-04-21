@@ -77,47 +77,47 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion) {
+	public boolean isAppropriate_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 
-		Object[] result1_black = SegmentImpl.pattern_Segment_0_1_initialbindings_blackBBBB(this, match, srcSegment,
-				srcRegion);
+		Object[] result1_black = SegmentImpl.pattern_Segment_0_1_initialbindings_blackBBBB(this, match, srcRegion,
+				srcSegment);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcSegment] = " + srcSegment + ", " + "[srcRegion] = " + srcRegion + ".");
+							+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
 
 		Object[] result2_bindingAndBlack = SegmentImpl.pattern_Segment_0_2_SolveCSP_bindingAndBlackFBBBB(this, match,
-				srcSegment, srcRegion);
+				srcRegion, srcSegment);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcSegment] = " + srcSegment + ", " + "[srcRegion] = " + srcRegion + ".");
+							+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (SegmentImpl.pattern_Segment_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = SegmentImpl.pattern_Segment_0_4_collectelementstobetranslated_blackBBB(match,
-					srcSegment, srcRegion);
+					srcRegion, srcSegment);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSegment] = " + srcSegment + ", " + "[srcRegion] = " + srcRegion + ".");
+						+ "[srcRegion] = " + srcRegion + ", " + "[srcSegment] = " + srcSegment + ".");
 			}
-			SegmentImpl.pattern_Segment_0_4_collectelementstobetranslated_greenBBBF(match, srcSegment, srcRegion);
+			SegmentImpl.pattern_Segment_0_4_collectelementstobetranslated_greenBBBF(match, srcRegion, srcSegment);
 			//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result4_green[3];
 
-			Object[] result5_black = SegmentImpl.pattern_Segment_0_5_collectcontextelements_blackBBB(match, srcSegment,
-					srcRegion);
+			Object[] result5_black = SegmentImpl.pattern_Segment_0_5_collectcontextelements_blackBBB(match, srcRegion,
+					srcSegment);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSegment] = " + srcSegment + ", " + "[srcRegion] = " + srcRegion + ".");
+						+ "[srcRegion] = " + srcRegion + ", " + "[srcSegment] = " + srcSegment + ".");
 			}
 			SegmentImpl.pattern_Segment_0_5_collectcontextelements_greenBB(match, srcRegion);
 
 			// 
-			SegmentImpl.pattern_Segment_0_6_registerobjectstomatch_expressionBBBB(this, match, srcSegment, srcRegion);
+			SegmentImpl.pattern_Segment_0_6_registerobjectstomatch_expressionBBBB(this, match, srcRegion, srcSegment);
 			return SegmentImpl.pattern_Segment_0_7_expressionF();
 		} else {
 			return SegmentImpl.pattern_Segment_0_8_expressionF();
@@ -138,8 +138,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result1_bindingAndBlack[0];
-		Region srcRegion = (Region) result1_bindingAndBlack[1];
+		Region srcRegion = (Region) result1_bindingAndBlack[0];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result1_bindingAndBlack[1];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[2];
 
 		Object[] result2_black = SegmentImpl.pattern_Segment_1_2_collecttranslatedelements_blackB(srcSegment);
@@ -150,18 +150,18 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		Object[] result2_green = SegmentImpl.pattern_Segment_1_2_collecttranslatedelements_greenFB(srcSegment);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		Object[] result3_black = SegmentImpl.pattern_Segment_1_3_bookkeepingforedges_blackBBB(ruleresult, srcSegment,
-				srcRegion);
+		Object[] result3_black = SegmentImpl.pattern_Segment_1_3_bookkeepingforedges_blackBBB(ruleresult, srcRegion,
+				srcSegment);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[srcSegment] = " + srcSegment + ", " + "[srcRegion] = " + srcRegion + ".");
+					+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
-		SegmentImpl.pattern_Segment_1_3_bookkeepingforedges_greenBBBF(ruleresult, srcSegment, srcRegion);
+		SegmentImpl.pattern_Segment_1_3_bookkeepingforedges_greenBBBF(ruleresult, srcRegion, srcSegment);
 		//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result3_green[3];
 
 		// 
 		// 
-		SegmentImpl.pattern_Segment_1_5_registerobjects_expressionBBBB(this, ruleresult, srcSegment, srcRegion);
+		SegmentImpl.pattern_Segment_1_5_registerobjects_expressionBBBB(this, ruleresult, srcRegion, srcSegment);
 		return SegmentImpl.pattern_Segment_1_6_expressionFB(ruleresult);
 	}
 
@@ -187,22 +187,22 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result2_binding[0];
-		Region srcRegion = (Region) result2_binding[1];
-		for (Object[] result2_black : SegmentImpl.pattern_Segment_2_2_corematch_blackBBB(srcSegment, srcRegion,
+		Region srcRegion = (Region) result2_binding[0];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result2_binding[1];
+		for (Object[] result2_black : SegmentImpl.pattern_Segment_2_2_corematch_blackBBB(srcRegion, srcSegment,
 				match)) {
 			// ForEach 
-			for (Object[] result3_black : SegmentImpl.pattern_Segment_2_3_findcontext_blackBB(srcSegment, srcRegion)) {
-				Object[] result3_green = SegmentImpl.pattern_Segment_2_3_findcontext_greenBBFF(srcSegment, srcRegion);
+			for (Object[] result3_black : SegmentImpl.pattern_Segment_2_3_findcontext_blackBB(srcRegion, srcSegment)) {
+				Object[] result3_green = SegmentImpl.pattern_Segment_2_3_findcontext_greenBBFF(srcRegion, srcSegment);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[2];
 				//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result3_green[3];
 
 				Object[] result4_bindingAndBlack = SegmentImpl.pattern_Segment_2_4_solveCSP_bindingAndBlackFBBBB(this,
-						isApplicableMatch, srcSegment, srcRegion);
+						isApplicableMatch, srcRegion, srcSegment);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSegment] = " + srcSegment
-							+ ", " + "[srcRegion] = " + srcRegion + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcRegion] = " + srcRegion + ", "
+							+ "[srcSegment] = " + srcSegment + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -230,10 +230,10 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		match.registerObject("srcSegment", srcSegment);
+	public void registerObjectsToMatch_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		match.registerObject("srcRegion", srcRegion);
+		match.registerObject("srcSegment", srcSegment);
 
 	}
 
@@ -242,8 +242,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -272,8 +272,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -288,8 +288,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcSegment", srcSegment);
 		isApplicableMatch.registerObject("srcRegion", srcRegion);
+		isApplicableMatch.registerObject("srcSegment", srcSegment);
 		return csp;
 	}
 
@@ -307,9 +307,9 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSegment, EObject srcRegion) {
-		ruleresult.registerObject("srcSegment", srcSegment);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcRegion, EObject srcSegment) {
 		ruleresult.registerObject("srcRegion", srcRegion);
+		ruleresult.registerObject("srcSegment", srcSegment);
 
 	}
 
@@ -328,7 +328,7 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_21(EMoflonEdge _edge_elements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_8(EMoflonEdge _edge_elements) {
 
 		Object[] result1_bindingAndBlack = SegmentImpl
 				.pattern_Segment_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -343,14 +343,14 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 
 		// ForEach 
 		for (Object[] result2_black : SegmentImpl.pattern_Segment_10_2_testcorematchandDECs_blackFFB(_edge_elements)) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result2_black[0];
-			Region srcRegion = (Region) result2_black[1];
+			Region srcRegion = (Region) result2_black[0];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result2_black[1];
 			Object[] result2_green = SegmentImpl.pattern_Segment_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// 
 			if (SegmentImpl.pattern_Segment_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(this, match,
-					srcSegment, srcRegion)) {
+					srcRegion, srcSegment)) {
 				// 
 				if (SegmentImpl.pattern_Segment_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(this,
 						match)) {
@@ -422,9 +422,9 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion) {// 
-		Object[] result1_black = SegmentImpl.pattern_Segment_13_1_matchtggpattern_blackBB(srcSegment, srcRegion);
+	public boolean checkDEC_FWD(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {// 
+		Object[] result1_black = SegmentImpl.pattern_Segment_13_1_matchtggpattern_blackBB(srcRegion, srcSegment);
 		if (result1_black != null) {
 			return SegmentImpl.pattern_Segment_13_2_expressionF();
 		} else {
@@ -441,29 +441,25 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD__MATCH_SEGMENT_REGION:
-			return isAppropriate_FWD((Match) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(1),
-					(Region) arguments.get(2));
+		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD__MATCH_REGION_SEGMENT:
+			return isAppropriate_FWD((Match) arguments.get(0), (Region) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(2));
 		case RulesPackage.SEGMENT___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SEGMENT___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SEGMENT___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEGMENT_REGION:
-			registerObjectsToMatch_FWD((Match) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(1),
-					(Region) arguments.get(2));
+		case RulesPackage.SEGMENT___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_REGION_SEGMENT:
+			registerObjectsToMatch_FWD((Match) arguments.get(0), (Region) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(2));
 			return null;
-		case RulesPackage.SEGMENT___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEGMENT_REGION:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(1),
-					(Region) arguments.get(2));
+		case RulesPackage.SEGMENT___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_REGION_SEGMENT:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (Region) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(2));
 		case RulesPackage.SEGMENT___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SEGMENT___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEGMENT_REGION:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(1),
-					(Region) arguments.get(2));
+		case RulesPackage.SEGMENT___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_REGION_SEGMENT:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (Region) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(2));
 		case RulesPackage.SEGMENT___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SEGMENT___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT:
@@ -472,30 +468,30 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 			return null;
 		case RulesPackage.SEGMENT___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD_EMOFLON_EDGE_21__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_21((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD_EMOFLON_EDGE_8__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_8((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SEGMENT___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SEGMENT___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.SEGMENT___CHECK_DEC_FWD__SEGMENT_REGION:
-			return checkDEC_FWD((hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(0),
-					(Region) arguments.get(1));
+		case RulesPackage.SEGMENT___CHECK_DEC_FWD__REGION_SEGMENT:
+			return checkDEC_FWD((Region) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_Segment_0_1_initialbindings_blackBBBB(Segment _this, Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		return new Object[] { _this, match, srcSegment, srcRegion };
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		return new Object[] { _this, match, srcRegion, srcSegment };
 	}
 
-	public static final Object[] pattern_Segment_0_2_SolveCSP_bindingFBBBB(Segment _this, Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcSegment, srcRegion);
+	public static final Object[] pattern_Segment_0_2_SolveCSP_bindingFBBBB(Segment _this, Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcRegion, srcSegment);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcSegment, srcRegion };
+			return new Object[] { csp, _this, match, srcRegion, srcSegment };
 		}
 		return null;
 	}
@@ -505,16 +501,16 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final Object[] pattern_Segment_0_2_SolveCSP_bindingAndBlackFBBBB(Segment _this, Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		Object[] result_pattern_Segment_0_2_SolveCSP_binding = pattern_Segment_0_2_SolveCSP_bindingFBBBB(_this, match,
-				srcSegment, srcRegion);
+				srcRegion, srcSegment);
 		if (result_pattern_Segment_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Segment_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_Segment_0_2_SolveCSP_black = pattern_Segment_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_Segment_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcSegment, srcRegion };
+				return new Object[] { csp, _this, match, srcRegion, srcSegment };
 			}
 		}
 		return null;
@@ -527,12 +523,12 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final Object[] pattern_Segment_0_4_collectelementstobetranslated_blackBBB(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		return new Object[] { match, srcSegment, srcRegion };
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		return new Object[] { match, srcRegion, srcSegment };
 	}
 
 	public static final Object[] pattern_Segment_0_4_collectelementstobetranslated_greenBBBF(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(srcSegment);
 		String srcRegion__srcSegment____elements_name_prime = "elements";
@@ -540,12 +536,12 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		srcRegion__srcSegment____elements.setTrg(srcSegment);
 		match.getToBeTranslatedEdges().add(srcRegion__srcSegment____elements);
 		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
-		return new Object[] { match, srcSegment, srcRegion, srcRegion__srcSegment____elements };
+		return new Object[] { match, srcRegion, srcSegment, srcRegion__srcSegment____elements };
 	}
 
-	public static final Object[] pattern_Segment_0_5_collectcontextelements_blackBBB(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		return new Object[] { match, srcSegment, srcRegion };
+	public static final Object[] pattern_Segment_0_5_collectcontextelements_blackBBB(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		return new Object[] { match, srcRegion, srcSegment };
 	}
 
 	public static final Object[] pattern_Segment_0_5_collectcontextelements_greenBB(Match match, Region srcRegion) {
@@ -554,8 +550,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final void pattern_Segment_0_6_registerobjectstomatch_expressionBBBB(Segment _this, Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
-		_this.registerObjectsToMatch_FWD(match, srcSegment, srcRegion);
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		_this.registerObjectsToMatch_FWD(match, srcRegion, srcSegment);
 
 	}
 
@@ -571,27 +567,27 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 
 	public static final Object[] pattern_Segment_1_1_performtransformation_bindingFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcSegment");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcRegion");
-		EObject tmpSrcSegment = _localVariable_0;
-		EObject tmpSrcRegion = _localVariable_1;
-		if (tmpSrcSegment instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) tmpSrcSegment;
-			if (tmpSrcRegion instanceof Region) {
-				Region srcRegion = (Region) tmpSrcRegion;
-				return new Object[] { srcSegment, srcRegion, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcRegion");
+		EObject _localVariable_1 = isApplicableMatch.getObject("srcSegment");
+		EObject tmpSrcRegion = _localVariable_0;
+		EObject tmpSrcSegment = _localVariable_1;
+		if (tmpSrcRegion instanceof Region) {
+			Region srcRegion = (Region) tmpSrcRegion;
+			if (tmpSrcSegment instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) {
+				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) tmpSrcSegment;
+				return new Object[] { srcRegion, srcSegment, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Segment_1_1_performtransformation_blackBBFBB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion, Segment _this,
+	public static final Object[] pattern_Segment_1_1_performtransformation_blackBBFBB(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Segment _this,
 			IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcSegment, srcRegion, csp, _this, isApplicableMatch };
+				return new Object[] { srcRegion, srcSegment, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -602,15 +598,15 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		Object[] result_pattern_Segment_1_1_performtransformation_binding = pattern_Segment_1_1_performtransformation_bindingFFB(
 				isApplicableMatch);
 		if (result_pattern_Segment_1_1_performtransformation_binding != null) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result_pattern_Segment_1_1_performtransformation_binding[0];
-			Region srcRegion = (Region) result_pattern_Segment_1_1_performtransformation_binding[1];
+			Region srcRegion = (Region) result_pattern_Segment_1_1_performtransformation_binding[0];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) result_pattern_Segment_1_1_performtransformation_binding[1];
 
 			Object[] result_pattern_Segment_1_1_performtransformation_black = pattern_Segment_1_1_performtransformation_blackBBFBB(
-					srcSegment, srcRegion, _this, isApplicableMatch);
+					srcRegion, srcSegment, _this, isApplicableMatch);
 			if (result_pattern_Segment_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_Segment_1_1_performtransformation_black[2];
 
-				return new Object[] { srcSegment, srcRegion, csp, _this, isApplicableMatch };
+				return new Object[] { srcRegion, srcSegment, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -629,15 +625,15 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final Object[] pattern_Segment_1_3_bookkeepingforedges_blackBBB(PerformRuleResult ruleresult,
-			EObject srcSegment, EObject srcRegion) {
+			EObject srcRegion, EObject srcSegment) {
 		if (!srcRegion.equals(srcSegment)) {
-			return new Object[] { ruleresult, srcSegment, srcRegion };
+			return new Object[] { ruleresult, srcRegion, srcSegment };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_Segment_1_3_bookkeepingforedges_greenBBBF(PerformRuleResult ruleresult,
-			EObject srcSegment, EObject srcRegion) {
+			EObject srcRegion, EObject srcSegment) {
 		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "Segment";
 		String srcRegion__srcSegment____elements_name_prime = "elements";
@@ -646,12 +642,12 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		ruleresult.getTranslatedEdges().add(srcRegion__srcSegment____elements);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
-		return new Object[] { ruleresult, srcSegment, srcRegion, srcRegion__srcSegment____elements };
+		return new Object[] { ruleresult, srcRegion, srcSegment, srcRegion__srcSegment____elements };
 	}
 
 	public static final void pattern_Segment_1_5_registerobjects_expressionBBBB(Segment _this,
-			PerformRuleResult ruleresult, EObject srcSegment, EObject srcRegion) {
-		_this.registerObjects_FWD(ruleresult, srcSegment, srcRegion);
+			PerformRuleResult ruleresult, EObject srcRegion, EObject srcSegment) {
+		_this.registerObjects_FWD(ruleresult, srcRegion, srcSegment);
 
 	}
 
@@ -708,57 +704,57 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final Object[] pattern_Segment_2_2_corematch_bindingFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcSegment");
-		EObject _localVariable_1 = match.getObject("srcRegion");
-		EObject tmpSrcSegment = _localVariable_0;
-		EObject tmpSrcRegion = _localVariable_1;
-		if (tmpSrcSegment instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) {
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) tmpSrcSegment;
-			if (tmpSrcRegion instanceof Region) {
-				Region srcRegion = (Region) tmpSrcRegion;
-				return new Object[] { srcSegment, srcRegion, match };
+		EObject _localVariable_0 = match.getObject("srcRegion");
+		EObject _localVariable_1 = match.getObject("srcSegment");
+		EObject tmpSrcRegion = _localVariable_0;
+		EObject tmpSrcSegment = _localVariable_1;
+		if (tmpSrcRegion instanceof Region) {
+			Region srcRegion = (Region) tmpSrcRegion;
+			if (tmpSrcSegment instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) {
+				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) tmpSrcSegment;
+				return new Object[] { srcRegion, srcSegment, match };
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_Segment_2_2_corematch_blackBBB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion, Match match) {
+	public static final Iterable<Object[]> pattern_Segment_2_2_corematch_blackBBB(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		_result.add(new Object[] { srcSegment, srcRegion, match });
+		_result.add(new Object[] { srcRegion, srcSegment, match });
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_Segment_2_3_findcontext_blackBB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
+	public static final Iterable<Object[]> pattern_Segment_2_3_findcontext_blackBB(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (srcRegion.getElements().contains(srcSegment)) {
-			_result.add(new Object[] { srcSegment, srcRegion });
+			_result.add(new Object[] { srcRegion, srcSegment });
 		}
 		return _result;
 	}
 
-	public static final Object[] pattern_Segment_2_3_findcontext_greenBBFF(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
+	public static final Object[] pattern_Segment_2_3_findcontext_greenBBFF(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcRegion__srcSegment____elements_name_prime = "elements";
-		isApplicableMatch.getAllContextElements().add(srcSegment);
 		isApplicableMatch.getAllContextElements().add(srcRegion);
+		isApplicableMatch.getAllContextElements().add(srcSegment);
 		srcRegion__srcSegment____elements.setSrc(srcRegion);
 		srcRegion__srcSegment____elements.setTrg(srcSegment);
 		isApplicableMatch.getAllContextElements().add(srcRegion__srcSegment____elements);
 		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
-		return new Object[] { srcSegment, srcRegion, isApplicableMatch, srcRegion__srcSegment____elements };
+		return new Object[] { srcRegion, srcSegment, isApplicableMatch, srcRegion__srcSegment____elements };
 	}
 
 	public static final Object[] pattern_Segment_2_4_solveCSP_bindingFBBBB(Segment _this,
-			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSegment, srcRegion);
+			IsApplicableMatch isApplicableMatch, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcRegion, srcSegment);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcSegment, srcRegion };
+			return new Object[] { csp, _this, isApplicableMatch, srcRegion, srcSegment };
 		}
 		return null;
 	}
@@ -768,17 +764,17 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final Object[] pattern_Segment_2_4_solveCSP_bindingAndBlackFBBBB(Segment _this,
-			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion) {
+			IsApplicableMatch isApplicableMatch, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		Object[] result_pattern_Segment_2_4_solveCSP_binding = pattern_Segment_2_4_solveCSP_bindingFBBBB(_this,
-				isApplicableMatch, srcSegment, srcRegion);
+				isApplicableMatch, srcRegion, srcSegment);
 		if (result_pattern_Segment_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Segment_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_Segment_2_4_solveCSP_black = pattern_Segment_2_4_solveCSP_blackB(csp);
 			if (result_pattern_Segment_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcSegment, srcRegion };
+				return new Object[] { csp, _this, isApplicableMatch, srcRegion, srcSegment };
 			}
 		}
 		return null;
@@ -871,7 +867,7 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 			if (tmpSrcSegment instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) {
 				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment) tmpSrcSegment;
 				if (srcRegion.getElements().contains(srcSegment)) {
-					_result.add(new Object[] { srcSegment, srcRegion, _edge_elements });
+					_result.add(new Object[] { srcRegion, srcSegment, _edge_elements });
 				}
 			}
 
@@ -890,9 +886,9 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	}
 
 	public static final boolean pattern_Segment_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(
-			Segment _this, Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcSegment, srcRegion);
+			Segment _this, Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcRegion, srcSegment);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -925,10 +921,10 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 		return _result;
 	}
 
-	public static final Object[] pattern_Segment_13_1_matchtggpattern_blackBB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion) {
+	public static final Object[] pattern_Segment_13_1_matchtggpattern_blackBB(Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment) {
 		if (srcRegion.getElements().contains(srcSegment)) {
-			return new Object[] { srcSegment, srcRegion };
+			return new Object[] { srcRegion, srcSegment };
 		}
 		return null;
 	}

@@ -7,6 +7,7 @@ class TggDrivers {
 	public static val DRIVER_FACTORIES = ImmutableMap.<String, IDriverFactory>builder
 		.put("tgg-batch", [new BatchTggDriver(it)])
 		.put("tgg-incremental", [new IncrementalTggDriver(it)])
+		.put("tgg-statistics", [new ModificationStatisticsTggDriver(it)])
 		.build
 
 	private new() {

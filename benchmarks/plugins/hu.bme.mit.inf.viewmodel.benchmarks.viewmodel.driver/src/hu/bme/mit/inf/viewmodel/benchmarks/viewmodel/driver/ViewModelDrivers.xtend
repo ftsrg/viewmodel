@@ -9,6 +9,7 @@ final class ViewModelDrivers {
 		.put("viewModel-batch-mock", [new BatchViewModelDriver(it, ManifestationMode.MOCK)])
 		.put("viewModel-incremental-physical", [new IncrementalViewModelDriver(it, ManifestationMode.PHYSICAL)])
 		.put("viewModel-incremental-mock", [new IncrementalViewModelDriver(it, ManifestationMode.MOCK)])
+		.put("viewModel-statistics", [new ModificationStatisticsViewModelDriver(it)])
 		.build
 
 	private new() {

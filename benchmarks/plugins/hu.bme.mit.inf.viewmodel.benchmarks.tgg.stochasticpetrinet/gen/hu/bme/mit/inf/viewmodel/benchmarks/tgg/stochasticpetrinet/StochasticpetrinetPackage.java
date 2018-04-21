@@ -60,14 +60,14 @@ public interface StochasticpetrinetPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl <em>Sensor To Failed</em>}' class.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl <em>Route To Failed</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToFailed()
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToFailed()
 	 * @generated
 	 */
-	int SENSOR_TO_FAILED = 0;
+	int ROUTE_TO_FAILED = 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -76,7 +76,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int ROUTE_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -85,35 +85,35 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int ROUTE_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Sensor To Failed</em>' class.
+	 * The number of structural features of the '<em>Route To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+	int ROUTE_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Sensor To Failed</em>' class.
+	 * The number of operations of the '<em>Route To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+	int ROUTE_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl <em>Route To Operational</em>}' class.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToOperationalImpl <em>Semaphore To Operational</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToOperational()
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToOperationalImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToOperational()
 	 * @generated
 	 */
-	int ROUTE_TO_OPERATIONAL = 1;
+	int SEMAPHORE_TO_OPERATIONAL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -122,7 +122,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTE_TO_OPERATIONAL__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int SEMAPHORE_TO_OPERATIONAL__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -131,25 +131,25 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTE_TO_OPERATIONAL__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int SEMAPHORE_TO_OPERATIONAL__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Route To Operational</em>' class.
+	 * The number of structural features of the '<em>Semaphore To Operational</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTE_TO_OPERATIONAL_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+	int SEMAPHORE_TO_OPERATIONAL_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Route To Operational</em>' class.
+	 * The number of operations of the '<em>Semaphore To Operational</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTE_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+	int SEMAPHORE_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToOperationalImpl <em>Sensor To Operational</em>}' class.
@@ -198,14 +198,14 @@ public interface StochasticpetrinetPackage extends EPackage {
 	int SENSOR_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl <em>Semaphore To Failed</em>}' class.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl <em>Route To Operational</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToFailed()
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToOperational()
 	 * @generated
 	 */
-	int SEMAPHORE_TO_FAILED = 3;
+	int ROUTE_TO_OPERATIONAL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -214,7 +214,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMAPHORE_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int ROUTE_TO_OPERATIONAL__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -223,25 +223,25 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMAPHORE_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int ROUTE_TO_OPERATIONAL__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Semaphore To Failed</em>' class.
+	 * The number of structural features of the '<em>Route To Operational</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMAPHORE_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+	int ROUTE_TO_OPERATIONAL_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Semaphore To Failed</em>' class.
+	 * The number of operations of the '<em>Route To Operational</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMAPHORE_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+	int ROUTE_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToFailedImpl <em>Switch To Failed</em>}' class.
@@ -290,98 +290,6 @@ public interface StochasticpetrinetPackage extends EPackage {
 	int SWITCH_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl <em>Route To Repair</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToRepair()
-	 * @generated
-	 */
-	int ROUTE_TO_REPAIR = 5;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_REPAIR__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_REPAIR__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Route To Repair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_REPAIR_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Route To Repair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_REPAIR_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToOperationalImpl <em>Semaphore To Operational</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToOperationalImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToOperational()
-	 * @generated
-	 */
-	int SEMAPHORE_TO_OPERATIONAL = 6;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMAPHORE_TO_OPERATIONAL__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMAPHORE_TO_OPERATIONAL__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Semaphore To Operational</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMAPHORE_TO_OPERATIONAL_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Semaphore To Operational</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMAPHORE_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToOperationalImpl <em>Switch To Operational</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,7 +297,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSwitchToOperational()
 	 * @generated
 	 */
-	int SWITCH_TO_OPERATIONAL = 7;
+	int SWITCH_TO_OPERATIONAL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -428,52 +336,6 @@ public interface StochasticpetrinetPackage extends EPackage {
 	int SWITCH_TO_OPERATIONAL_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl <em>Route To Failed</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToFailed()
-	 * @generated
-	 */
-	int ROUTE_TO_FAILED = 8;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Route To Failed</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Route To Failed</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RailwayContainerToPetriNetImpl <em>Railway Container To Petri Net</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,7 +343,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRailwayContainerToPetriNet()
 	 * @generated
 	 */
-	int RAILWAY_CONTAINER_TO_PETRI_NET = 9;
+	int RAILWAY_CONTAINER_TO_PETRI_NET = 6;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -520,260 +382,142 @@ public interface StochasticpetrinetPackage extends EPackage {
 	int RAILWAY_CONTAINER_TO_PETRI_NET_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed <em>Sensor To Failed</em>}'.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl <em>Route To Repair</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sensor To Failed</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToRepair()
 	 * @generated
 	 */
-	EClass getSensorToFailed();
+	int ROUTE_TO_REPAIR = 7;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getSource <em>Source</em>}'.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getSource()
-	 * @see #getSensorToFailed()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSensorToFailed_Source();
+	int ROUTE_TO_REPAIR__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getTarget <em>Target</em>}'.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getTarget()
-	 * @see #getSensorToFailed()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSensorToFailed_Target();
+	int ROUTE_TO_REPAIR__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
+	 * The number of structural features of the '<em>Route To Repair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Route To Operational</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
 	 * @generated
+	 * @ordered
 	 */
-	EClass getRouteToOperational();
+	int ROUTE_TO_REPAIR_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getSource <em>Source</em>}'.
+	 * The number of operations of the '<em>Route To Repair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getSource()
-	 * @see #getRouteToOperational()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getRouteToOperational_Source();
+	int ROUTE_TO_REPAIR_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getTarget <em>Target</em>}'.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl <em>Semaphore To Failed</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getTarget()
-	 * @see #getRouteToOperational()
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToFailed()
 	 * @generated
 	 */
-	EReference getRouteToOperational_Target();
+	int SEMAPHORE_TO_FAILED = 8;
 
 	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational <em>Sensor To Operational</em>}'.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sensor To Operational</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational
 	 * @generated
+	 * @ordered
 	 */
-	EClass getSensorToOperational();
+	int SEMAPHORE_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getSource <em>Source</em>}'.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getSource()
-	 * @see #getSensorToOperational()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSensorToOperational_Source();
+	int SEMAPHORE_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getTarget <em>Target</em>}'.
+	 * The number of structural features of the '<em>Semaphore To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getTarget()
-	 * @see #getSensorToOperational()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSensorToOperational_Target();
+	int SEMAPHORE_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed <em>Semaphore To Failed</em>}'.
+	 * The number of operations of the '<em>Semaphore To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Semaphore To Failed</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed
 	 * @generated
+	 * @ordered
 	 */
-	EClass getSemaphoreToFailed();
+	int SEMAPHORE_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getSource <em>Source</em>}'.
+	 * The meta object id for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl <em>Sensor To Failed</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getSource()
-	 * @see #getSemaphoreToFailed()
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToFailed()
 	 * @generated
 	 */
-	EReference getSemaphoreToFailed_Source();
+	int SENSOR_TO_FAILED = 9;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getTarget <em>Target</em>}'.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getTarget()
-	 * @see #getSemaphoreToFailed()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSemaphoreToFailed_Target();
+	int SENSOR_TO_FAILED__SOURCE = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Switch To Failed</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
 	 * @generated
+	 * @ordered
 	 */
-	EClass getSwitchToFailed();
+	int SENSOR_TO_FAILED__TARGET = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getSource <em>Source</em>}'.
+	 * The number of structural features of the '<em>Sensor To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getSource()
-	 * @see #getSwitchToFailed()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSwitchToFailed_Source();
+	int SENSOR_TO_FAILED_FEATURE_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getTarget <em>Target</em>}'.
+	 * The number of operations of the '<em>Sensor To Failed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getTarget()
-	 * @see #getSwitchToFailed()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getSwitchToFailed_Target();
-
-	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Route To Repair</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
-	 * @generated
-	 */
-	EClass getRouteToRepair();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getSource()
-	 * @see #getRouteToRepair()
-	 * @generated
-	 */
-	EReference getRouteToRepair_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getTarget()
-	 * @see #getRouteToRepair()
-	 * @generated
-	 */
-	EReference getRouteToRepair_Target();
-
-	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational <em>Semaphore To Operational</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Semaphore To Operational</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational
-	 * @generated
-	 */
-	EClass getSemaphoreToOperational();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getSource()
-	 * @see #getSemaphoreToOperational()
-	 * @generated
-	 */
-	EReference getSemaphoreToOperational_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getTarget()
-	 * @see #getSemaphoreToOperational()
-	 * @generated
-	 */
-	EReference getSemaphoreToOperational_Target();
-
-	/**
-	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational <em>Switch To Operational</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Switch To Operational</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational
-	 * @generated
-	 */
-	EClass getSwitchToOperational();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getSource()
-	 * @see #getSwitchToOperational()
-	 * @generated
-	 */
-	EReference getSwitchToOperational_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getTarget()
-	 * @see #getSwitchToOperational()
-	 * @generated
-	 */
-	EReference getSwitchToOperational_Target();
+	int SENSOR_TO_FAILED_OPERATION_COUNT = RuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToFailed <em>Route To Failed</em>}'.
@@ -808,6 +552,166 @@ public interface StochasticpetrinetPackage extends EPackage {
 	EReference getRouteToFailed_Target();
 
 	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational <em>Semaphore To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Semaphore To Operational</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational
+	 * @generated
+	 */
+	EClass getSemaphoreToOperational();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getSource()
+	 * @see #getSemaphoreToOperational()
+	 * @generated
+	 */
+	EReference getSemaphoreToOperational_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToOperational#getTarget()
+	 * @see #getSemaphoreToOperational()
+	 * @generated
+	 */
+	EReference getSemaphoreToOperational_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational <em>Sensor To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sensor To Operational</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational
+	 * @generated
+	 */
+	EClass getSensorToOperational();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getSource()
+	 * @see #getSensorToOperational()
+	 * @generated
+	 */
+	EReference getSensorToOperational_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational#getTarget()
+	 * @see #getSensorToOperational()
+	 * @generated
+	 */
+	EReference getSensorToOperational_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route To Operational</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
+	 * @generated
+	 */
+	EClass getRouteToOperational();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getSource()
+	 * @see #getRouteToOperational()
+	 * @generated
+	 */
+	EReference getRouteToOperational_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational#getTarget()
+	 * @see #getRouteToOperational()
+	 * @generated
+	 */
+	EReference getRouteToOperational_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Switch To Failed</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
+	 * @generated
+	 */
+	EClass getSwitchToFailed();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getSource()
+	 * @see #getSwitchToFailed()
+	 * @generated
+	 */
+	EReference getSwitchToFailed_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed#getTarget()
+	 * @see #getSwitchToFailed()
+	 * @generated
+	 */
+	EReference getSwitchToFailed_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational <em>Switch To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Switch To Operational</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational
+	 * @generated
+	 */
+	EClass getSwitchToOperational();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getSource()
+	 * @see #getSwitchToOperational()
+	 * @generated
+	 */
+	EReference getSwitchToOperational_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational#getTarget()
+	 * @see #getSwitchToOperational()
+	 * @generated
+	 */
+	EReference getSwitchToOperational_Target();
+
+	/**
 	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RailwayContainerToPetriNet <em>Railway Container To Petri Net</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -840,6 +744,102 @@ public interface StochasticpetrinetPackage extends EPackage {
 	EReference getRailwayContainerToPetriNet_Target();
 
 	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route To Repair</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
+	 * @generated
+	 */
+	EClass getRouteToRepair();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getSource()
+	 * @see #getRouteToRepair()
+	 * @generated
+	 */
+	EReference getRouteToRepair_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair#getTarget()
+	 * @see #getRouteToRepair()
+	 * @generated
+	 */
+	EReference getRouteToRepair_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed <em>Semaphore To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Semaphore To Failed</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed
+	 * @generated
+	 */
+	EClass getSemaphoreToFailed();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getSource()
+	 * @see #getSemaphoreToFailed()
+	 * @generated
+	 */
+	EReference getSemaphoreToFailed_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed#getTarget()
+	 * @see #getSemaphoreToFailed()
+	 * @generated
+	 */
+	EReference getSemaphoreToFailed_Target();
+
+	/**
+	 * Returns the meta object for class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed <em>Sensor To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sensor To Failed</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed
+	 * @generated
+	 */
+	EClass getSensorToFailed();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getSource()
+	 * @see #getSensorToFailed()
+	 * @generated
+	 */
+	EReference getSensorToFailed_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed#getTarget()
+	 * @see #getSensorToFailed()
+	 * @generated
+	 */
+	EReference getSensorToFailed_Target();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,14 +863,14 @@ public interface StochasticpetrinetPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl <em>Sensor To Failed</em>}' class.
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl <em>Route To Failed</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToFailed()
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToFailed()
 		 * @generated
 		 */
-		EClass SENSOR_TO_FAILED = eINSTANCE.getSensorToFailed();
+		EClass ROUTE_TO_FAILED = eINSTANCE.getRouteToFailed();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -878,7 +878,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SENSOR_TO_FAILED__SOURCE = eINSTANCE.getSensorToFailed_Source();
+		EReference ROUTE_TO_FAILED__SOURCE = eINSTANCE.getRouteToFailed_Source();
 
 		/**
 		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
@@ -886,137 +886,7 @@ public interface StochasticpetrinetPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SENSOR_TO_FAILED__TARGET = eINSTANCE.getSensorToFailed_Target();
-
-		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl <em>Route To Operational</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToOperational()
-		 * @generated
-		 */
-		EClass ROUTE_TO_OPERATIONAL = eINSTANCE.getRouteToOperational();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_OPERATIONAL__SOURCE = eINSTANCE.getRouteToOperational_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_OPERATIONAL__TARGET = eINSTANCE.getRouteToOperational_Target();
-
-		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToOperationalImpl <em>Sensor To Operational</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToOperationalImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToOperational()
-		 * @generated
-		 */
-		EClass SENSOR_TO_OPERATIONAL = eINSTANCE.getSensorToOperational();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SENSOR_TO_OPERATIONAL__SOURCE = eINSTANCE.getSensorToOperational_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SENSOR_TO_OPERATIONAL__TARGET = eINSTANCE.getSensorToOperational_Target();
-
-		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl <em>Semaphore To Failed</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToFailed()
-		 * @generated
-		 */
-		EClass SEMAPHORE_TO_FAILED = eINSTANCE.getSemaphoreToFailed();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMAPHORE_TO_FAILED__SOURCE = eINSTANCE.getSemaphoreToFailed_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMAPHORE_TO_FAILED__TARGET = eINSTANCE.getSemaphoreToFailed_Target();
-
-		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToFailedImpl <em>Switch To Failed</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToFailedImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSwitchToFailed()
-		 * @generated
-		 */
-		EClass SWITCH_TO_FAILED = eINSTANCE.getSwitchToFailed();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SWITCH_TO_FAILED__SOURCE = eINSTANCE.getSwitchToFailed_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SWITCH_TO_FAILED__TARGET = eINSTANCE.getSwitchToFailed_Target();
-
-		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl <em>Route To Repair</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToRepair()
-		 * @generated
-		 */
-		EClass ROUTE_TO_REPAIR = eINSTANCE.getRouteToRepair();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_REPAIR__SOURCE = eINSTANCE.getRouteToRepair_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_REPAIR__TARGET = eINSTANCE.getRouteToRepair_Target();
+		EReference ROUTE_TO_FAILED__TARGET = eINSTANCE.getRouteToFailed_Target();
 
 		/**
 		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToOperationalImpl <em>Semaphore To Operational</em>}' class.
@@ -1045,6 +915,84 @@ public interface StochasticpetrinetPackage extends EPackage {
 		EReference SEMAPHORE_TO_OPERATIONAL__TARGET = eINSTANCE.getSemaphoreToOperational_Target();
 
 		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToOperationalImpl <em>Sensor To Operational</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToOperationalImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToOperational()
+		 * @generated
+		 */
+		EClass SENSOR_TO_OPERATIONAL = eINSTANCE.getSensorToOperational();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR_TO_OPERATIONAL__SOURCE = eINSTANCE.getSensorToOperational_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR_TO_OPERATIONAL__TARGET = eINSTANCE.getSensorToOperational_Target();
+
+		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl <em>Route To Operational</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToOperationalImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToOperational()
+		 * @generated
+		 */
+		EClass ROUTE_TO_OPERATIONAL = eINSTANCE.getRouteToOperational();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTE_TO_OPERATIONAL__SOURCE = eINSTANCE.getRouteToOperational_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTE_TO_OPERATIONAL__TARGET = eINSTANCE.getRouteToOperational_Target();
+
+		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToFailedImpl <em>Switch To Failed</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToFailedImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSwitchToFailed()
+		 * @generated
+		 */
+		EClass SWITCH_TO_FAILED = eINSTANCE.getSwitchToFailed();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SWITCH_TO_FAILED__SOURCE = eINSTANCE.getSwitchToFailed_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SWITCH_TO_FAILED__TARGET = eINSTANCE.getSwitchToFailed_Target();
+
+		/**
 		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SwitchToOperationalImpl <em>Switch To Operational</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1071,32 +1019,6 @@ public interface StochasticpetrinetPackage extends EPackage {
 		EReference SWITCH_TO_OPERATIONAL__TARGET = eINSTANCE.getSwitchToOperational_Target();
 
 		/**
-		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl <em>Route To Failed</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToFailedImpl
-		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToFailed()
-		 * @generated
-		 */
-		EClass ROUTE_TO_FAILED = eINSTANCE.getRouteToFailed();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_FAILED__SOURCE = eINSTANCE.getRouteToFailed_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTE_TO_FAILED__TARGET = eINSTANCE.getRouteToFailed_Target();
-
-		/**
 		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RailwayContainerToPetriNetImpl <em>Railway Container To Petri Net</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1121,6 +1043,84 @@ public interface StochasticpetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RAILWAY_CONTAINER_TO_PETRI_NET__TARGET = eINSTANCE.getRailwayContainerToPetriNet_Target();
+
+		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl <em>Route To Repair</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.RouteToRepairImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getRouteToRepair()
+		 * @generated
+		 */
+		EClass ROUTE_TO_REPAIR = eINSTANCE.getRouteToRepair();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTE_TO_REPAIR__SOURCE = eINSTANCE.getRouteToRepair_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTE_TO_REPAIR__TARGET = eINSTANCE.getRouteToRepair_Target();
+
+		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl <em>Semaphore To Failed</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SemaphoreToFailedImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSemaphoreToFailed()
+		 * @generated
+		 */
+		EClass SEMAPHORE_TO_FAILED = eINSTANCE.getSemaphoreToFailed();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMAPHORE_TO_FAILED__SOURCE = eINSTANCE.getSemaphoreToFailed_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMAPHORE_TO_FAILED__TARGET = eINSTANCE.getSemaphoreToFailed_Target();
+
+		/**
+		 * The meta object literal for the '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl <em>Sensor To Failed</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.SensorToFailedImpl
+		 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl.StochasticpetrinetPackageImpl#getSensorToFailed()
+		 * @generated
+		 */
+		EClass SENSOR_TO_FAILED = eINSTANCE.getSensorToFailed();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR_TO_FAILED__SOURCE = eINSTANCE.getSensorToFailed_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR_TO_FAILED__TARGET = eINSTANCE.getSensorToFailed_Target();
 
 	}
 

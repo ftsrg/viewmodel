@@ -69,33 +69,8 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected StochasticpetrinetSwitch<Adapter> modelSwitch = new StochasticpetrinetSwitch<Adapter>() {
 		@Override
-		public Adapter caseSensorToFailed(SensorToFailed object) {
-			return createSensorToFailedAdapter();
-		}
-
-		@Override
-		public Adapter caseRouteToOperational(RouteToOperational object) {
-			return createRouteToOperationalAdapter();
-		}
-
-		@Override
-		public Adapter caseSensorToOperational(SensorToOperational object) {
-			return createSensorToOperationalAdapter();
-		}
-
-		@Override
-		public Adapter caseSemaphoreToFailed(SemaphoreToFailed object) {
-			return createSemaphoreToFailedAdapter();
-		}
-
-		@Override
-		public Adapter caseSwitchToFailed(SwitchToFailed object) {
-			return createSwitchToFailedAdapter();
-		}
-
-		@Override
-		public Adapter caseRouteToRepair(RouteToRepair object) {
-			return createRouteToRepairAdapter();
+		public Adapter caseRouteToFailed(RouteToFailed object) {
+			return createRouteToFailedAdapter();
 		}
 
 		@Override
@@ -104,18 +79,43 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSensorToOperational(SensorToOperational object) {
+			return createSensorToOperationalAdapter();
+		}
+
+		@Override
+		public Adapter caseRouteToOperational(RouteToOperational object) {
+			return createRouteToOperationalAdapter();
+		}
+
+		@Override
+		public Adapter caseSwitchToFailed(SwitchToFailed object) {
+			return createSwitchToFailedAdapter();
+		}
+
+		@Override
 		public Adapter caseSwitchToOperational(SwitchToOperational object) {
 			return createSwitchToOperationalAdapter();
 		}
 
 		@Override
-		public Adapter caseRouteToFailed(RouteToFailed object) {
-			return createRouteToFailedAdapter();
+		public Adapter caseRailwayContainerToPetriNet(RailwayContainerToPetriNet object) {
+			return createRailwayContainerToPetriNetAdapter();
 		}
 
 		@Override
-		public Adapter caseRailwayContainerToPetriNet(RailwayContainerToPetriNet object) {
-			return createRailwayContainerToPetriNetAdapter();
+		public Adapter caseRouteToRepair(RouteToRepair object) {
+			return createRouteToRepairAdapter();
+		}
+
+		@Override
+		public Adapter caseSemaphoreToFailed(SemaphoreToFailed object) {
+			return createSemaphoreToFailedAdapter();
+		}
+
+		@Override
+		public Adapter caseSensorToFailed(SensorToFailed object) {
+			return createSensorToFailedAdapter();
 		}
 
 		@Override
@@ -143,86 +143,16 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed <em>Sensor To Failed</em>}'.
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToFailed <em>Route To Failed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToFailed
 	 * @generated
 	 */
-	public Adapter createSensorToFailedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
-	 * @generated
-	 */
-	public Adapter createRouteToOperationalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational <em>Sensor To Operational</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational
-	 * @generated
-	 */
-	public Adapter createSensorToOperationalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed <em>Semaphore To Failed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed
-	 * @generated
-	 */
-	public Adapter createSemaphoreToFailedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
-	 * @generated
-	 */
-	public Adapter createSwitchToFailedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
-	 * @generated
-	 */
-	public Adapter createRouteToRepairAdapter() {
+	public Adapter createRouteToFailedAdapter() {
 		return null;
 	}
 
@@ -241,6 +171,48 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational <em>Sensor To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToOperational
+	 * @generated
+	 */
+	public Adapter createSensorToOperationalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational <em>Route To Operational</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToOperational
+	 * @generated
+	 */
+	public Adapter createRouteToOperationalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed <em>Switch To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToFailed
+	 * @generated
+	 */
+	public Adapter createSwitchToFailedAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SwitchToOperational <em>Switch To Operational</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -255,20 +227,6 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToFailed <em>Route To Failed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToFailed
-	 * @generated
-	 */
-	public Adapter createRouteToFailedAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RailwayContainerToPetriNet <em>Railway Container To Petri Net</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -279,6 +237,48 @@ public class StochasticpetrinetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRailwayContainerToPetriNetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair <em>Route To Repair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.RouteToRepair
+	 * @generated
+	 */
+	public Adapter createRouteToRepairAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed <em>Semaphore To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SemaphoreToFailed
+	 * @generated
+	 */
+	public Adapter createSemaphoreToFailedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed <em>Sensor To Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.SensorToFailed
+	 * @generated
+	 */
+	public Adapter createSensorToFailedAdapter() {
 		return null;
 	}
 

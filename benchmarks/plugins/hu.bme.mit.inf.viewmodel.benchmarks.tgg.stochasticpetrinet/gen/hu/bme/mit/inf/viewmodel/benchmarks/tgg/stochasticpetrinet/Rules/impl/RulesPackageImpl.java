@@ -40,56 +40,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass routeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass regionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass switchEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass railwayContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass switchPositionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass semaphoreEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sensorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass requiredSwitchEClass = null;
+	private EClass sensorMonitorsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,7 +54,21 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass segmentEClass = null;
+	private EClass railwayContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requiredExitSemaphoreEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +82,42 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sensorMonitorsEClass = null;
+	private EClass regionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requiredSwitchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass segmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchPositionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,7 +131,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass requiredExitSemaphoreEClass = null;
+	private EClass semaphoreEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,12 +214,12 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRoute() {
-		if (routeEClass == null) {
-			routeEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(0);
+	public EClass getSensorMonitors() {
+		if (sensorMonitorsEClass == null) {
+			sensorMonitorsEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
+					.getEClassifiers().get(0);
 		}
-		return routeEClass;
+		return sensorMonitorsEClass;
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsAppropriate_FWD__Match_RailwayContainer_Route() {
-		return getRoute().getEOperations().get(0);
+	public EOperation getSensorMonitors__IsAppropriate_FWD__Match_Sensor_TrackElement() {
+		return getSensorMonitors().getEOperations().get(0);
 	}
 
 	/**
@@ -236,8 +236,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__Perform_FWD__IsApplicableMatch() {
-		return getRoute().getEOperations().get(1);
+	public EOperation getSensorMonitors__Perform_FWD__IsApplicableMatch() {
+		return getSensorMonitors().getEOperations().get(1);
 	}
 
 	/**
@@ -245,8 +245,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsApplicable_FWD__Match() {
-		return getRoute().getEOperations().get(2);
+	public EOperation getSensorMonitors__IsApplicable_FWD__Match() {
+		return getSensorMonitors().getEOperations().get(2);
 	}
 
 	/**
@@ -254,8 +254,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Route() {
-		return getRoute().getEOperations().get(3);
+	public EOperation getSensorMonitors__RegisterObjectsToMatch_FWD__Match_Sensor_TrackElement() {
+		return getSensorMonitors().getEOperations().get(3);
 	}
 
 	/**
@@ -263,8 +263,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Route() {
-		return getRoute().getEOperations().get(4);
+	public EOperation getSensorMonitors__IsAppropriate_solveCsp_FWD__Match_Sensor_TrackElement() {
+		return getSensorMonitors().getEOperations().get(4);
 	}
 
 	/**
@@ -272,8 +272,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsAppropriate_checkCsp_FWD__CSP() {
-		return getRoute().getEOperations().get(5);
+	public EOperation getSensorMonitors__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSensorMonitors().getEOperations().get(5);
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainer_RailwayContainerToPetriNet_PetriNet_Route() {
-		return getRoute().getEOperations().get(6);
+	public EOperation getSensorMonitors__IsApplicable_solveCsp_FWD__IsApplicableMatch_Sensor_TrackElement() {
+		return getSensorMonitors().getEOperations().get(6);
 	}
 
 	/**
@@ -290,8 +290,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsApplicable_checkCsp_FWD__CSP() {
-		return getRoute().getEOperations().get(7);
+	public EOperation getSensorMonitors__IsApplicable_checkCsp_FWD__CSP() {
+		return getSensorMonitors().getEOperations().get(7);
 	}
 
 	/**
@@ -299,8 +299,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getRoute().getEOperations().get(8);
+	public EOperation getSensorMonitors__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
+		return getSensorMonitors().getEOperations().get(8);
 	}
 
 	/**
@@ -308,8 +308,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__CheckTypes_FWD__Match() {
-		return getRoute().getEOperations().get(9);
+	public EOperation getSensorMonitors__CheckTypes_FWD__Match() {
+		return getSensorMonitors().getEOperations().get(9);
 	}
 
 	/**
@@ -317,8 +317,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsAppropriate_FWD_EMoflonEdge_13__EMoflonEdge() {
-		return getRoute().getEOperations().get(10);
+	public EOperation getSensorMonitors__IsAppropriate_FWD_EMoflonEdge_0__EMoflonEdge() {
+		return getSensorMonitors().getEOperations().get(10);
 	}
 
 	/**
@@ -326,8 +326,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__CheckAttributes_FWD__TripleMatch() {
-		return getRoute().getEOperations().get(11);
+	public EOperation getSensorMonitors__CheckAttributes_FWD__TripleMatch() {
+		return getSensorMonitors().getEOperations().get(11);
 	}
 
 	/**
@@ -335,8 +335,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__IsApplicable_CC__Match_Match() {
-		return getRoute().getEOperations().get(12);
+	public EOperation getSensorMonitors__IsApplicable_CC__Match_Match() {
+		return getSensorMonitors().getEOperations().get(12);
 	}
 
 	/**
@@ -344,8 +344,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoute__CheckDEC_FWD__RailwayContainer_Route() {
-		return getRoute().getEOperations().get(13);
+	public EOperation getSensorMonitors__CheckDEC_FWD__Sensor_TrackElement() {
+		return getSensorMonitors().getEOperations().get(13);
 	}
 
 	/**
@@ -353,12 +353,12 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRegion() {
-		if (regionEClass == null) {
-			regionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(1);
+	public EClass getRequiredSensor() {
+		if (requiredSensorEClass == null) {
+			requiredSensorEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
+					.getEClassifiers().get(1);
 		}
-		return regionEClass;
+		return requiredSensorEClass;
 	}
 
 	/**
@@ -366,8 +366,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsAppropriate_FWD__Match_Region_RailwayContainer() {
-		return getRegion().getEOperations().get(0);
+	public EOperation getRequiredSensor__IsAppropriate_FWD__Match_RailwayContainer_Route_Sensor() {
+		return getRequiredSensor().getEOperations().get(0);
 	}
 
 	/**
@@ -375,8 +375,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__Perform_FWD__IsApplicableMatch() {
-		return getRegion().getEOperations().get(1);
+	public EOperation getRequiredSensor__Perform_FWD__IsApplicableMatch() {
+		return getRequiredSensor().getEOperations().get(1);
 	}
 
 	/**
@@ -384,8 +384,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsApplicable_FWD__Match() {
-		return getRegion().getEOperations().get(2);
+	public EOperation getRequiredSensor__IsApplicable_FWD__Match() {
+		return getRequiredSensor().getEOperations().get(2);
 	}
 
 	/**
@@ -393,8 +393,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__RegisterObjectsToMatch_FWD__Match_Region_RailwayContainer() {
-		return getRegion().getEOperations().get(3);
+	public EOperation getRequiredSensor__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Route_Sensor() {
+		return getRequiredSensor().getEOperations().get(3);
 	}
 
 	/**
@@ -402,8 +402,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsAppropriate_solveCsp_FWD__Match_Region_RailwayContainer() {
-		return getRegion().getEOperations().get(4);
+	public EOperation getRequiredSensor__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Route_Sensor() {
+		return getRequiredSensor().getEOperations().get(4);
 	}
 
 	/**
@@ -411,8 +411,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsAppropriate_checkCsp_FWD__CSP() {
-		return getRegion().getEOperations().get(5);
+	public EOperation getRequiredSensor__IsAppropriate_checkCsp_FWD__CSP() {
+		return getRequiredSensor().getEOperations().get(5);
 	}
 
 	/**
@@ -420,8 +420,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsApplicable_solveCsp_FWD__IsApplicableMatch_Region_RailwayContainer() {
-		return getRegion().getEOperations().get(6);
+	public EOperation getRequiredSensor__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainer_RouteToOperational_Place_RouteToRepair_PetriNet_SensorToOperational_Route_SensorToFailed_RailwayContainerToPetriNet_Sensor_Transition_Place_Place_RouteToFailed_Place() {
+		return getRequiredSensor().getEOperations().get(6);
 	}
 
 	/**
@@ -429,8 +429,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsApplicable_checkCsp_FWD__CSP() {
-		return getRegion().getEOperations().get(7);
+	public EOperation getRequiredSensor__IsApplicable_checkCsp_FWD__CSP() {
+		return getRequiredSensor().getEOperations().get(7);
 	}
 
 	/**
@@ -438,8 +438,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
-		return getRegion().getEOperations().get(8);
+	public EOperation getRequiredSensor__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getRequiredSensor().getEOperations().get(8);
 	}
 
 	/**
@@ -447,8 +447,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__CheckTypes_FWD__Match() {
-		return getRegion().getEOperations().get(9);
+	public EOperation getRequiredSensor__CheckTypes_FWD__Match() {
+		return getRequiredSensor().getEOperations().get(9);
 	}
 
 	/**
@@ -456,8 +456,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsAppropriate_FWD_EMoflonEdge_14__EMoflonEdge() {
-		return getRegion().getEOperations().get(10);
+	public EOperation getRequiredSensor__IsAppropriate_FWD_EMoflonEdge_1__EMoflonEdge() {
+		return getRequiredSensor().getEOperations().get(10);
 	}
 
 	/**
@@ -465,8 +465,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__CheckAttributes_FWD__TripleMatch() {
-		return getRegion().getEOperations().get(11);
+	public EOperation getRequiredSensor__CheckAttributes_FWD__TripleMatch() {
+		return getRequiredSensor().getEOperations().get(11);
 	}
 
 	/**
@@ -474,8 +474,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__IsApplicable_CC__Match_Match() {
-		return getRegion().getEOperations().get(12);
+	public EOperation getRequiredSensor__IsApplicable_CC__Match_Match() {
+		return getRequiredSensor().getEOperations().get(12);
 	}
 
 	/**
@@ -483,147 +483,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRegion__CheckDEC_FWD__Region_RailwayContainer() {
-		return getRegion().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSwitch() {
-		if (switchEClass == null) {
-			switchEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(2);
-		}
-		return switchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsAppropriate_FWD__Match_Switch_RailwayContainer_Region() {
-		return getSwitch().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__Perform_FWD__IsApplicableMatch() {
-		return getSwitch().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsApplicable_FWD__Match() {
-		return getSwitch().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__RegisterObjectsToMatch_FWD__Match_Switch_RailwayContainer_Region() {
-		return getSwitch().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsAppropriate_solveCsp_FWD__Match_Switch_RailwayContainer_Region() {
-		return getSwitch().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSwitch().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsApplicable_solveCsp_FWD__IsApplicableMatch_PetriNet_RailwayContainerToPetriNet_Switch_RailwayContainer_Region() {
-		return getSwitch().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsApplicable_checkCsp_FWD__CSP() {
-		return getSwitch().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getSwitch().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__CheckTypes_FWD__Match() {
-		return getSwitch().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsAppropriate_FWD_EMoflonEdge_15__EMoflonEdge() {
-		return getSwitch().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__CheckAttributes_FWD__TripleMatch() {
-		return getSwitch().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__IsApplicable_CC__Match_Match() {
-		return getSwitch().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSwitch__CheckDEC_FWD__Switch_RailwayContainer_Region() {
-		return getSwitch().getEOperations().get(13);
+	public EOperation getRequiredSensor__CheckDEC_FWD__RailwayContainer_Route_Sensor() {
+		return getRequiredSensor().getEOperations().get(13);
 	}
 
 	/**
@@ -634,7 +495,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getRailwayContainer() {
 		if (railwayContainerEClass == null) {
 			railwayContainerEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(3);
+					.getEClassifiers().get(2);
 		}
 		return railwayContainerEClass;
 	}
@@ -734,7 +595,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRailwayContainer__IsAppropriate_FWD_RailwayContainer_1__RailwayContainer() {
+	public EOperation getRailwayContainer__IsAppropriate_FWD_RailwayContainer_0__RailwayContainer() {
 		return getRailwayContainer().getEOperations().get(10);
 	}
 
@@ -770,12 +631,12 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSwitchPosition() {
-		if (switchPositionEClass == null) {
-			switchPositionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(4);
+	public EClass getRequiredExitSemaphore() {
+		if (requiredExitSemaphoreEClass == null) {
+			requiredExitSemaphoreEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
+					.getEClassifiers().get(3);
 		}
-		return switchPositionEClass;
+		return requiredExitSemaphoreEClass;
 	}
 
 	/**
@@ -783,8 +644,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsAppropriate_FWD__Match_SwitchPosition_Switch() {
-		return getSwitchPosition().getEOperations().get(0);
+	public EOperation getRequiredExitSemaphore__IsAppropriate_FWD__Match_Semaphore_Route_RailwayContainer() {
+		return getRequiredExitSemaphore().getEOperations().get(0);
 	}
 
 	/**
@@ -792,8 +653,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__Perform_FWD__IsApplicableMatch() {
-		return getSwitchPosition().getEOperations().get(1);
+	public EOperation getRequiredExitSemaphore__Perform_FWD__IsApplicableMatch() {
+		return getRequiredExitSemaphore().getEOperations().get(1);
 	}
 
 	/**
@@ -801,8 +662,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsApplicable_FWD__Match() {
-		return getSwitchPosition().getEOperations().get(2);
+	public EOperation getRequiredExitSemaphore__IsApplicable_FWD__Match() {
+		return getRequiredExitSemaphore().getEOperations().get(2);
 	}
 
 	/**
@@ -810,8 +671,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__RegisterObjectsToMatch_FWD__Match_SwitchPosition_Switch() {
-		return getSwitchPosition().getEOperations().get(3);
+	public EOperation getRequiredExitSemaphore__RegisterObjectsToMatch_FWD__Match_Semaphore_Route_RailwayContainer() {
+		return getRequiredExitSemaphore().getEOperations().get(3);
 	}
 
 	/**
@@ -819,8 +680,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsAppropriate_solveCsp_FWD__Match_SwitchPosition_Switch() {
-		return getSwitchPosition().getEOperations().get(4);
+	public EOperation getRequiredExitSemaphore__IsAppropriate_solveCsp_FWD__Match_Semaphore_Route_RailwayContainer() {
+		return getRequiredExitSemaphore().getEOperations().get(4);
 	}
 
 	/**
@@ -828,8 +689,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSwitchPosition().getEOperations().get(5);
+	public EOperation getRequiredExitSemaphore__IsAppropriate_checkCsp_FWD__CSP() {
+		return getRequiredExitSemaphore().getEOperations().get(5);
 	}
 
 	/**
@@ -837,8 +698,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsApplicable_solveCsp_FWD__IsApplicableMatch_SwitchPosition_Switch() {
-		return getSwitchPosition().getEOperations().get(6);
+	public EOperation getRequiredExitSemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_Semaphore_Route_Transition_RailwayContainer_Place_Place_Place_SemaphoreToFailed_RailwayContainerToPetriNet_SemaphoreToOperational_Place_RouteToFailed_PetriNet_RouteToRepair_RouteToOperational() {
+		return getRequiredExitSemaphore().getEOperations().get(6);
 	}
 
 	/**
@@ -846,8 +707,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsApplicable_checkCsp_FWD__CSP() {
-		return getSwitchPosition().getEOperations().get(7);
+	public EOperation getRequiredExitSemaphore__IsApplicable_checkCsp_FWD__CSP() {
+		return getRequiredExitSemaphore().getEOperations().get(7);
 	}
 
 	/**
@@ -855,8 +716,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
-		return getSwitchPosition().getEOperations().get(8);
+	public EOperation getRequiredExitSemaphore__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getRequiredExitSemaphore().getEOperations().get(8);
 	}
 
 	/**
@@ -864,8 +725,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__CheckTypes_FWD__Match() {
-		return getSwitchPosition().getEOperations().get(9);
+	public EOperation getRequiredExitSemaphore__CheckTypes_FWD__Match() {
+		return getRequiredExitSemaphore().getEOperations().get(9);
 	}
 
 	/**
@@ -873,8 +734,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsAppropriate_FWD_EMoflonEdge_16__EMoflonEdge() {
-		return getSwitchPosition().getEOperations().get(10);
+	public EOperation getRequiredExitSemaphore__IsAppropriate_FWD_EMoflonEdge_2__EMoflonEdge() {
+		return getRequiredExitSemaphore().getEOperations().get(10);
 	}
 
 	/**
@@ -882,8 +743,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__CheckAttributes_FWD__TripleMatch() {
-		return getSwitchPosition().getEOperations().get(11);
+	public EOperation getRequiredExitSemaphore__CheckAttributes_FWD__TripleMatch() {
+		return getRequiredExitSemaphore().getEOperations().get(11);
 	}
 
 	/**
@@ -891,8 +752,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__IsApplicable_CC__Match_Match() {
-		return getSwitchPosition().getEOperations().get(12);
+	public EOperation getRequiredExitSemaphore__IsApplicable_CC__Match_Match() {
+		return getRequiredExitSemaphore().getEOperations().get(12);
 	}
 
 	/**
@@ -900,8 +761,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSwitchPosition__CheckDEC_FWD__SwitchPosition_Switch() {
-		return getSwitchPosition().getEOperations().get(13);
+	public EOperation getRequiredExitSemaphore__CheckDEC_FWD__Semaphore_Route_RailwayContainer() {
+		return getRequiredExitSemaphore().getEOperations().get(13);
 	}
 
 	/**
@@ -909,12 +770,12 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSemaphore() {
-		if (semaphoreEClass == null) {
-			semaphoreEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(5);
+	public EClass getSwitch() {
+		if (switchEClass == null) {
+			switchEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(4);
 		}
-		return semaphoreEClass;
+		return switchEClass;
 	}
 
 	/**
@@ -922,8 +783,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsAppropriate_FWD__Match_Region_Semaphore_RailwayContainer_Segment() {
-		return getSemaphore().getEOperations().get(0);
+	public EOperation getSwitch__IsAppropriate_FWD__Match_RailwayContainer_Region_Switch() {
+		return getSwitch().getEOperations().get(0);
 	}
 
 	/**
@@ -931,8 +792,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__Perform_FWD__IsApplicableMatch() {
-		return getSemaphore().getEOperations().get(1);
+	public EOperation getSwitch__Perform_FWD__IsApplicableMatch() {
+		return getSwitch().getEOperations().get(1);
 	}
 
 	/**
@@ -940,8 +801,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsApplicable_FWD__Match() {
-		return getSemaphore().getEOperations().get(2);
+	public EOperation getSwitch__IsApplicable_FWD__Match() {
+		return getSwitch().getEOperations().get(2);
 	}
 
 	/**
@@ -949,8 +810,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__RegisterObjectsToMatch_FWD__Match_Region_Semaphore_RailwayContainer_Segment() {
-		return getSemaphore().getEOperations().get(3);
+	public EOperation getSwitch__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Region_Switch() {
+		return getSwitch().getEOperations().get(3);
 	}
 
 	/**
@@ -958,8 +819,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsAppropriate_solveCsp_FWD__Match_Region_Semaphore_RailwayContainer_Segment() {
-		return getSemaphore().getEOperations().get(4);
+	public EOperation getSwitch__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Region_Switch() {
+		return getSwitch().getEOperations().get(4);
 	}
 
 	/**
@@ -967,8 +828,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSemaphore().getEOperations().get(5);
+	public EOperation getSwitch__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSwitch().getEOperations().get(5);
 	}
 
 	/**
@@ -976,8 +837,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_Region_Semaphore_RailwayContainerToPetriNet_RailwayContainer_Segment_PetriNet() {
-		return getSemaphore().getEOperations().get(6);
+	public EOperation getSwitch__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainer_RailwayContainerToPetriNet_Region_Switch_PetriNet() {
+		return getSwitch().getEOperations().get(6);
 	}
 
 	/**
@@ -985,8 +846,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsApplicable_checkCsp_FWD__CSP() {
-		return getSemaphore().getEOperations().get(7);
+	public EOperation getSwitch__IsApplicable_checkCsp_FWD__CSP() {
+		return getSwitch().getEOperations().get(7);
 	}
 
 	/**
@@ -994,8 +855,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getSemaphore().getEOperations().get(8);
+	public EOperation getSwitch__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getSwitch().getEOperations().get(8);
 	}
 
 	/**
@@ -1003,8 +864,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__CheckTypes_FWD__Match() {
-		return getSemaphore().getEOperations().get(9);
+	public EOperation getSwitch__CheckTypes_FWD__Match() {
+		return getSwitch().getEOperations().get(9);
 	}
 
 	/**
@@ -1012,8 +873,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsAppropriate_FWD_EMoflonEdge_17__EMoflonEdge() {
-		return getSemaphore().getEOperations().get(10);
+	public EOperation getSwitch__IsAppropriate_FWD_EMoflonEdge_3__EMoflonEdge() {
+		return getSwitch().getEOperations().get(10);
 	}
 
 	/**
@@ -1021,8 +882,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__CheckAttributes_FWD__TripleMatch() {
-		return getSemaphore().getEOperations().get(11);
+	public EOperation getSwitch__CheckAttributes_FWD__TripleMatch() {
+		return getSwitch().getEOperations().get(11);
 	}
 
 	/**
@@ -1030,8 +891,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__IsApplicable_CC__Match_Match() {
-		return getSemaphore().getEOperations().get(12);
+	public EOperation getSwitch__IsApplicable_CC__Match_Match() {
+		return getSwitch().getEOperations().get(12);
 	}
 
 	/**
@@ -1039,564 +900,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSemaphore__CheckDEC_FWD__Region_Semaphore_RailwayContainer_Segment() {
-		return getSemaphore().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSensor() {
-		if (sensorEClass == null) {
-			sensorEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(6);
-		}
-		return sensorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsAppropriate_FWD__Match_Sensor_Region_RailwayContainer() {
-		return getSensor().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__Perform_FWD__IsApplicableMatch() {
-		return getSensor().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsApplicable_FWD__Match() {
-		return getSensor().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__RegisterObjectsToMatch_FWD__Match_Sensor_Region_RailwayContainer() {
-		return getSensor().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsAppropriate_solveCsp_FWD__Match_Sensor_Region_RailwayContainer() {
-		return getSensor().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSensor().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainerToPetriNet_Sensor_Region_PetriNet_RailwayContainer() {
-		return getSensor().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsApplicable_checkCsp_FWD__CSP() {
-		return getSensor().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getSensor().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__CheckTypes_FWD__Match() {
-		return getSensor().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsAppropriate_FWD_EMoflonEdge_18__EMoflonEdge() {
-		return getSensor().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__CheckAttributes_FWD__TripleMatch() {
-		return getSensor().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__IsApplicable_CC__Match_Match() {
-		return getSensor().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSensor__CheckDEC_FWD__Sensor_Region_RailwayContainer() {
-		return getSensor().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRequiredSwitch() {
-		if (requiredSwitchEClass == null) {
-			requiredSwitchEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(7);
-		}
-		return requiredSwitchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsAppropriate_FWD__Match_SwitchPosition_RailwayContainer_Route_Switch() {
-		return getRequiredSwitch().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__Perform_FWD__IsApplicableMatch() {
-		return getRequiredSwitch().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsApplicable_FWD__Match() {
-		return getRequiredSwitch().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__RegisterObjectsToMatch_FWD__Match_SwitchPosition_RailwayContainer_Route_Switch() {
-		return getRequiredSwitch().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsAppropriate_solveCsp_FWD__Match_SwitchPosition_RailwayContainer_Route_Switch() {
-		return getRequiredSwitch().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsAppropriate_checkCsp_FWD__CSP() {
-		return getRequiredSwitch().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsApplicable_solveCsp_FWD__IsApplicableMatch_PetriNet_Place_Place_Place_SwitchToOperational_RouteToRepair_RailwayContainerToPetriNet_SwitchToFailed_Place_RouteToFailed_RouteToOperational_SwitchPosition_RailwayContainer_Route_Transition_Switch() {
-		return getRequiredSwitch().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsApplicable_checkCsp_FWD__CSP() {
-		return getRequiredSwitch().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getRequiredSwitch().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__CheckTypes_FWD__Match() {
-		return getRequiredSwitch().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsAppropriate_FWD_EMoflonEdge_19__EMoflonEdge() {
-		return getRequiredSwitch().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__CheckAttributes_FWD__TripleMatch() {
-		return getRequiredSwitch().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__IsApplicable_CC__Match_Match() {
-		return getRequiredSwitch().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSwitch__CheckDEC_FWD__SwitchPosition_RailwayContainer_Route_Switch() {
-		return getRequiredSwitch().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRequiredSensor() {
-		if (requiredSensorEClass == null) {
-			requiredSensorEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(8);
-		}
-		return requiredSensorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsAppropriate_FWD__Match_Sensor_Route_RailwayContainer() {
-		return getRequiredSensor().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__Perform_FWD__IsApplicableMatch() {
-		return getRequiredSensor().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsApplicable_FWD__Match() {
-		return getRequiredSensor().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__RegisterObjectsToMatch_FWD__Match_Sensor_Route_RailwayContainer() {
-		return getRequiredSensor().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsAppropriate_solveCsp_FWD__Match_Sensor_Route_RailwayContainer() {
-		return getRequiredSensor().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsAppropriate_checkCsp_FWD__CSP() {
-		return getRequiredSensor().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsApplicable_solveCsp_FWD__IsApplicableMatch_PetriNet_Place_Place_RouteToFailed_RouteToRepair_SensorToFailed_Sensor_Route_SensorToOperational_Place_RailwayContainerToPetriNet_RouteToOperational_Transition_RailwayContainer_Place() {
-		return getRequiredSensor().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsApplicable_checkCsp_FWD__CSP() {
-		return getRequiredSensor().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getRequiredSensor().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__CheckTypes_FWD__Match() {
-		return getRequiredSensor().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsAppropriate_FWD_EMoflonEdge_20__EMoflonEdge() {
-		return getRequiredSensor().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__CheckAttributes_FWD__TripleMatch() {
-		return getRequiredSensor().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__IsApplicable_CC__Match_Match() {
-		return getRequiredSensor().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRequiredSensor__CheckDEC_FWD__Sensor_Route_RailwayContainer() {
-		return getRequiredSensor().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSegment() {
-		if (segmentEClass == null) {
-			segmentEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(9);
-		}
-		return segmentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsAppropriate_FWD__Match_Segment_Region() {
-		return getSegment().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__Perform_FWD__IsApplicableMatch() {
-		return getSegment().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsApplicable_FWD__Match() {
-		return getSegment().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__RegisterObjectsToMatch_FWD__Match_Segment_Region() {
-		return getSegment().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsAppropriate_solveCsp_FWD__Match_Segment_Region() {
-		return getSegment().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSegment().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsApplicable_solveCsp_FWD__IsApplicableMatch_Segment_Region() {
-		return getSegment().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsApplicable_checkCsp_FWD__CSP() {
-		return getSegment().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
-		return getSegment().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__CheckTypes_FWD__Match() {
-		return getSegment().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsAppropriate_FWD_EMoflonEdge_21__EMoflonEdge() {
-		return getSegment().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__CheckAttributes_FWD__TripleMatch() {
-		return getSegment().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__IsApplicable_CC__Match_Match() {
-		return getSegment().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSegment__CheckDEC_FWD__Segment_Region() {
-		return getSegment().getEOperations().get(13);
+	public EOperation getSwitch__CheckDEC_FWD__RailwayContainer_Region_Switch() {
+		return getSwitch().getEOperations().get(13);
 	}
 
 	/**
@@ -1607,7 +912,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getRequiredEntrySemaphore() {
 		if (requiredEntrySemaphoreEClass == null) {
 			requiredEntrySemaphoreEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(10);
+					.getEClassifiers().get(5);
 		}
 		return requiredEntrySemaphoreEClass;
 	}
@@ -1617,7 +922,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__IsAppropriate_FWD__Match_RailwayContainer_Semaphore_Route() {
+	public EOperation getRequiredEntrySemaphore__IsAppropriate_FWD__Match_RailwayContainer_Route_Semaphore() {
 		return getRequiredEntrySemaphore().getEOperations().get(0);
 	}
 
@@ -1644,7 +949,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Semaphore_Route() {
+	public EOperation getRequiredEntrySemaphore__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Route_Semaphore() {
 		return getRequiredEntrySemaphore().getEOperations().get(3);
 	}
 
@@ -1653,7 +958,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Semaphore_Route() {
+	public EOperation getRequiredEntrySemaphore__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Route_Semaphore() {
 		return getRequiredEntrySemaphore().getEOperations().get(4);
 	}
 
@@ -1671,7 +976,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_RouteToRepair_PetriNet_RouteToOperational_RouteToFailed_RailwayContainer_Transition_Place_SemaphoreToOperational_Place_SemaphoreToFailed_RailwayContainerToPetriNet_Place_Semaphore_Route_Place() {
+	public EOperation getRequiredEntrySemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_RouteToOperational_Place_RailwayContainer_Route_RailwayContainerToPetriNet_RouteToRepair_SemaphoreToFailed_Transition_Semaphore_Place_PetriNet_Place_RouteToFailed_SemaphoreToOperational_Place() {
 		return getRequiredEntrySemaphore().getEOperations().get(6);
 	}
 
@@ -1707,7 +1012,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__IsAppropriate_FWD_EMoflonEdge_22__EMoflonEdge() {
+	public EOperation getRequiredEntrySemaphore__IsAppropriate_FWD_EMoflonEdge_4__EMoflonEdge() {
 		return getRequiredEntrySemaphore().getEOperations().get(10);
 	}
 
@@ -1734,7 +1039,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredEntrySemaphore__CheckDEC_FWD__RailwayContainer_Semaphore_Route() {
+	public EOperation getRequiredEntrySemaphore__CheckDEC_FWD__RailwayContainer_Route_Semaphore() {
 		return getRequiredEntrySemaphore().getEOperations().get(13);
 	}
 
@@ -1743,12 +1048,707 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSensorMonitors() {
-		if (sensorMonitorsEClass == null) {
-			sensorMonitorsEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
+	public EClass getRegion() {
+		if (regionEClass == null) {
+			regionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(6);
+		}
+		return regionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsAppropriate_FWD__Match_RailwayContainer_Region() {
+		return getRegion().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__Perform_FWD__IsApplicableMatch() {
+		return getRegion().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsApplicable_FWD__Match() {
+		return getRegion().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Region() {
+		return getRegion().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Region() {
+		return getRegion().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsAppropriate_checkCsp_FWD__CSP() {
+		return getRegion().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainer_Region() {
+		return getRegion().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsApplicable_checkCsp_FWD__CSP() {
+		return getRegion().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
+		return getRegion().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__CheckTypes_FWD__Match() {
+		return getRegion().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsAppropriate_FWD_EMoflonEdge_5__EMoflonEdge() {
+		return getRegion().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__CheckAttributes_FWD__TripleMatch() {
+		return getRegion().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__IsApplicable_CC__Match_Match() {
+		return getRegion().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRegion__CheckDEC_FWD__RailwayContainer_Region() {
+		return getRegion().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRequiredSwitch() {
+		if (requiredSwitchEClass == null) {
+			requiredSwitchEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
+					.getEClassifiers().get(7);
+		}
+		return requiredSwitchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsAppropriate_FWD__Match_RailwayContainer_SwitchPosition_Route_Switch() {
+		return getRequiredSwitch().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__Perform_FWD__IsApplicableMatch() {
+		return getRequiredSwitch().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsApplicable_FWD__Match() {
+		return getRequiredSwitch().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__RegisterObjectsToMatch_FWD__Match_RailwayContainer_SwitchPosition_Route_Switch() {
+		return getRequiredSwitch().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_SwitchPosition_Route_Switch() {
+		return getRequiredSwitch().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsAppropriate_checkCsp_FWD__CSP() {
+		return getRequiredSwitch().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsApplicable_solveCsp_FWD__IsApplicableMatch_RouteToOperational_RailwayContainer_RouteToRepair_RouteToFailed_SwitchToOperational_Place_SwitchPosition_Place_Place_Route_RailwayContainerToPetriNet_SwitchToFailed_Switch_Place_PetriNet_Transition() {
+		return getRequiredSwitch().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsApplicable_checkCsp_FWD__CSP() {
+		return getRequiredSwitch().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getRequiredSwitch().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__CheckTypes_FWD__Match() {
+		return getRequiredSwitch().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsAppropriate_FWD_EMoflonEdge_6__EMoflonEdge() {
+		return getRequiredSwitch().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__CheckAttributes_FWD__TripleMatch() {
+		return getRequiredSwitch().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__IsApplicable_CC__Match_Match() {
+		return getRequiredSwitch().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRequiredSwitch__CheckDEC_FWD__RailwayContainer_SwitchPosition_Route_Switch() {
+		return getRequiredSwitch().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensor() {
+		if (sensorEClass == null) {
+			sensorEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(8);
+		}
+		return sensorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsAppropriate_FWD__Match_Sensor_RailwayContainer_Region() {
+		return getSensor().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__Perform_FWD__IsApplicableMatch() {
+		return getSensor().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsApplicable_FWD__Match() {
+		return getSensor().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__RegisterObjectsToMatch_FWD__Match_Sensor_RailwayContainer_Region() {
+		return getSensor().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsAppropriate_solveCsp_FWD__Match_Sensor_RailwayContainer_Region() {
+		return getSensor().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSensor().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsApplicable_solveCsp_FWD__IsApplicableMatch_Sensor_RailwayContainerToPetriNet_RailwayContainer_Region_PetriNet() {
+		return getSensor().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsApplicable_checkCsp_FWD__CSP() {
+		return getSensor().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getSensor().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__CheckTypes_FWD__Match() {
+		return getSensor().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsAppropriate_FWD_EMoflonEdge_7__EMoflonEdge() {
+		return getSensor().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__CheckAttributes_FWD__TripleMatch() {
+		return getSensor().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__IsApplicable_CC__Match_Match() {
+		return getSensor().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSensor__CheckDEC_FWD__Sensor_RailwayContainer_Region() {
+		return getSensor().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSegment() {
+		if (segmentEClass == null) {
+			segmentEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(9);
+		}
+		return segmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsAppropriate_FWD__Match_Region_Segment() {
+		return getSegment().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__Perform_FWD__IsApplicableMatch() {
+		return getSegment().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsApplicable_FWD__Match() {
+		return getSegment().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__RegisterObjectsToMatch_FWD__Match_Region_Segment() {
+		return getSegment().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsAppropriate_solveCsp_FWD__Match_Region_Segment() {
+		return getSegment().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSegment().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsApplicable_solveCsp_FWD__IsApplicableMatch_Region_Segment() {
+		return getSegment().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsApplicable_checkCsp_FWD__CSP() {
+		return getSegment().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
+		return getSegment().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__CheckTypes_FWD__Match() {
+		return getSegment().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsAppropriate_FWD_EMoflonEdge_8__EMoflonEdge() {
+		return getSegment().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__CheckAttributes_FWD__TripleMatch() {
+		return getSegment().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__IsApplicable_CC__Match_Match() {
+		return getSegment().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSegment__CheckDEC_FWD__Region_Segment() {
+		return getSegment().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRoute() {
+		if (routeEClass == null) {
+			routeEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(10);
+		}
+		return routeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsAppropriate_FWD__Match_Route_RailwayContainer() {
+		return getRoute().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__Perform_FWD__IsApplicableMatch() {
+		return getRoute().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsApplicable_FWD__Match() {
+		return getRoute().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__RegisterObjectsToMatch_FWD__Match_Route_RailwayContainer() {
+		return getRoute().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsAppropriate_solveCsp_FWD__Match_Route_RailwayContainer() {
+		return getRoute().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsAppropriate_checkCsp_FWD__CSP() {
+		return getRoute().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsApplicable_solveCsp_FWD__IsApplicableMatch_PetriNet_Route_RailwayContainerToPetriNet_RailwayContainer() {
+		return getRoute().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsApplicable_checkCsp_FWD__CSP() {
+		return getRoute().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getRoute().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__CheckTypes_FWD__Match() {
+		return getRoute().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsAppropriate_FWD_EMoflonEdge_9__EMoflonEdge() {
+		return getRoute().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__CheckAttributes_FWD__TripleMatch() {
+		return getRoute().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__IsApplicable_CC__Match_Match() {
+		return getRoute().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoute__CheckDEC_FWD__Route_RailwayContainer() {
+		return getRoute().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchPosition() {
+		if (switchPositionEClass == null) {
+			switchPositionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
 					.getEClassifiers().get(11);
 		}
-		return sensorMonitorsEClass;
+		return switchPositionEClass;
 	}
 
 	/**
@@ -1756,8 +1756,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsAppropriate_FWD__Match_TrackElement_Sensor() {
-		return getSensorMonitors().getEOperations().get(0);
+	public EOperation getSwitchPosition__IsAppropriate_FWD__Match_Switch_SwitchPosition() {
+		return getSwitchPosition().getEOperations().get(0);
 	}
 
 	/**
@@ -1765,8 +1765,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__Perform_FWD__IsApplicableMatch() {
-		return getSensorMonitors().getEOperations().get(1);
+	public EOperation getSwitchPosition__Perform_FWD__IsApplicableMatch() {
+		return getSwitchPosition().getEOperations().get(1);
 	}
 
 	/**
@@ -1774,8 +1774,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsApplicable_FWD__Match() {
-		return getSensorMonitors().getEOperations().get(2);
+	public EOperation getSwitchPosition__IsApplicable_FWD__Match() {
+		return getSwitchPosition().getEOperations().get(2);
 	}
 
 	/**
@@ -1783,8 +1783,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__RegisterObjectsToMatch_FWD__Match_TrackElement_Sensor() {
-		return getSensorMonitors().getEOperations().get(3);
+	public EOperation getSwitchPosition__RegisterObjectsToMatch_FWD__Match_Switch_SwitchPosition() {
+		return getSwitchPosition().getEOperations().get(3);
 	}
 
 	/**
@@ -1792,8 +1792,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsAppropriate_solveCsp_FWD__Match_TrackElement_Sensor() {
-		return getSensorMonitors().getEOperations().get(4);
+	public EOperation getSwitchPosition__IsAppropriate_solveCsp_FWD__Match_Switch_SwitchPosition() {
+		return getSwitchPosition().getEOperations().get(4);
 	}
 
 	/**
@@ -1801,8 +1801,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsAppropriate_checkCsp_FWD__CSP() {
-		return getSensorMonitors().getEOperations().get(5);
+	public EOperation getSwitchPosition__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSwitchPosition().getEOperations().get(5);
 	}
 
 	/**
@@ -1810,8 +1810,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsApplicable_solveCsp_FWD__IsApplicableMatch_TrackElement_Sensor() {
-		return getSensorMonitors().getEOperations().get(6);
+	public EOperation getSwitchPosition__IsApplicable_solveCsp_FWD__IsApplicableMatch_Switch_SwitchPosition() {
+		return getSwitchPosition().getEOperations().get(6);
 	}
 
 	/**
@@ -1819,8 +1819,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsApplicable_checkCsp_FWD__CSP() {
-		return getSensorMonitors().getEOperations().get(7);
+	public EOperation getSwitchPosition__IsApplicable_checkCsp_FWD__CSP() {
+		return getSwitchPosition().getEOperations().get(7);
 	}
 
 	/**
@@ -1828,8 +1828,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
-		return getSensorMonitors().getEOperations().get(8);
+	public EOperation getSwitchPosition__RegisterObjects_FWD__PerformRuleResult_EObject_EObject() {
+		return getSwitchPosition().getEOperations().get(8);
 	}
 
 	/**
@@ -1837,8 +1837,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__CheckTypes_FWD__Match() {
-		return getSensorMonitors().getEOperations().get(9);
+	public EOperation getSwitchPosition__CheckTypes_FWD__Match() {
+		return getSwitchPosition().getEOperations().get(9);
 	}
 
 	/**
@@ -1846,8 +1846,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsAppropriate_FWD_EMoflonEdge_23__EMoflonEdge() {
-		return getSensorMonitors().getEOperations().get(10);
+	public EOperation getSwitchPosition__IsAppropriate_FWD_EMoflonEdge_10__EMoflonEdge() {
+		return getSwitchPosition().getEOperations().get(10);
 	}
 
 	/**
@@ -1855,8 +1855,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__CheckAttributes_FWD__TripleMatch() {
-		return getSensorMonitors().getEOperations().get(11);
+	public EOperation getSwitchPosition__CheckAttributes_FWD__TripleMatch() {
+		return getSwitchPosition().getEOperations().get(11);
 	}
 
 	/**
@@ -1864,8 +1864,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__IsApplicable_CC__Match_Match() {
-		return getSensorMonitors().getEOperations().get(12);
+	public EOperation getSwitchPosition__IsApplicable_CC__Match_Match() {
+		return getSwitchPosition().getEOperations().get(12);
 	}
 
 	/**
@@ -1873,8 +1873,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSensorMonitors__CheckDEC_FWD__TrackElement_Sensor() {
-		return getSensorMonitors().getEOperations().get(13);
+	public EOperation getSwitchPosition__CheckDEC_FWD__Switch_SwitchPosition() {
+		return getSwitchPosition().getEOperations().get(13);
 	}
 
 	/**
@@ -1985,7 +1985,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTrackElementConnectsTo__IsAppropriate_FWD_EMoflonEdge_24__EMoflonEdge() {
+	public EOperation getTrackElementConnectsTo__IsAppropriate_FWD_EMoflonEdge_11__EMoflonEdge() {
 		return getTrackElementConnectsTo().getEOperations().get(10);
 	}
 
@@ -2021,12 +2021,12 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRequiredExitSemaphore() {
-		if (requiredExitSemaphoreEClass == null) {
-			requiredExitSemaphoreEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI)
-					.getEClassifiers().get(13);
+	public EClass getSemaphore() {
+		if (semaphoreEClass == null) {
+			semaphoreEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
+					.get(13);
 		}
-		return requiredExitSemaphoreEClass;
+		return semaphoreEClass;
 	}
 
 	/**
@@ -2034,8 +2034,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsAppropriate_FWD__Match_Semaphore_Route_RailwayContainer() {
-		return getRequiredExitSemaphore().getEOperations().get(0);
+	public EOperation getSemaphore__IsAppropriate_FWD__Match_RailwayContainer_Region_Semaphore_Segment() {
+		return getSemaphore().getEOperations().get(0);
 	}
 
 	/**
@@ -2043,8 +2043,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__Perform_FWD__IsApplicableMatch() {
-		return getRequiredExitSemaphore().getEOperations().get(1);
+	public EOperation getSemaphore__Perform_FWD__IsApplicableMatch() {
+		return getSemaphore().getEOperations().get(1);
 	}
 
 	/**
@@ -2052,8 +2052,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsApplicable_FWD__Match() {
-		return getRequiredExitSemaphore().getEOperations().get(2);
+	public EOperation getSemaphore__IsApplicable_FWD__Match() {
+		return getSemaphore().getEOperations().get(2);
 	}
 
 	/**
@@ -2061,8 +2061,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__RegisterObjectsToMatch_FWD__Match_Semaphore_Route_RailwayContainer() {
-		return getRequiredExitSemaphore().getEOperations().get(3);
+	public EOperation getSemaphore__RegisterObjectsToMatch_FWD__Match_RailwayContainer_Region_Semaphore_Segment() {
+		return getSemaphore().getEOperations().get(3);
 	}
 
 	/**
@@ -2070,8 +2070,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsAppropriate_solveCsp_FWD__Match_Semaphore_Route_RailwayContainer() {
-		return getRequiredExitSemaphore().getEOperations().get(4);
+	public EOperation getSemaphore__IsAppropriate_solveCsp_FWD__Match_RailwayContainer_Region_Semaphore_Segment() {
+		return getSemaphore().getEOperations().get(4);
 	}
 
 	/**
@@ -2079,8 +2079,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsAppropriate_checkCsp_FWD__CSP() {
-		return getRequiredExitSemaphore().getEOperations().get(5);
+	public EOperation getSemaphore__IsAppropriate_checkCsp_FWD__CSP() {
+		return getSemaphore().getEOperations().get(5);
 	}
 
 	/**
@@ -2088,8 +2088,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainerToPetriNet_RouteToOperational_RouteToFailed_Place_Transition_Semaphore_Place_Place_SemaphoreToFailed_RouteToRepair_SemaphoreToOperational_Place_Route_PetriNet_RailwayContainer() {
-		return getRequiredExitSemaphore().getEOperations().get(6);
+	public EOperation getSemaphore__IsApplicable_solveCsp_FWD__IsApplicableMatch_RailwayContainer_RailwayContainerToPetriNet_PetriNet_Region_Semaphore_Segment() {
+		return getSemaphore().getEOperations().get(6);
 	}
 
 	/**
@@ -2097,8 +2097,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsApplicable_checkCsp_FWD__CSP() {
-		return getRequiredExitSemaphore().getEOperations().get(7);
+	public EOperation getSemaphore__IsApplicable_checkCsp_FWD__CSP() {
+		return getSemaphore().getEOperations().get(7);
 	}
 
 	/**
@@ -2106,8 +2106,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getRequiredExitSemaphore().getEOperations().get(8);
+	public EOperation getSemaphore__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getSemaphore().getEOperations().get(8);
 	}
 
 	/**
@@ -2115,8 +2115,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__CheckTypes_FWD__Match() {
-		return getRequiredExitSemaphore().getEOperations().get(9);
+	public EOperation getSemaphore__CheckTypes_FWD__Match() {
+		return getSemaphore().getEOperations().get(9);
 	}
 
 	/**
@@ -2124,8 +2124,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsAppropriate_FWD_EMoflonEdge_25__EMoflonEdge() {
-		return getRequiredExitSemaphore().getEOperations().get(10);
+	public EOperation getSemaphore__IsAppropriate_FWD_EMoflonEdge_12__EMoflonEdge() {
+		return getSemaphore().getEOperations().get(10);
 	}
 
 	/**
@@ -2133,8 +2133,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__CheckAttributes_FWD__TripleMatch() {
-		return getRequiredExitSemaphore().getEOperations().get(11);
+	public EOperation getSemaphore__CheckAttributes_FWD__TripleMatch() {
+		return getSemaphore().getEOperations().get(11);
 	}
 
 	/**
@@ -2142,8 +2142,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__IsApplicable_CC__Match_Match() {
-		return getRequiredExitSemaphore().getEOperations().get(12);
+	public EOperation getSemaphore__IsApplicable_CC__Match_Match() {
+		return getSemaphore().getEOperations().get(12);
 	}
 
 	/**
@@ -2151,8 +2151,8 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRequiredExitSemaphore__CheckDEC_FWD__Semaphore_Route_RailwayContainer() {
-		return getRequiredExitSemaphore().getEOperations().get(13);
+	public EOperation getSemaphore__CheckDEC_FWD__RailwayContainer_Region_Semaphore_Segment() {
+		return getSemaphore().getEOperations().get(13);
 	}
 
 	/**

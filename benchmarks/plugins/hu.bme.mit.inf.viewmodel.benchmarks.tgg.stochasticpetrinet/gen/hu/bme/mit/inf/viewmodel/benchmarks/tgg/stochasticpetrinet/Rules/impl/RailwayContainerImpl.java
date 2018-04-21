@@ -143,37 +143,36 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer) result1_bindingAndBlack[0];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[1];
 		Object[] result1_green = RailwayContainerImpl
-				.pattern_RailwayContainer_1_1_performtransformation_greenFBF(srcContainer);
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_green[0];
-		PetriNet trgPetrinet = (PetriNet) result1_green[2];
+				.pattern_RailwayContainer_1_1_performtransformation_greenBFF(srcContainer);
+		PetriNet trgPetrinet = (PetriNet) result1_green[1];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_green[2];
 
 		Object[] result2_black = RailwayContainerImpl.pattern_RailwayContainer_1_2_collecttranslatedelements_blackBBB(
-				containerCorr, srcContainer, trgPetrinet);
+				srcContainer, trgPetrinet, containerCorr);
 		if (result2_black == null) {
-			throw new RuntimeException(
-					"Pattern matching failed." + " Variables: " + "[containerCorr] = " + containerCorr + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[trgPetrinet] = " + trgPetrinet + ".");
+			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[srcContainer] = " + srcContainer
+					+ ", " + "[trgPetrinet] = " + trgPetrinet + ", " + "[containerCorr] = " + containerCorr + ".");
 		}
 		Object[] result2_green = RailwayContainerImpl.pattern_RailwayContainer_1_2_collecttranslatedelements_greenFBBB(
-				containerCorr, srcContainer, trgPetrinet);
+				srcContainer, trgPetrinet, containerCorr);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = RailwayContainerImpl.pattern_RailwayContainer_1_3_bookkeepingforedges_blackBBBB(
-				ruleresult, containerCorr, srcContainer, trgPetrinet);
+				ruleresult, srcContainer, trgPetrinet, containerCorr);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[containerCorr] = " + containerCorr + ", " + "[srcContainer] = " + srcContainer + ", "
-					+ "[trgPetrinet] = " + trgPetrinet + ".");
+					+ ", " + "[srcContainer] = " + srcContainer + ", " + "[trgPetrinet] = " + trgPetrinet + ", "
+					+ "[containerCorr] = " + containerCorr + ".");
 		}
-		RailwayContainerImpl.pattern_RailwayContainer_1_3_bookkeepingforedges_greenBBBBFF(ruleresult, containerCorr,
-				srcContainer, trgPetrinet);
-		//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[4];
-		//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[5];
+		RailwayContainerImpl.pattern_RailwayContainer_1_3_bookkeepingforedges_greenBBBBFF(ruleresult, srcContainer,
+				trgPetrinet, containerCorr);
+		//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[4];
+		//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[5];
 
 		// 
 		// 
 		RailwayContainerImpl.pattern_RailwayContainer_1_5_registerobjects_expressionBBBBB(this, ruleresult,
-				containerCorr, srcContainer, trgPetrinet);
+				srcContainer, trgPetrinet, containerCorr);
 		return RailwayContainerImpl.pattern_RailwayContainer_1_6_expressionFB(ruleresult);
 	}
 
@@ -321,11 +320,11 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject containerCorr, EObject srcContainer,
-			EObject trgPetrinet) {
-		ruleresult.registerObject("containerCorr", containerCorr);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet,
+			EObject containerCorr) {
 		ruleresult.registerObject("srcContainer", srcContainer);
 		ruleresult.registerObject("trgPetrinet", trgPetrinet);
+		ruleresult.registerObject("containerCorr", containerCorr);
 
 	}
 
@@ -344,7 +343,7 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_RailwayContainer_1(
+	public EObjectContainer isAppropriate_FWD_RailwayContainer_0(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer) {
 
 		Object[] result1_bindingAndBlack = RailwayContainerImpl
@@ -488,8 +487,8 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 			return null;
 		case RulesPackage.RAILWAY_CONTAINER___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.RAILWAY_CONTAINER___IS_APPROPRIATE_FWD_RAILWAY_CONTAINER_1__RAILWAYCONTAINER:
-			return isAppropriate_FWD_RailwayContainer_1(
+		case RulesPackage.RAILWAY_CONTAINER___IS_APPROPRIATE_FWD_RAILWAY_CONTAINER_0__RAILWAYCONTAINER:
+			return isAppropriate_FWD_RailwayContainer_0(
 					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer) arguments.get(0));
 		case RulesPackage.RAILWAY_CONTAINER___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -616,38 +615,38 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 		return null;
 	}
 
-	public static final Object[] pattern_RailwayContainer_1_1_performtransformation_greenFBF(
+	public static final Object[] pattern_RailwayContainer_1_1_performtransformation_greenBFF(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer) {
+		PetriNet trgPetrinet = StochasticPetriNetFactory.eINSTANCE.createPetriNet();
 		RailwayContainerToPetriNet containerCorr = StochasticpetrinetFactory.eINSTANCE
 				.createRailwayContainerToPetriNet();
-		PetriNet trgPetrinet = StochasticPetriNetFactory.eINSTANCE.createPetriNet();
-		containerCorr.setSource(srcContainer);
 		containerCorr.setTarget(trgPetrinet);
-		return new Object[] { containerCorr, srcContainer, trgPetrinet };
+		containerCorr.setSource(srcContainer);
+		return new Object[] { srcContainer, trgPetrinet, containerCorr };
 	}
 
 	public static final Object[] pattern_RailwayContainer_1_2_collecttranslatedelements_blackBBB(
-			RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer, PetriNet trgPetrinet) {
-		return new Object[] { containerCorr, srcContainer, trgPetrinet };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer, PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr) {
+		return new Object[] { srcContainer, trgPetrinet, containerCorr };
 	}
 
 	public static final Object[] pattern_RailwayContainer_1_2_collecttranslatedelements_greenFBBB(
-			RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer, PetriNet trgPetrinet) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer, PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
-		ruleresult.getCreatedLinkElements().add(containerCorr);
 		ruleresult.getTranslatedElements().add(srcContainer);
 		ruleresult.getCreatedElements().add(trgPetrinet);
-		return new Object[] { ruleresult, containerCorr, srcContainer, trgPetrinet };
+		ruleresult.getCreatedLinkElements().add(containerCorr);
+		return new Object[] { ruleresult, srcContainer, trgPetrinet, containerCorr };
 	}
 
 	public static final Object[] pattern_RailwayContainer_1_3_bookkeepingforedges_blackBBBB(
-			PerformRuleResult ruleresult, EObject containerCorr, EObject srcContainer, EObject trgPetrinet) {
-		if (!containerCorr.equals(srcContainer)) {
-			if (!containerCorr.equals(trgPetrinet)) {
-				if (!srcContainer.equals(trgPetrinet)) {
-					return new Object[] { ruleresult, containerCorr, srcContainer, trgPetrinet };
+			PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet, EObject containerCorr) {
+		if (!srcContainer.equals(trgPetrinet)) {
+			if (!containerCorr.equals(srcContainer)) {
+				if (!containerCorr.equals(trgPetrinet)) {
+					return new Object[] { ruleresult, srcContainer, trgPetrinet, containerCorr };
 				}
 			}
 		}
@@ -655,28 +654,28 @@ public class RailwayContainerImpl extends AbstractRuleImpl implements RailwayCon
 	}
 
 	public static final Object[] pattern_RailwayContainer_1_3_bookkeepingforedges_greenBBBBFF(
-			PerformRuleResult ruleresult, EObject containerCorr, EObject srcContainer, EObject trgPetrinet) {
-		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+			PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet, EObject containerCorr) {
 		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "RailwayContainer";
-		String containerCorr__srcContainer____source_name_prime = "source";
 		String containerCorr__trgPetrinet____target_name_prime = "target";
-		containerCorr__srcContainer____source.setSrc(containerCorr);
-		containerCorr__srcContainer____source.setTrg(srcContainer);
-		ruleresult.getCreatedEdges().add(containerCorr__srcContainer____source);
+		String containerCorr__srcContainer____source_name_prime = "source";
 		containerCorr__trgPetrinet____target.setSrc(containerCorr);
 		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(containerCorr__trgPetrinet____target);
+		containerCorr__srcContainer____source.setSrc(containerCorr);
+		containerCorr__srcContainer____source.setTrg(srcContainer);
+		ruleresult.getCreatedEdges().add(containerCorr__srcContainer____source);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
-		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
 		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
-		return new Object[] { ruleresult, containerCorr, srcContainer, trgPetrinet,
-				containerCorr__srcContainer____source, containerCorr__trgPetrinet____target };
+		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
+		return new Object[] { ruleresult, srcContainer, trgPetrinet, containerCorr,
+				containerCorr__trgPetrinet____target, containerCorr__srcContainer____source };
 	}
 
 	public static final void pattern_RailwayContainer_1_5_registerobjects_expressionBBBBB(RailwayContainer _this,
-			PerformRuleResult ruleresult, EObject containerCorr, EObject srcContainer, EObject trgPetrinet) {
-		_this.registerObjects_FWD(ruleresult, containerCorr, srcContainer, trgPetrinet);
+			PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet, EObject containerCorr) {
+		_this.registerObjects_FWD(ruleresult, srcContainer, trgPetrinet, containerCorr);
 
 	}
 

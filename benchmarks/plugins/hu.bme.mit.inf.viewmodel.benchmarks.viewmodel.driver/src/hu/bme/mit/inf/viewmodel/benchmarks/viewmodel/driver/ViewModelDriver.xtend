@@ -7,6 +7,7 @@ import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.ExperimentDriver
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.stochasticpetrinet.TrainBenchmark2PetriNet
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.virtualswitchview.RailwayModel2VirtualSwitchModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.InterpretedManifestation
+import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.LogicModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.PrimitiveManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.UninterpretedManifestation
 import hu.bme.mit.inf.viewmodel.runtime.model.viewmodeltrace.ConstraintTrace
@@ -25,6 +26,7 @@ import hu.bme.mit.inf.viewmodel.runtime.utils.BadlyBehavingFeatureUtils
 import hu.bme.mit.inf.viewmodel.runtime.utils.EmfScopeUtils
 import hu.bme.mit.inf.viewmodel.runtime.utils.NullScheduler
 import java.util.HashSet
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.viatra.query.runtime.api.AdvancedViatraQueryEngine
 import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.IQueryGroup
@@ -81,11 +83,7 @@ abstract class ViewModelDriver extends ExperimentDriver {
 	protected def initTransformation() {
 		logicModelManager = new LogicModelManager(resource)
 		traceManager = new ViewModelTraceManager(resource, logicModelManager.logicModel)
-		val baseManifestationManager = switch (manifestationMode) {
-			case PHYSICAL: new ManifestationTraceManager(resource, logicModelManager.logicModel)
-			case MOCK: new MockManifestationTraceManager(resource, logicModelManager.logicModel)
-			default: throw new IllegalArgumentException("Unknown manifestation mode: " + manifestationMode)
-		}
+		val baseManifestationManager = getBaseManifestationManager(resource, logicModelManager.logicModel)
 		manifestationManager = new ManifestationStatisticsDecorator(baseManifestationManager)
 		val specification = QuerySpecificationTemplateParser.parse(viewSpecification)
 		BadlyBehavingFeatureUtils.registerEcorePackageAsWellBehaving
@@ -99,6 +97,14 @@ abstract class ViewModelDriver extends ExperimentDriver {
 		val conflictResolver = chainedTransformation.conflictResolver
 		executionSchema = ExecutionSchemas.createViatraQueryExecutionSchema(queryEngine, schedulerFactory,
 			conflictResolver)
+	}
+
+	protected def getBaseManifestationManager(Resource resource, LogicModel logicModel) {
+		switch (manifestationMode) {
+			case PHYSICAL: new ManifestationTraceManager(resource, logicModel)
+			case MOCK: new MockManifestationTraceManager(resource, logicModel)
+			default: throw new IllegalArgumentException("Unknown manifestation mode: " + manifestationMode)
+		}
 	}
 
 	protected def logViewModelTrace(String checkpoint) {

@@ -37,8 +37,8 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion);
+	boolean isAppropriate_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,8 +62,8 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion);
+	void registerObjectsToMatch_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,8 +71,8 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment,
-			Region srcRegion);
+	CSP isAppropriate_solveCsp_FWD(Match match, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,8 +88,8 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,7 +105,7 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSegment, EObject srcRegion);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcRegion, EObject srcSegment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_21(EMoflonEdge _edge_elements);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_8(EMoflonEdge _edge_elements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,7 +145,7 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment, Region srcRegion);
+	boolean checkDEC_FWD(Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment srcSegment);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

@@ -92,57 +92,56 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {
+	public boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
 
-		Object[] result1_black = SemaphoreImpl.pattern_Semaphore_0_1_initialbindings_blackBBBBBB(this, match, srcRegion,
-				srcSemaphore, srcContainer, srcSegment);
+		Object[] result1_black = SemaphoreImpl.pattern_Semaphore_0_1_initialbindings_blackBBBBBB(this, match,
+				srcContainer, srcRegion, srcSemaphore, srcSegment);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[srcSegment] = " + srcSegment + ".");
+							+ ", " + "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ", "
+							+ "[srcSemaphore] = " + srcSemaphore + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
 
 		Object[] result2_bindingAndBlack = SemaphoreImpl.pattern_Semaphore_0_2_SolveCSP_bindingAndBlackFBBBBBB(this,
-				match, srcRegion, srcSemaphore, srcContainer, srcSegment);
+				match, srcContainer, srcRegion, srcSemaphore, srcSegment);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching failed." + " Variables: " + "[this] = " + this + ", " + "[match] = " + match
-							+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[srcSegment] = " + srcSegment + ".");
+							+ ", " + "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ", "
+							+ "[srcSemaphore] = " + srcSemaphore + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (SemaphoreImpl.pattern_Semaphore_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = SemaphoreImpl.pattern_Semaphore_0_4_collectelementstobetranslated_blackBBBBB(match,
-					srcRegion, srcSemaphore, srcContainer, srcSegment);
+					srcContainer, srcRegion, srcSemaphore, srcSegment);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcRegion] = " + srcRegion + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcSegment] = " + srcSegment + ".");
+						+ "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ", "
+						+ "[srcSemaphore] = " + srcSemaphore + ", " + "[srcSegment] = " + srcSegment + ".");
 			}
 			SemaphoreImpl.pattern_Semaphore_0_4_collectelementstobetranslated_greenBBBF(match, srcSemaphore,
 					srcSegment);
 			//nothing EMoflonEdge srcSegment__srcSemaphore____semaphores = (EMoflonEdge) result4_green[3];
 
 			Object[] result5_black = SemaphoreImpl.pattern_Semaphore_0_5_collectcontextelements_blackBBBBB(match,
-					srcRegion, srcSemaphore, srcContainer, srcSegment);
+					srcContainer, srcRegion, srcSemaphore, srcSegment);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcRegion] = " + srcRegion + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcSegment] = " + srcSegment + ".");
+						+ "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ", "
+						+ "[srcSemaphore] = " + srcSemaphore + ", " + "[srcSegment] = " + srcSegment + ".");
 			}
-			SemaphoreImpl.pattern_Semaphore_0_5_collectcontextelements_greenBBBBFF(match, srcRegion, srcContainer,
+			SemaphoreImpl.pattern_Semaphore_0_5_collectcontextelements_greenBBBBFF(match, srcContainer, srcRegion,
 					srcSegment);
-			//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result5_green[4];
-			//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result5_green[5];
+			//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result5_green[4];
+			//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result5_green[5];
 
 			// 
-			SemaphoreImpl.pattern_Semaphore_0_6_registerobjectstomatch_expressionBBBBBB(this, match, srcRegion,
-					srcSemaphore, srcContainer, srcSegment);
+			SemaphoreImpl.pattern_Semaphore_0_6_registerobjectstomatch_expressionBBBBBB(this, match, srcContainer,
+					srcRegion, srcSemaphore, srcSegment);
 			return SemaphoreImpl.pattern_Semaphore_0_7_expressionF();
 		} else {
 			return SemaphoreImpl.pattern_Semaphore_0_8_expressionF();
@@ -163,95 +162,95 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		Region srcRegion = (Region) result1_bindingAndBlack[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result1_bindingAndBlack[1];
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[2];
-		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[3];
-		Segment srcSegment = (Segment) result1_bindingAndBlack[4];
-		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[5];
+		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[0];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[1];
+		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[2];
+		Region srcRegion = (Region) result1_bindingAndBlack[3];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result1_bindingAndBlack[4];
+		Segment srcSegment = (Segment) result1_bindingAndBlack[5];
 		CSP csp = (CSP) result1_bindingAndBlack[6];
 		Object[] result1_green = SemaphoreImpl
-				.pattern_Semaphore_1_1_performtransformation_greenFFFFBFFFFBFFB(srcSemaphore, trgPetrinet, csp);
-		Place trgFailed = (Place) result1_green[0];
-		Arc trgFailedToRepair = (Arc) result1_green[1];
-		TimedTransition trgRepair = (TimedTransition) result1_green[2];
-		Arc trgOperationToFail = (Arc) result1_green[3];
-		TimedTransition trgFail = (TimedTransition) result1_green[5];
-		SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result1_green[6];
+				.pattern_Semaphore_1_1_performtransformation_greenFFFFFBFFFFFBB(trgPetrinet, srcSemaphore, csp);
+		TimedTransition trgRepair = (TimedTransition) result1_green[0];
+		SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result1_green[1];
+		Arc trgOperationToFail = (Arc) result1_green[2];
+		Arc trgFailedToRepair = (Arc) result1_green[3];
+		TimedTransition trgFail = (TimedTransition) result1_green[4];
+		Place trgFailed = (Place) result1_green[6];
 		Arc trgRepairToOperational = (Arc) result1_green[7];
-		Arc trgFailToFailed = (Arc) result1_green[8];
-		Place trgOperational = (Place) result1_green[10];
-		SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result1_green[11];
+		SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result1_green[8];
+		Place trgOperational = (Place) result1_green[9];
+		Arc trgFailToFailed = (Arc) result1_green[10];
 
 		Object[] result2_black = SemaphoreImpl.pattern_Semaphore_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
-				trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore, trgFail,
-				semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, trgOperational, semaphoreFailedCorr);
+				trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair, trgFail, trgFailed,
+				trgRepairToOperational, semaphoreFailedCorr, trgOperational, trgFailToFailed, srcSemaphore);
 		if (result2_black == null) {
-			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgFailed] = " + trgFailed + ", "
-					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[trgRepair] = " + trgRepair + ", "
-					+ "[trgOperationToFail] = " + trgOperationToFail + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-					+ "[trgFail] = " + trgFail + ", " + "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr
-					+ ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[trgFailToFailed] = "
-					+ trgFailToFailed + ", " + "[trgOperational] = " + trgOperational + ", "
-					+ "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ".");
+			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgRepair] = " + trgRepair + ", "
+					+ "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr + ", " + "[trgOperationToFail] = "
+					+ trgOperationToFail + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[trgFail] = "
+					+ trgFail + ", " + "[trgFailed] = " + trgFailed + ", " + "[trgRepairToOperational] = "
+					+ trgRepairToOperational + ", " + "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ", "
+					+ "[trgOperational] = " + trgOperational + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", "
+					+ "[srcSemaphore] = " + srcSemaphore + ".");
 		}
 		Object[] result2_green = SemaphoreImpl.pattern_Semaphore_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
-				trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore, trgFail,
-				semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, trgOperational, semaphoreFailedCorr);
+				trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair, trgFail, trgFailed,
+				trgRepairToOperational, semaphoreFailedCorr, trgOperational, trgFailToFailed, srcSemaphore);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = SemaphoreImpl.pattern_Semaphore_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBBB(
-				ruleresult, trgFailed, srcRegion, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore,
-				trgFail, containerCorr, srcContainer, semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed,
-				srcSegment, trgPetrinet, trgOperational, semaphoreFailedCorr);
+				ruleresult, trgRepair, srcContainer, semaphoreOperationalCorr, containerCorr, trgOperationToFail,
+				trgFailedToRepair, trgFail, trgPetrinet, trgFailed, trgRepairToOperational, semaphoreFailedCorr,
+				srcRegion, trgOperational, trgFailToFailed, srcSemaphore, srcSegment);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[trgFailed] = " + trgFailed + ", " + "[srcRegion] = " + srcRegion + ", "
-					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[trgRepair] = " + trgRepair + ", "
-					+ "[trgOperationToFail] = " + trgOperationToFail + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-					+ "[trgFail] = " + trgFail + ", " + "[containerCorr] = " + containerCorr + ", "
-					+ "[srcContainer] = " + srcContainer + ", " + "[semaphoreOperationalCorr] = "
-					+ semaphoreOperationalCorr + ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", "
-					+ "[trgFailToFailed] = " + trgFailToFailed + ", " + "[srcSegment] = " + srcSegment + ", "
-					+ "[trgPetrinet] = " + trgPetrinet + ", " + "[trgOperational] = " + trgOperational + ", "
-					+ "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ".");
+					+ ", " + "[trgRepair] = " + trgRepair + ", " + "[srcContainer] = " + srcContainer + ", "
+					+ "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr + ", " + "[containerCorr] = "
+					+ containerCorr + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", "
+					+ "[trgFailedToRepair] = " + trgFailedToRepair + ", " + "[trgFail] = " + trgFail + ", "
+					+ "[trgPetrinet] = " + trgPetrinet + ", " + "[trgFailed] = " + trgFailed + ", "
+					+ "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[semaphoreFailedCorr] = "
+					+ semaphoreFailedCorr + ", " + "[srcRegion] = " + srcRegion + ", " + "[trgOperational] = "
+					+ trgOperational + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", " + "[srcSemaphore] = "
+					+ srcSemaphore + ", " + "[srcSegment] = " + srcSegment + ".");
 		}
 		SemaphoreImpl.pattern_Semaphore_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(ruleresult,
-				trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore, trgFail,
-				semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, srcSegment, trgPetrinet,
-				trgOperational, semaphoreFailedCorr);
-		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[14];
-		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[15];
-		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[16];
-		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[17];
-		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[18];
-		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[19];
+				trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair, trgFail, trgPetrinet,
+				trgFailed, trgRepairToOperational, semaphoreFailedCorr, trgOperational, trgFailToFailed, srcSemaphore,
+				srcSegment);
+		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[14];
+		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[15];
+		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[16];
+		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[17];
+		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[18];
+		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[19];
 		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[20];
-		//nothing EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = (EMoflonEdge) result3_green[21];
-		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[22];
-		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[23];
-		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[24];
-		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[25];
-		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[26];
-		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[27];
-		//nothing EMoflonEdge trgFailToFailed__trgFailed____place = (EMoflonEdge) result3_green[28];
-		//nothing EMoflonEdge srcSegment__srcSemaphore____semaphores = (EMoflonEdge) result3_green[29];
-		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[30];
-		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[31];
-		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[32];
-		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[33];
-		//nothing EMoflonEdge semaphoreOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[34];
-		//nothing EMoflonEdge semaphoreFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[35];
-		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[36];
-		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[37];
-		//nothing EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = (EMoflonEdge) result3_green[38];
+		//nothing EMoflonEdge semaphoreFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[21];
+		//nothing EMoflonEdge semaphoreOperationalCorr__trgOperational____target = (EMoflonEdge) result3_green[22];
+		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[23];
+		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[24];
+		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[25];
+		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[26];
+		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[27];
+		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[28];
+		//nothing EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = (EMoflonEdge) result3_green[29];
+		//nothing EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = (EMoflonEdge) result3_green[30];
+		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[31];
+		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[32];
+		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[33];
+		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[34];
+		//nothing EMoflonEdge trgFailToFailed__trgFailed____place = (EMoflonEdge) result3_green[35];
+		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[36];
+		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[37];
+		//nothing EMoflonEdge srcSegment__srcSemaphore____semaphores = (EMoflonEdge) result3_green[38];
 
 		// 
 		// 
-		SemaphoreImpl.pattern_Semaphore_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBBB(this, ruleresult, trgFailed,
-				srcRegion, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore, trgFail, containerCorr,
-				srcContainer, semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, srcSegment,
-				trgPetrinet, trgOperational, semaphoreFailedCorr);
+		SemaphoreImpl.pattern_Semaphore_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBBB(this, ruleresult, trgRepair,
+				srcContainer, semaphoreOperationalCorr, containerCorr, trgOperationToFail, trgFailedToRepair, trgFail,
+				trgPetrinet, trgFailed, trgRepairToOperational, semaphoreFailedCorr, srcRegion, trgOperational,
+				trgFailToFailed, srcSemaphore, srcSegment);
 		return SemaphoreImpl.pattern_Semaphore_1_6_expressionFB(ruleresult);
 	}
 
@@ -278,35 +277,35 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		Region srcRegion = (Region) result2_binding[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result2_binding[1];
-		RailwayContainer srcContainer = (RailwayContainer) result2_binding[2];
+		RailwayContainer srcContainer = (RailwayContainer) result2_binding[0];
+		Region srcRegion = (Region) result2_binding[1];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result2_binding[2];
 		Segment srcSegment = (Segment) result2_binding[3];
-		for (Object[] result2_black : SemaphoreImpl.pattern_Semaphore_2_2_corematch_blackBBFBBFB(srcRegion,
-				srcSemaphore, srcContainer, srcSegment, match)) {
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[2];
-			PetriNet trgPetrinet = (PetriNet) result2_black[5];
+		for (Object[] result2_black : SemaphoreImpl.pattern_Semaphore_2_2_corematch_blackBFFBBBB(srcContainer,
+				srcRegion, srcSemaphore, srcSegment, match)) {
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[1];
+			PetriNet trgPetrinet = (PetriNet) result2_black[2];
 			// ForEach 
-			for (Object[] result3_black : SemaphoreImpl.pattern_Semaphore_2_3_findcontext_blackBBBBBB(srcRegion,
-					srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet)) {
-				Object[] result3_green = SemaphoreImpl.pattern_Semaphore_2_3_findcontext_greenBBBBBBFFFFFF(srcRegion,
-						srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet);
+			for (Object[] result3_black : SemaphoreImpl.pattern_Semaphore_2_3_findcontext_blackBBBBBB(srcContainer,
+					containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment)) {
+				Object[] result3_green = SemaphoreImpl.pattern_Semaphore_2_3_findcontext_greenBBBBBBFFFFFF(srcContainer,
+						containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[6];
-				//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result3_green[7];
+				//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result3_green[7];
 				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[8];
-				//nothing EMoflonEdge srcSegment__srcSemaphore____semaphores = (EMoflonEdge) result3_green[9];
-				//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result3_green[10];
-				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[11];
+				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[9];
+				//nothing EMoflonEdge srcRegion__srcSegment____elements = (EMoflonEdge) result3_green[10];
+				//nothing EMoflonEdge srcSegment__srcSemaphore____semaphores = (EMoflonEdge) result3_green[11];
 
 				Object[] result4_bindingAndBlack = SemaphoreImpl
-						.pattern_Semaphore_2_4_solveCSP_bindingAndBlackFBBBBBBBB(this, isApplicableMatch, srcRegion,
-								srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet);
+						.pattern_Semaphore_2_4_solveCSP_bindingAndBlackFBBBBBBBB(this, isApplicableMatch, srcContainer,
+								containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcRegion] = " + srcRegion + ", "
-							+ "[srcSemaphore] = " + srcSemaphore + ", " + "[containerCorr] = " + containerCorr + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[srcSegment] = " + srcSegment + ", "
-							+ "[trgPetrinet] = " + trgPetrinet + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcContainer] = " + srcContainer
+							+ ", " + "[containerCorr] = " + containerCorr + ", " + "[trgPetrinet] = " + trgPetrinet
+							+ ", " + "[srcRegion] = " + srcRegion + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
+							+ "[srcSegment] = " + srcSegment + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -334,12 +333,11 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {
+	public void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		match.registerObject("srcContainer", srcContainer);
 		match.registerObject("srcRegion", srcRegion);
 		match.registerObject("srcSemaphore", srcSemaphore);
-		match.registerObject("srcContainer", srcContainer);
 		match.registerObject("srcSegment", srcSegment);
 
 	}
@@ -349,9 +347,8 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -380,10 +377,9 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -410,12 +406,12 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		signalToMarking.solve(var_srcSemaphore_signal, var_trgOperational_tokens, var_trgFailed_tokens);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("srcContainer", srcContainer);
+		isApplicableMatch.registerObject("containerCorr", containerCorr);
+		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
 		isApplicableMatch.registerObject("srcRegion", srcRegion);
 		isApplicableMatch.registerObject("srcSemaphore", srcSemaphore);
-		isApplicableMatch.registerObject("containerCorr", containerCorr);
-		isApplicableMatch.registerObject("srcContainer", srcContainer);
 		isApplicableMatch.registerObject("srcSegment", srcSegment);
-		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
 		return csp;
 	}
 
@@ -433,27 +429,27 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgFailed, EObject srcRegion,
-			EObject trgFailedToRepair, EObject trgRepair, EObject trgOperationToFail, EObject srcSemaphore,
-			EObject trgFail, EObject containerCorr, EObject srcContainer, EObject semaphoreOperationalCorr,
-			EObject trgRepairToOperational, EObject trgFailToFailed, EObject srcSegment, EObject trgPetrinet,
-			EObject trgOperational, EObject semaphoreFailedCorr) {
-		ruleresult.registerObject("trgFailed", trgFailed);
-		ruleresult.registerObject("srcRegion", srcRegion);
-		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRepair, EObject srcContainer,
+			EObject semaphoreOperationalCorr, EObject containerCorr, EObject trgOperationToFail,
+			EObject trgFailedToRepair, EObject trgFail, EObject trgPetrinet, EObject trgFailed,
+			EObject trgRepairToOperational, EObject semaphoreFailedCorr, EObject srcRegion, EObject trgOperational,
+			EObject trgFailToFailed, EObject srcSemaphore, EObject srcSegment) {
 		ruleresult.registerObject("trgRepair", trgRepair);
-		ruleresult.registerObject("trgOperationToFail", trgOperationToFail);
-		ruleresult.registerObject("srcSemaphore", srcSemaphore);
-		ruleresult.registerObject("trgFail", trgFail);
-		ruleresult.registerObject("containerCorr", containerCorr);
 		ruleresult.registerObject("srcContainer", srcContainer);
 		ruleresult.registerObject("semaphoreOperationalCorr", semaphoreOperationalCorr);
-		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
-		ruleresult.registerObject("trgFailToFailed", trgFailToFailed);
-		ruleresult.registerObject("srcSegment", srcSegment);
+		ruleresult.registerObject("containerCorr", containerCorr);
+		ruleresult.registerObject("trgOperationToFail", trgOperationToFail);
+		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
+		ruleresult.registerObject("trgFail", trgFail);
 		ruleresult.registerObject("trgPetrinet", trgPetrinet);
-		ruleresult.registerObject("trgOperational", trgOperational);
+		ruleresult.registerObject("trgFailed", trgFailed);
+		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
 		ruleresult.registerObject("semaphoreFailedCorr", semaphoreFailedCorr);
+		ruleresult.registerObject("srcRegion", srcRegion);
+		ruleresult.registerObject("trgOperational", trgOperational);
+		ruleresult.registerObject("trgFailToFailed", trgFailToFailed);
+		ruleresult.registerObject("srcSemaphore", srcSemaphore);
+		ruleresult.registerObject("srcSegment", srcSegment);
 
 	}
 
@@ -472,7 +468,7 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_17(EMoflonEdge _edge_semaphores) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_12(EMoflonEdge _edge_semaphores) {
 
 		Object[] result1_bindingAndBlack = SemaphoreImpl
 				.pattern_Semaphore_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -488,16 +484,16 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		// ForEach 
 		for (Object[] result2_black : SemaphoreImpl
 				.pattern_Semaphore_10_2_testcorematchandDECs_blackFFFFB(_edge_semaphores)) {
-			Region srcRegion = (Region) result2_black[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result2_black[1];
-			RailwayContainer srcContainer = (RailwayContainer) result2_black[2];
+			RailwayContainer srcContainer = (RailwayContainer) result2_black[0];
+			Region srcRegion = (Region) result2_black[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result2_black[2];
 			Segment srcSegment = (Segment) result2_black[3];
 			Object[] result2_green = SemaphoreImpl.pattern_Semaphore_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// 
 			if (SemaphoreImpl.pattern_Semaphore_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBBBB(this,
-					match, srcRegion, srcSemaphore, srcContainer, srcSegment)) {
+					match, srcContainer, srcRegion, srcSemaphore, srcSegment)) {
 				// 
 				if (SemaphoreImpl.pattern_Semaphore_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(
 						this, match)) {
@@ -537,12 +533,12 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 
 		CheckAttributeHelper __helper = new CheckAttributeHelper(__tripleMatch);
 
-		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgOperationToFail", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
 
-		if (!__helper.hasExpectedValue("trgOperationToFail", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
+		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -557,10 +553,6 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 			return ruleResult;
 		}
 
-		Variable var_trgOperational_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgOperational", true, csp);
-		var_trgOperational_tokens.setValue(__helper.getValue("trgOperational", "tokens"));
-		var_trgOperational_tokens.setType("int");
-
 		Variable var_srcSemaphore_signal = CSPFactoryHelper.eINSTANCE.createVariable("srcSemaphore", true, csp);
 		var_srcSemaphore_signal.setValue(__helper.getValue("srcSemaphore", "signal"));
 		var_srcSemaphore_signal.setType("railway.Signal");
@@ -568,6 +560,10 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		Variable var_trgFailed_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgFailed", true, csp);
 		var_trgFailed_tokens.setValue(__helper.getValue("trgFailed", "tokens"));
 		var_trgFailed_tokens.setType("int");
+
+		Variable var_trgOperational_tokens = CSPFactoryHelper.eINSTANCE.createVariable("trgOperational", true, csp);
+		var_trgOperational_tokens.setValue(__helper.getValue("trgOperational", "tokens"));
+		var_trgOperational_tokens.setType("int");
 
 		SignalToMarking signalToMarking0 = new SignalToMarking();
 		csp.getConstraints().add(signalToMarking0);
@@ -578,14 +574,14 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		if (csp.check()) {
 			ruleResult.setSuccess(true);
 		} else {
-			var_trgOperational_tokens.setBound(false);
 			var_trgFailed_tokens.setBound(false);
+			var_trgOperational_tokens.setBound(false);
 			signalToMarking0.solve(var_srcSemaphore_signal, var_trgOperational_tokens, var_trgFailed_tokens);
 			if (csp.check()) {
 				ruleResult.setSuccess(true);
 				ruleResult.setRequiredChange(true);
-				__helper.setValue("trgOperational", "tokens", var_trgOperational_tokens.getValue());
 				__helper.setValue("trgFailed", "tokens", var_trgFailed_tokens.getValue());
+				__helper.setValue("trgOperational", "tokens", var_trgOperational_tokens.getValue());
 			} else {
 				ruleResult.setSuccess(false);
 				return ruleResult;
@@ -612,11 +608,10 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {// 
-		Object[] result1_black = SemaphoreImpl.pattern_Semaphore_13_1_matchtggpattern_blackBBBB(srcRegion, srcSemaphore,
-				srcContainer, srcSegment);
+	public boolean checkDEC_FWD(RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {// 
+		Object[] result1_black = SemaphoreImpl.pattern_Semaphore_13_1_matchtggpattern_blackBBBB(srcContainer, srcRegion,
+				srcSemaphore, srcSegment);
 		if (result1_black != null) {
 			return SemaphoreImpl.pattern_Semaphore_13_2_expressionF();
 		} else {
@@ -633,30 +628,34 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_FWD__MATCH_REGION_SEMAPHORE_RAILWAYCONTAINER_SEGMENT:
-			return isAppropriate_FWD((Match) arguments.get(0), (Region) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(2),
-					(RailwayContainer) arguments.get(3), (Segment) arguments.get(4));
+		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_FWD__MATCH_RAILWAYCONTAINER_REGION_SEMAPHORE_SEGMENT:
+			return isAppropriate_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
+					(Region) arguments.get(2),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(3),
+					(Segment) arguments.get(4));
 		case RulesPackage.SEMAPHORE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SEMAPHORE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SEMAPHORE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_REGION_SEMAPHORE_RAILWAYCONTAINER_SEGMENT:
-			registerObjectsToMatch_FWD((Match) arguments.get(0), (Region) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(2),
-					(RailwayContainer) arguments.get(3), (Segment) arguments.get(4));
+		case RulesPackage.SEMAPHORE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_RAILWAYCONTAINER_REGION_SEMAPHORE_SEGMENT:
+			registerObjectsToMatch_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
+					(Region) arguments.get(2),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(3),
+					(Segment) arguments.get(4));
 			return null;
-		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_REGION_SEMAPHORE_RAILWAYCONTAINER_SEGMENT:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (Region) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(2),
-					(RailwayContainer) arguments.get(3), (Segment) arguments.get(4));
+		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_RAILWAYCONTAINER_REGION_SEMAPHORE_SEGMENT:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
+					(Region) arguments.get(2),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(3),
+					(Segment) arguments.get(4));
 		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SEMAPHORE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_REGION_SEMAPHORE_RAILWAYCONTAINERTOPETRINET_RAILWAYCONTAINER_SEGMENT_PETRINET:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (Region) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(2),
-					(RailwayContainerToPetriNet) arguments.get(3), (RailwayContainer) arguments.get(4),
-					(Segment) arguments.get(5), (PetriNet) arguments.get(6));
+		case RulesPackage.SEMAPHORE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_RAILWAYCONTAINER_RAILWAYCONTAINERTOPETRINET_PETRINET_REGION_SEMAPHORE_SEGMENT:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (RailwayContainer) arguments.get(1),
+					(RailwayContainerToPetriNet) arguments.get(2), (PetriNet) arguments.get(3),
+					(Region) arguments.get(4),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(5),
+					(Segment) arguments.get(6));
 		case RulesPackage.SEMAPHORE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SEMAPHORE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
@@ -669,34 +668,34 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 			return null;
 		case RulesPackage.SEMAPHORE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_17__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_17((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SEMAPHORE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_12__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_12((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SEMAPHORE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SEMAPHORE___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.SEMAPHORE___CHECK_DEC_FWD__REGION_SEMAPHORE_RAILWAYCONTAINER_SEGMENT:
-			return checkDEC_FWD((Region) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(1),
-					(RailwayContainer) arguments.get(2), (Segment) arguments.get(3));
+		case RulesPackage.SEMAPHORE___CHECK_DEC_FWD__RAILWAYCONTAINER_REGION_SEMAPHORE_SEGMENT:
+			return checkDEC_FWD((RailwayContainer) arguments.get(0), (Region) arguments.get(1),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) arguments.get(2),
+					(Segment) arguments.get(3));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_Semaphore_0_1_initialbindings_blackBBBBBB(Semaphore _this, Match match,
-			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment) {
-		return new Object[] { _this, match, srcRegion, srcSemaphore, srcContainer, srcSegment };
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		return new Object[] { _this, match, srcContainer, srcRegion, srcSemaphore, srcSegment };
 	}
 
 	public static final Object[] pattern_Semaphore_0_2_SolveCSP_bindingFBBBBBB(Semaphore _this, Match match,
-			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcRegion, srcSemaphore, srcContainer,
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcContainer, srcRegion, srcSemaphore,
 				srcSegment);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcRegion, srcSemaphore, srcContainer, srcSegment };
+			return new Object[] { csp, _this, match, srcContainer, srcRegion, srcSemaphore, srcSegment };
 		}
 		return null;
 	}
@@ -706,17 +705,17 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final Object[] pattern_Semaphore_0_2_SolveCSP_bindingAndBlackFBBBBBB(Semaphore _this, Match match,
-			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment) {
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
 		Object[] result_pattern_Semaphore_0_2_SolveCSP_binding = pattern_Semaphore_0_2_SolveCSP_bindingFBBBBBB(_this,
-				match, srcRegion, srcSemaphore, srcContainer, srcSegment);
+				match, srcContainer, srcRegion, srcSemaphore, srcSegment);
 		if (result_pattern_Semaphore_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Semaphore_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_Semaphore_0_2_SolveCSP_black = pattern_Semaphore_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_Semaphore_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcRegion, srcSemaphore, srcContainer, srcSegment };
+				return new Object[] { csp, _this, match, srcContainer, srcRegion, srcSemaphore, srcSegment };
 			}
 		}
 		return null;
@@ -729,9 +728,9 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final Object[] pattern_Semaphore_0_4_collectelementstobetranslated_blackBBBBB(Match match,
-			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment) {
-		return new Object[] { match, srcRegion, srcSemaphore, srcContainer, srcSegment };
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		return new Object[] { match, srcContainer, srcRegion, srcSemaphore, srcSegment };
 	}
 
 	public static final Object[] pattern_Semaphore_0_4_collectelementstobetranslated_greenBBBF(Match match,
@@ -746,37 +745,37 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return new Object[] { match, srcSemaphore, srcSegment, srcSegment__srcSemaphore____semaphores };
 	}
 
-	public static final Object[] pattern_Semaphore_0_5_collectcontextelements_blackBBBBB(Match match, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {
-		return new Object[] { match, srcRegion, srcSemaphore, srcContainer, srcSegment };
+	public static final Object[] pattern_Semaphore_0_5_collectcontextelements_blackBBBBB(Match match,
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		return new Object[] { match, srcContainer, srcRegion, srcSemaphore, srcSegment };
 	}
 
-	public static final Object[] pattern_Semaphore_0_5_collectcontextelements_greenBBBBFF(Match match, Region srcRegion,
-			RailwayContainer srcContainer, Segment srcSegment) {
-		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+	public static final Object[] pattern_Semaphore_0_5_collectcontextelements_greenBBBBFF(Match match,
+			RailwayContainer srcContainer, Region srcRegion, Segment srcSegment) {
 		EMoflonEdge srcContainer__srcRegion____regions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		match.getContextNodes().add(srcRegion);
+		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		match.getContextNodes().add(srcContainer);
+		match.getContextNodes().add(srcRegion);
 		match.getContextNodes().add(srcSegment);
-		String srcRegion__srcSegment____elements_name_prime = "elements";
 		String srcContainer__srcRegion____regions_name_prime = "regions";
-		srcRegion__srcSegment____elements.setSrc(srcRegion);
-		srcRegion__srcSegment____elements.setTrg(srcSegment);
-		match.getContextEdges().add(srcRegion__srcSegment____elements);
+		String srcRegion__srcSegment____elements_name_prime = "elements";
 		srcContainer__srcRegion____regions.setSrc(srcContainer);
 		srcContainer__srcRegion____regions.setTrg(srcRegion);
 		match.getContextEdges().add(srcContainer__srcRegion____regions);
-		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
+		srcRegion__srcSegment____elements.setSrc(srcRegion);
+		srcRegion__srcSegment____elements.setTrg(srcSegment);
+		match.getContextEdges().add(srcRegion__srcSegment____elements);
 		srcContainer__srcRegion____regions.setName(srcContainer__srcRegion____regions_name_prime);
-		return new Object[] { match, srcRegion, srcContainer, srcSegment, srcRegion__srcSegment____elements,
-				srcContainer__srcRegion____regions };
+		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
+		return new Object[] { match, srcContainer, srcRegion, srcSegment, srcContainer__srcRegion____regions,
+				srcRegion__srcSegment____elements };
 	}
 
 	public static final void pattern_Semaphore_0_6_registerobjectstomatch_expressionBBBBBB(Semaphore _this, Match match,
-			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment) {
-		_this.registerObjectsToMatch_FWD(match, srcRegion, srcSemaphore, srcContainer, srcSegment);
+			RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		_this.registerObjectsToMatch_FWD(match, srcContainer, srcRegion, srcSemaphore, srcSegment);
 
 	}
 
@@ -792,32 +791,32 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 
 	public static final Object[] pattern_Semaphore_1_1_performtransformation_bindingFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcRegion");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcSemaphore");
-		EObject _localVariable_2 = isApplicableMatch.getObject("containerCorr");
-		EObject _localVariable_3 = isApplicableMatch.getObject("srcContainer");
-		EObject _localVariable_4 = isApplicableMatch.getObject("srcSegment");
-		EObject _localVariable_5 = isApplicableMatch.getObject("trgPetrinet");
-		EObject tmpSrcRegion = _localVariable_0;
-		EObject tmpSrcSemaphore = _localVariable_1;
-		EObject tmpContainerCorr = _localVariable_2;
-		EObject tmpSrcContainer = _localVariable_3;
-		EObject tmpSrcSegment = _localVariable_4;
-		EObject tmpTrgPetrinet = _localVariable_5;
-		if (tmpSrcRegion instanceof Region) {
-			Region srcRegion = (Region) tmpSrcRegion;
-			if (tmpSrcSemaphore instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) tmpSrcSemaphore;
-				if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
-					RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
-					if (tmpSrcContainer instanceof RailwayContainer) {
-						RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-						if (tmpSrcSegment instanceof Segment) {
-							Segment srcSegment = (Segment) tmpSrcSegment;
-							if (tmpTrgPetrinet instanceof PetriNet) {
-								PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
-								return new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment,
-										trgPetrinet, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcContainer");
+		EObject _localVariable_1 = isApplicableMatch.getObject("containerCorr");
+		EObject _localVariable_2 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_3 = isApplicableMatch.getObject("srcRegion");
+		EObject _localVariable_4 = isApplicableMatch.getObject("srcSemaphore");
+		EObject _localVariable_5 = isApplicableMatch.getObject("srcSegment");
+		EObject tmpSrcContainer = _localVariable_0;
+		EObject tmpContainerCorr = _localVariable_1;
+		EObject tmpTrgPetrinet = _localVariable_2;
+		EObject tmpSrcRegion = _localVariable_3;
+		EObject tmpSrcSemaphore = _localVariable_4;
+		EObject tmpSrcSegment = _localVariable_5;
+		if (tmpSrcContainer instanceof RailwayContainer) {
+			RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+			if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
+				RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+				if (tmpTrgPetrinet instanceof PetriNet) {
+					PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+					if (tmpSrcRegion instanceof Region) {
+						Region srcRegion = (Region) tmpSrcRegion;
+						if (tmpSrcSemaphore instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) {
+							hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) tmpSrcSemaphore;
+							if (tmpSrcSegment instanceof Segment) {
+								Segment srcSegment = (Segment) tmpSrcSegment;
+								return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore,
+										srcSegment, isApplicableMatch };
 							}
 						}
 					}
@@ -827,14 +826,14 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return null;
 	}
 
-	public static final Object[] pattern_Semaphore_1_1_performtransformation_blackBBBBBBFBB(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet, Semaphore _this, IsApplicableMatch isApplicableMatch) {
+	public static final Object[] pattern_Semaphore_1_1_performtransformation_blackBBBBBBFBB(
+			RailwayContainer srcContainer, RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet,
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
+			Segment srcSegment, Semaphore _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet,
+				return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment,
 						csp, _this, isApplicableMatch };
 			}
 		}
@@ -846,91 +845,90 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		Object[] result_pattern_Semaphore_1_1_performtransformation_binding = pattern_Semaphore_1_1_performtransformation_bindingFFFFFFB(
 				isApplicableMatch);
 		if (result_pattern_Semaphore_1_1_performtransformation_binding != null) {
-			Region srcRegion = (Region) result_pattern_Semaphore_1_1_performtransformation_binding[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result_pattern_Semaphore_1_1_performtransformation_binding[1];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Semaphore_1_1_performtransformation_binding[2];
-			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Semaphore_1_1_performtransformation_binding[3];
-			Segment srcSegment = (Segment) result_pattern_Semaphore_1_1_performtransformation_binding[4];
-			PetriNet trgPetrinet = (PetriNet) result_pattern_Semaphore_1_1_performtransformation_binding[5];
+			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Semaphore_1_1_performtransformation_binding[0];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Semaphore_1_1_performtransformation_binding[1];
+			PetriNet trgPetrinet = (PetriNet) result_pattern_Semaphore_1_1_performtransformation_binding[2];
+			Region srcRegion = (Region) result_pattern_Semaphore_1_1_performtransformation_binding[3];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) result_pattern_Semaphore_1_1_performtransformation_binding[4];
+			Segment srcSegment = (Segment) result_pattern_Semaphore_1_1_performtransformation_binding[5];
 
 			Object[] result_pattern_Semaphore_1_1_performtransformation_black = pattern_Semaphore_1_1_performtransformation_blackBBBBBBFBB(
-					srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet, _this,
+					srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment, _this,
 					isApplicableMatch);
 			if (result_pattern_Semaphore_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_Semaphore_1_1_performtransformation_black[6];
 
-				return new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet,
+				return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment,
 						csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Semaphore_1_1_performtransformation_greenFFFFBFFFFBFFB(
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, PetriNet trgPetrinet, CSP csp) {
-		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
-		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
+	public static final Object[] pattern_Semaphore_1_1_performtransformation_greenFFFFFBFFFFFBB(PetriNet trgPetrinet,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, CSP csp) {
 		TimedTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
-		Arc trgOperationToFail = StochasticPetriNetFactory.eINSTANCE.createArc();
-		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
 		SemaphoreToOperational semaphoreOperationalCorr = StochasticpetrinetFactory.eINSTANCE
 				.createSemaphoreToOperational();
+		Arc trgOperationToFail = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
+		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
+		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
 		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgFailToFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
 		SemaphoreToFailed semaphoreFailedCorr = StochasticpetrinetFactory.eINSTANCE.createSemaphoreToFailed();
-		Object _localVariable_0 = csp.getValue("trgFailed", "tokens");
-		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
+		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
+		Arc trgFailToFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
 		ArcKind trgOperationToFail_kind_prime = ArcKind.INPUT;
+		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
+		Object _localVariable_0 = csp.getValue("trgFailed", "tokens");
 		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
-		ArcKind trgFailToFailed_kind_prime = ArcKind.OUTPUT;
 		Object _localVariable_1 = csp.getValue("trgOperational", "tokens");
+		ArcKind trgFailToFailed_kind_prime = ArcKind.OUTPUT;
+		trgRepair.setPetriNet(trgPetrinet);
+		semaphoreOperationalCorr.setSource(srcSemaphore);
+		trgFailedToRepair.setTransition(trgRepair);
+		trgOperationToFail.setTransition(trgFail);
+		trgFail.setPetriNet(trgPetrinet);
 		trgFailed.setPetriNet(trgPetrinet);
 		trgFailedToRepair.setPlace(trgFailed);
-		trgFailedToRepair.setTransition(trgRepair);
-		trgRepair.setPetriNet(trgPetrinet);
-		trgFail.setPetriNet(trgPetrinet);
-		trgOperationToFail.setTransition(trgFail);
-		semaphoreOperationalCorr.setSource(srcSemaphore);
 		trgRepairToOperational.setTransition(trgRepair);
-		trgFailToFailed.setTransition(trgFail);
-		trgFailToFailed.setPlace(trgFailed);
-		trgRepairToOperational.setPlace(trgOperational);
-		trgOperationToFail.setPlace(trgOperational);
-		semaphoreOperationalCorr.setTarget(trgOperational);
-		trgOperational.setPetriNet(trgPetrinet);
 		semaphoreFailedCorr.setTarget(trgFailed);
 		semaphoreFailedCorr.setSource(srcSemaphore);
-		int trgFailed_tokens_prime = (int) _localVariable_0;
-		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		semaphoreOperationalCorr.setTarget(trgOperational);
+		trgOperational.setPetriNet(trgPetrinet);
+		trgOperationToFail.setPlace(trgOperational);
+		trgRepairToOperational.setPlace(trgOperational);
+		trgFailToFailed.setPlace(trgFailed);
+		trgFailToFailed.setTransition(trgFail);
 		trgOperationToFail.setKind(trgOperationToFail_kind_prime);
+		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		int trgFailed_tokens_prime = (int) _localVariable_0;
 		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
-		trgFailToFailed.setKind(trgFailToFailed_kind_prime);
 		int trgOperational_tokens_prime = (int) _localVariable_1;
+		trgFailToFailed.setKind(trgFailToFailed_kind_prime);
 		trgFailed.setTokens(Integer.valueOf(trgFailed_tokens_prime));
 		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
-		return new Object[] { trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore, trgFail,
-				semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, trgPetrinet, trgOperational,
-				semaphoreFailedCorr, csp };
+		return new Object[] { trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair, trgFail,
+				trgPetrinet, trgFailed, trgRepairToOperational, semaphoreFailedCorr, trgOperational, trgFailToFailed,
+				srcSemaphore, csp };
 	}
 
-	public static final Object[] pattern_Semaphore_1_2_collecttranslatedelements_blackBBBBBBBBBBB(Place trgFailed,
-			Arc trgFailedToRepair, TimedTransition trgRepair, Arc trgOperationToFail,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, TimedTransition trgFail,
-			SemaphoreToOperational semaphoreOperationalCorr, Arc trgRepairToOperational, Arc trgFailToFailed,
-			Place trgOperational, SemaphoreToFailed semaphoreFailedCorr) {
-		if (!trgFailed.equals(trgOperational)) {
+	public static final Object[] pattern_Semaphore_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
+			TimedTransition trgRepair, SemaphoreToOperational semaphoreOperationalCorr, Arc trgOperationToFail,
+			Arc trgFailedToRepair, TimedTransition trgFail, Place trgFailed, Arc trgRepairToOperational,
+			SemaphoreToFailed semaphoreFailedCorr, Place trgOperational, Arc trgFailToFailed,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore) {
+		if (!trgOperationToFail.equals(trgRepairToOperational)) {
 			if (!trgFailedToRepair.equals(trgOperationToFail)) {
 				if (!trgFailedToRepair.equals(trgRepairToOperational)) {
-					if (!trgOperationToFail.equals(trgRepairToOperational)) {
-						if (!trgFail.equals(trgRepair)) {
-							if (!trgFailToFailed.equals(trgFailedToRepair)) {
-								if (!trgFailToFailed.equals(trgOperationToFail)) {
+					if (!trgFail.equals(trgRepair)) {
+						if (!trgFailed.equals(trgOperational)) {
+							if (!trgFailToFailed.equals(trgOperationToFail)) {
+								if (!trgFailToFailed.equals(trgFailedToRepair)) {
 									if (!trgFailToFailed.equals(trgRepairToOperational)) {
-										return new Object[] { trgFailed, trgFailedToRepair, trgRepair,
-												trgOperationToFail, srcSemaphore, trgFail, semaphoreOperationalCorr,
-												trgRepairToOperational, trgFailToFailed, trgOperational,
-												semaphoreFailedCorr };
+										return new Object[] { trgRepair, semaphoreOperationalCorr, trgOperationToFail,
+												trgFailedToRepair, trgFail, trgFailed, trgRepairToOperational,
+												semaphoreFailedCorr, trgOperational, trgFailToFailed, srcSemaphore };
 									}
 								}
 							}
@@ -942,274 +940,277 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return null;
 	}
 
-	public static final Object[] pattern_Semaphore_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(Place trgFailed,
-			Arc trgFailedToRepair, TimedTransition trgRepair, Arc trgOperationToFail,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, TimedTransition trgFail,
-			SemaphoreToOperational semaphoreOperationalCorr, Arc trgRepairToOperational, Arc trgFailToFailed,
-			Place trgOperational, SemaphoreToFailed semaphoreFailedCorr) {
+	public static final Object[] pattern_Semaphore_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
+			TimedTransition trgRepair, SemaphoreToOperational semaphoreOperationalCorr, Arc trgOperationToFail,
+			Arc trgFailedToRepair, TimedTransition trgFail, Place trgFailed, Arc trgRepairToOperational,
+			SemaphoreToFailed semaphoreFailedCorr, Place trgOperational, Arc trgFailToFailed,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
-		ruleresult.getCreatedElements().add(trgFailed);
-		ruleresult.getCreatedElements().add(trgFailedToRepair);
 		ruleresult.getCreatedElements().add(trgRepair);
-		ruleresult.getCreatedElements().add(trgOperationToFail);
-		ruleresult.getTranslatedElements().add(srcSemaphore);
-		ruleresult.getCreatedElements().add(trgFail);
 		ruleresult.getCreatedLinkElements().add(semaphoreOperationalCorr);
+		ruleresult.getCreatedElements().add(trgOperationToFail);
+		ruleresult.getCreatedElements().add(trgFailedToRepair);
+		ruleresult.getCreatedElements().add(trgFail);
+		ruleresult.getCreatedElements().add(trgFailed);
 		ruleresult.getCreatedElements().add(trgRepairToOperational);
-		ruleresult.getCreatedElements().add(trgFailToFailed);
-		ruleresult.getCreatedElements().add(trgOperational);
 		ruleresult.getCreatedLinkElements().add(semaphoreFailedCorr);
-		return new Object[] { ruleresult, trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore,
-				trgFail, semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, trgOperational,
-				semaphoreFailedCorr };
+		ruleresult.getCreatedElements().add(trgOperational);
+		ruleresult.getCreatedElements().add(trgFailToFailed);
+		ruleresult.getTranslatedElements().add(srcSemaphore);
+		return new Object[] { ruleresult, trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair,
+				trgFail, trgFailed, trgRepairToOperational, semaphoreFailedCorr, trgOperational, trgFailToFailed,
+				srcSemaphore };
 	}
 
 	public static final Object[] pattern_Semaphore_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject trgFailed, EObject srcRegion, EObject trgFailedToRepair,
-			EObject trgRepair, EObject trgOperationToFail, EObject srcSemaphore, EObject trgFail, EObject containerCorr,
-			EObject srcContainer, EObject semaphoreOperationalCorr, EObject trgRepairToOperational,
-			EObject trgFailToFailed, EObject srcSegment, EObject trgPetrinet, EObject trgOperational,
-			EObject semaphoreFailedCorr) {
-		if (!trgFailed.equals(trgFailedToRepair)) {
-			if (!trgFailed.equals(trgRepair)) {
-				if (!trgFailed.equals(trgOperationToFail)) {
-					if (!trgFailed.equals(trgRepairToOperational)) {
-						if (!trgFailed.equals(trgPetrinet)) {
-							if (!trgFailed.equals(trgOperational)) {
-								if (!srcRegion.equals(trgFailed)) {
-									if (!srcRegion.equals(trgFailedToRepair)) {
-										if (!srcRegion.equals(trgRepair)) {
-											if (!srcRegion.equals(trgOperationToFail)) {
-												if (!srcRegion.equals(srcSemaphore)) {
-													if (!srcRegion.equals(trgFail)) {
-														if (!srcRegion.equals(trgRepairToOperational)) {
-															if (!srcRegion.equals(trgFailToFailed)) {
-																if (!srcRegion.equals(srcSegment)) {
-																	if (!srcRegion.equals(trgPetrinet)) {
-																		if (!srcRegion.equals(trgOperational)) {
-																			if (!trgFailedToRepair.equals(trgRepair)) {
-																				if (!trgFailedToRepair
-																						.equals(trgOperationToFail)) {
-																					if (!trgFailedToRepair.equals(
-																							trgRepairToOperational)) {
-																						if (!trgFailedToRepair
-																								.equals(trgPetrinet)) {
-																							if (!trgFailedToRepair
-																									.equals(trgOperational)) {
-																								if (!trgRepair.equals(
-																										trgRepairToOperational)) {
-																									if (!trgOperationToFail
-																											.equals(trgRepair)) {
-																										if (!trgOperationToFail
-																												.equals(trgRepairToOperational)) {
-																											if (!trgOperationToFail
-																													.equals(trgPetrinet)) {
-																												if (!trgOperationToFail
-																														.equals(trgOperational)) {
-																													if (!srcSemaphore
-																															.equals(trgFailed)) {
-																														if (!srcSemaphore
-																																.equals(trgFailedToRepair)) {
-																															if (!srcSemaphore
-																																	.equals(trgRepair)) {
-																																if (!srcSemaphore
-																																		.equals(trgOperationToFail)) {
-																																	if (!srcSemaphore
+			PerformRuleResult ruleresult, EObject trgRepair, EObject srcContainer, EObject semaphoreOperationalCorr,
+			EObject containerCorr, EObject trgOperationToFail, EObject trgFailedToRepair, EObject trgFail,
+			EObject trgPetrinet, EObject trgFailed, EObject trgRepairToOperational, EObject semaphoreFailedCorr,
+			EObject srcRegion, EObject trgOperational, EObject trgFailToFailed, EObject srcSemaphore,
+			EObject srcSegment) {
+		if (!trgRepair.equals(trgRepairToOperational)) {
+			if (!srcContainer.equals(trgRepair)) {
+				if (!srcContainer.equals(trgOperationToFail)) {
+					if (!srcContainer.equals(trgFailedToRepair)) {
+						if (!srcContainer.equals(trgFail)) {
+							if (!srcContainer.equals(trgPetrinet)) {
+								if (!srcContainer.equals(trgFailed)) {
+									if (!srcContainer.equals(trgRepairToOperational)) {
+										if (!srcContainer.equals(srcRegion)) {
+											if (!srcContainer.equals(trgOperational)) {
+												if (!srcContainer.equals(trgFailToFailed)) {
+													if (!srcContainer.equals(srcSemaphore)) {
+														if (!srcContainer.equals(srcSegment)) {
+															if (!semaphoreOperationalCorr.equals(trgRepair)) {
+																if (!semaphoreOperationalCorr.equals(srcContainer)) {
+																	if (!semaphoreOperationalCorr
+																			.equals(trgOperationToFail)) {
+																		if (!semaphoreOperationalCorr
+																				.equals(trgFailedToRepair)) {
+																			if (!semaphoreOperationalCorr
+																					.equals(trgFail)) {
+																				if (!semaphoreOperationalCorr
+																						.equals(trgPetrinet)) {
+																					if (!semaphoreOperationalCorr
+																							.equals(trgFailed)) {
+																						if (!semaphoreOperationalCorr
+																								.equals(trgRepairToOperational)) {
+																							if (!semaphoreOperationalCorr
+																									.equals(srcRegion)) {
+																								if (!semaphoreOperationalCorr
+																										.equals(trgOperational)) {
+																									if (!semaphoreOperationalCorr
+																											.equals(trgFailToFailed)) {
+																										if (!semaphoreOperationalCorr
+																												.equals(srcSemaphore)) {
+																											if (!semaphoreOperationalCorr
+																													.equals(srcSegment)) {
+																												if (!containerCorr
+																														.equals(trgRepair)) {
+																													if (!containerCorr
+																															.equals(srcContainer)) {
+																														if (!containerCorr
+																																.equals(semaphoreOperationalCorr)) {
+																															if (!containerCorr
+																																	.equals(trgOperationToFail)) {
+																																if (!containerCorr
+																																		.equals(trgFailedToRepair)) {
+																																	if (!containerCorr
 																																			.equals(trgFail)) {
-																																		if (!srcSemaphore
-																																				.equals(trgRepairToOperational)) {
-																																			if (!srcSemaphore
-																																					.equals(trgFailToFailed)) {
-																																				if (!srcSemaphore
-																																						.equals(trgPetrinet)) {
-																																					if (!srcSemaphore
-																																							.equals(trgOperational)) {
-																																						if (!trgFail
-																																								.equals(trgFailed)) {
-																																							if (!trgFail
-																																									.equals(trgFailedToRepair)) {
-																																								if (!trgFail
-																																										.equals(trgRepair)) {
-																																									if (!trgFail
-																																											.equals(trgOperationToFail)) {
-																																										if (!trgFail
-																																												.equals(trgRepairToOperational)) {
-																																											if (!trgFail
-																																													.equals(trgFailToFailed)) {
-																																												if (!trgFail
+																																		if (!containerCorr
+																																				.equals(trgPetrinet)) {
+																																			if (!containerCorr
+																																					.equals(trgFailed)) {
+																																				if (!containerCorr
+																																						.equals(trgRepairToOperational)) {
+																																					if (!containerCorr
+																																							.equals(semaphoreFailedCorr)) {
+																																						if (!containerCorr
+																																								.equals(srcRegion)) {
+																																							if (!containerCorr
+																																									.equals(trgOperational)) {
+																																								if (!containerCorr
+																																										.equals(trgFailToFailed)) {
+																																									if (!containerCorr
+																																											.equals(srcSemaphore)) {
+																																										if (!containerCorr
+																																												.equals(srcSegment)) {
+																																											if (!trgOperationToFail
+																																													.equals(trgRepair)) {
+																																												if (!trgOperationToFail
 																																														.equals(trgPetrinet)) {
-																																													if (!trgFail
-																																															.equals(trgOperational)) {
-																																														if (!containerCorr
-																																																.equals(trgFailed)) {
-																																															if (!containerCorr
-																																																	.equals(srcRegion)) {
-																																																if (!containerCorr
-																																																		.equals(trgFailedToRepair)) {
-																																																	if (!containerCorr
-																																																			.equals(trgRepair)) {
-																																																		if (!containerCorr
-																																																				.equals(trgOperationToFail)) {
-																																																			if (!containerCorr
-																																																					.equals(srcSemaphore)) {
-																																																				if (!containerCorr
-																																																						.equals(trgFail)) {
-																																																					if (!containerCorr
-																																																							.equals(srcContainer)) {
-																																																						if (!containerCorr
-																																																								.equals(semaphoreOperationalCorr)) {
-																																																							if (!containerCorr
-																																																									.equals(trgRepairToOperational)) {
-																																																								if (!containerCorr
-																																																										.equals(trgFailToFailed)) {
-																																																									if (!containerCorr
-																																																											.equals(srcSegment)) {
-																																																										if (!containerCorr
-																																																												.equals(trgPetrinet)) {
-																																																											if (!containerCorr
-																																																													.equals(trgOperational)) {
-																																																												if (!containerCorr
-																																																														.equals(semaphoreFailedCorr)) {
-																																																													if (!srcContainer
-																																																															.equals(trgFailed)) {
-																																																														if (!srcContainer
-																																																																.equals(srcRegion)) {
-																																																															if (!srcContainer
-																																																																	.equals(trgFailedToRepair)) {
-																																																																if (!srcContainer
-																																																																		.equals(trgRepair)) {
-																																																																	if (!srcContainer
-																																																																			.equals(trgOperationToFail)) {
-																																																																		if (!srcContainer
-																																																																				.equals(srcSemaphore)) {
-																																																																			if (!srcContainer
-																																																																					.equals(trgFail)) {
-																																																																				if (!srcContainer
-																																																																						.equals(trgRepairToOperational)) {
-																																																																					if (!srcContainer
-																																																																							.equals(trgFailToFailed)) {
-																																																																						if (!srcContainer
-																																																																								.equals(srcSegment)) {
-																																																																							if (!srcContainer
-																																																																									.equals(trgPetrinet)) {
-																																																																								if (!srcContainer
-																																																																										.equals(trgOperational)) {
-																																																																									if (!semaphoreOperationalCorr
-																																																																											.equals(trgFailed)) {
-																																																																										if (!semaphoreOperationalCorr
-																																																																												.equals(srcRegion)) {
-																																																																											if (!semaphoreOperationalCorr
-																																																																													.equals(trgFailedToRepair)) {
-																																																																												if (!semaphoreOperationalCorr
-																																																																														.equals(trgRepair)) {
-																																																																													if (!semaphoreOperationalCorr
-																																																																															.equals(trgOperationToFail)) {
-																																																																														if (!semaphoreOperationalCorr
-																																																																																.equals(srcSemaphore)) {
-																																																																															if (!semaphoreOperationalCorr
-																																																																																	.equals(trgFail)) {
-																																																																																if (!semaphoreOperationalCorr
-																																																																																		.equals(srcContainer)) {
-																																																																																	if (!semaphoreOperationalCorr
-																																																																																			.equals(trgRepairToOperational)) {
-																																																																																		if (!semaphoreOperationalCorr
-																																																																																				.equals(trgFailToFailed)) {
-																																																																																			if (!semaphoreOperationalCorr
-																																																																																					.equals(srcSegment)) {
-																																																																																				if (!semaphoreOperationalCorr
-																																																																																						.equals(trgPetrinet)) {
-																																																																																					if (!semaphoreOperationalCorr
-																																																																																							.equals(trgOperational)) {
-																																																																																						if (!trgFailToFailed
-																																																																																								.equals(trgFailed)) {
-																																																																																							if (!trgFailToFailed
-																																																																																									.equals(trgFailedToRepair)) {
-																																																																																								if (!trgFailToFailed
-																																																																																										.equals(trgRepair)) {
-																																																																																									if (!trgFailToFailed
-																																																																																											.equals(trgOperationToFail)) {
-																																																																																										if (!trgFailToFailed
-																																																																																												.equals(trgRepairToOperational)) {
-																																																																																											if (!trgFailToFailed
-																																																																																													.equals(trgPetrinet)) {
-																																																																																												if (!trgFailToFailed
-																																																																																														.equals(trgOperational)) {
-																																																																																													if (!srcSegment
-																																																																																															.equals(trgFailed)) {
-																																																																																														if (!srcSegment
-																																																																																																.equals(trgFailedToRepair)) {
-																																																																																															if (!srcSegment
-																																																																																																	.equals(trgRepair)) {
-																																																																																																if (!srcSegment
-																																																																																																		.equals(trgOperationToFail)) {
-																																																																																																	if (!srcSegment
-																																																																																																			.equals(srcSemaphore)) {
-																																																																																																		if (!srcSegment
-																																																																																																				.equals(trgFail)) {
-																																																																																																			if (!srcSegment
-																																																																																																					.equals(trgRepairToOperational)) {
-																																																																																																				if (!srcSegment
-																																																																																																						.equals(trgFailToFailed)) {
-																																																																																																					if (!srcSegment
-																																																																																																							.equals(trgPetrinet)) {
-																																																																																																						if (!srcSegment
+																																													if (!trgOperationToFail
+																																															.equals(trgRepairToOperational)) {
+																																														if (!trgOperationToFail
+																																																.equals(trgOperational)) {
+																																															if (!trgFailedToRepair
+																																																	.equals(trgRepair)) {
+																																																if (!trgFailedToRepair
+																																																		.equals(trgOperationToFail)) {
+																																																	if (!trgFailedToRepair
+																																																			.equals(trgPetrinet)) {
+																																																		if (!trgFailedToRepair
+																																																				.equals(trgRepairToOperational)) {
+																																																			if (!trgFailedToRepair
+																																																					.equals(trgOperational)) {
+																																																				if (!trgFail
+																																																						.equals(trgRepair)) {
+																																																					if (!trgFail
+																																																							.equals(trgOperationToFail)) {
+																																																						if (!trgFail
+																																																								.equals(trgFailedToRepair)) {
+																																																							if (!trgFail
+																																																									.equals(trgPetrinet)) {
+																																																								if (!trgFail
+																																																										.equals(trgFailed)) {
+																																																									if (!trgFail
+																																																											.equals(trgRepairToOperational)) {
+																																																										if (!trgFail
+																																																												.equals(trgOperational)) {
+																																																											if (!trgFail
+																																																													.equals(trgFailToFailed)) {
+																																																												if (!trgPetrinet
+																																																														.equals(trgRepair)) {
+																																																													if (!trgPetrinet
+																																																															.equals(trgRepairToOperational)) {
+																																																														if (!trgFailed
+																																																																.equals(trgRepair)) {
+																																																															if (!trgFailed
+																																																																	.equals(trgOperationToFail)) {
+																																																																if (!trgFailed
+																																																																		.equals(trgFailedToRepair)) {
+																																																																	if (!trgFailed
+																																																																			.equals(trgPetrinet)) {
+																																																																		if (!trgFailed
+																																																																				.equals(trgRepairToOperational)) {
+																																																																			if (!trgFailed
+																																																																					.equals(trgOperational)) {
+																																																																				if (!semaphoreFailedCorr
+																																																																						.equals(trgRepair)) {
+																																																																					if (!semaphoreFailedCorr
+																																																																							.equals(srcContainer)) {
+																																																																						if (!semaphoreFailedCorr
+																																																																								.equals(semaphoreOperationalCorr)) {
+																																																																							if (!semaphoreFailedCorr
+																																																																									.equals(trgOperationToFail)) {
+																																																																								if (!semaphoreFailedCorr
+																																																																										.equals(trgFailedToRepair)) {
+																																																																									if (!semaphoreFailedCorr
+																																																																											.equals(trgFail)) {
+																																																																										if (!semaphoreFailedCorr
+																																																																												.equals(trgPetrinet)) {
+																																																																											if (!semaphoreFailedCorr
+																																																																													.equals(trgFailed)) {
+																																																																												if (!semaphoreFailedCorr
+																																																																														.equals(trgRepairToOperational)) {
+																																																																													if (!semaphoreFailedCorr
+																																																																															.equals(srcRegion)) {
+																																																																														if (!semaphoreFailedCorr
+																																																																																.equals(trgOperational)) {
+																																																																															if (!semaphoreFailedCorr
+																																																																																	.equals(trgFailToFailed)) {
+																																																																																if (!semaphoreFailedCorr
+																																																																																		.equals(srcSemaphore)) {
+																																																																																	if (!semaphoreFailedCorr
+																																																																																			.equals(srcSegment)) {
+																																																																																		if (!srcRegion
+																																																																																				.equals(trgRepair)) {
+																																																																																			if (!srcRegion
+																																																																																					.equals(trgOperationToFail)) {
+																																																																																				if (!srcRegion
+																																																																																						.equals(trgFailedToRepair)) {
+																																																																																					if (!srcRegion
+																																																																																							.equals(trgFail)) {
+																																																																																						if (!srcRegion
+																																																																																								.equals(trgPetrinet)) {
+																																																																																							if (!srcRegion
+																																																																																									.equals(trgFailed)) {
+																																																																																								if (!srcRegion
+																																																																																										.equals(trgRepairToOperational)) {
+																																																																																									if (!srcRegion
+																																																																																											.equals(trgOperational)) {
+																																																																																										if (!srcRegion
+																																																																																												.equals(trgFailToFailed)) {
+																																																																																											if (!srcRegion
+																																																																																													.equals(srcSemaphore)) {
+																																																																																												if (!srcRegion
+																																																																																														.equals(srcSegment)) {
+																																																																																													if (!trgOperational
+																																																																																															.equals(trgRepair)) {
+																																																																																														if (!trgOperational
+																																																																																																.equals(trgPetrinet)) {
+																																																																																															if (!trgOperational
+																																																																																																	.equals(trgRepairToOperational)) {
+																																																																																																if (!trgFailToFailed
+																																																																																																		.equals(trgRepair)) {
+																																																																																																	if (!trgFailToFailed
+																																																																																																			.equals(trgOperationToFail)) {
+																																																																																																		if (!trgFailToFailed
+																																																																																																				.equals(trgFailedToRepair)) {
+																																																																																																			if (!trgFailToFailed
+																																																																																																					.equals(trgPetrinet)) {
+																																																																																																				if (!trgFailToFailed
+																																																																																																						.equals(trgFailed)) {
+																																																																																																					if (!trgFailToFailed
+																																																																																																							.equals(trgRepairToOperational)) {
+																																																																																																						if (!trgFailToFailed
 																																																																																																								.equals(trgOperational)) {
-																																																																																																							if (!trgPetrinet
+																																																																																																							if (!srcSemaphore
 																																																																																																									.equals(trgRepair)) {
-																																																																																																								if (!trgPetrinet
-																																																																																																										.equals(trgRepairToOperational)) {
-																																																																																																									if (!trgOperational
-																																																																																																											.equals(trgRepair)) {
-																																																																																																										if (!trgOperational
-																																																																																																												.equals(trgRepairToOperational)) {
-																																																																																																											if (!trgOperational
+																																																																																																								if (!srcSemaphore
+																																																																																																										.equals(trgOperationToFail)) {
+																																																																																																									if (!srcSemaphore
+																																																																																																											.equals(trgFailedToRepair)) {
+																																																																																																										if (!srcSemaphore
+																																																																																																												.equals(trgFail)) {
+																																																																																																											if (!srcSemaphore
 																																																																																																													.equals(trgPetrinet)) {
-																																																																																																												if (!semaphoreFailedCorr
+																																																																																																												if (!srcSemaphore
 																																																																																																														.equals(trgFailed)) {
-																																																																																																													if (!semaphoreFailedCorr
-																																																																																																															.equals(srcRegion)) {
-																																																																																																														if (!semaphoreFailedCorr
-																																																																																																																.equals(trgFailedToRepair)) {
-																																																																																																															if (!semaphoreFailedCorr
-																																																																																																																	.equals(trgRepair)) {
-																																																																																																																if (!semaphoreFailedCorr
-																																																																																																																		.equals(trgOperationToFail)) {
-																																																																																																																	if (!semaphoreFailedCorr
-																																																																																																																			.equals(srcSemaphore)) {
-																																																																																																																		if (!semaphoreFailedCorr
-																																																																																																																				.equals(trgFail)) {
-																																																																																																																			if (!semaphoreFailedCorr
-																																																																																																																					.equals(srcContainer)) {
-																																																																																																																				if (!semaphoreFailedCorr
-																																																																																																																						.equals(semaphoreOperationalCorr)) {
-																																																																																																																					if (!semaphoreFailedCorr
-																																																																																																																							.equals(trgRepairToOperational)) {
-																																																																																																																						if (!semaphoreFailedCorr
-																																																																																																																								.equals(trgFailToFailed)) {
-																																																																																																																							if (!semaphoreFailedCorr
-																																																																																																																									.equals(srcSegment)) {
-																																																																																																																								if (!semaphoreFailedCorr
-																																																																																																																										.equals(trgPetrinet)) {
-																																																																																																																									if (!semaphoreFailedCorr
-																																																																																																																											.equals(trgOperational)) {
+																																																																																																													if (!srcSemaphore
+																																																																																																															.equals(trgRepairToOperational)) {
+																																																																																																														if (!srcSemaphore
+																																																																																																																.equals(trgOperational)) {
+																																																																																																															if (!srcSemaphore
+																																																																																																																	.equals(trgFailToFailed)) {
+																																																																																																																if (!srcSegment
+																																																																																																																		.equals(trgRepair)) {
+																																																																																																																	if (!srcSegment
+																																																																																																																			.equals(trgOperationToFail)) {
+																																																																																																																		if (!srcSegment
+																																																																																																																				.equals(trgFailedToRepair)) {
+																																																																																																																			if (!srcSegment
+																																																																																																																					.equals(trgFail)) {
+																																																																																																																				if (!srcSegment
+																																																																																																																						.equals(trgPetrinet)) {
+																																																																																																																					if (!srcSegment
+																																																																																																																							.equals(trgFailed)) {
+																																																																																																																						if (!srcSegment
+																																																																																																																								.equals(trgRepairToOperational)) {
+																																																																																																																							if (!srcSegment
+																																																																																																																									.equals(trgOperational)) {
+																																																																																																																								if (!srcSegment
+																																																																																																																										.equals(trgFailToFailed)) {
+																																																																																																																									if (!srcSegment
+																																																																																																																											.equals(srcSemaphore)) {
 																																																																																																																										return new Object[] {
 																																																																																																																												ruleresult,
-																																																																																																																												trgFailed,
-																																																																																																																												srcRegion,
-																																																																																																																												trgFailedToRepair,
 																																																																																																																												trgRepair,
-																																																																																																																												trgOperationToFail,
-																																																																																																																												srcSemaphore,
-																																																																																																																												trgFail,
-																																																																																																																												containerCorr,
 																																																																																																																												srcContainer,
 																																																																																																																												semaphoreOperationalCorr,
-																																																																																																																												trgRepairToOperational,
-																																																																																																																												trgFailToFailed,
-																																																																																																																												srcSegment,
+																																																																																																																												containerCorr,
+																																																																																																																												trgOperationToFail,
+																																																																																																																												trgFailedToRepair,
+																																																																																																																												trgFail,
 																																																																																																																												trgPetrinet,
+																																																																																																																												trgFailed,
+																																																																																																																												trgRepairToOperational,
+																																																																																																																												semaphoreFailedCorr,
+																																																																																																																												srcRegion,
 																																																																																																																												trgOperational,
-																																																																																																																												semaphoreFailedCorr };
+																																																																																																																												trgFailToFailed,
+																																																																																																																												srcSemaphore,
+																																																																																																																												srcSegment };
 																																																																																																																									}
 																																																																																																																								}
 																																																																																																																							}
@@ -1334,192 +1335,192 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final Object[] pattern_Semaphore_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject trgFailed, EObject trgFailedToRepair, EObject trgRepair,
-			EObject trgOperationToFail, EObject srcSemaphore, EObject trgFail, EObject semaphoreOperationalCorr,
-			EObject trgRepairToOperational, EObject trgFailToFailed, EObject srcSegment, EObject trgPetrinet,
-			EObject trgOperational, EObject semaphoreFailedCorr) {
-		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgRepair____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgOperationToFail__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailToFailed__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFail__trgFailToFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcSegment__srcSemaphore____semaphores = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+			PerformRuleResult ruleresult, EObject trgRepair, EObject semaphoreOperationalCorr,
+			EObject trgOperationToFail, EObject trgFailedToRepair, EObject trgFail, EObject trgPetrinet,
+			EObject trgFailed, EObject trgRepairToOperational, EObject semaphoreFailedCorr, EObject trgOperational,
+			EObject trgFailToFailed, EObject srcSemaphore, EObject srcSegment) {
 		EMoflonEdge trgOperationToFail__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFail__trgOperationToFail____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge semaphoreOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge semaphoreFailedCorr__trgFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge semaphoreOperationalCorr__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgRepair____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgOperationToFail__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailToFailed__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFail__trgFailToFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcSegment__srcSemaphore____semaphores = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "Semaphore";
-		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
-		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
-		String trgRepair__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgRepair____nodes_name_prime = "nodes";
-		String trgFailedToRepair__trgFailed____place_name_prime = "place";
-		String semaphoreOperationalCorr__srcSemaphore____source_name_prime = "source";
-		String trgRepairToOperational__trgOperational____place_name_prime = "place";
-		String trgOperationToFail__trgOperational____place_name_prime = "place";
-		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
-		String trgFailToFailed__trgFail____transition_name_prime = "transition";
-		String trgFail__trgFailToFailed____arcs_name_prime = "arcs";
-		String trgFailToFailed__trgFailed____place_name_prime = "place";
-		String srcSegment__srcSemaphore____semaphores_name_prime = "semaphores";
 		String trgOperationToFail__trgFail____transition_name_prime = "transition";
 		String trgFail__trgOperationToFail____arcs_name_prime = "arcs";
-		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
-		String semaphoreOperationalCorr__trgOperational____target_name_prime = "target";
+		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
+		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
+		String trgFailedToRepair__trgFailed____place_name_prime = "place";
 		String semaphoreFailedCorr__trgFailed____target_name_prime = "target";
+		String semaphoreOperationalCorr__trgOperational____target_name_prime = "target";
 		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
 		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
+		String trgRepair__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgRepair____nodes_name_prime = "nodes";
+		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
 		String semaphoreFailedCorr__srcSemaphore____source_name_prime = "source";
-		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
-		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
-		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
-		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
-		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
-		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
-		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
-		trgRepair__trgPetrinet____petriNet.setSrc(trgRepair);
-		trgRepair__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgRepair__trgPetrinet____petriNet);
-		trgPetrinet__trgRepair____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgRepair____nodes.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgRepair____nodes);
-		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
-		semaphoreOperationalCorr__srcSemaphore____source.setSrc(semaphoreOperationalCorr);
-		semaphoreOperationalCorr__srcSemaphore____source.setTrg(srcSemaphore);
-		ruleresult.getCreatedEdges().add(semaphoreOperationalCorr__srcSemaphore____source);
-		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
-		trgOperationToFail__trgOperational____place.setSrc(trgOperationToFail);
-		trgOperationToFail__trgOperational____place.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgOperationToFail__trgOperational____place);
-		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
-		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
-		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFail____nodes.setTrg(trgFail);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
-		trgFailToFailed__trgFail____transition.setSrc(trgFailToFailed);
-		trgFailToFailed__trgFail____transition.setTrg(trgFail);
-		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFail____transition);
-		trgFail__trgFailToFailed____arcs.setSrc(trgFail);
-		trgFail__trgFailToFailed____arcs.setTrg(trgFailToFailed);
-		ruleresult.getCreatedEdges().add(trgFail__trgFailToFailed____arcs);
-		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
-		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
-		srcSegment__srcSemaphore____semaphores.setSrc(srcSegment);
-		srcSegment__srcSemaphore____semaphores.setTrg(srcSemaphore);
-		ruleresult.getTranslatedEdges().add(srcSegment__srcSemaphore____semaphores);
+		String semaphoreOperationalCorr__srcSemaphore____source_name_prime = "source";
+		String trgOperationToFail__trgOperational____place_name_prime = "place";
+		String trgRepairToOperational__trgOperational____place_name_prime = "place";
+		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
+		String trgFailToFailed__trgFailed____place_name_prime = "place";
+		String trgFailToFailed__trgFail____transition_name_prime = "transition";
+		String trgFail__trgFailToFailed____arcs_name_prime = "arcs";
+		String srcSegment__srcSemaphore____semaphores_name_prime = "semaphores";
 		trgOperationToFail__trgFail____transition.setSrc(trgOperationToFail);
 		trgOperationToFail__trgFail____transition.setTrg(trgFail);
 		ruleresult.getCreatedEdges().add(trgOperationToFail__trgFail____transition);
 		trgFail__trgOperationToFail____arcs.setSrc(trgFail);
 		trgFail__trgOperationToFail____arcs.setTrg(trgOperationToFail);
 		ruleresult.getCreatedEdges().add(trgFail__trgOperationToFail____arcs);
-		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
-		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
-		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
-		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
-		semaphoreOperationalCorr__trgOperational____target.setSrc(semaphoreOperationalCorr);
-		semaphoreOperationalCorr__trgOperational____target.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(semaphoreOperationalCorr__trgOperational____target);
+		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
+		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
+		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFail____nodes.setTrg(trgFail);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
+		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
+		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
+		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
+		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
 		semaphoreFailedCorr__trgFailed____target.setSrc(semaphoreFailedCorr);
 		semaphoreFailedCorr__trgFailed____target.setTrg(trgFailed);
 		ruleresult.getCreatedEdges().add(semaphoreFailedCorr__trgFailed____target);
+		semaphoreOperationalCorr__trgOperational____target.setSrc(semaphoreOperationalCorr);
+		semaphoreOperationalCorr__trgOperational____target.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(semaphoreOperationalCorr__trgOperational____target);
 		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
 		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
 		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
 		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
 		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
+		trgRepair__trgPetrinet____petriNet.setSrc(trgRepair);
+		trgRepair__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgRepair__trgPetrinet____petriNet);
+		trgPetrinet__trgRepair____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgRepair____nodes.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgRepair____nodes);
+		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
+		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
+		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
+		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
 		semaphoreFailedCorr__srcSemaphore____source.setSrc(semaphoreFailedCorr);
 		semaphoreFailedCorr__srcSemaphore____source.setTrg(srcSemaphore);
 		ruleresult.getCreatedEdges().add(semaphoreFailedCorr__srcSemaphore____source);
+		semaphoreOperationalCorr__srcSemaphore____source.setSrc(semaphoreOperationalCorr);
+		semaphoreOperationalCorr__srcSemaphore____source.setTrg(srcSemaphore);
+		ruleresult.getCreatedEdges().add(semaphoreOperationalCorr__srcSemaphore____source);
+		trgOperationToFail__trgOperational____place.setSrc(trgOperationToFail);
+		trgOperationToFail__trgOperational____place.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgOperationToFail__trgOperational____place);
+		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
+		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
+		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
+		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
+		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
+		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
+		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
+		trgFailToFailed__trgFail____transition.setSrc(trgFailToFailed);
+		trgFailToFailed__trgFail____transition.setTrg(trgFail);
+		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFail____transition);
+		trgFail__trgFailToFailed____arcs.setSrc(trgFail);
+		trgFail__trgFailToFailed____arcs.setTrg(trgFailToFailed);
+		ruleresult.getCreatedEdges().add(trgFail__trgFailToFailed____arcs);
+		srcSegment__srcSemaphore____semaphores.setSrc(srcSegment);
+		srcSegment__srcSemaphore____semaphores.setTrg(srcSemaphore);
+		ruleresult.getTranslatedEdges().add(srcSegment__srcSemaphore____semaphores);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
-		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
-		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
-		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
-		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
-		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
-		semaphoreOperationalCorr__srcSemaphore____source
-				.setName(semaphoreOperationalCorr__srcSemaphore____source_name_prime);
-		trgRepairToOperational__trgOperational____place
-				.setName(trgRepairToOperational__trgOperational____place_name_prime);
-		trgOperationToFail__trgOperational____place.setName(trgOperationToFail__trgOperational____place_name_prime);
-		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
-		trgFailToFailed__trgFail____transition.setName(trgFailToFailed__trgFail____transition_name_prime);
-		trgFail__trgFailToFailed____arcs.setName(trgFail__trgFailToFailed____arcs_name_prime);
-		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
-		srcSegment__srcSemaphore____semaphores.setName(srcSegment__srcSemaphore____semaphores_name_prime);
 		trgOperationToFail__trgFail____transition.setName(trgOperationToFail__trgFail____transition_name_prime);
 		trgFail__trgOperationToFail____arcs.setName(trgFail__trgOperationToFail____arcs_name_prime);
+		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
+		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
+		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
+		semaphoreFailedCorr__trgFailed____target.setName(semaphoreFailedCorr__trgFailed____target_name_prime);
+		semaphoreOperationalCorr__trgOperational____target
+				.setName(semaphoreOperationalCorr__trgOperational____target_name_prime);
+		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
+		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
 		trgRepairToOperational__trgRepair____transition
 				.setName(trgRepairToOperational__trgRepair____transition_name_prime);
 		trgRepair__trgRepairToOperational____arcs.setName(trgRepair__trgRepairToOperational____arcs_name_prime);
-		semaphoreOperationalCorr__trgOperational____target
-				.setName(semaphoreOperationalCorr__trgOperational____target_name_prime);
-		semaphoreFailedCorr__trgFailed____target.setName(semaphoreFailedCorr__trgFailed____target_name_prime);
-		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
 		semaphoreFailedCorr__srcSemaphore____source.setName(semaphoreFailedCorr__srcSemaphore____source_name_prime);
-		return new Object[] { ruleresult, trgFailed, trgFailedToRepair, trgRepair, trgOperationToFail, srcSemaphore,
-				trgFail, semaphoreOperationalCorr, trgRepairToOperational, trgFailToFailed, srcSegment, trgPetrinet,
-				trgOperational, semaphoreFailedCorr, trgFailed__trgPetrinet____petriNet,
-				trgPetrinet__trgFailed____nodes, trgFailedToRepair__trgRepair____transition,
-				trgRepair__trgFailedToRepair____arcs, trgRepair__trgPetrinet____petriNet,
-				trgPetrinet__trgRepair____nodes, trgFailedToRepair__trgFailed____place,
-				semaphoreOperationalCorr__srcSemaphore____source, trgRepairToOperational__trgOperational____place,
-				trgOperationToFail__trgOperational____place, trgFail__trgPetrinet____petriNet,
-				trgPetrinet__trgFail____nodes, trgFailToFailed__trgFail____transition, trgFail__trgFailToFailed____arcs,
-				trgFailToFailed__trgFailed____place, srcSegment__srcSemaphore____semaphores,
-				trgOperationToFail__trgFail____transition, trgFail__trgOperationToFail____arcs,
-				trgRepairToOperational__trgRepair____transition, trgRepair__trgRepairToOperational____arcs,
-				semaphoreOperationalCorr__trgOperational____target, semaphoreFailedCorr__trgFailed____target,
-				trgOperational__trgPetrinet____petriNet, trgPetrinet__trgOperational____nodes,
-				semaphoreFailedCorr__srcSemaphore____source };
+		semaphoreOperationalCorr__srcSemaphore____source
+				.setName(semaphoreOperationalCorr__srcSemaphore____source_name_prime);
+		trgOperationToFail__trgOperational____place.setName(trgOperationToFail__trgOperational____place_name_prime);
+		trgRepairToOperational__trgOperational____place
+				.setName(trgRepairToOperational__trgOperational____place_name_prime);
+		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
+		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
+		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
+		trgFailToFailed__trgFail____transition.setName(trgFailToFailed__trgFail____transition_name_prime);
+		trgFail__trgFailToFailed____arcs.setName(trgFail__trgFailToFailed____arcs_name_prime);
+		srcSegment__srcSemaphore____semaphores.setName(srcSegment__srcSemaphore____semaphores_name_prime);
+		return new Object[] { ruleresult, trgRepair, semaphoreOperationalCorr, trgOperationToFail, trgFailedToRepair,
+				trgFail, trgPetrinet, trgFailed, trgRepairToOperational, semaphoreFailedCorr, trgOperational,
+				trgFailToFailed, srcSemaphore, srcSegment, trgOperationToFail__trgFail____transition,
+				trgFail__trgOperationToFail____arcs, trgFail__trgPetrinet____petriNet, trgPetrinet__trgFail____nodes,
+				trgFailed__trgPetrinet____petriNet, trgPetrinet__trgFailed____nodes,
+				trgFailedToRepair__trgFailed____place, semaphoreFailedCorr__trgFailed____target,
+				semaphoreOperationalCorr__trgOperational____target, trgOperational__trgPetrinet____petriNet,
+				trgPetrinet__trgOperational____nodes, trgRepair__trgPetrinet____petriNet,
+				trgPetrinet__trgRepair____nodes, trgRepairToOperational__trgRepair____transition,
+				trgRepair__trgRepairToOperational____arcs, semaphoreFailedCorr__srcSemaphore____source,
+				semaphoreOperationalCorr__srcSemaphore____source, trgOperationToFail__trgOperational____place,
+				trgRepairToOperational__trgOperational____place, trgFailedToRepair__trgRepair____transition,
+				trgRepair__trgFailedToRepair____arcs, trgFailToFailed__trgFailed____place,
+				trgFailToFailed__trgFail____transition, trgFail__trgFailToFailed____arcs,
+				srcSegment__srcSemaphore____semaphores };
 	}
 
 	public static final void pattern_Semaphore_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBBB(Semaphore _this,
-			PerformRuleResult ruleresult, EObject trgFailed, EObject srcRegion, EObject trgFailedToRepair,
-			EObject trgRepair, EObject trgOperationToFail, EObject srcSemaphore, EObject trgFail, EObject containerCorr,
-			EObject srcContainer, EObject semaphoreOperationalCorr, EObject trgRepairToOperational,
-			EObject trgFailToFailed, EObject srcSegment, EObject trgPetrinet, EObject trgOperational,
-			EObject semaphoreFailedCorr) {
-		_this.registerObjects_FWD(ruleresult, trgFailed, srcRegion, trgFailedToRepair, trgRepair, trgOperationToFail,
-				srcSemaphore, trgFail, containerCorr, srcContainer, semaphoreOperationalCorr, trgRepairToOperational,
-				trgFailToFailed, srcSegment, trgPetrinet, trgOperational, semaphoreFailedCorr);
+			PerformRuleResult ruleresult, EObject trgRepair, EObject srcContainer, EObject semaphoreOperationalCorr,
+			EObject containerCorr, EObject trgOperationToFail, EObject trgFailedToRepair, EObject trgFail,
+			EObject trgPetrinet, EObject trgFailed, EObject trgRepairToOperational, EObject semaphoreFailedCorr,
+			EObject srcRegion, EObject trgOperational, EObject trgFailToFailed, EObject srcSemaphore,
+			EObject srcSegment) {
+		_this.registerObjects_FWD(ruleresult, trgRepair, srcContainer, semaphoreOperationalCorr, containerCorr,
+				trgOperationToFail, trgFailedToRepair, trgFail, trgPetrinet, trgFailed, trgRepairToOperational,
+				semaphoreFailedCorr, srcRegion, trgOperational, trgFailToFailed, srcSemaphore, srcSegment);
 
 	}
 
@@ -1576,23 +1577,23 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final Object[] pattern_Semaphore_2_2_corematch_bindingFFFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcRegion");
-		EObject _localVariable_1 = match.getObject("srcSemaphore");
-		EObject _localVariable_2 = match.getObject("srcContainer");
+		EObject _localVariable_0 = match.getObject("srcContainer");
+		EObject _localVariable_1 = match.getObject("srcRegion");
+		EObject _localVariable_2 = match.getObject("srcSemaphore");
 		EObject _localVariable_3 = match.getObject("srcSegment");
-		EObject tmpSrcRegion = _localVariable_0;
-		EObject tmpSrcSemaphore = _localVariable_1;
-		EObject tmpSrcContainer = _localVariable_2;
+		EObject tmpSrcContainer = _localVariable_0;
+		EObject tmpSrcRegion = _localVariable_1;
+		EObject tmpSrcSemaphore = _localVariable_2;
 		EObject tmpSrcSegment = _localVariable_3;
-		if (tmpSrcRegion instanceof Region) {
-			Region srcRegion = (Region) tmpSrcRegion;
-			if (tmpSrcSemaphore instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) tmpSrcSemaphore;
-				if (tmpSrcContainer instanceof RailwayContainer) {
-					RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+		if (tmpSrcContainer instanceof RailwayContainer) {
+			RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+			if (tmpSrcRegion instanceof Region) {
+				Region srcRegion = (Region) tmpSrcRegion;
+				if (tmpSrcSemaphore instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) {
+					hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore) tmpSrcSemaphore;
 					if (tmpSrcSegment instanceof Segment) {
 						Segment srcSegment = (Segment) tmpSrcSegment;
-						return new Object[] { srcRegion, srcSemaphore, srcContainer, srcSegment, match };
+						return new Object[] { srcContainer, srcRegion, srcSemaphore, srcSegment, match };
 					}
 				}
 			}
@@ -1600,34 +1601,33 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_Semaphore_2_2_corematch_blackBBFBBFB(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
+	public static final Iterable<Object[]> pattern_Semaphore_2_2_corematch_blackBFFBBBB(RailwayContainer srcContainer,
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
 			Segment srcSegment, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		for (RailwayContainerToPetriNet containerCorr : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
 			PetriNet trgPetrinet = containerCorr.getTarget();
 			if (trgPetrinet != null) {
-				_result.add(new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment,
-						trgPetrinet, match });
+				_result.add(new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore,
+						srcSegment, match });
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_Semaphore_2_3_findcontext_blackBBBBBB(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet) {
+	public static final Iterable<Object[]> pattern_Semaphore_2_3_findcontext_blackBBBBBB(RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (srcRegion.getElements().contains(srcSegment)) {
+		if (srcContainer.getRegions().contains(srcRegion)) {
 			if (srcContainer.equals(containerCorr.getSource())) {
-				if (srcSegment.getSemaphores().contains(srcSemaphore)) {
-					if (srcContainer.getRegions().contains(srcRegion)) {
-						if (trgPetrinet.equals(containerCorr.getTarget())) {
-							_result.add(new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment,
-									trgPetrinet });
+				if (trgPetrinet.equals(containerCorr.getTarget())) {
+					if (srcRegion.getElements().contains(srcSegment)) {
+						if (srcSegment.getSemaphores().contains(srcSemaphore)) {
+							_result.add(new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion,
+									srcSemaphore, srcSegment });
 						}
 					}
 				}
@@ -1636,64 +1636,62 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return _result;
 	}
 
-	public static final Object[] pattern_Semaphore_2_3_findcontext_greenBBBBBBFFFFFF(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet) {
+	public static final Object[] pattern_Semaphore_2_3_findcontext_greenBBBBBBFFFFFF(RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
-		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcSegment__srcSemaphore____semaphores = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcContainer__srcRegion____regions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		String srcRegion__srcSegment____elements_name_prime = "elements";
-		String containerCorr__srcContainer____source_name_prime = "source";
-		String srcSegment__srcSemaphore____semaphores_name_prime = "semaphores";
+		EMoflonEdge srcRegion__srcSegment____elements = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcSegment__srcSemaphore____semaphores = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcContainer__srcRegion____regions_name_prime = "regions";
+		String containerCorr__srcContainer____source_name_prime = "source";
 		String containerCorr__trgPetrinet____target_name_prime = "target";
+		String srcRegion__srcSegment____elements_name_prime = "elements";
+		String srcSegment__srcSemaphore____semaphores_name_prime = "semaphores";
+		isApplicableMatch.getAllContextElements().add(srcContainer);
+		isApplicableMatch.getAllContextElements().add(containerCorr);
+		isApplicableMatch.getAllContextElements().add(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(srcRegion);
 		isApplicableMatch.getAllContextElements().add(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(containerCorr);
-		isApplicableMatch.getAllContextElements().add(srcContainer);
 		isApplicableMatch.getAllContextElements().add(srcSegment);
-		isApplicableMatch.getAllContextElements().add(trgPetrinet);
-		srcRegion__srcSegment____elements.setSrc(srcRegion);
-		srcRegion__srcSegment____elements.setTrg(srcSegment);
-		isApplicableMatch.getAllContextElements().add(srcRegion__srcSegment____elements);
-		containerCorr__srcContainer____source.setSrc(containerCorr);
-		containerCorr__srcContainer____source.setTrg(srcContainer);
-		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
-		srcSegment__srcSemaphore____semaphores.setSrc(srcSegment);
-		srcSegment__srcSemaphore____semaphores.setTrg(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(srcSegment__srcSemaphore____semaphores);
 		srcContainer__srcRegion____regions.setSrc(srcContainer);
 		srcContainer__srcRegion____regions.setTrg(srcRegion);
 		isApplicableMatch.getAllContextElements().add(srcContainer__srcRegion____regions);
+		containerCorr__srcContainer____source.setSrc(containerCorr);
+		containerCorr__srcContainer____source.setTrg(srcContainer);
+		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
 		containerCorr__trgPetrinet____target.setSrc(containerCorr);
 		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
-		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
-		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
-		srcSegment__srcSemaphore____semaphores.setName(srcSegment__srcSemaphore____semaphores_name_prime);
+		srcRegion__srcSegment____elements.setSrc(srcRegion);
+		srcRegion__srcSegment____elements.setTrg(srcSegment);
+		isApplicableMatch.getAllContextElements().add(srcRegion__srcSegment____elements);
+		srcSegment__srcSemaphore____semaphores.setSrc(srcSegment);
+		srcSegment__srcSemaphore____semaphores.setTrg(srcSemaphore);
+		isApplicableMatch.getAllContextElements().add(srcSegment__srcSemaphore____semaphores);
 		srcContainer__srcRegion____regions.setName(srcContainer__srcRegion____regions_name_prime);
+		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
 		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
-		return new Object[] { srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet,
-				isApplicableMatch, srcRegion__srcSegment____elements, containerCorr__srcContainer____source,
-				srcSegment__srcSemaphore____semaphores, srcContainer__srcRegion____regions,
-				containerCorr__trgPetrinet____target };
+		srcRegion__srcSegment____elements.setName(srcRegion__srcSegment____elements_name_prime);
+		srcSegment__srcSemaphore____semaphores.setName(srcSegment__srcSemaphore____semaphores_name_prime);
+		return new Object[] { srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment,
+				isApplicableMatch, srcContainer__srcRegion____regions, containerCorr__srcContainer____source,
+				containerCorr__trgPetrinet____target, srcRegion__srcSegment____elements,
+				srcSegment__srcSemaphore____semaphores };
 	}
 
 	public static final Object[] pattern_Semaphore_2_4_solveCSP_bindingFBBBBBBBB(Semaphore _this,
-			IsApplicableMatch isApplicableMatch, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcRegion, srcSemaphore,
-				containerCorr, srcContainer, srcSegment, trgPetrinet);
+			IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcContainer, containerCorr,
+				trgPetrinet, srcRegion, srcSemaphore, srcSegment);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcRegion, srcSemaphore, containerCorr, srcContainer,
-					srcSegment, trgPetrinet };
+			return new Object[] { csp, _this, isApplicableMatch, srcContainer, containerCorr, trgPetrinet, srcRegion,
+					srcSemaphore, srcSegment };
 		}
 		return null;
 	}
@@ -1703,20 +1701,19 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final Object[] pattern_Semaphore_2_4_solveCSP_bindingAndBlackFBBBBBBBB(Semaphore _this,
-			IsApplicableMatch isApplicableMatch, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainerToPetriNet containerCorr, RailwayContainer srcContainer, Segment srcSegment,
-			PetriNet trgPetrinet) {
+			IsApplicableMatch isApplicableMatch, RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr, PetriNet trgPetrinet, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
 		Object[] result_pattern_Semaphore_2_4_solveCSP_binding = pattern_Semaphore_2_4_solveCSP_bindingFBBBBBBBB(_this,
-				isApplicableMatch, srcRegion, srcSemaphore, containerCorr, srcContainer, srcSegment, trgPetrinet);
+				isApplicableMatch, srcContainer, containerCorr, trgPetrinet, srcRegion, srcSemaphore, srcSegment);
 		if (result_pattern_Semaphore_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Semaphore_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_Semaphore_2_4_solveCSP_black = pattern_Semaphore_2_4_solveCSP_blackB(csp);
 			if (result_pattern_Semaphore_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcRegion, srcSemaphore, containerCorr,
-						srcContainer, srcSegment, trgPetrinet };
+				return new Object[] { csp, _this, isApplicableMatch, srcContainer, containerCorr, trgPetrinet,
+						srcRegion, srcSemaphore, srcSegment };
 			}
 		}
 		return null;
@@ -1813,7 +1810,7 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 							.getOppositeReferenceTyped(srcSegment, Region.class, "elements")) {
 						for (RailwayContainer srcContainer : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(srcRegion, RailwayContainer.class, "regions")) {
-							_result.add(new Object[] { srcRegion, srcSemaphore, srcContainer, srcSegment,
+							_result.add(new Object[] { srcContainer, srcRegion, srcSemaphore, srcSegment,
 									_edge_semaphores });
 						}
 					}
@@ -1835,10 +1832,9 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 	}
 
 	public static final boolean pattern_Semaphore_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBBBB(
-			Semaphore _this, Match match, Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcRegion, srcSemaphore, srcContainer, srcSegment);
+			Semaphore _this, Match match, RailwayContainer srcContainer, Region srcRegion,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Segment srcSegment) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcContainer, srcRegion, srcSemaphore, srcSegment);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -1871,13 +1867,13 @@ public class SemaphoreImpl extends AbstractRuleImpl implements Semaphore {
 		return _result;
 	}
 
-	public static final Object[] pattern_Semaphore_13_1_matchtggpattern_blackBBBB(Region srcRegion,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
+	public static final Object[] pattern_Semaphore_13_1_matchtggpattern_blackBBBB(RailwayContainer srcContainer,
+			Region srcRegion, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
 			Segment srcSegment) {
-		if (srcRegion.getElements().contains(srcSegment)) {
-			if (srcSegment.getSemaphores().contains(srcSemaphore)) {
-				if (srcContainer.getRegions().contains(srcRegion)) {
-					return new Object[] { srcRegion, srcSemaphore, srcContainer, srcSegment };
+		if (srcContainer.getRegions().contains(srcRegion)) {
+			if (srcRegion.getElements().contains(srcSegment)) {
+				if (srcSegment.getSemaphores().contains(srcSemaphore)) {
+					return new Object[] { srcContainer, srcRegion, srcSemaphore, srcSegment };
 				}
 			}
 		}

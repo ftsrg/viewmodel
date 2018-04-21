@@ -7,6 +7,7 @@ class ViatraDrivers {
 	public static val DRIVER_FACTORIES = ImmutableMap.<String, IDriverFactory>builder
 		.put("viatra-batch", [new BatchViatraDriver(it)])
 		.put("viatra-incremental", [new IncrementalViatraDriver(it)])
+		.put("viatra-statistics", [new ModificationStatisticsViatraDriver(it)])
 		.build
 
 	private new() {
