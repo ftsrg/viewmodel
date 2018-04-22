@@ -1,0 +1,46 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability
+
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
+
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.route
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRoute
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRoute
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwayElementWithFailureModel
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElementWithFailureModel
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElementWithFailureModel
+
+pattern errorModel(Model : ErrorModel) {
+	ErrorModel(Model);
+}
+
+pattern failureRepairModel(Model : FailureRepairModel) {
+	FailureRepairModel(Model);
+}
+
+pattern immediateRepairModel(Model : ImmediateRepairModel) {
+	ImmediateRepairModel(Model);
+}
+
+pattern railwayElement(Container : RailwayContainer, Element : RailwayElement) {
+	find route(Container, Element);
+} or {
+	find railwayElementWithFailureModel(Container, Element);
+}
+
+pattern failedRailwayElement(Container : RailwayContainer, Element : RailwayElement) {
+	find failedRoute(Container, Element);
+} or {
+	find failedRailwayElementWithFailureModel(Container, Element);
+}
+
+pattern operationalRailwayElement(Container : RailwayContainer, Element : RailwayElement) {
+	find operationalRoute(Container, Element);
+} or {
+	find operationalRailwayElementWithFailureModel(Container, Element);
+}
+
+pattern railwayElementFailureModel(Container : RailwayContainer, Element : RailwayElement, Model : ErrorModel) {
+	find railwayElement(Container, Element);
+	ErrorModel.railwayElement(Model, Element);
+}

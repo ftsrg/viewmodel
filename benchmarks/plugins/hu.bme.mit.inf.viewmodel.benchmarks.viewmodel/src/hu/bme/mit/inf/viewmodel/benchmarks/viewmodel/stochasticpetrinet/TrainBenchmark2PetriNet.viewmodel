@@ -20,11 +20,11 @@ rule railwayElementWithFailureModel(Container, _) => createFailureModel(Net, _, 
 	lookup railwayContainer(Container) => (Net);
 }
 
-rule failedRailwayElement(Container, Element) => setInitialMarking(Failed) {
+rule failedRailwayElementWithFailureModel(Container, Element) => setInitialMarking(Failed) {
 	lookup railwayElementWithFailureModel(Container, Element) => (_, _, Failed);
 }
 
-rule operationalRailwayElement(Container, Element) => setInitialMarking(Operational) {
+rule operationalRailwayElementWithFailureModel(Container, Element) => setInitialMarking(Operational) {
 	lookup railwayElementWithFailureModel(Container, Element) => (_, Operational, _);
 }
 

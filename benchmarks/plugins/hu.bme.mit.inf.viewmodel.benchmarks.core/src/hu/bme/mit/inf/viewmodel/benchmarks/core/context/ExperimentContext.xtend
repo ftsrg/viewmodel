@@ -7,6 +7,7 @@ import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.ExperimentConfigur
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.TransformationCase
 import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.ModelModification
 import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.ModelModifications
+import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityModel
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer
 import java.io.File
 import java.lang.management.ManagementFactory
@@ -15,6 +16,7 @@ import java.util.Collection
 import java.util.Map
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -22,7 +24,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 abstract class ExperimentContext {
 	val int gcSleep
 	val long seed
+	val String modelsDirectory
 	val String modelPath
+	val String dependabilityModelPath
 	@Accessors val TransformationCase transformationCase
 	val Map<ModelModification, Integer> modelModificationMix
 
@@ -30,10 +34,16 @@ abstract class ExperimentContext {
 	var long previousHeapMemory = 0
 	var long previousNonHeapMemory = 0
 
+	@Accessors(PUBLIC_GETTER) Resource resource
+	@Accessors(PUBLIC_GETTER) RailwayContainer railwayContainer
+	@Accessors(PUBLIC_GETTER) DependabilityModel dependabilityModel
+
 	new(BenchmarksConfiguration benchmarksConfiguration, ExperimentConfiguration experimentConfiguration) {
 		gcSleep = benchmarksConfiguration.gcSleep
 		seed = benchmarksConfiguration.randomSeed
-		modelPath = benchmarksConfiguration.modelPath + File.separator + experimentConfiguration.modelName + ".xmi"
+		modelsDirectory = benchmarksConfiguration.modelPath
+		modelPath = getAbsolutePath(experimentConfiguration.modelName)
+		dependabilityModelPath = experimentConfiguration.dependabilityModelName?.absolutePath
 		transformationCase = experimentConfiguration.transformationCase
 		val mixName = experimentConfiguration.modificationMixName
 		modelModificationMix = if (mixName === null) {
@@ -47,17 +57,31 @@ abstract class ExperimentContext {
 		}
 	}
 
+	private def getAbsolutePath(String modelName) {
+		// Model file URIs must be absolute, because the dependability model
+		// uses a relative reference to the railway model.
+		// See https://www.eclipse.org/forums/index.php?t=msg&th=171122&goto=544062&#msg_544062
+		val file = new File(modelsDirectory + File.separator + modelName + ".xmi")
+		file.absolutePath
+	}
+
 	def loadModel() {
 		loadModel(new ResourceSetImpl)
 	}
 
-	def loadModel(ResourceSet resourceSet) {
-		val resource = resourceSet.getResource(URI.createFileURI(modelPath), true)
-		val railwayModel = resource.contents.head as RailwayContainer
-		if (modelModificationMix !== null) {
-			modelModifications = new ModelModifications(seed, railwayModel, modelModificationMix)			
+	def void loadModel(ResourceSet resourceSet) {
+		resource = resourceSet.getResource(URI.createFileURI(modelPath), true)
+		railwayContainer = resource.contents.head as RailwayContainer
+		if (dependabilityModelPath !== null) {
+			val dependabilityResource = resourceSet.getResource(URI.createFileURI(dependabilityModelPath), true)
+			dependabilityModel = dependabilityResource.contents.head as DependabilityModel
+			// Move the dependability model to the same resource as the railway model,
+			// so that the VIATRA Query scope roots can be managed more easily.
+			resource.contents += dependabilityModel
 		}
-		railwayModel
+		if (modelModificationMix !== null) {
+			modelModifications = new ModelModifications(seed, railwayContainer, modelModificationMix)
+		}
 	}
 
 	def applyModelModification() {
@@ -66,7 +90,8 @@ abstract class ExperimentContext {
 			return
 		}
 		if (modelModifications === null) {
-			throw new IllegalStateException("The model is not loaded, or the current experiment has no model modification mix.")
+			throw new IllegalStateException(
+				"The model is not loaded, or the current experiment has no model modification mix.")
 		}
 		modelModifications.apply
 	}

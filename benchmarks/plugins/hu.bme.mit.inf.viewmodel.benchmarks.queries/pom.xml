@@ -52,6 +52,9 @@
 									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.genmodel</genmodelUri>
 								</metamodel>
 								<metamodel>
+									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.genmodel</genmodelUri>
+								</metamodel>
+								<metamodel>
 									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2stochasticpetrinet.genmodel</genmodelUri>
 								</metamodel>
 								<metamodel>
@@ -68,8 +71,12 @@
 									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore</targetUri>
 								</uriMapping>
 								<uriMapping>
-									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore</sourceUri>
-									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/virtualswitchview.ecore</targetUri>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore</targetUri>
+								</uriMapping>
+								<uriMapping>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.ecore</targetUri>
 								</uriMapping>
 								<uriMapping>
 									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2stochasticpetrinet.ecore</sourceUri>

@@ -1,7 +1,6 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.core.driver
 
 import hu.bme.mit.inf.viewmodel.benchmarks.core.context.ExperimentContext
-import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer
 import java.util.Collections
 import java.util.Iterator
 import java.util.List
@@ -9,7 +8,6 @@ import org.eclipse.emf.ecore.EAttribute
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
@@ -19,8 +17,6 @@ abstract class ExperimentDriver implements IExperimentDriver {
 	protected extension val ExperimentContext experimentContext
 
 	protected var ResourceSet resourceSet
-	protected var Resource resource
-	protected var RailwayContainer railwayContainer
 
 	override void dispose() {
 	}
@@ -36,8 +32,7 @@ abstract class ExperimentDriver implements IExperimentDriver {
 		if (resourceSet === null) {
 			resourceSet = new ResourceSetImpl
 		}
-		railwayContainer = loadModel(resourceSet)
-		resource = railwayContainer.eResource
+		loadModel(resourceSet)
 	}
 
 	protected def logSource(String checkpoint) {

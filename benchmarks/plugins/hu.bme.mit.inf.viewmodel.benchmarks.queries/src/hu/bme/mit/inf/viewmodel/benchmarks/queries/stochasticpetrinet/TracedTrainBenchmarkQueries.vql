@@ -39,9 +39,9 @@ pattern requiredElementTrace(TraceModel : Railway2StochasticPetriNetTrace, Eleme
 	RequiredElement2FailureModel.railwayElement(TraceLink, Element);
 }
 
-pattern failedRequiredElementTrace(TraceModel : Railway2StochasticPetriNetTrace, Element : RailwayElement, TraceLink : RequiredElement2FailureModel) {
+pattern failedRequiredElementWithFailureModelTrace(TraceModel : Railway2StochasticPetriNetTrace, Element : RailwayElement, TraceLink : RequiredElement2FailureModel) {
 	find requiredElementTrace(TraceModel, Element, TraceLink);
-	find failedRailwayElement(_, Element);
+	find failedRailwayElementWithFailureModel(_, Element);
 }
 
 pattern routeRequiresElementInRailwayModel(TraceModel : Railway2StochasticPetriNetTrace, RouteLink : Route2FailureModel, ElementLink : RequiredElement2FailureModel, PetriNet : PetriNet) {

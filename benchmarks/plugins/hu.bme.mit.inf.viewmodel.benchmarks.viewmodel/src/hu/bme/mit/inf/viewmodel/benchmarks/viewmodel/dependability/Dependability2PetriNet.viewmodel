@@ -1,0 +1,51 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.dependability
+
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.*
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.*
+
+//
+// TrainBenchmark2StochasticPetriNet transformation
+//
+
+rule railwayContainer(_) => createPetriNet(_);
+
+rule railwayElement(Container, _) => createErrorModelInterface(Net, _, _, _) {
+	lookup railwayContainer(Container) => (Net);
+}
+
+rule failedRailwayElement(Container, Element) => setInitialMarking(Down) {
+	lookup railwayElement(Container, Element) => (_, _, Down, _);
+}
+
+rule operationalRailwayElement(Container, Element) => setInitialMarking(Up) {
+	lookup railwayElement(Container, Element) => (_, Up, _, _);
+}
+
+rule routeRequiresElement(Container, Route, Element)
+	=> connectRequiredElement(Net, ElementUp, ElementDown, RouteUp, RouteDown, RouteRepair) {
+	lookup railwayElement(Container, Route) => (Net, RouteUp, RouteDown, RouteRepair);
+	lookup railwayElement(Container, Element) => (_, ElementUp, ElementDown, _);
+}
+
+//
+// Dependability2StochasticPetriNet transformation
+//
+
+rule errorModel(_) => createErrorModel(_, _, _, _);
+
+rule failureRepairModel(Model) => createFailureRepairModel(Net, Up, Down, Repair) {
+	lookup errorModel(Model) => (Net, Up, Down, Repair);
+}
+
+rule immediateRepairModel(Model) => createImmediateRepairModel(Repair) {
+	lookup errorModel(Model) => (_, _, _, Repair);
+}
+
+//
+// Composition transformation
+//
+
+rule railwayElementFailureModel(Container, Element, Model) {
+	lookup railwayElement(Container, Element) => (Net, Up, Down, Repair);
+	lookup errorModel(Model) => (Net, Up, Down, Repair);
+}

@@ -1,0 +1,35 @@
+package hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability
+
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/stochasticpetrinet.ecore"
+
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createPlace
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createTransition
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createTimedTransition
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createArc
+
+@Template
+pattern createErrorModelInterface(Net : PetriNet, Up : Place, Down : Place, Repair : Transition) {
+	find createPlace(Net, Up);
+	find createPlace(Net, Down);
+	find createTransition(Net, Repair);
+}
+
+@Template
+pattern createErrorModel(Net : PetriNet, Up : Place, Down : Place, Repair : Transition) {
+	find createErrorModelInterface(Net, Up, Down, Repair);
+	find createArc(Repair, Down, ArcKind::INPUT);
+	find createArc(Repair, Up, ArcKind::OUTPUT);
+}
+
+@Template
+pattern createFailureRepairModel(Net : PetriNet, Up : Place, Down : Place, Repair : TimedTransition) {
+	TimedTransition(Repair);
+	find createTimedTransition(Net, Fail);
+	find createArc(Fail, Up, ArcKind::INPUT);
+	find createArc(Fail, Down, ArcKind::OUTPUT);
+}
+
+@Template
+pattern createImmediateRepairModel(Repair : ImmediateTransition) {
+	ImmediateTransition(Repair);
+}

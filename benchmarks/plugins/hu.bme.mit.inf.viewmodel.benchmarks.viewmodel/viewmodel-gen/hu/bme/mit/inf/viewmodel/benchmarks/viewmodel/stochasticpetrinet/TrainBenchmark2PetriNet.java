@@ -4,9 +4,9 @@ import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.Conne
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.CreateFailureModelQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.CreatePetriNetQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.CreateRouteQuerySpecification;
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRailwayElementQuerySpecification;
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRailwayElementWithFailureModelQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRouteQuerySpecification;
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.OperationalRailwayElementQuerySpecification;
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.OperationalRailwayElementWithFailureModelQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.OperationalRouteQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.RailwayContainerQuerySpecification;
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.RailwayElementWithFailureModelQuerySpecification;
@@ -151,53 +151,53 @@ public final class TrainBenchmark2PetriNet {
     			.setConsequence(MatchPreconditionSpecification.of(RailwayContainerQuerySpecification.instance(), "Container"))
     		)
     		.addVariableInstantiationRuleOrThrow(b -> b
-    			.setPreconditionPattern(FailedRailwayElementQuerySpecification.instance())
+    			.setPreconditionPattern(FailedRailwayElementWithFailureModelQuerySpecification.instance())
     			.addVariable("Failed")
     		)
     		.addConstraintRuleOrThrow(b -> b
-    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElement<rule>")
+    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElementWithFailureModel<rule>")
     			.addParameter("Container")
     			.addParameter("Element")
-    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", FailedRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", FailedRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addConstraint(TemplateConstraintSpecification.of(SetInitialMarkingQuerySpecification.instance(), LookupVariableReference.of("<rule>", "Failed")))
     		)
     		.addConstraintRuleOrThrow(b -> b
-    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElement<lookup0>")
+    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElementWithFailureModel<lookup0>")
     			.addParameter("Container")
     			.addParameter("Element")
-    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", FailedRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", FailedRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addPrecondition(LookupPreconditionSpecification.of("<lookup>", RailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addConstraint(EquivalenceConstraintSpecification.of(LookupVariableReference.of("<rule>", "Failed"), LookupVariableReference.of("<lookup>", "_<2>")))
     		)
     		.addDependencyRuleOrThrow(b -> b
     			.addParameter("Container")
     			.addParameter("Element")
-    			.setPrecondition(MatchPreconditionSpecification.of(FailedRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.setPrecondition(MatchPreconditionSpecification.of(FailedRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.setConsequence(MatchPreconditionSpecification.of(RailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     		)
     		.addVariableInstantiationRuleOrThrow(b -> b
-    			.setPreconditionPattern(OperationalRailwayElementQuerySpecification.instance())
+    			.setPreconditionPattern(OperationalRailwayElementWithFailureModelQuerySpecification.instance())
     			.addVariable("Operational")
     		)
     		.addConstraintRuleOrThrow(b -> b
-    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElement<rule>")
+    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElementWithFailureModel<rule>")
     			.addParameter("Container")
     			.addParameter("Element")
-    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", OperationalRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", OperationalRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addConstraint(TemplateConstraintSpecification.of(SetInitialMarkingQuerySpecification.instance(), LookupVariableReference.of("<rule>", "Operational")))
     		)
     		.addConstraintRuleOrThrow(b -> b
-    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElement<lookup0>")
+    			.setName("hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElementWithFailureModel<lookup0>")
     			.addParameter("Container")
     			.addParameter("Element")
-    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", OperationalRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.addPrecondition(LookupPreconditionSpecification.of("<rule>", OperationalRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addPrecondition(LookupPreconditionSpecification.of("<lookup>", RailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.addConstraint(EquivalenceConstraintSpecification.of(LookupVariableReference.of("<rule>", "Operational"), LookupVariableReference.of("<lookup>", "_<1>")))
     		)
     		.addDependencyRuleOrThrow(b -> b
     			.addParameter("Container")
     			.addParameter("Element")
-    			.setPrecondition(MatchPreconditionSpecification.of(OperationalRailwayElementQuerySpecification.instance(), "Container", "Element"))
+    			.setPrecondition(MatchPreconditionSpecification.of(OperationalRailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     			.setConsequence(MatchPreconditionSpecification.of(RailwayElementWithFailureModelQuerySpecification.instance(), "Container", "Element"))
     		)
     		.addVariableInstantiationRuleOrThrow(b -> b

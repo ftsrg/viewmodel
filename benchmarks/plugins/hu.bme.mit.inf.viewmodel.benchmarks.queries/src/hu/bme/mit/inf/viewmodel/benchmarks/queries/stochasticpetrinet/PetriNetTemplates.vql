@@ -50,22 +50,27 @@ pattern createFailureModel(
 }
 
 @Template
-private pattern createPlace(Net : PetriNet, Place : Place) {
+pattern createPlace(Net : PetriNet, Place : Place) {
 	PetriNet.nodes(Net, Place);
 }
 
 @Template
-private pattern createTimedTransition(Net : PetriNet, Tran : TimedTransition) {
+pattern createTransition(Net : PetriNet, Tran : Transition) {
 	PetriNet.nodes(Net, Tran);
 }
 
 @Template
-private pattern createImmediateTransition(Net : PetriNet, Tran : ImmediateTransition) {
-	PetriNet.nodes(Net, Tran);
+pattern createTimedTransition(Net : PetriNet, Tran : TimedTransition) {
+	find createTransition(Net, Tran);
 }
 
 @Template
-private pattern createArc(Tran : Transition, Place : Place, Kind : ArcKind) {
+pattern createImmediateTransition(Net : PetriNet, Tran : ImmediateTransition) {
+	find createTransition(Net, Tran);
+}
+
+@Template
+pattern createArc(Tran : Transition, Place : Place, Kind : ArcKind) {
 	Arc.transition(Arc, Tran);
 	Arc.place(Arc, Place);
 	Arc.kind(Arc, Kind);

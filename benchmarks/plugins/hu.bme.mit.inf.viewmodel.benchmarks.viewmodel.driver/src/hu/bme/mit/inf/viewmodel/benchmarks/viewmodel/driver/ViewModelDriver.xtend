@@ -37,6 +37,8 @@ import org.eclipse.viatra.query.runtime.base.api.IndexingLevel
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.viatra.transformation.evm.api.ExecutionSchema
 import org.eclipse.viatra.transformation.evm.specific.ExecutionSchemas
+import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.dependability.Dependability2PetriNet
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.RailwayElementFailureModelMatcher
 
 abstract class ViewModelDriver extends ExperimentDriver {
 	protected val ManifestationMode manifestationMode
@@ -70,6 +72,7 @@ abstract class ViewModelDriver extends ExperimentDriver {
 		switch (transformationCase) {
 			case PETRI_NET: TrainBenchmark2PetriNet.createSpecification
 			case VIRTUAL_SWITCH: RailwayModel2VirtualSwitchModel.createSpecification
+			case DEPENDABILITY: Dependability2PetriNet.createSpecification
 			default: throw new IllegalArgumentException("Unknown case: " + transformationCase)
 		}
 	}

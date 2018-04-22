@@ -6,3 +6,4 @@ xtend-gen
 .antlr-generator-*-patch.jar
 MANIFEST.MF_gen
 .DS_Store*
+.Rproj.user

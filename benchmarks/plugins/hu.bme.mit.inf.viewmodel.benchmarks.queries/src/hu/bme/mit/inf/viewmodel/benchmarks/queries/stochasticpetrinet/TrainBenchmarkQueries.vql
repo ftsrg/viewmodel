@@ -33,14 +33,14 @@ railwayElementWithFailureModel(Container : RailwayContainer, Element : RailwayEl
 }
 
 pattern
-failedRailwayElement(Container : RailwayContainer, Element : RailwayElement) {
+failedRailwayElementWithFailureModel(Container : RailwayContainer, Element : RailwayElement) {
 	find failedSwitch(Container, Element);
 } or {
 	find failedSemaphore(Container, Element);
 }
 
 pattern
-operationalRailwayElement(Container : RailwayContainer, Element : RailwayElement) {
+operationalRailwayElementWithFailureModel(Container : RailwayContainer, Element : RailwayElement) {
 	find railwaySwitch(Container, Element);
 	neg find failedSwitch(Container, Element);
 } or {
@@ -59,7 +59,7 @@ routeRequiresElement(Container : RailwayContainer, Route : Route, Element : Rail
 	find routeRequiresSensor(Container, Route, Element);
 }
 
-private pattern railwaySwitch(Container : RailwayContainer, Switch : Switch) {
+pattern railwaySwitch(Container : RailwayContainer, Switch : Switch) {
 	RailwayContainer.regions.elements(Container, Switch);
 }
 
@@ -68,15 +68,14 @@ private pattern failedSwitch(Container : RailwayContainer, Switch : Switch) {
 	Switch.currentPosition(Switch, Position::FAILURE);
 }
 
-private pattern
+ pattern
 routeRequiresSwitch(Container : RailwayContainer, Route : Route, Switch : Switch) {
 	find route(Container, Route);
 	Route.follows(Route, Position);
 	Switch.positions(Switch, Position);
 }
 
-private pattern
-railwaySemaphore(Container : RailwayContainer, Semaphore : Semaphore) {
+pattern railwaySemaphore(Container : RailwayContainer, Semaphore : Semaphore) {
 	RailwayContainer.regions.elements(Container, Segment);
 	Segment.semaphores(Segment, Semaphore);
 }
@@ -96,7 +95,7 @@ routeRequiresSemaphore(Container : RailwayContainer, Route : Route, Semaphore : 
 	Route.exit(Route, Semaphore);
 }
 
-private pattern railwaySensor(Container : RailwayContainer, Sensor : Sensor) {
+pattern railwaySensor(Container : RailwayContainer, Sensor : Sensor) {
 	RailwayContainer.regions.sensors(Container, Sensor);
 }
 

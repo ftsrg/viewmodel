@@ -4,7 +4,9 @@ Bundle-Name: hu.bme.mit.inf.viewmodel.benchmarks.queries
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: BME MIT FTSRG
-Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications,
+Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability,
+  hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util,
+  hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications,
   hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.util,
   hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet,
   hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util,

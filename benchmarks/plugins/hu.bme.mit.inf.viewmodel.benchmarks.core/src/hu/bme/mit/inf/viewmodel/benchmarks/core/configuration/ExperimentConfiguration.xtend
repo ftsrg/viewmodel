@@ -9,6 +9,9 @@ class ExperimentConfiguration {
 
 	@SerializedName("model")
 	String modelName
+	
+	@SerializedName("dependabilityModel")
+	String dependabilityModelName
 
 	@SerializedName("transformationCase")
 	TransformationCase transformationCase

@@ -21,7 +21,10 @@ Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.models.railway,
  hu.bme.mit.inf.viewmodel.benchmarks.models.railway2virtualswitchview.util,
  hu.bme.mit.inf.viewmodel.benchmarks.models.railway2stochasticpetrinet,
  hu.bme.mit.inf.viewmodel.benchmarks.models.railway2stochasticpetrinet.impl,
- hu.bme.mit.inf.viewmodel.benchmarks.models.railway2stochasticpetrinet.util
+ hu.bme.mit.inf.viewmodel.benchmarks.models.railway2stochasticpetrinet.util,
+ hu.bme.mit.inf.viewmodel.benchmarks.models.dependability,
+ hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.impl,
+ hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  hu.bme.mit.inf.viewmodel.benchmarks.models;visibility:=reexport

@@ -7,7 +7,10 @@ public enum TransformationCase {
 	PETRI_NET("petriNet"),
 
 	@SerializedName("virtualSwitch")
-	VIRTUAL_SWITCH("virtualSwitch");
+	VIRTUAL_SWITCH("virtualSwitch"),
+	
+	@SerializedName("dependability")
+	DEPENDABILITY("dependability");
 
 	private final String name;
 	

@@ -15,7 +15,7 @@ import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.RequiredEl
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.RouteTraceMatcher
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TracedTrainBenchmarkQueries
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TrainBenchmarkQueries
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRequiredElementTraceQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRequiredElementWithFailureModelTraceQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.FailedRouteTraceQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.RailwayContainerQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.RequiredElementInRailwayModelQuerySpecification
@@ -133,7 +133,7 @@ class RailwayModel2StochasticPetriNet extends HandCodedTransformation {
 				}
 			].filter[match|match.traceModel == traceModel].build
 
-		val failedRequiredElementRule = createRule.precondition(FailedRequiredElementTraceQuerySpecification.instance).
+		val failedRequiredElementRule = createRule.precondition(FailedRequiredElementWithFailureModelTraceQuerySpecification.instance).
 			action(CRUDActivationStateEnum.CREATED) [
 				traceLink.operational.tokens = 0
 				traceLink.failed.tokens = 1

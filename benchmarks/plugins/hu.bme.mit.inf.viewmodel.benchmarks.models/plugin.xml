@@ -46,4 +46,12 @@
             genModel="model/railway2stochasticpetrinet.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dependability -->
+      <package
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.ecore"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityPackage"
+            genModel="model/dependability.genmodel"/>
+   </extension>
+
 </plugin>

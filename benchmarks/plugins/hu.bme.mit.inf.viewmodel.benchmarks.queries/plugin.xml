@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.DependabilityQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.DependabilityQueries" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.DependabilityQueries">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.errorModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.failureRepairModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.immediateRepairModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.railwayElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.failedRailwayElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.operationalRailwayElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.railwayElementFailureModel"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.PetriNetTemplates" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.PetriNetTemplates" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.PetriNetTemplates">
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.createErrorModelInterface"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.createErrorModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.createFailureRepairModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.createImmediateRepairModel"/>
+    </group>
+  </extension>
   <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries" id="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.ModificationQueries">
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications.trackElement"/>
@@ -16,6 +35,11 @@
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.setInitialMarking"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.connectRequiredElement"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createFailureModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createPlace"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createTransition"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createTimedTransition"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createImmediateTransition"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.createArc"/>
     </group>
   </extension>
   <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TracedTrainBenchmarkQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
@@ -26,7 +50,7 @@
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRouteTrace"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.requiredElementInRailwayModel"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.requiredElementTrace"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRequiredElementTrace"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRequiredElementWithFailureModelTrace"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeRequiresElementInRailwayModel"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.requiredElementConnectionTrace"/>
     </group>
@@ -38,9 +62,13 @@
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRoute"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRoute"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwayElementWithFailureModel"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElement"/>
-      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.failedRailwayElementWithFailureModel"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.operationalRailwayElementWithFailureModel"/>
       <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeRequiresElement"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.routeRequiresSwitch"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySemaphore"/>
+      <query-specification fqn="hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.railwaySensor"/>
     </group>
   </extension>
   <extension id="hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.TracedTrainBenchmarkQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
