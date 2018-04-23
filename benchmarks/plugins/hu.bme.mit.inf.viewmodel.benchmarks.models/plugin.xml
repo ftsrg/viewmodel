@@ -54,4 +54,12 @@
             genModel="model/dependability.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dependability2stochasticpetrinet -->
+      <package
+            uri="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability2stochasticpetrinet.ecore"
+            class="hu.bme.mit.inf.viewmodel.benchmarks.models.dependability2stochasticpetrinet.Dependability2StochasticPetriNetPackage"
+            genModel="model/dependability2stochasticpetrinet.genmodel"/>
+   </extension>
+
 </plugin>

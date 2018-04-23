@@ -23,7 +23,7 @@ abstract class HandCodedTransformation {
 	protected val ResourceSet resourceSet
 	@Accessors protected val Resource targetResource
 
-	AdvancedViatraQueryEngine queryEngine
+	@Accessors(PUBLIC_GETTER) AdvancedViatraQueryEngine queryEngine
 	EventDrivenTransformation transformation
 
 	new(RailwayContainer railwayContainer, ResourceSet resourceSet) {

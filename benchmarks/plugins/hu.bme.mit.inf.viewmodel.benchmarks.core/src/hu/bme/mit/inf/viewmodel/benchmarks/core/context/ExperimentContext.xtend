@@ -75,9 +75,6 @@ abstract class ExperimentContext {
 		if (dependabilityModelPath !== null) {
 			val dependabilityResource = resourceSet.getResource(URI.createFileURI(dependabilityModelPath), true)
 			dependabilityModel = dependabilityResource.contents.head as DependabilityModel
-			// Move the dependability model to the same resource as the railway model,
-			// so that the VIATRA Query scope roots can be managed more easily.
-			resource.contents += dependabilityModel
 		}
 		if (modelModificationMix !== null) {
 			modelModifications = new ModelModifications(seed, railwayContainer, modelModificationMix)

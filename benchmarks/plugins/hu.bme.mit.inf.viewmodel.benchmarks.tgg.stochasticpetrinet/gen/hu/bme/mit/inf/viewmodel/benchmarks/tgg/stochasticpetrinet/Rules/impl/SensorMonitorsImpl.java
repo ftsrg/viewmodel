@@ -78,51 +78,51 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement) {
+	public boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor) {
 
 		Object[] result1_black = SensorMonitorsImpl.pattern_SensorMonitors_0_1_initialbindings_blackBBBB(this, match,
-				srcSensor, srcTrackElement);
+				srcTrackElement, srcSensor);
 		if (result1_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcSensor] = " + srcSensor + ", " + "[srcTrackElement] = "
-					+ srcTrackElement + ".");
+					+ "[match] = " + match + ", " + "[srcTrackElement] = " + srcTrackElement + ", " + "[srcSensor] = "
+					+ srcSensor + ".");
 		}
 
 		Object[] result2_bindingAndBlack = SensorMonitorsImpl
-				.pattern_SensorMonitors_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcSensor, srcTrackElement);
+				.pattern_SensorMonitors_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcTrackElement, srcSensor);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcSensor] = " + srcSensor + ", " + "[srcTrackElement] = "
-					+ srcTrackElement + ".");
+					+ "[match] = " + match + ", " + "[srcTrackElement] = " + srcTrackElement + ", " + "[srcSensor] = "
+					+ srcSensor + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (SensorMonitorsImpl.pattern_SensorMonitors_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = SensorMonitorsImpl
-					.pattern_SensorMonitors_0_4_collectelementstobetranslated_blackBBB(match, srcSensor,
-							srcTrackElement);
+					.pattern_SensorMonitors_0_4_collectelementstobetranslated_blackBBB(match, srcTrackElement,
+							srcSensor);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSensor] = " + srcSensor + ", " + "[srcTrackElement] = " + srcTrackElement + ".");
+						+ "[srcTrackElement] = " + srcTrackElement + ", " + "[srcSensor] = " + srcSensor + ".");
 			}
-			SensorMonitorsImpl.pattern_SensorMonitors_0_4_collectelementstobetranslated_greenBBBFF(match, srcSensor,
-					srcTrackElement);
+			SensorMonitorsImpl.pattern_SensorMonitors_0_4_collectelementstobetranslated_greenBBBFF(match,
+					srcTrackElement, srcSensor);
 			//nothing EMoflonEdge srcSensor__srcTrackElement____monitors = (EMoflonEdge) result4_green[3];
 			//nothing EMoflonEdge srcTrackElement__srcSensor____monitoredBy = (EMoflonEdge) result4_green[4];
 
 			Object[] result5_black = SensorMonitorsImpl
-					.pattern_SensorMonitors_0_5_collectcontextelements_blackBBB(match, srcSensor, srcTrackElement);
+					.pattern_SensorMonitors_0_5_collectcontextelements_blackBBB(match, srcTrackElement, srcSensor);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSensor] = " + srcSensor + ", " + "[srcTrackElement] = " + srcTrackElement + ".");
+						+ "[srcTrackElement] = " + srcTrackElement + ", " + "[srcSensor] = " + srcSensor + ".");
 			}
-			SensorMonitorsImpl.pattern_SensorMonitors_0_5_collectcontextelements_greenBBB(match, srcSensor,
-					srcTrackElement);
+			SensorMonitorsImpl.pattern_SensorMonitors_0_5_collectcontextelements_greenBBB(match, srcTrackElement,
+					srcSensor);
 
 			// 
-			SensorMonitorsImpl.pattern_SensorMonitors_0_6_registerobjectstomatch_expressionBBBB(this, match, srcSensor,
-					srcTrackElement);
+			SensorMonitorsImpl.pattern_SensorMonitors_0_6_registerobjectstomatch_expressionBBBB(this, match,
+					srcTrackElement, srcSensor);
 			return SensorMonitorsImpl.pattern_SensorMonitors_0_7_expressionF();
 		} else {
 			return SensorMonitorsImpl.pattern_SensorMonitors_0_8_expressionF();
@@ -143,8 +143,8 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		Sensor srcSensor = (Sensor) result1_bindingAndBlack[0];
-		TrackElement srcTrackElement = (TrackElement) result1_bindingAndBlack[1];
+		TrackElement srcTrackElement = (TrackElement) result1_bindingAndBlack[0];
+		Sensor srcSensor = (Sensor) result1_bindingAndBlack[1];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[2];
 
 		Object[] result2_green = SensorMonitorsImpl.pattern_SensorMonitors_1_2_collecttranslatedelements_greenF();
@@ -154,20 +154,20 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = SensorMonitorsImpl.pattern_SensorMonitors_1_3_bookkeepingforedges_blackBBB(ruleresult,
-				srcSensor, srcTrackElement);
+				srcTrackElement, srcSensor);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[srcSensor] = " + srcSensor + ", " + "[srcTrackElement] = " + srcTrackElement + ".");
+					+ ", " + "[srcTrackElement] = " + srcTrackElement + ", " + "[srcSensor] = " + srcSensor + ".");
 		}
-		SensorMonitorsImpl.pattern_SensorMonitors_1_3_bookkeepingforedges_greenBBBFF(ruleresult, srcSensor,
-				srcTrackElement);
+		SensorMonitorsImpl.pattern_SensorMonitors_1_3_bookkeepingforedges_greenBBBFF(ruleresult, srcTrackElement,
+				srcSensor);
 		//nothing EMoflonEdge srcSensor__srcTrackElement____monitors = (EMoflonEdge) result3_green[3];
 		//nothing EMoflonEdge srcTrackElement__srcSensor____monitoredBy = (EMoflonEdge) result3_green[4];
 
 		// 
 		// 
-		SensorMonitorsImpl.pattern_SensorMonitors_1_5_registerobjects_expressionBBBB(this, ruleresult, srcSensor,
-				srcTrackElement);
+		SensorMonitorsImpl.pattern_SensorMonitors_1_5_registerobjects_expressionBBBB(this, ruleresult, srcTrackElement,
+				srcSensor);
 		return SensorMonitorsImpl.pattern_SensorMonitors_1_6_expressionFB(ruleresult);
 	}
 
@@ -195,26 +195,26 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		Sensor srcSensor = (Sensor) result2_binding[0];
-		TrackElement srcTrackElement = (TrackElement) result2_binding[1];
-		for (Object[] result2_black : SensorMonitorsImpl.pattern_SensorMonitors_2_2_corematch_blackBBB(srcSensor,
-				srcTrackElement, match)) {
+		TrackElement srcTrackElement = (TrackElement) result2_binding[0];
+		Sensor srcSensor = (Sensor) result2_binding[1];
+		for (Object[] result2_black : SensorMonitorsImpl.pattern_SensorMonitors_2_2_corematch_blackBBB(srcTrackElement,
+				srcSensor, match)) {
 			// ForEach 
-			for (Object[] result3_black : SensorMonitorsImpl.pattern_SensorMonitors_2_3_findcontext_blackBB(srcSensor,
-					srcTrackElement)) {
-				Object[] result3_green = SensorMonitorsImpl.pattern_SensorMonitors_2_3_findcontext_greenBBFFF(srcSensor,
-						srcTrackElement);
+			for (Object[] result3_black : SensorMonitorsImpl
+					.pattern_SensorMonitors_2_3_findcontext_blackBB(srcTrackElement, srcSensor)) {
+				Object[] result3_green = SensorMonitorsImpl
+						.pattern_SensorMonitors_2_3_findcontext_greenBBFFF(srcTrackElement, srcSensor);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[2];
 				//nothing EMoflonEdge srcSensor__srcTrackElement____monitors = (EMoflonEdge) result3_green[3];
 				//nothing EMoflonEdge srcTrackElement__srcSensor____monitoredBy = (EMoflonEdge) result3_green[4];
 
 				Object[] result4_bindingAndBlack = SensorMonitorsImpl
-						.pattern_SensorMonitors_2_4_solveCSP_bindingAndBlackFBBBB(this, isApplicableMatch, srcSensor,
-								srcTrackElement);
+						.pattern_SensorMonitors_2_4_solveCSP_bindingAndBlackFBBBB(this, isApplicableMatch,
+								srcTrackElement, srcSensor);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSensor] = " + srcSensor + ", "
-							+ "[srcTrackElement] = " + srcTrackElement + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcTrackElement] = "
+							+ srcTrackElement + ", " + "[srcSensor] = " + srcSensor + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -243,9 +243,9 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement) {
-		match.registerObject("srcSensor", srcSensor);
+	public void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor) {
 		match.registerObject("srcTrackElement", srcTrackElement);
+		match.registerObject("srcSensor", srcSensor);
 
 	}
 
@@ -254,7 +254,7 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -283,8 +283,8 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Sensor srcSensor,
-			TrackElement srcTrackElement) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement,
+			Sensor srcSensor) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -299,8 +299,8 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcSensor", srcSensor);
 		isApplicableMatch.registerObject("srcTrackElement", srcTrackElement);
+		isApplicableMatch.registerObject("srcSensor", srcSensor);
 		return csp;
 	}
 
@@ -318,9 +318,9 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSensor, EObject srcTrackElement) {
-		ruleresult.registerObject("srcSensor", srcSensor);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement, EObject srcSensor) {
 		ruleresult.registerObject("srcTrackElement", srcTrackElement);
+		ruleresult.registerObject("srcSensor", srcSensor);
 
 	}
 
@@ -338,7 +338,7 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_0(EMoflonEdge _edge_monitors) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_4(EMoflonEdge _edge_monitors) {
 
 		Object[] result1_bindingAndBlack = SensorMonitorsImpl
 				.pattern_SensorMonitors_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -354,8 +354,8 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		// ForEach 
 		for (Object[] result2_black : SensorMonitorsImpl
 				.pattern_SensorMonitors_10_2_testcorematchandDECs_blackFFB(_edge_monitors)) {
-			Sensor srcSensor = (Sensor) result2_black[0];
-			TrackElement srcTrackElement = (TrackElement) result2_black[1];
+			TrackElement srcTrackElement = (TrackElement) result2_black[0];
+			Sensor srcSensor = (Sensor) result2_black[1];
 			Object[] result2_green = SensorMonitorsImpl
 					.pattern_SensorMonitors_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -363,7 +363,7 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 			// 
 			if (SensorMonitorsImpl
 					.pattern_SensorMonitors_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(this, match,
-							srcSensor, srcTrackElement)) {
+							srcTrackElement, srcSensor)) {
 				// 
 				if (SensorMonitorsImpl
 						.pattern_SensorMonitors_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(this,
@@ -437,9 +437,9 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(Sensor srcSensor, TrackElement srcTrackElement) {// 
-		Object[] result1_black = SensorMonitorsImpl.pattern_SensorMonitors_13_1_matchtggpattern_blackBB(srcSensor,
-				srcTrackElement);
+	public boolean checkDEC_FWD(TrackElement srcTrackElement, Sensor srcSensor) {// 
+		Object[] result1_black = SensorMonitorsImpl.pattern_SensorMonitors_13_1_matchtggpattern_blackBB(srcTrackElement,
+				srcSensor);
 		if (result1_black != null) {
 			return SensorMonitorsImpl.pattern_SensorMonitors_13_2_expressionF();
 		} else {
@@ -456,25 +456,25 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_FWD__MATCH_SENSOR_TRACKELEMENT:
-			return isAppropriate_FWD((Match) arguments.get(0), (Sensor) arguments.get(1),
-					(TrackElement) arguments.get(2));
+		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_FWD__MATCH_TRACKELEMENT_SENSOR:
+			return isAppropriate_FWD((Match) arguments.get(0), (TrackElement) arguments.get(1),
+					(Sensor) arguments.get(2));
 		case RulesPackage.SENSOR_MONITORS___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SENSOR_MONITORS___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SENSOR_MONITORS___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SENSOR_TRACKELEMENT:
-			registerObjectsToMatch_FWD((Match) arguments.get(0), (Sensor) arguments.get(1),
-					(TrackElement) arguments.get(2));
+		case RulesPackage.SENSOR_MONITORS___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_TRACKELEMENT_SENSOR:
+			registerObjectsToMatch_FWD((Match) arguments.get(0), (TrackElement) arguments.get(1),
+					(Sensor) arguments.get(2));
 			return null;
-		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SENSOR_TRACKELEMENT:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (Sensor) arguments.get(1),
-					(TrackElement) arguments.get(2));
+		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_TRACKELEMENT_SENSOR:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (TrackElement) arguments.get(1),
+					(Sensor) arguments.get(2));
 		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SENSOR_MONITORS___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SENSOR_TRACKELEMENT:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (Sensor) arguments.get(1),
-					(TrackElement) arguments.get(2));
+		case RulesPackage.SENSOR_MONITORS___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_TRACKELEMENT_SENSOR:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (TrackElement) arguments.get(1),
+					(Sensor) arguments.get(2));
 		case RulesPackage.SENSOR_MONITORS___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SENSOR_MONITORS___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT:
@@ -483,29 +483,29 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 			return null;
 		case RulesPackage.SENSOR_MONITORS___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_FWD_EMOFLON_EDGE_0__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_0((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SENSOR_MONITORS___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SENSOR_MONITORS___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SENSOR_MONITORS___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.SENSOR_MONITORS___CHECK_DEC_FWD__SENSOR_TRACKELEMENT:
-			return checkDEC_FWD((Sensor) arguments.get(0), (TrackElement) arguments.get(1));
+		case RulesPackage.SENSOR_MONITORS___CHECK_DEC_FWD__TRACKELEMENT_SENSOR:
+			return checkDEC_FWD((TrackElement) arguments.get(0), (Sensor) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_1_initialbindings_blackBBBB(SensorMonitors _this, Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
-		return new Object[] { _this, match, srcSensor, srcTrackElement };
+			TrackElement srcTrackElement, Sensor srcSensor) {
+		return new Object[] { _this, match, srcTrackElement, srcSensor };
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_2_SolveCSP_bindingFBBBB(SensorMonitors _this, Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcSensor, srcTrackElement);
+			TrackElement srcTrackElement, Sensor srcSensor) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcTrackElement, srcSensor);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcSensor, srcTrackElement };
+			return new Object[] { csp, _this, match, srcTrackElement, srcSensor };
 		}
 		return null;
 	}
@@ -515,16 +515,16 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_2_SolveCSP_bindingAndBlackFBBBB(SensorMonitors _this,
-			Match match, Sensor srcSensor, TrackElement srcTrackElement) {
+			Match match, TrackElement srcTrackElement, Sensor srcSensor) {
 		Object[] result_pattern_SensorMonitors_0_2_SolveCSP_binding = pattern_SensorMonitors_0_2_SolveCSP_bindingFBBBB(
-				_this, match, srcSensor, srcTrackElement);
+				_this, match, srcTrackElement, srcSensor);
 		if (result_pattern_SensorMonitors_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_SensorMonitors_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_SensorMonitors_0_2_SolveCSP_black = pattern_SensorMonitors_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_SensorMonitors_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcSensor, srcTrackElement };
+				return new Object[] { csp, _this, match, srcTrackElement, srcSensor };
 			}
 		}
 		return null;
@@ -537,12 +537,12 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_4_collectelementstobetranslated_blackBBB(Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
-		return new Object[] { match, srcSensor, srcTrackElement };
+			TrackElement srcTrackElement, Sensor srcSensor) {
+		return new Object[] { match, srcTrackElement, srcSensor };
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_4_collectelementstobetranslated_greenBBBFF(Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
+			TrackElement srcTrackElement, Sensor srcSensor) {
 		EMoflonEdge srcSensor__srcTrackElement____monitors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcTrackElement__srcSensor____monitoredBy = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcSensor__srcTrackElement____monitors_name_prime = "monitors";
@@ -555,25 +555,25 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		match.getToBeTranslatedEdges().add(srcTrackElement__srcSensor____monitoredBy);
 		srcSensor__srcTrackElement____monitors.setName(srcSensor__srcTrackElement____monitors_name_prime);
 		srcTrackElement__srcSensor____monitoredBy.setName(srcTrackElement__srcSensor____monitoredBy_name_prime);
-		return new Object[] { match, srcSensor, srcTrackElement, srcSensor__srcTrackElement____monitors,
+		return new Object[] { match, srcTrackElement, srcSensor, srcSensor__srcTrackElement____monitors,
 				srcTrackElement__srcSensor____monitoredBy };
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_5_collectcontextelements_blackBBB(Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
-		return new Object[] { match, srcSensor, srcTrackElement };
+			TrackElement srcTrackElement, Sensor srcSensor) {
+		return new Object[] { match, srcTrackElement, srcSensor };
 	}
 
 	public static final Object[] pattern_SensorMonitors_0_5_collectcontextelements_greenBBB(Match match,
-			Sensor srcSensor, TrackElement srcTrackElement) {
-		match.getContextNodes().add(srcSensor);
+			TrackElement srcTrackElement, Sensor srcSensor) {
 		match.getContextNodes().add(srcTrackElement);
-		return new Object[] { match, srcSensor, srcTrackElement };
+		match.getContextNodes().add(srcSensor);
+		return new Object[] { match, srcTrackElement, srcSensor };
 	}
 
 	public static final void pattern_SensorMonitors_0_6_registerobjectstomatch_expressionBBBB(SensorMonitors _this,
-			Match match, Sensor srcSensor, TrackElement srcTrackElement) {
-		_this.registerObjectsToMatch_FWD(match, srcSensor, srcTrackElement);
+			Match match, TrackElement srcTrackElement, Sensor srcSensor) {
+		_this.registerObjectsToMatch_FWD(match, srcTrackElement, srcSensor);
 
 	}
 
@@ -589,26 +589,26 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 
 	public static final Object[] pattern_SensorMonitors_1_1_performtransformation_bindingFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcSensor");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcTrackElement");
-		EObject tmpSrcSensor = _localVariable_0;
-		EObject tmpSrcTrackElement = _localVariable_1;
-		if (tmpSrcSensor instanceof Sensor) {
-			Sensor srcSensor = (Sensor) tmpSrcSensor;
-			if (tmpSrcTrackElement instanceof TrackElement) {
-				TrackElement srcTrackElement = (TrackElement) tmpSrcTrackElement;
-				return new Object[] { srcSensor, srcTrackElement, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcTrackElement");
+		EObject _localVariable_1 = isApplicableMatch.getObject("srcSensor");
+		EObject tmpSrcTrackElement = _localVariable_0;
+		EObject tmpSrcSensor = _localVariable_1;
+		if (tmpSrcTrackElement instanceof TrackElement) {
+			TrackElement srcTrackElement = (TrackElement) tmpSrcTrackElement;
+			if (tmpSrcSensor instanceof Sensor) {
+				Sensor srcSensor = (Sensor) tmpSrcSensor;
+				return new Object[] { srcTrackElement, srcSensor, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_SensorMonitors_1_1_performtransformation_blackBBFBB(Sensor srcSensor,
-			TrackElement srcTrackElement, SensorMonitors _this, IsApplicableMatch isApplicableMatch) {
+	public static final Object[] pattern_SensorMonitors_1_1_performtransformation_blackBBFBB(
+			TrackElement srcTrackElement, Sensor srcSensor, SensorMonitors _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcSensor, srcTrackElement, csp, _this, isApplicableMatch };
+				return new Object[] { srcTrackElement, srcSensor, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -619,15 +619,15 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		Object[] result_pattern_SensorMonitors_1_1_performtransformation_binding = pattern_SensorMonitors_1_1_performtransformation_bindingFFB(
 				isApplicableMatch);
 		if (result_pattern_SensorMonitors_1_1_performtransformation_binding != null) {
-			Sensor srcSensor = (Sensor) result_pattern_SensorMonitors_1_1_performtransformation_binding[0];
-			TrackElement srcTrackElement = (TrackElement) result_pattern_SensorMonitors_1_1_performtransformation_binding[1];
+			TrackElement srcTrackElement = (TrackElement) result_pattern_SensorMonitors_1_1_performtransformation_binding[0];
+			Sensor srcSensor = (Sensor) result_pattern_SensorMonitors_1_1_performtransformation_binding[1];
 
 			Object[] result_pattern_SensorMonitors_1_1_performtransformation_black = pattern_SensorMonitors_1_1_performtransformation_blackBBFBB(
-					srcSensor, srcTrackElement, _this, isApplicableMatch);
+					srcTrackElement, srcSensor, _this, isApplicableMatch);
 			if (result_pattern_SensorMonitors_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_SensorMonitors_1_1_performtransformation_black[2];
 
-				return new Object[] { srcSensor, srcTrackElement, csp, _this, isApplicableMatch };
+				return new Object[] { srcTrackElement, srcSensor, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -639,15 +639,15 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final Object[] pattern_SensorMonitors_1_3_bookkeepingforedges_blackBBB(PerformRuleResult ruleresult,
-			EObject srcSensor, EObject srcTrackElement) {
+			EObject srcTrackElement, EObject srcSensor) {
 		if (!srcSensor.equals(srcTrackElement)) {
-			return new Object[] { ruleresult, srcSensor, srcTrackElement };
+			return new Object[] { ruleresult, srcTrackElement, srcSensor };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_SensorMonitors_1_3_bookkeepingforedges_greenBBBFF(PerformRuleResult ruleresult,
-			EObject srcSensor, EObject srcTrackElement) {
+			EObject srcTrackElement, EObject srcSensor) {
 		EMoflonEdge srcSensor__srcTrackElement____monitors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcTrackElement__srcSensor____monitoredBy = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "SensorMonitors";
@@ -662,13 +662,13 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		srcSensor__srcTrackElement____monitors.setName(srcSensor__srcTrackElement____monitors_name_prime);
 		srcTrackElement__srcSensor____monitoredBy.setName(srcTrackElement__srcSensor____monitoredBy_name_prime);
-		return new Object[] { ruleresult, srcSensor, srcTrackElement, srcSensor__srcTrackElement____monitors,
+		return new Object[] { ruleresult, srcTrackElement, srcSensor, srcSensor__srcTrackElement____monitors,
 				srcTrackElement__srcSensor____monitoredBy };
 	}
 
 	public static final void pattern_SensorMonitors_1_5_registerobjects_expressionBBBB(SensorMonitors _this,
-			PerformRuleResult ruleresult, EObject srcSensor, EObject srcTrackElement) {
-		_this.registerObjects_FWD(ruleresult, srcSensor, srcTrackElement);
+			PerformRuleResult ruleresult, EObject srcTrackElement, EObject srcSensor) {
+		_this.registerObjects_FWD(ruleresult, srcTrackElement, srcSensor);
 
 	}
 
@@ -727,45 +727,45 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final Object[] pattern_SensorMonitors_2_2_corematch_bindingFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcSensor");
-		EObject _localVariable_1 = match.getObject("srcTrackElement");
-		EObject tmpSrcSensor = _localVariable_0;
-		EObject tmpSrcTrackElement = _localVariable_1;
-		if (tmpSrcSensor instanceof Sensor) {
-			Sensor srcSensor = (Sensor) tmpSrcSensor;
-			if (tmpSrcTrackElement instanceof TrackElement) {
-				TrackElement srcTrackElement = (TrackElement) tmpSrcTrackElement;
-				return new Object[] { srcSensor, srcTrackElement, match };
+		EObject _localVariable_0 = match.getObject("srcTrackElement");
+		EObject _localVariable_1 = match.getObject("srcSensor");
+		EObject tmpSrcTrackElement = _localVariable_0;
+		EObject tmpSrcSensor = _localVariable_1;
+		if (tmpSrcTrackElement instanceof TrackElement) {
+			TrackElement srcTrackElement = (TrackElement) tmpSrcTrackElement;
+			if (tmpSrcSensor instanceof Sensor) {
+				Sensor srcSensor = (Sensor) tmpSrcSensor;
+				return new Object[] { srcTrackElement, srcSensor, match };
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_SensorMonitors_2_2_corematch_blackBBB(Sensor srcSensor,
-			TrackElement srcTrackElement, Match match) {
+	public static final Iterable<Object[]> pattern_SensorMonitors_2_2_corematch_blackBBB(TrackElement srcTrackElement,
+			Sensor srcSensor, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		_result.add(new Object[] { srcSensor, srcTrackElement, match });
+		_result.add(new Object[] { srcTrackElement, srcSensor, match });
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_SensorMonitors_2_3_findcontext_blackBB(Sensor srcSensor,
-			TrackElement srcTrackElement) {
+	public static final Iterable<Object[]> pattern_SensorMonitors_2_3_findcontext_blackBB(TrackElement srcTrackElement,
+			Sensor srcSensor) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (srcSensor.getMonitors().contains(srcTrackElement)) {
-			_result.add(new Object[] { srcSensor, srcTrackElement });
+			_result.add(new Object[] { srcTrackElement, srcSensor });
 		}
 		return _result;
 	}
 
-	public static final Object[] pattern_SensorMonitors_2_3_findcontext_greenBBFFF(Sensor srcSensor,
-			TrackElement srcTrackElement) {
+	public static final Object[] pattern_SensorMonitors_2_3_findcontext_greenBBFFF(TrackElement srcTrackElement,
+			Sensor srcSensor) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge srcSensor__srcTrackElement____monitors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcTrackElement__srcSensor____monitoredBy = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcSensor__srcTrackElement____monitors_name_prime = "monitors";
 		String srcTrackElement__srcSensor____monitoredBy_name_prime = "monitoredBy";
-		isApplicableMatch.getAllContextElements().add(srcSensor);
 		isApplicableMatch.getAllContextElements().add(srcTrackElement);
+		isApplicableMatch.getAllContextElements().add(srcSensor);
 		srcSensor__srcTrackElement____monitors.setSrc(srcSensor);
 		srcSensor__srcTrackElement____monitors.setTrg(srcTrackElement);
 		isApplicableMatch.getAllContextElements().add(srcSensor__srcTrackElement____monitors);
@@ -774,16 +774,16 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		isApplicableMatch.getAllContextElements().add(srcTrackElement__srcSensor____monitoredBy);
 		srcSensor__srcTrackElement____monitors.setName(srcSensor__srcTrackElement____monitors_name_prime);
 		srcTrackElement__srcSensor____monitoredBy.setName(srcTrackElement__srcSensor____monitoredBy_name_prime);
-		return new Object[] { srcSensor, srcTrackElement, isApplicableMatch, srcSensor__srcTrackElement____monitors,
+		return new Object[] { srcTrackElement, srcSensor, isApplicableMatch, srcSensor__srcTrackElement____monitors,
 				srcTrackElement__srcSensor____monitoredBy };
 	}
 
 	public static final Object[] pattern_SensorMonitors_2_4_solveCSP_bindingFBBBB(SensorMonitors _this,
-			IsApplicableMatch isApplicableMatch, Sensor srcSensor, TrackElement srcTrackElement) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSensor, srcTrackElement);
+			IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement, Sensor srcSensor) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcTrackElement, srcSensor);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcSensor, srcTrackElement };
+			return new Object[] { csp, _this, isApplicableMatch, srcTrackElement, srcSensor };
 		}
 		return null;
 	}
@@ -793,16 +793,16 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final Object[] pattern_SensorMonitors_2_4_solveCSP_bindingAndBlackFBBBB(SensorMonitors _this,
-			IsApplicableMatch isApplicableMatch, Sensor srcSensor, TrackElement srcTrackElement) {
+			IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement, Sensor srcSensor) {
 		Object[] result_pattern_SensorMonitors_2_4_solveCSP_binding = pattern_SensorMonitors_2_4_solveCSP_bindingFBBBB(
-				_this, isApplicableMatch, srcSensor, srcTrackElement);
+				_this, isApplicableMatch, srcTrackElement, srcSensor);
 		if (result_pattern_SensorMonitors_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_SensorMonitors_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_SensorMonitors_2_4_solveCSP_black = pattern_SensorMonitors_2_4_solveCSP_blackB(csp);
 			if (result_pattern_SensorMonitors_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcSensor, srcTrackElement };
+				return new Object[] { csp, _this, isApplicableMatch, srcTrackElement, srcSensor };
 			}
 		}
 		return null;
@@ -898,7 +898,7 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 			if (tmpSrcTrackElement instanceof TrackElement) {
 				TrackElement srcTrackElement = (TrackElement) tmpSrcTrackElement;
 				if (srcSensor.getMonitors().contains(srcTrackElement)) {
-					_result.add(new Object[] { srcSensor, srcTrackElement, _edge_monitors });
+					_result.add(new Object[] { srcTrackElement, srcSensor, _edge_monitors });
 				}
 			}
 
@@ -917,8 +917,8 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 	}
 
 	public static final boolean pattern_SensorMonitors_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(
-			SensorMonitors _this, Match match, Sensor srcSensor, TrackElement srcTrackElement) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcSensor, srcTrackElement);
+			SensorMonitors _this, Match match, TrackElement srcTrackElement, Sensor srcSensor) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcTrackElement, srcSensor);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -951,10 +951,10 @@ public class SensorMonitorsImpl extends AbstractRuleImpl implements SensorMonito
 		return _result;
 	}
 
-	public static final Object[] pattern_SensorMonitors_13_1_matchtggpattern_blackBB(Sensor srcSensor,
-			TrackElement srcTrackElement) {
+	public static final Object[] pattern_SensorMonitors_13_1_matchtggpattern_blackBB(TrackElement srcTrackElement,
+			Sensor srcSensor) {
 		if (srcSensor.getMonitors().contains(srcTrackElement)) {
-			return new Object[] { srcSensor, srcTrackElement };
+			return new Object[] { srcTrackElement, srcSensor };
 		}
 		return null;
 	}

@@ -93,8 +93,8 @@ public interface Route extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainerToPetriNet containerCorr,
-			RailwayContainer srcContainer);
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route srcRoute, RailwayContainer srcContainer,
+			RailwayContainerToPetriNet containerCorr);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,10 +110,10 @@ public interface Route extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet,
-			EObject srcRoute, EObject routeFailedCorr, EObject routeOperationalCorr, EObject trgFailed,
-			EObject containerCorr, EObject trgRepair, EObject trgOperational, EObject routeRepairCorr,
-			EObject trgFailedToRepair, EObject srcContainer);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeRepairCorr, EObject trgFailed,
+			EObject trgPetrinet, EObject trgOperational, EObject srcRoute, EObject trgRepair,
+			EObject routeOperationalCorr, EObject trgFailedToRepair, EObject routeFailedCorr, EObject srcContainer,
+			EObject containerCorr, EObject trgRepairToOperational);
 
 	/**
 	 * <!-- begin-user-doc -->

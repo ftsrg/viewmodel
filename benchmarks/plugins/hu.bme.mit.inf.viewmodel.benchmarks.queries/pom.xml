@@ -60,6 +60,9 @@
 								<metamodel>
 									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.genmodel</genmodelUri>
 								</metamodel>
+								<metamodel>
+									<genmodelUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability2stochasticpetrinet.genmodel</genmodelUri>
+								</metamodel>
 							</metamodels>
 							<uriMappings>
 								<uriMapping>
@@ -85,6 +88,10 @@
 								<uriMapping>
 									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore</sourceUri>
 									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway2virtualswitchview.ecore</targetUri>
+								</uriMapping>
+								<uriMapping>
+									<sourceUri>platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability2stochasticpetrinet.ecore</sourceUri>
+									<targetUri>file:/${basedir}/../hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability2stochasticpetrinet.ecore</targetUri>
 								</uriMapping>
 							</uriMappings>
 						</configuration>

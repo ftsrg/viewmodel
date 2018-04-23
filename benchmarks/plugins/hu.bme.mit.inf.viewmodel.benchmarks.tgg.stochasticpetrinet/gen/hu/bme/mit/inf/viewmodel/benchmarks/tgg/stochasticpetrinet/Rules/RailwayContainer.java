@@ -102,8 +102,8 @@ public interface RailwayContainer extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet,
-			EObject containerCorr);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject containerCorr,
+			EObject srcContainer);
 
 	/**
 	 * <!-- begin-user-doc -->

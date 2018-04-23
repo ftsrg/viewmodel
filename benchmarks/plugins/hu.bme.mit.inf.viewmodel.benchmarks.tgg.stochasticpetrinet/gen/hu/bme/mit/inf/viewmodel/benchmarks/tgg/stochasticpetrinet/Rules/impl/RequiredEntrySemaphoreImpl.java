@@ -167,121 +167,120 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		RouteToOperational routeOperationalCorr = (RouteToOperational) result1_bindingAndBlack[0];
-		Place trgSemaphoreFailed = (Place) result1_bindingAndBlack[1];
-		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[2];
-		Route srcRoute = (Route) result1_bindingAndBlack[3];
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[4];
-		RouteToRepair routeRepairCorr = (RouteToRepair) result1_bindingAndBlack[5];
-		SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result1_bindingAndBlack[6];
-		Transition trgRouteRepair = (Transition) result1_bindingAndBlack[7];
-		Semaphore srcSemaphore = (Semaphore) result1_bindingAndBlack[8];
-		Place trgRouteOperational = (Place) result1_bindingAndBlack[9];
-		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[10];
-		Place trgRouteFailed = (Place) result1_bindingAndBlack[11];
-		RouteToFailed routeFailedCorr = (RouteToFailed) result1_bindingAndBlack[12];
-		SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result1_bindingAndBlack[13];
-		Place trgSemaphoreOperational = (Place) result1_bindingAndBlack[14];
+		RouteToRepair routeRepairCorr = (RouteToRepair) result1_bindingAndBlack[0];
+		SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result1_bindingAndBlack[1];
+		Place trgSemaphoreFailed = (Place) result1_bindingAndBlack[2];
+		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[3];
+		SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result1_bindingAndBlack[4];
+		Place trgRouteOperational = (Place) result1_bindingAndBlack[5];
+		RouteToFailed routeFailedCorr = (RouteToFailed) result1_bindingAndBlack[6];
+		Place trgRouteFailed = (Place) result1_bindingAndBlack[7];
+		Place trgSemaphoreOperational = (Place) result1_bindingAndBlack[8];
+		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[9];
+		Route srcRoute = (Route) result1_bindingAndBlack[10];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[11];
+		Semaphore srcSemaphore = (Semaphore) result1_bindingAndBlack[12];
+		RouteToOperational routeOperationalCorr = (RouteToOperational) result1_bindingAndBlack[13];
+		Transition trgRouteRepair = (Transition) result1_bindingAndBlack[14];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[15];
 		Object[] result1_green = RequiredEntrySemaphoreImpl
-				.pattern_RequiredEntrySemaphore_1_1_performtransformation_greenBFFFFBFFBBBFB(trgSemaphoreFailed,
-						trgRouteRepair, trgRouteOperational, trgPetrinet, trgRouteFailed, trgSemaphoreOperational);
-		Arc trgSemaphoreOperationalToRouteRepair = (Arc) result1_green[1];
+				.pattern_RequiredEntrySemaphore_1_1_performtransformation_greenBFFBFBFBFBFFB(trgSemaphoreFailed,
+						trgRouteOperational, trgRouteFailed, trgSemaphoreOperational, trgPetrinet, trgRouteRepair);
+		Arc trgRouteFailToSemaphoreFailed = (Arc) result1_green[1];
 		Arc trgSemaphoreFailedToRouteFail = (Arc) result1_green[2];
-		ImmediateTransition trgRouteFail = (ImmediateTransition) result1_green[3];
-		Arc trgRouteRepairToSemaphoreOperational = (Arc) result1_green[4];
-		Arc trgRouteFailToRouteFailed = (Arc) result1_green[6];
-		Arc trgRouteFailToSemaphoreFailed = (Arc) result1_green[7];
-		Arc trgRouteOperationalToRouteFail = (Arc) result1_green[11];
+		Arc trgRouteOperationalToRouteFail = (Arc) result1_green[4];
+		Arc trgRouteRepairToSemaphoreOperational = (Arc) result1_green[6];
+		ImmediateTransition trgRouteFail = (ImmediateTransition) result1_green[8];
+		Arc trgSemaphoreOperationalToRouteRepair = (Arc) result1_green[10];
+		Arc trgRouteFailToRouteFailed = (Arc) result1_green[11];
 
 		Object[] result2_black = RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_1_2_collecttranslatedelements_blackBBBBBBB(
-						trgSemaphoreOperationalToRouteRepair, trgSemaphoreFailedToRouteFail, trgRouteFail,
-						trgRouteRepairToSemaphoreOperational, trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed,
-						trgRouteOperationalToRouteFail);
+						trgRouteFailToSemaphoreFailed, trgSemaphoreFailedToRouteFail, trgRouteOperationalToRouteFail,
+						trgRouteRepairToSemaphoreOperational, trgRouteFail, trgSemaphoreOperationalToRouteRepair,
+						trgRouteFailToRouteFailed);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching failed." + " Variables: " + "[trgSemaphoreOperationalToRouteRepair] = "
-							+ trgSemaphoreOperationalToRouteRepair + ", " + "[trgSemaphoreFailedToRouteFail] = "
-							+ trgSemaphoreFailedToRouteFail + ", " + "[trgRouteFail] = " + trgRouteFail + ", "
-							+ "[trgRouteRepairToSemaphoreOperational] = " + trgRouteRepairToSemaphoreOperational + ", "
-							+ "[trgRouteFailToRouteFailed] = " + trgRouteFailToRouteFailed + ", "
-							+ "[trgRouteFailToSemaphoreFailed] = " + trgRouteFailToSemaphoreFailed + ", "
-							+ "[trgRouteOperationalToRouteFail] = " + trgRouteOperationalToRouteFail + ".");
+					"Pattern matching failed." + " Variables: " + "[trgRouteFailToSemaphoreFailed] = "
+							+ trgRouteFailToSemaphoreFailed + ", " + "[trgSemaphoreFailedToRouteFail] = "
+							+ trgSemaphoreFailedToRouteFail + ", " + "[trgRouteOperationalToRouteFail] = "
+							+ trgRouteOperationalToRouteFail + ", " + "[trgRouteRepairToSemaphoreOperational] = "
+							+ trgRouteRepairToSemaphoreOperational + ", " + "[trgRouteFail] = " + trgRouteFail + ", "
+							+ "[trgSemaphoreOperationalToRouteRepair] = " + trgSemaphoreOperationalToRouteRepair + ", "
+							+ "[trgRouteFailToRouteFailed] = " + trgRouteFailToRouteFailed + ".");
 		}
 		Object[] result2_green = RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_1_2_collecttranslatedelements_greenFBBBBBBB(
-						trgSemaphoreOperationalToRouteRepair, trgSemaphoreFailedToRouteFail, trgRouteFail,
-						trgRouteRepairToSemaphoreOperational, trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed,
-						trgRouteOperationalToRouteFail);
+						trgRouteFailToSemaphoreFailed, trgSemaphoreFailedToRouteFail, trgRouteOperationalToRouteFail,
+						trgRouteRepairToSemaphoreOperational, trgRouteFail, trgSemaphoreOperationalToRouteRepair,
+						trgRouteFailToRouteFailed);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBBBBBBBBB(ruleresult,
-						routeOperationalCorr, trgSemaphoreFailed, srcContainer, trgSemaphoreOperationalToRouteRepair,
-						srcRoute, trgSemaphoreFailedToRouteFail, containerCorr, trgRouteFail, routeRepairCorr,
-						semaphoreFailedCorr, trgRouteRepairToSemaphoreOperational, trgRouteRepair,
-						trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed, srcSemaphore, trgRouteOperational,
-						trgPetrinet, trgRouteFailed, trgRouteOperationalToRouteFail, routeFailedCorr,
-						semaphoreOperationalCorr, trgSemaphoreOperational);
+						routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+						trgRouteFailToSemaphoreFailed, semaphoreFailedCorr, trgSemaphoreFailedToRouteFail,
+						trgRouteOperational, routeFailedCorr, trgRouteOperationalToRouteFail, trgRouteFailed,
+						trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+						trgSemaphoreOperationalToRouteRepair, srcRoute, trgRouteFailToRouteFailed, containerCorr,
+						srcSemaphore, routeOperationalCorr, trgRouteRepair);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[routeOperationalCorr] = " + routeOperationalCorr + ", " + "[trgSemaphoreFailed] = "
-					+ trgSemaphoreFailed + ", " + "[srcContainer] = " + srcContainer + ", "
-					+ "[trgSemaphoreOperationalToRouteRepair] = " + trgSemaphoreOperationalToRouteRepair + ", "
-					+ "[srcRoute] = " + srcRoute + ", " + "[trgSemaphoreFailedToRouteFail] = "
-					+ trgSemaphoreFailedToRouteFail + ", " + "[containerCorr] = " + containerCorr + ", "
-					+ "[trgRouteFail] = " + trgRouteFail + ", " + "[routeRepairCorr] = " + routeRepairCorr + ", "
-					+ "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ", "
-					+ "[trgRouteRepairToSemaphoreOperational] = " + trgRouteRepairToSemaphoreOperational + ", "
-					+ "[trgRouteRepair] = " + trgRouteRepair + ", " + "[trgRouteFailToRouteFailed] = "
-					+ trgRouteFailToRouteFailed + ", " + "[trgRouteFailToSemaphoreFailed] = "
-					+ trgRouteFailToSemaphoreFailed + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-					+ "[trgRouteOperational] = " + trgRouteOperational + ", " + "[trgPetrinet] = " + trgPetrinet + ", "
-					+ "[trgRouteFailed] = " + trgRouteFailed + ", " + "[trgRouteOperationalToRouteFail] = "
-					+ trgRouteOperationalToRouteFail + ", " + "[routeFailedCorr] = " + routeFailedCorr + ", "
-					+ "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr + ", " + "[trgSemaphoreOperational] = "
-					+ trgSemaphoreOperational + ".");
+					+ ", " + "[routeRepairCorr] = " + routeRepairCorr + ", " + "[semaphoreOperationalCorr] = "
+					+ semaphoreOperationalCorr + ", " + "[trgSemaphoreFailed] = " + trgSemaphoreFailed + ", "
+					+ "[srcContainer] = " + srcContainer + ", " + "[trgRouteFailToSemaphoreFailed] = "
+					+ trgRouteFailToSemaphoreFailed + ", " + "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ", "
+					+ "[trgSemaphoreFailedToRouteFail] = " + trgSemaphoreFailedToRouteFail + ", "
+					+ "[trgRouteOperational] = " + trgRouteOperational + ", " + "[routeFailedCorr] = " + routeFailedCorr
+					+ ", " + "[trgRouteOperationalToRouteFail] = " + trgRouteOperationalToRouteFail + ", "
+					+ "[trgRouteFailed] = " + trgRouteFailed + ", " + "[trgRouteRepairToSemaphoreOperational] = "
+					+ trgRouteRepairToSemaphoreOperational + ", " + "[trgSemaphoreOperational] = "
+					+ trgSemaphoreOperational + ", " + "[trgRouteFail] = " + trgRouteFail + ", " + "[trgPetrinet] = "
+					+ trgPetrinet + ", " + "[trgSemaphoreOperationalToRouteRepair] = "
+					+ trgSemaphoreOperationalToRouteRepair + ", " + "[srcRoute] = " + srcRoute + ", "
+					+ "[trgRouteFailToRouteFailed] = " + trgRouteFailToRouteFailed + ", " + "[containerCorr] = "
+					+ containerCorr + ", " + "[srcSemaphore] = " + srcSemaphore + ", " + "[routeOperationalCorr] = "
+					+ routeOperationalCorr + ", " + "[trgRouteRepair] = " + trgRouteRepair + ".");
 		}
 		RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFF(
-						ruleresult, trgSemaphoreFailed, trgSemaphoreOperationalToRouteRepair, srcRoute,
-						trgSemaphoreFailedToRouteFail, trgRouteFail, trgRouteRepairToSemaphoreOperational,
-						trgRouteRepair, trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed, srcSemaphore,
-						trgRouteOperational, trgPetrinet, trgRouteFailed, trgRouteOperationalToRouteFail,
-						trgSemaphoreOperational);
-		//nothing EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition = (EMoflonEdge) result3_green[16];
-		//nothing EMoflonEdge trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs = (EMoflonEdge) result3_green[17];
-		//nothing EMoflonEdge trgSemaphoreFailedToRouteFail__trgRouteFail____transition = (EMoflonEdge) result3_green[18];
-		//nothing EMoflonEdge trgRouteFail__trgSemaphoreFailedToRouteFail____arcs = (EMoflonEdge) result3_green[19];
-		//nothing EMoflonEdge trgRouteRepairToSemaphoreOperational__trgSemaphoreOperational____place = (EMoflonEdge) result3_green[20];
-		//nothing EMoflonEdge trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place = (EMoflonEdge) result3_green[21];
-		//nothing EMoflonEdge trgRouteFailToRouteFailed__trgRouteFailed____place = (EMoflonEdge) result3_green[22];
-		//nothing EMoflonEdge trgRouteFailToSemaphoreFailed__trgRouteFail____transition = (EMoflonEdge) result3_green[23];
-		//nothing EMoflonEdge trgRouteFail__trgRouteFailToSemaphoreFailed____arcs = (EMoflonEdge) result3_green[24];
-		//nothing EMoflonEdge trgRouteFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[25];
-		//nothing EMoflonEdge trgPetrinet__trgRouteFail____nodes = (EMoflonEdge) result3_green[26];
-		//nothing EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place = (EMoflonEdge) result3_green[27];
+						ruleresult, trgSemaphoreFailed, trgRouteFailToSemaphoreFailed, trgSemaphoreFailedToRouteFail,
+						trgRouteOperational, trgRouteOperationalToRouteFail, trgRouteFailed,
+						trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+						trgSemaphoreOperationalToRouteRepair, srcRoute, trgRouteFailToRouteFailed, srcSemaphore,
+						trgRouteRepair);
+		//nothing EMoflonEdge trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place = (EMoflonEdge) result3_green[16];
+		//nothing EMoflonEdge trgRouteOperationalToRouteFail__trgRouteOperational____place = (EMoflonEdge) result3_green[17];
+		//nothing EMoflonEdge trgRouteFailToSemaphoreFailed__trgRouteFail____transition = (EMoflonEdge) result3_green[18];
+		//nothing EMoflonEdge trgRouteFail__trgRouteFailToSemaphoreFailed____arcs = (EMoflonEdge) result3_green[19];
+		//nothing EMoflonEdge trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition = (EMoflonEdge) result3_green[20];
+		//nothing EMoflonEdge trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs = (EMoflonEdge) result3_green[21];
+		//nothing EMoflonEdge trgRouteFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[22];
+		//nothing EMoflonEdge trgPetrinet__trgRouteFail____nodes = (EMoflonEdge) result3_green[23];
+		//nothing EMoflonEdge trgRouteOperationalToRouteFail__trgRouteFail____transition = (EMoflonEdge) result3_green[24];
+		//nothing EMoflonEdge trgRouteFail__trgRouteOperationalToRouteFail____arcs = (EMoflonEdge) result3_green[25];
+		//nothing EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition = (EMoflonEdge) result3_green[26];
+		//nothing EMoflonEdge trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs = (EMoflonEdge) result3_green[27];
 		//nothing EMoflonEdge srcRoute__srcSemaphore____entry = (EMoflonEdge) result3_green[28];
-		//nothing EMoflonEdge trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition = (EMoflonEdge) result3_green[29];
-		//nothing EMoflonEdge trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs = (EMoflonEdge) result3_green[30];
-		//nothing EMoflonEdge trgRouteFailToRouteFailed__trgRouteFail____transition = (EMoflonEdge) result3_green[31];
-		//nothing EMoflonEdge trgRouteFail__trgRouteFailToRouteFailed____arcs = (EMoflonEdge) result3_green[32];
-		//nothing EMoflonEdge trgRouteOperationalToRouteFail__trgRouteOperational____place = (EMoflonEdge) result3_green[33];
-		//nothing EMoflonEdge trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place = (EMoflonEdge) result3_green[34];
-		//nothing EMoflonEdge trgRouteOperationalToRouteFail__trgRouteFail____transition = (EMoflonEdge) result3_green[35];
-		//nothing EMoflonEdge trgRouteFail__trgRouteOperationalToRouteFail____arcs = (EMoflonEdge) result3_green[36];
+		//nothing EMoflonEdge trgRouteFailToRouteFailed__trgRouteFail____transition = (EMoflonEdge) result3_green[29];
+		//nothing EMoflonEdge trgRouteFail__trgRouteFailToRouteFailed____arcs = (EMoflonEdge) result3_green[30];
+		//nothing EMoflonEdge trgRouteFailToRouteFailed__trgRouteFailed____place = (EMoflonEdge) result3_green[31];
+		//nothing EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place = (EMoflonEdge) result3_green[32];
+		//nothing EMoflonEdge trgSemaphoreFailedToRouteFail__trgRouteFail____transition = (EMoflonEdge) result3_green[33];
+		//nothing EMoflonEdge trgRouteFail__trgSemaphoreFailedToRouteFail____arcs = (EMoflonEdge) result3_green[34];
+		//nothing EMoflonEdge trgRouteRepairToSemaphoreOperational__trgSemaphoreOperational____place = (EMoflonEdge) result3_green[35];
+		//nothing EMoflonEdge trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place = (EMoflonEdge) result3_green[36];
 
 		// 
 		// 
 		RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBBBBBBBBB(this, ruleresult,
-						routeOperationalCorr, trgSemaphoreFailed, srcContainer, trgSemaphoreOperationalToRouteRepair,
-						srcRoute, trgSemaphoreFailedToRouteFail, containerCorr, trgRouteFail, routeRepairCorr,
-						semaphoreFailedCorr, trgRouteRepairToSemaphoreOperational, trgRouteRepair,
-						trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed, srcSemaphore, trgRouteOperational,
-						trgPetrinet, trgRouteFailed, trgRouteOperationalToRouteFail, routeFailedCorr,
-						semaphoreOperationalCorr, trgSemaphoreOperational);
+						routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+						trgRouteFailToSemaphoreFailed, semaphoreFailedCorr, trgSemaphoreFailedToRouteFail,
+						trgRouteOperational, routeFailedCorr, trgRouteOperationalToRouteFail, trgRouteFailed,
+						trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+						trgSemaphoreOperationalToRouteRepair, srcRoute, trgRouteFailToRouteFailed, containerCorr,
+						srcSemaphore, routeOperationalCorr, trgRouteRepair);
 		return RequiredEntrySemaphoreImpl.pattern_RequiredEntrySemaphore_1_6_expressionFB(ruleresult);
 	}
 
@@ -314,66 +313,67 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 		Route srcRoute = (Route) result2_binding[1];
 		Semaphore srcSemaphore = (Semaphore) result2_binding[2];
 		for (Object[] result2_black : RequiredEntrySemaphoreImpl
-				.pattern_RequiredEntrySemaphore_2_2_corematch_blackFFBBFFFFBFFFFFFB(srcContainer, srcRoute,
+				.pattern_RequiredEntrySemaphore_2_2_corematch_blackFFFBFFFFFFBFBFFB(srcContainer, srcRoute,
 						srcSemaphore, match)) {
-			RouteToOperational routeOperationalCorr = (RouteToOperational) result2_black[0];
-			Place trgSemaphoreFailed = (Place) result2_black[1];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[4];
-			RouteToRepair routeRepairCorr = (RouteToRepair) result2_black[5];
-			SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result2_black[6];
-			Transition trgRouteRepair = (Transition) result2_black[7];
-			Place trgRouteOperational = (Place) result2_black[9];
-			PetriNet trgPetrinet = (PetriNet) result2_black[10];
-			Place trgRouteFailed = (Place) result2_black[11];
-			RouteToFailed routeFailedCorr = (RouteToFailed) result2_black[12];
-			SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result2_black[13];
-			Place trgSemaphoreOperational = (Place) result2_black[14];
+			RouteToRepair routeRepairCorr = (RouteToRepair) result2_black[0];
+			SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result2_black[1];
+			Place trgSemaphoreFailed = (Place) result2_black[2];
+			SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result2_black[4];
+			Place trgRouteOperational = (Place) result2_black[5];
+			RouteToFailed routeFailedCorr = (RouteToFailed) result2_black[6];
+			Place trgRouteFailed = (Place) result2_black[7];
+			Place trgSemaphoreOperational = (Place) result2_black[8];
+			PetriNet trgPetrinet = (PetriNet) result2_black[9];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[11];
+			RouteToOperational routeOperationalCorr = (RouteToOperational) result2_black[13];
+			Transition trgRouteRepair = (Transition) result2_black[14];
 			// ForEach 
 			for (Object[] result3_black : RequiredEntrySemaphoreImpl
-					.pattern_RequiredEntrySemaphore_2_3_findcontext_blackBBBBBBBBBBBBBBB(routeOperationalCorr,
-							trgSemaphoreFailed, srcContainer, srcRoute, containerCorr, routeRepairCorr,
-							semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational, trgPetrinet,
-							trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr, trgSemaphoreOperational)) {
+					.pattern_RequiredEntrySemaphore_2_3_findcontext_blackBBBBBBBBBBBBBBB(routeRepairCorr,
+							semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer, semaphoreFailedCorr,
+							trgRouteOperational, routeFailedCorr, trgRouteFailed, trgSemaphoreOperational, trgPetrinet,
+							srcRoute, containerCorr, srcSemaphore, routeOperationalCorr, trgRouteRepair)) {
 				Object[] result3_green = RequiredEntrySemaphoreImpl
 						.pattern_RequiredEntrySemaphore_2_3_findcontext_greenBBBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-								routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute, containerCorr,
-								routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational,
-								trgPetrinet, trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr,
-								trgSemaphoreOperational);
+								routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+								semaphoreFailedCorr, trgRouteOperational, routeFailedCorr, trgRouteFailed,
+								trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr, srcSemaphore,
+								routeOperationalCorr, trgRouteRepair);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[15];
-				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[16];
-				//nothing EMoflonEdge routeRepairCorr__srcRoute____source = (EMoflonEdge) result3_green[17];
+				//nothing EMoflonEdge routeFailedCorr__trgRouteFailed____target = (EMoflonEdge) result3_green[16];
+				//nothing EMoflonEdge semaphoreOperationalCorr__trgSemaphoreOperational____target = (EMoflonEdge) result3_green[17];
 				//nothing EMoflonEdge semaphoreFailedCorr__trgSemaphoreFailed____target = (EMoflonEdge) result3_green[18];
-				//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[19];
-				//nothing EMoflonEdge routeRepairCorr__trgRouteRepair____target = (EMoflonEdge) result3_green[20];
-				//nothing EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = (EMoflonEdge) result3_green[21];
-				//nothing EMoflonEdge routeOperationalCorr__srcRoute____source = (EMoflonEdge) result3_green[22];
-				//nothing EMoflonEdge srcRoute__srcSemaphore____entry = (EMoflonEdge) result3_green[23];
-				//nothing EMoflonEdge routeOperationalCorr__trgRouteOperational____target = (EMoflonEdge) result3_green[24];
-				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[25];
-				//nothing EMoflonEdge routeFailedCorr__srcRoute____source = (EMoflonEdge) result3_green[26];
-				//nothing EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = (EMoflonEdge) result3_green[27];
-				//nothing EMoflonEdge routeFailedCorr__trgRouteFailed____target = (EMoflonEdge) result3_green[28];
-				//nothing EMoflonEdge semaphoreOperationalCorr__trgSemaphoreOperational____target = (EMoflonEdge) result3_green[29];
+				//nothing EMoflonEdge routeFailedCorr__srcRoute____source = (EMoflonEdge) result3_green[19];
+				//nothing EMoflonEdge srcRoute__srcSemaphore____entry = (EMoflonEdge) result3_green[20];
+				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[21];
+				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[22];
+				//nothing EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = (EMoflonEdge) result3_green[23];
+				//nothing EMoflonEdge srcContainer__srcRoute____routes = (EMoflonEdge) result3_green[24];
+				//nothing EMoflonEdge routeRepairCorr__srcRoute____source = (EMoflonEdge) result3_green[25];
+				//nothing EMoflonEdge routeOperationalCorr__srcRoute____source = (EMoflonEdge) result3_green[26];
+				//nothing EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = (EMoflonEdge) result3_green[27];
+				//nothing EMoflonEdge routeRepairCorr__trgRouteRepair____target = (EMoflonEdge) result3_green[28];
+				//nothing EMoflonEdge routeOperationalCorr__trgRouteOperational____target = (EMoflonEdge) result3_green[29];
 
 				Object[] result4_bindingAndBlack = RequiredEntrySemaphoreImpl
 						.pattern_RequiredEntrySemaphore_2_4_solveCSP_bindingAndBlackFBBBBBBBBBBBBBBBBB(this,
-								isApplicableMatch, routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute,
-								containerCorr, routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore,
-								trgRouteOperational, trgPetrinet, trgRouteFailed, routeFailedCorr,
-								semaphoreOperationalCorr, trgSemaphoreOperational);
+								isApplicableMatch, routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed,
+								srcContainer, semaphoreFailedCorr, trgRouteOperational, routeFailedCorr, trgRouteFailed,
+								trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr, srcSemaphore,
+								routeOperationalCorr, trgRouteRepair);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[routeOperationalCorr] = "
-							+ routeOperationalCorr + ", " + "[trgSemaphoreFailed] = " + trgSemaphoreFailed + ", "
-							+ "[srcContainer] = " + srcContainer + ", " + "[srcRoute] = " + srcRoute + ", "
-							+ "[containerCorr] = " + containerCorr + ", " + "[routeRepairCorr] = " + routeRepairCorr
-							+ ", " + "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ", " + "[trgRouteRepair] = "
-							+ trgRouteRepair + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
-							+ "[trgRouteOperational] = " + trgRouteOperational + ", " + "[trgPetrinet] = " + trgPetrinet
-							+ ", " + "[trgRouteFailed] = " + trgRouteFailed + ", " + "[routeFailedCorr] = "
-							+ routeFailedCorr + ", " + "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr + ", "
-							+ "[trgSemaphoreOperational] = " + trgSemaphoreOperational + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[routeRepairCorr] = "
+							+ routeRepairCorr + ", " + "[semaphoreOperationalCorr] = " + semaphoreOperationalCorr + ", "
+							+ "[trgSemaphoreFailed] = " + trgSemaphoreFailed + ", " + "[srcContainer] = " + srcContainer
+							+ ", " + "[semaphoreFailedCorr] = " + semaphoreFailedCorr + ", "
+							+ "[trgRouteOperational] = " + trgRouteOperational + ", " + "[routeFailedCorr] = "
+							+ routeFailedCorr + ", " + "[trgRouteFailed] = " + trgRouteFailed + ", "
+							+ "[trgSemaphoreOperational] = " + trgSemaphoreOperational + ", " + "[trgPetrinet] = "
+							+ trgPetrinet + ", " + "[srcRoute] = " + srcRoute + ", " + "[containerCorr] = "
+							+ containerCorr + ", " + "[srcSemaphore] = " + srcSemaphore + ", "
+							+ "[routeOperationalCorr] = " + routeOperationalCorr + ", " + "[trgRouteRepair] = "
+							+ trgRouteRepair + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -446,12 +446,12 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RouteToOperational routeOperationalCorr,
-			Place trgSemaphoreFailed, RailwayContainer srcContainer, Route srcRoute,
-			RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RouteToRepair routeRepairCorr,
+			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
+			SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational, RouteToFailed routeFailedCorr,
+			Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet, Route srcRoute,
+			RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore, RouteToOperational routeOperationalCorr,
+			Transition trgRouteRepair) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -466,21 +466,21 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("routeOperationalCorr", routeOperationalCorr);
+		isApplicableMatch.registerObject("routeRepairCorr", routeRepairCorr);
+		isApplicableMatch.registerObject("semaphoreOperationalCorr", semaphoreOperationalCorr);
 		isApplicableMatch.registerObject("trgSemaphoreFailed", trgSemaphoreFailed);
 		isApplicableMatch.registerObject("srcContainer", srcContainer);
+		isApplicableMatch.registerObject("semaphoreFailedCorr", semaphoreFailedCorr);
+		isApplicableMatch.registerObject("trgRouteOperational", trgRouteOperational);
+		isApplicableMatch.registerObject("routeFailedCorr", routeFailedCorr);
+		isApplicableMatch.registerObject("trgRouteFailed", trgRouteFailed);
+		isApplicableMatch.registerObject("trgSemaphoreOperational", trgSemaphoreOperational);
+		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
 		isApplicableMatch.registerObject("srcRoute", srcRoute);
 		isApplicableMatch.registerObject("containerCorr", containerCorr);
-		isApplicableMatch.registerObject("routeRepairCorr", routeRepairCorr);
-		isApplicableMatch.registerObject("semaphoreFailedCorr", semaphoreFailedCorr);
-		isApplicableMatch.registerObject("trgRouteRepair", trgRouteRepair);
 		isApplicableMatch.registerObject("srcSemaphore", srcSemaphore);
-		isApplicableMatch.registerObject("trgRouteOperational", trgRouteOperational);
-		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
-		isApplicableMatch.registerObject("trgRouteFailed", trgRouteFailed);
-		isApplicableMatch.registerObject("routeFailedCorr", routeFailedCorr);
-		isApplicableMatch.registerObject("semaphoreOperationalCorr", semaphoreOperationalCorr);
-		isApplicableMatch.registerObject("trgSemaphoreOperational", trgSemaphoreOperational);
+		isApplicableMatch.registerObject("routeOperationalCorr", routeOperationalCorr);
+		isApplicableMatch.registerObject("trgRouteRepair", trgRouteRepair);
 		return csp;
 	}
 
@@ -498,36 +498,36 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeOperationalCorr,
-			EObject trgSemaphoreFailed, EObject srcContainer, EObject trgSemaphoreOperationalToRouteRepair,
-			EObject srcRoute, EObject trgSemaphoreFailedToRouteFail, EObject containerCorr, EObject trgRouteFail,
-			EObject routeRepairCorr, EObject semaphoreFailedCorr, EObject trgRouteRepairToSemaphoreOperational,
-			EObject trgRouteRepair, EObject trgRouteFailToRouteFailed, EObject trgRouteFailToSemaphoreFailed,
-			EObject srcSemaphore, EObject trgRouteOperational, EObject trgPetrinet, EObject trgRouteFailed,
-			EObject trgRouteOperationalToRouteFail, EObject routeFailedCorr, EObject semaphoreOperationalCorr,
-			EObject trgSemaphoreOperational) {
-		ruleresult.registerObject("routeOperationalCorr", routeOperationalCorr);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject routeRepairCorr,
+			EObject semaphoreOperationalCorr, EObject trgSemaphoreFailed, EObject srcContainer,
+			EObject trgRouteFailToSemaphoreFailed, EObject semaphoreFailedCorr, EObject trgSemaphoreFailedToRouteFail,
+			EObject trgRouteOperational, EObject routeFailedCorr, EObject trgRouteOperationalToRouteFail,
+			EObject trgRouteFailed, EObject trgRouteRepairToSemaphoreOperational, EObject trgSemaphoreOperational,
+			EObject trgRouteFail, EObject trgPetrinet, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
+			EObject trgRouteFailToRouteFailed, EObject containerCorr, EObject srcSemaphore,
+			EObject routeOperationalCorr, EObject trgRouteRepair) {
+		ruleresult.registerObject("routeRepairCorr", routeRepairCorr);
+		ruleresult.registerObject("semaphoreOperationalCorr", semaphoreOperationalCorr);
 		ruleresult.registerObject("trgSemaphoreFailed", trgSemaphoreFailed);
 		ruleresult.registerObject("srcContainer", srcContainer);
+		ruleresult.registerObject("trgRouteFailToSemaphoreFailed", trgRouteFailToSemaphoreFailed);
+		ruleresult.registerObject("semaphoreFailedCorr", semaphoreFailedCorr);
+		ruleresult.registerObject("trgSemaphoreFailedToRouteFail", trgSemaphoreFailedToRouteFail);
+		ruleresult.registerObject("trgRouteOperational", trgRouteOperational);
+		ruleresult.registerObject("routeFailedCorr", routeFailedCorr);
+		ruleresult.registerObject("trgRouteOperationalToRouteFail", trgRouteOperationalToRouteFail);
+		ruleresult.registerObject("trgRouteFailed", trgRouteFailed);
+		ruleresult.registerObject("trgRouteRepairToSemaphoreOperational", trgRouteRepairToSemaphoreOperational);
+		ruleresult.registerObject("trgSemaphoreOperational", trgSemaphoreOperational);
+		ruleresult.registerObject("trgRouteFail", trgRouteFail);
+		ruleresult.registerObject("trgPetrinet", trgPetrinet);
 		ruleresult.registerObject("trgSemaphoreOperationalToRouteRepair", trgSemaphoreOperationalToRouteRepair);
 		ruleresult.registerObject("srcRoute", srcRoute);
-		ruleresult.registerObject("trgSemaphoreFailedToRouteFail", trgSemaphoreFailedToRouteFail);
-		ruleresult.registerObject("containerCorr", containerCorr);
-		ruleresult.registerObject("trgRouteFail", trgRouteFail);
-		ruleresult.registerObject("routeRepairCorr", routeRepairCorr);
-		ruleresult.registerObject("semaphoreFailedCorr", semaphoreFailedCorr);
-		ruleresult.registerObject("trgRouteRepairToSemaphoreOperational", trgRouteRepairToSemaphoreOperational);
-		ruleresult.registerObject("trgRouteRepair", trgRouteRepair);
 		ruleresult.registerObject("trgRouteFailToRouteFailed", trgRouteFailToRouteFailed);
-		ruleresult.registerObject("trgRouteFailToSemaphoreFailed", trgRouteFailToSemaphoreFailed);
+		ruleresult.registerObject("containerCorr", containerCorr);
 		ruleresult.registerObject("srcSemaphore", srcSemaphore);
-		ruleresult.registerObject("trgRouteOperational", trgRouteOperational);
-		ruleresult.registerObject("trgPetrinet", trgPetrinet);
-		ruleresult.registerObject("trgRouteFailed", trgRouteFailed);
-		ruleresult.registerObject("trgRouteOperationalToRouteFail", trgRouteOperationalToRouteFail);
-		ruleresult.registerObject("routeFailedCorr", routeFailedCorr);
-		ruleresult.registerObject("semaphoreOperationalCorr", semaphoreOperationalCorr);
-		ruleresult.registerObject("trgSemaphoreOperational", trgSemaphoreOperational);
+		ruleresult.registerObject("routeOperationalCorr", routeOperationalCorr);
+		ruleresult.registerObject("trgRouteRepair", trgRouteRepair);
 
 	}
 
@@ -545,7 +545,7 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_4(EMoflonEdge _edge_entry) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_12(EMoflonEdge _edge_entry) {
 
 		Object[] result1_bindingAndBlack = RequiredEntrySemaphoreImpl
 				.pattern_RequiredEntrySemaphore_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -614,7 +614,7 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 
 		CheckAttributeHelper __helper = new CheckAttributeHelper(__tripleMatch);
 
-		if (!__helper.hasExpectedValue("trgSemaphoreOperationalToRouteRepair", "kind", ArcKind.INPUT,
+		if (!__helper.hasExpectedValue("trgRouteFailToSemaphoreFailed", "kind", ArcKind.OUTPUT,
 				ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
@@ -626,25 +626,25 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 			return ruleResult;
 		}
 
+		if (!__helper.hasExpectedValue("trgRouteOperationalToRouteFail", "kind", ArcKind.INPUT,
+				ComparingOperator.EQUAL)) {
+			ruleResult.setSuccess(false);
+			return ruleResult;
+		}
+
 		if (!__helper.hasExpectedValue("trgRouteRepairToSemaphoreOperational", "kind", ArcKind.OUTPUT,
 				ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
 
+		if (!__helper.hasExpectedValue("trgSemaphoreOperationalToRouteRepair", "kind", ArcKind.INPUT,
+				ComparingOperator.EQUAL)) {
+			ruleResult.setSuccess(false);
+			return ruleResult;
+		}
+
 		if (!__helper.hasExpectedValue("trgRouteFailToRouteFailed", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
-			ruleResult.setSuccess(false);
-			return ruleResult;
-		}
-
-		if (!__helper.hasExpectedValue("trgRouteFailToSemaphoreFailed", "kind", ArcKind.OUTPUT,
-				ComparingOperator.EQUAL)) {
-			ruleResult.setSuccess(false);
-			return ruleResult;
-		}
-
-		if (!__helper.hasExpectedValue("trgRouteOperationalToRouteFail", "kind", ArcKind.INPUT,
-				ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -716,15 +716,14 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 					(Route) arguments.get(2), (Semaphore) arguments.get(3));
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ROUTETOOPERATIONAL_PLACE_RAILWAYCONTAINER_ROUTE_RAILWAYCONTAINERTOPETRINET_ROUTETOREPAIR_SEMAPHORETOFAILED_TRANSITION_SEMAPHORE_PLACE_PETRINET_PLACE_ROUTETOFAILED_SEMAPHORETOOPERATIONAL_PLACE:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0),
-					(RouteToOperational) arguments.get(1), (Place) arguments.get(2),
-					(RailwayContainer) arguments.get(3), (Route) arguments.get(4),
-					(RailwayContainerToPetriNet) arguments.get(5), (RouteToRepair) arguments.get(6),
-					(SemaphoreToFailed) arguments.get(7), (Transition) arguments.get(8), (Semaphore) arguments.get(9),
-					(Place) arguments.get(10), (PetriNet) arguments.get(11), (Place) arguments.get(12),
-					(RouteToFailed) arguments.get(13), (SemaphoreToOperational) arguments.get(14),
-					(Place) arguments.get(15));
+		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ROUTETOREPAIR_SEMAPHORETOOPERATIONAL_PLACE_RAILWAYCONTAINER_SEMAPHORETOFAILED_PLACE_ROUTETOFAILED_PLACE_PLACE_PETRINET_ROUTE_RAILWAYCONTAINERTOPETRINET_SEMAPHORE_ROUTETOOPERATIONAL_TRANSITION:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (RouteToRepair) arguments.get(1),
+					(SemaphoreToOperational) arguments.get(2), (Place) arguments.get(3),
+					(RailwayContainer) arguments.get(4), (SemaphoreToFailed) arguments.get(5), (Place) arguments.get(6),
+					(RouteToFailed) arguments.get(7), (Place) arguments.get(8), (Place) arguments.get(9),
+					(PetriNet) arguments.get(10), (Route) arguments.get(11),
+					(RailwayContainerToPetriNet) arguments.get(12), (Semaphore) arguments.get(13),
+					(RouteToOperational) arguments.get(14), (Transition) arguments.get(15));
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
@@ -739,8 +738,8 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 			return null;
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments.get(0));
+		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_12__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_12((EMoflonEdge) arguments.get(0));
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE___IS_APPLICABLE_CC__MATCH_MATCH:
@@ -851,74 +850,74 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_1_performtransformation_bindingFFFFFFFFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("routeOperationalCorr");
-		EObject _localVariable_1 = isApplicableMatch.getObject("trgSemaphoreFailed");
-		EObject _localVariable_2 = isApplicableMatch.getObject("srcContainer");
-		EObject _localVariable_3 = isApplicableMatch.getObject("srcRoute");
-		EObject _localVariable_4 = isApplicableMatch.getObject("containerCorr");
-		EObject _localVariable_5 = isApplicableMatch.getObject("routeRepairCorr");
-		EObject _localVariable_6 = isApplicableMatch.getObject("semaphoreFailedCorr");
-		EObject _localVariable_7 = isApplicableMatch.getObject("trgRouteRepair");
-		EObject _localVariable_8 = isApplicableMatch.getObject("srcSemaphore");
-		EObject _localVariable_9 = isApplicableMatch.getObject("trgRouteOperational");
-		EObject _localVariable_10 = isApplicableMatch.getObject("trgPetrinet");
-		EObject _localVariable_11 = isApplicableMatch.getObject("trgRouteFailed");
-		EObject _localVariable_12 = isApplicableMatch.getObject("routeFailedCorr");
-		EObject _localVariable_13 = isApplicableMatch.getObject("semaphoreOperationalCorr");
-		EObject _localVariable_14 = isApplicableMatch.getObject("trgSemaphoreOperational");
-		EObject tmpRouteOperationalCorr = _localVariable_0;
-		EObject tmpTrgSemaphoreFailed = _localVariable_1;
-		EObject tmpSrcContainer = _localVariable_2;
-		EObject tmpSrcRoute = _localVariable_3;
-		EObject tmpContainerCorr = _localVariable_4;
-		EObject tmpRouteRepairCorr = _localVariable_5;
-		EObject tmpSemaphoreFailedCorr = _localVariable_6;
-		EObject tmpTrgRouteRepair = _localVariable_7;
-		EObject tmpSrcSemaphore = _localVariable_8;
-		EObject tmpTrgRouteOperational = _localVariable_9;
-		EObject tmpTrgPetrinet = _localVariable_10;
-		EObject tmpTrgRouteFailed = _localVariable_11;
-		EObject tmpRouteFailedCorr = _localVariable_12;
-		EObject tmpSemaphoreOperationalCorr = _localVariable_13;
-		EObject tmpTrgSemaphoreOperational = _localVariable_14;
-		if (tmpRouteOperationalCorr instanceof RouteToOperational) {
-			RouteToOperational routeOperationalCorr = (RouteToOperational) tmpRouteOperationalCorr;
-			if (tmpTrgSemaphoreFailed instanceof Place) {
-				Place trgSemaphoreFailed = (Place) tmpTrgSemaphoreFailed;
-				if (tmpSrcContainer instanceof RailwayContainer) {
-					RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-					if (tmpSrcRoute instanceof Route) {
-						Route srcRoute = (Route) tmpSrcRoute;
-						if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
-							RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
-							if (tmpRouteRepairCorr instanceof RouteToRepair) {
-								RouteToRepair routeRepairCorr = (RouteToRepair) tmpRouteRepairCorr;
-								if (tmpSemaphoreFailedCorr instanceof SemaphoreToFailed) {
-									SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) tmpSemaphoreFailedCorr;
-									if (tmpTrgRouteRepair instanceof Transition) {
-										Transition trgRouteRepair = (Transition) tmpTrgRouteRepair;
-										if (tmpSrcSemaphore instanceof Semaphore) {
-											Semaphore srcSemaphore = (Semaphore) tmpSrcSemaphore;
-											if (tmpTrgRouteOperational instanceof Place) {
-												Place trgRouteOperational = (Place) tmpTrgRouteOperational;
-												if (tmpTrgPetrinet instanceof PetriNet) {
-													PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
-													if (tmpTrgRouteFailed instanceof Place) {
-														Place trgRouteFailed = (Place) tmpTrgRouteFailed;
-														if (tmpRouteFailedCorr instanceof RouteToFailed) {
-															RouteToFailed routeFailedCorr = (RouteToFailed) tmpRouteFailedCorr;
-															if (tmpSemaphoreOperationalCorr instanceof SemaphoreToOperational) {
-																SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) tmpSemaphoreOperationalCorr;
-																if (tmpTrgSemaphoreOperational instanceof Place) {
-																	Place trgSemaphoreOperational = (Place) tmpTrgSemaphoreOperational;
-																	return new Object[] { routeOperationalCorr,
-																			trgSemaphoreFailed, srcContainer, srcRoute,
-																			containerCorr, routeRepairCorr,
-																			semaphoreFailedCorr, trgRouteRepair,
-																			srcSemaphore, trgRouteOperational,
-																			trgPetrinet, trgRouteFailed,
-																			routeFailedCorr, semaphoreOperationalCorr,
-																			trgSemaphoreOperational,
+		EObject _localVariable_0 = isApplicableMatch.getObject("routeRepairCorr");
+		EObject _localVariable_1 = isApplicableMatch.getObject("semaphoreOperationalCorr");
+		EObject _localVariable_2 = isApplicableMatch.getObject("trgSemaphoreFailed");
+		EObject _localVariable_3 = isApplicableMatch.getObject("srcContainer");
+		EObject _localVariable_4 = isApplicableMatch.getObject("semaphoreFailedCorr");
+		EObject _localVariable_5 = isApplicableMatch.getObject("trgRouteOperational");
+		EObject _localVariable_6 = isApplicableMatch.getObject("routeFailedCorr");
+		EObject _localVariable_7 = isApplicableMatch.getObject("trgRouteFailed");
+		EObject _localVariable_8 = isApplicableMatch.getObject("trgSemaphoreOperational");
+		EObject _localVariable_9 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_10 = isApplicableMatch.getObject("srcRoute");
+		EObject _localVariable_11 = isApplicableMatch.getObject("containerCorr");
+		EObject _localVariable_12 = isApplicableMatch.getObject("srcSemaphore");
+		EObject _localVariable_13 = isApplicableMatch.getObject("routeOperationalCorr");
+		EObject _localVariable_14 = isApplicableMatch.getObject("trgRouteRepair");
+		EObject tmpRouteRepairCorr = _localVariable_0;
+		EObject tmpSemaphoreOperationalCorr = _localVariable_1;
+		EObject tmpTrgSemaphoreFailed = _localVariable_2;
+		EObject tmpSrcContainer = _localVariable_3;
+		EObject tmpSemaphoreFailedCorr = _localVariable_4;
+		EObject tmpTrgRouteOperational = _localVariable_5;
+		EObject tmpRouteFailedCorr = _localVariable_6;
+		EObject tmpTrgRouteFailed = _localVariable_7;
+		EObject tmpTrgSemaphoreOperational = _localVariable_8;
+		EObject tmpTrgPetrinet = _localVariable_9;
+		EObject tmpSrcRoute = _localVariable_10;
+		EObject tmpContainerCorr = _localVariable_11;
+		EObject tmpSrcSemaphore = _localVariable_12;
+		EObject tmpRouteOperationalCorr = _localVariable_13;
+		EObject tmpTrgRouteRepair = _localVariable_14;
+		if (tmpRouteRepairCorr instanceof RouteToRepair) {
+			RouteToRepair routeRepairCorr = (RouteToRepair) tmpRouteRepairCorr;
+			if (tmpSemaphoreOperationalCorr instanceof SemaphoreToOperational) {
+				SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) tmpSemaphoreOperationalCorr;
+				if (tmpTrgSemaphoreFailed instanceof Place) {
+					Place trgSemaphoreFailed = (Place) tmpTrgSemaphoreFailed;
+					if (tmpSrcContainer instanceof RailwayContainer) {
+						RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
+						if (tmpSemaphoreFailedCorr instanceof SemaphoreToFailed) {
+							SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) tmpSemaphoreFailedCorr;
+							if (tmpTrgRouteOperational instanceof Place) {
+								Place trgRouteOperational = (Place) tmpTrgRouteOperational;
+								if (tmpRouteFailedCorr instanceof RouteToFailed) {
+									RouteToFailed routeFailedCorr = (RouteToFailed) tmpRouteFailedCorr;
+									if (tmpTrgRouteFailed instanceof Place) {
+										Place trgRouteFailed = (Place) tmpTrgRouteFailed;
+										if (tmpTrgSemaphoreOperational instanceof Place) {
+											Place trgSemaphoreOperational = (Place) tmpTrgSemaphoreOperational;
+											if (tmpTrgPetrinet instanceof PetriNet) {
+												PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+												if (tmpSrcRoute instanceof Route) {
+													Route srcRoute = (Route) tmpSrcRoute;
+													if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
+														RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+														if (tmpSrcSemaphore instanceof Semaphore) {
+															Semaphore srcSemaphore = (Semaphore) tmpSrcSemaphore;
+															if (tmpRouteOperationalCorr instanceof RouteToOperational) {
+																RouteToOperational routeOperationalCorr = (RouteToOperational) tmpRouteOperationalCorr;
+																if (tmpTrgRouteRepair instanceof Transition) {
+																	Transition trgRouteRepair = (Transition) tmpTrgRouteRepair;
+																	return new Object[] { routeRepairCorr,
+																			semaphoreOperationalCorr,
+																			trgSemaphoreFailed, srcContainer,
+																			semaphoreFailedCorr, trgRouteOperational,
+																			routeFailedCorr, trgRouteFailed,
+																			trgSemaphoreOperational, trgPetrinet,
+																			srcRoute, containerCorr, srcSemaphore,
+																			routeOperationalCorr, trgRouteRepair,
 																			isApplicableMatch };
 																}
 															}
@@ -939,12 +938,12 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_1_performtransformation_blackBBBBBBBBBBBBBBBFBB(
-			RouteToOperational routeOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
-			Route srcRoute, RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational,
-			RequiredEntrySemaphore _this, IsApplicableMatch isApplicableMatch) {
+			RouteToRepair routeRepairCorr, SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed,
+			RailwayContainer srcContainer, SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational,
+			RouteToFailed routeFailedCorr, Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet,
+			Route srcRoute, RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore,
+			RouteToOperational routeOperationalCorr, Transition trgRouteRepair, RequiredEntrySemaphore _this,
+			IsApplicableMatch isApplicableMatch) {
 		if (!trgSemaphoreFailed.equals(trgSemaphoreOperational)) {
 			if (!trgRouteOperational.equals(trgSemaphoreFailed)) {
 				if (!trgRouteOperational.equals(trgSemaphoreOperational)) {
@@ -954,11 +953,12 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 								for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 									if (tmpCsp instanceof CSP) {
 										CSP csp = (CSP) tmpCsp;
-										return new Object[] { routeOperationalCorr, trgSemaphoreFailed, srcContainer,
-												srcRoute, containerCorr, routeRepairCorr, semaphoreFailedCorr,
-												trgRouteRepair, srcSemaphore, trgRouteOperational, trgPetrinet,
-												trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr,
-												trgSemaphoreOperational, csp, _this, isApplicableMatch };
+										return new Object[] { routeRepairCorr, semaphoreOperationalCorr,
+												trgSemaphoreFailed, srcContainer, semaphoreFailedCorr,
+												trgRouteOperational, routeFailedCorr, trgRouteFailed,
+												trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr,
+												srcSemaphore, routeOperationalCorr, trgRouteRepair, csp, _this,
+												isApplicableMatch };
 									}
 								}
 							}
@@ -975,111 +975,112 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 		Object[] result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding = pattern_RequiredEntrySemaphore_1_1_performtransformation_bindingFFFFFFFFFFFFFFFB(
 				isApplicableMatch);
 		if (result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding != null) {
-			RouteToOperational routeOperationalCorr = (RouteToOperational) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[0];
-			Place trgSemaphoreFailed = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[1];
-			RailwayContainer srcContainer = (RailwayContainer) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[2];
-			Route srcRoute = (Route) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[3];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[4];
-			RouteToRepair routeRepairCorr = (RouteToRepair) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[5];
-			SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[6];
-			Transition trgRouteRepair = (Transition) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[7];
-			Semaphore srcSemaphore = (Semaphore) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[8];
-			Place trgRouteOperational = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[9];
-			PetriNet trgPetrinet = (PetriNet) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[10];
-			Place trgRouteFailed = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[11];
-			RouteToFailed routeFailedCorr = (RouteToFailed) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[12];
-			SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[13];
-			Place trgSemaphoreOperational = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[14];
+			RouteToRepair routeRepairCorr = (RouteToRepair) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[0];
+			SemaphoreToOperational semaphoreOperationalCorr = (SemaphoreToOperational) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[1];
+			Place trgSemaphoreFailed = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[2];
+			RailwayContainer srcContainer = (RailwayContainer) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[3];
+			SemaphoreToFailed semaphoreFailedCorr = (SemaphoreToFailed) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[4];
+			Place trgRouteOperational = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[5];
+			RouteToFailed routeFailedCorr = (RouteToFailed) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[6];
+			Place trgRouteFailed = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[7];
+			Place trgSemaphoreOperational = (Place) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[8];
+			PetriNet trgPetrinet = (PetriNet) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[9];
+			Route srcRoute = (Route) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[10];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[11];
+			Semaphore srcSemaphore = (Semaphore) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[12];
+			RouteToOperational routeOperationalCorr = (RouteToOperational) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[13];
+			Transition trgRouteRepair = (Transition) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_binding[14];
 
 			Object[] result_pattern_RequiredEntrySemaphore_1_1_performtransformation_black = pattern_RequiredEntrySemaphore_1_1_performtransformation_blackBBBBBBBBBBBBBBBFBB(
-					routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute, containerCorr, routeRepairCorr,
-					semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational, trgPetrinet, trgRouteFailed,
-					routeFailedCorr, semaphoreOperationalCorr, trgSemaphoreOperational, _this, isApplicableMatch);
+					routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer, semaphoreFailedCorr,
+					trgRouteOperational, routeFailedCorr, trgRouteFailed, trgSemaphoreOperational, trgPetrinet,
+					srcRoute, containerCorr, srcSemaphore, routeOperationalCorr, trgRouteRepair, _this,
+					isApplicableMatch);
 			if (result_pattern_RequiredEntrySemaphore_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_RequiredEntrySemaphore_1_1_performtransformation_black[15];
 
-				return new Object[] { routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute, containerCorr,
-						routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational,
-						trgPetrinet, trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr, trgSemaphoreOperational,
-						csp, _this, isApplicableMatch };
+				return new Object[] { routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+						semaphoreFailedCorr, trgRouteOperational, routeFailedCorr, trgRouteFailed,
+						trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr, srcSemaphore,
+						routeOperationalCorr, trgRouteRepair, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_RequiredEntrySemaphore_1_1_performtransformation_greenBFFFFBFFBBBFB(
-			Place trgSemaphoreFailed, Transition trgRouteRepair, Place trgRouteOperational, PetriNet trgPetrinet,
-			Place trgRouteFailed, Place trgSemaphoreOperational) {
-		Arc trgSemaphoreOperationalToRouteRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgSemaphoreFailedToRouteFail = StochasticPetriNetFactory.eINSTANCE.createArc();
-		ImmediateTransition trgRouteFail = StochasticPetriNetFactory.eINSTANCE.createImmediateTransition();
-		Arc trgRouteRepairToSemaphoreOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgRouteFailToRouteFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
+	public static final Object[] pattern_RequiredEntrySemaphore_1_1_performtransformation_greenBFFBFBFBFBFFB(
+			Place trgSemaphoreFailed, Place trgRouteOperational, Place trgRouteFailed, Place trgSemaphoreOperational,
+			PetriNet trgPetrinet, Transition trgRouteRepair) {
 		Arc trgRouteFailToSemaphoreFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Arc trgSemaphoreFailedToRouteFail = StochasticPetriNetFactory.eINSTANCE.createArc();
 		Arc trgRouteOperationalToRouteFail = StochasticPetriNetFactory.eINSTANCE.createArc();
-		ArcKind trgSemaphoreOperationalToRouteRepair_kind_prime = ArcKind.INPUT;
-		ArcKind trgSemaphoreFailedToRouteFail_kind_prime = ArcKind.INPUT;
-		ArcKind trgRouteRepairToSemaphoreOperational_kind_prime = ArcKind.OUTPUT;
-		ArcKind trgRouteFailToRouteFailed_kind_prime = ArcKind.OUTPUT;
+		Arc trgRouteRepairToSemaphoreOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
+		ImmediateTransition trgRouteFail = StochasticPetriNetFactory.eINSTANCE.createImmediateTransition();
+		Arc trgSemaphoreOperationalToRouteRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Arc trgRouteFailToRouteFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
 		ArcKind trgRouteFailToSemaphoreFailed_kind_prime = ArcKind.OUTPUT;
+		ArcKind trgSemaphoreFailedToRouteFail_kind_prime = ArcKind.INPUT;
 		ArcKind trgRouteOperationalToRouteFail_kind_prime = ArcKind.INPUT;
+		ArcKind trgRouteRepairToSemaphoreOperational_kind_prime = ArcKind.OUTPUT;
+		ArcKind trgSemaphoreOperationalToRouteRepair_kind_prime = ArcKind.INPUT;
+		ArcKind trgRouteFailToRouteFailed_kind_prime = ArcKind.OUTPUT;
+		trgRouteFailToSemaphoreFailed.setPlace(trgSemaphoreFailed);
+		trgSemaphoreFailedToRouteFail.setPlace(trgSemaphoreFailed);
+		trgRouteOperationalToRouteFail.setPlace(trgRouteOperational);
+		trgRouteRepairToSemaphoreOperational.setTransition(trgRouteRepair);
+		trgRouteRepairToSemaphoreOperational.setPlace(trgSemaphoreOperational);
+		trgRouteFailToSemaphoreFailed.setTransition(trgRouteFail);
+		trgRouteFail.setPetriNet(trgPetrinet);
+		trgRouteOperationalToRouteFail.setTransition(trgRouteFail);
+		trgSemaphoreFailedToRouteFail.setTransition(trgRouteFail);
 		trgSemaphoreOperationalToRouteRepair.setTransition(trgRouteRepair);
 		trgSemaphoreOperationalToRouteRepair.setPlace(trgSemaphoreOperational);
-		trgSemaphoreFailedToRouteFail.setPlace(trgSemaphoreFailed);
-		trgSemaphoreFailedToRouteFail.setTransition(trgRouteFail);
-		trgRouteFail.setPetriNet(trgPetrinet);
-		trgRouteRepairToSemaphoreOperational.setPlace(trgSemaphoreOperational);
-		trgRouteRepairToSemaphoreOperational.setTransition(trgRouteRepair);
-		trgRouteFailToRouteFailed.setPlace(trgRouteFailed);
 		trgRouteFailToRouteFailed.setTransition(trgRouteFail);
-		trgRouteFailToSemaphoreFailed.setTransition(trgRouteFail);
-		trgRouteFailToSemaphoreFailed.setPlace(trgSemaphoreFailed);
-		trgRouteOperationalToRouteFail.setPlace(trgRouteOperational);
-		trgRouteOperationalToRouteFail.setTransition(trgRouteFail);
-		trgSemaphoreOperationalToRouteRepair.setKind(trgSemaphoreOperationalToRouteRepair_kind_prime);
-		trgSemaphoreFailedToRouteFail.setKind(trgSemaphoreFailedToRouteFail_kind_prime);
-		trgRouteRepairToSemaphoreOperational.setKind(trgRouteRepairToSemaphoreOperational_kind_prime);
-		trgRouteFailToRouteFailed.setKind(trgRouteFailToRouteFailed_kind_prime);
+		trgRouteFailToRouteFailed.setPlace(trgRouteFailed);
 		trgRouteFailToSemaphoreFailed.setKind(trgRouteFailToSemaphoreFailed_kind_prime);
+		trgSemaphoreFailedToRouteFail.setKind(trgSemaphoreFailedToRouteFail_kind_prime);
 		trgRouteOperationalToRouteFail.setKind(trgRouteOperationalToRouteFail_kind_prime);
-		return new Object[] { trgSemaphoreFailed, trgSemaphoreOperationalToRouteRepair, trgSemaphoreFailedToRouteFail,
-				trgRouteFail, trgRouteRepairToSemaphoreOperational, trgRouteRepair, trgRouteFailToRouteFailed,
-				trgRouteFailToSemaphoreFailed, trgRouteOperational, trgPetrinet, trgRouteFailed,
-				trgRouteOperationalToRouteFail, trgSemaphoreOperational };
+		trgRouteRepairToSemaphoreOperational.setKind(trgRouteRepairToSemaphoreOperational_kind_prime);
+		trgSemaphoreOperationalToRouteRepair.setKind(trgSemaphoreOperationalToRouteRepair_kind_prime);
+		trgRouteFailToRouteFailed.setKind(trgRouteFailToRouteFailed_kind_prime);
+		return new Object[] { trgSemaphoreFailed, trgRouteFailToSemaphoreFailed, trgSemaphoreFailedToRouteFail,
+				trgRouteOperational, trgRouteOperationalToRouteFail, trgRouteFailed,
+				trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+				trgSemaphoreOperationalToRouteRepair, trgRouteFailToRouteFailed, trgRouteRepair };
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_2_collecttranslatedelements_blackBBBBBBB(
-			Arc trgSemaphoreOperationalToRouteRepair, Arc trgSemaphoreFailedToRouteFail,
-			ImmediateTransition trgRouteFail, Arc trgRouteRepairToSemaphoreOperational, Arc trgRouteFailToRouteFailed,
-			Arc trgRouteFailToSemaphoreFailed, Arc trgRouteOperationalToRouteFail) {
-		if (!trgSemaphoreFailedToRouteFail.equals(trgSemaphoreOperationalToRouteRepair)) {
-			if (!trgRouteRepairToSemaphoreOperational.equals(trgSemaphoreOperationalToRouteRepair)) {
-				if (!trgRouteRepairToSemaphoreOperational.equals(trgSemaphoreFailedToRouteFail)) {
-					if (!trgRouteFailToRouteFailed.equals(trgSemaphoreOperationalToRouteRepair)) {
-						if (!trgRouteFailToRouteFailed.equals(trgSemaphoreFailedToRouteFail)) {
-							if (!trgRouteFailToRouteFailed.equals(trgRouteRepairToSemaphoreOperational)) {
-								if (!trgRouteFailToRouteFailed.equals(trgRouteFailToSemaphoreFailed)) {
-									if (!trgRouteFailToRouteFailed.equals(trgRouteOperationalToRouteFail)) {
-										if (!trgRouteFailToSemaphoreFailed
-												.equals(trgSemaphoreOperationalToRouteRepair)) {
-											if (!trgRouteFailToSemaphoreFailed.equals(trgSemaphoreFailedToRouteFail)) {
-												if (!trgRouteFailToSemaphoreFailed
-														.equals(trgRouteRepairToSemaphoreOperational)) {
-													if (!trgRouteFailToSemaphoreFailed
-															.equals(trgRouteOperationalToRouteFail)) {
-														if (!trgRouteOperationalToRouteFail
-																.equals(trgSemaphoreOperationalToRouteRepair)) {
-															if (!trgRouteOperationalToRouteFail
-																	.equals(trgSemaphoreFailedToRouteFail)) {
-																if (!trgRouteOperationalToRouteFail
-																		.equals(trgRouteRepairToSemaphoreOperational)) {
-																	return new Object[] {
-																			trgSemaphoreOperationalToRouteRepair,
-																			trgSemaphoreFailedToRouteFail, trgRouteFail,
+			Arc trgRouteFailToSemaphoreFailed, Arc trgSemaphoreFailedToRouteFail, Arc trgRouteOperationalToRouteFail,
+			Arc trgRouteRepairToSemaphoreOperational, ImmediateTransition trgRouteFail,
+			Arc trgSemaphoreOperationalToRouteRepair, Arc trgRouteFailToRouteFailed) {
+		if (!trgRouteFailToSemaphoreFailed.equals(trgSemaphoreFailedToRouteFail)) {
+			if (!trgRouteFailToSemaphoreFailed.equals(trgRouteOperationalToRouteFail)) {
+				if (!trgRouteFailToSemaphoreFailed.equals(trgRouteRepairToSemaphoreOperational)) {
+					if (!trgRouteFailToSemaphoreFailed.equals(trgSemaphoreOperationalToRouteRepair)) {
+						if (!trgSemaphoreFailedToRouteFail.equals(trgSemaphoreOperationalToRouteRepair)) {
+							if (!trgRouteOperationalToRouteFail.equals(trgSemaphoreFailedToRouteFail)) {
+								if (!trgRouteOperationalToRouteFail.equals(trgRouteRepairToSemaphoreOperational)) {
+									if (!trgRouteOperationalToRouteFail.equals(trgSemaphoreOperationalToRouteRepair)) {
+										if (!trgRouteRepairToSemaphoreOperational
+												.equals(trgSemaphoreFailedToRouteFail)) {
+											if (!trgRouteRepairToSemaphoreOperational
+													.equals(trgSemaphoreOperationalToRouteRepair)) {
+												if (!trgRouteFailToRouteFailed.equals(trgRouteFailToSemaphoreFailed)) {
+													if (!trgRouteFailToRouteFailed
+															.equals(trgSemaphoreFailedToRouteFail)) {
+														if (!trgRouteFailToRouteFailed
+																.equals(trgRouteOperationalToRouteFail)) {
+															if (!trgRouteFailToRouteFailed
+																	.equals(trgRouteRepairToSemaphoreOperational)) {
+																if (!trgRouteFailToRouteFailed
+																		.equals(trgSemaphoreOperationalToRouteRepair)) {
+																	return new Object[] { trgRouteFailToSemaphoreFailed,
+																			trgSemaphoreFailedToRouteFail,
+																			trgRouteOperationalToRouteFail,
 																			trgRouteRepairToSemaphoreOperational,
-																			trgRouteFailToRouteFailed,
-																			trgRouteFailToSemaphoreFailed,
-																			trgRouteOperationalToRouteFail };
+																			trgRouteFail,
+																			trgSemaphoreOperationalToRouteRepair,
+																			trgRouteFailToRouteFailed };
 																}
 															}
 														}
@@ -1099,501 +1100,502 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_2_collecttranslatedelements_greenFBBBBBBB(
-			Arc trgSemaphoreOperationalToRouteRepair, Arc trgSemaphoreFailedToRouteFail,
-			ImmediateTransition trgRouteFail, Arc trgRouteRepairToSemaphoreOperational, Arc trgRouteFailToRouteFailed,
-			Arc trgRouteFailToSemaphoreFailed, Arc trgRouteOperationalToRouteFail) {
+			Arc trgRouteFailToSemaphoreFailed, Arc trgSemaphoreFailedToRouteFail, Arc trgRouteOperationalToRouteFail,
+			Arc trgRouteRepairToSemaphoreOperational, ImmediateTransition trgRouteFail,
+			Arc trgSemaphoreOperationalToRouteRepair, Arc trgRouteFailToRouteFailed) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
-		ruleresult.getCreatedElements().add(trgSemaphoreOperationalToRouteRepair);
-		ruleresult.getCreatedElements().add(trgSemaphoreFailedToRouteFail);
-		ruleresult.getCreatedElements().add(trgRouteFail);
-		ruleresult.getCreatedElements().add(trgRouteRepairToSemaphoreOperational);
-		ruleresult.getCreatedElements().add(trgRouteFailToRouteFailed);
 		ruleresult.getCreatedElements().add(trgRouteFailToSemaphoreFailed);
+		ruleresult.getCreatedElements().add(trgSemaphoreFailedToRouteFail);
 		ruleresult.getCreatedElements().add(trgRouteOperationalToRouteFail);
-		return new Object[] { ruleresult, trgSemaphoreOperationalToRouteRepair, trgSemaphoreFailedToRouteFail,
-				trgRouteFail, trgRouteRepairToSemaphoreOperational, trgRouteFailToRouteFailed,
-				trgRouteFailToSemaphoreFailed, trgRouteOperationalToRouteFail };
+		ruleresult.getCreatedElements().add(trgRouteRepairToSemaphoreOperational);
+		ruleresult.getCreatedElements().add(trgRouteFail);
+		ruleresult.getCreatedElements().add(trgSemaphoreOperationalToRouteRepair);
+		ruleresult.getCreatedElements().add(trgRouteFailToRouteFailed);
+		return new Object[] { ruleresult, trgRouteFailToSemaphoreFailed, trgSemaphoreFailedToRouteFail,
+				trgRouteOperationalToRouteFail, trgRouteRepairToSemaphoreOperational, trgRouteFail,
+				trgSemaphoreOperationalToRouteRepair, trgRouteFailToRouteFailed };
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject routeOperationalCorr, EObject trgSemaphoreFailed,
-			EObject srcContainer, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
-			EObject trgSemaphoreFailedToRouteFail, EObject containerCorr, EObject trgRouteFail, EObject routeRepairCorr,
-			EObject semaphoreFailedCorr, EObject trgRouteRepairToSemaphoreOperational, EObject trgRouteRepair,
-			EObject trgRouteFailToRouteFailed, EObject trgRouteFailToSemaphoreFailed, EObject srcSemaphore,
-			EObject trgRouteOperational, EObject trgPetrinet, EObject trgRouteFailed,
-			EObject trgRouteOperationalToRouteFail, EObject routeFailedCorr, EObject semaphoreOperationalCorr,
-			EObject trgSemaphoreOperational) {
-		if (!routeOperationalCorr.equals(trgSemaphoreFailed)) {
-			if (!routeOperationalCorr.equals(srcContainer)) {
-				if (!routeOperationalCorr.equals(trgSemaphoreOperationalToRouteRepair)) {
-					if (!routeOperationalCorr.equals(srcRoute)) {
-						if (!routeOperationalCorr.equals(trgSemaphoreFailedToRouteFail)) {
-							if (!routeOperationalCorr.equals(trgRouteFail)) {
-								if (!routeOperationalCorr.equals(routeRepairCorr)) {
-									if (!routeOperationalCorr.equals(semaphoreFailedCorr)) {
-										if (!routeOperationalCorr.equals(trgRouteRepairToSemaphoreOperational)) {
-											if (!routeOperationalCorr.equals(trgRouteRepair)) {
-												if (!routeOperationalCorr.equals(trgRouteFailToRouteFailed)) {
-													if (!routeOperationalCorr.equals(trgRouteFailToSemaphoreFailed)) {
-														if (!routeOperationalCorr.equals(srcSemaphore)) {
-															if (!routeOperationalCorr.equals(trgRouteOperational)) {
-																if (!routeOperationalCorr.equals(trgPetrinet)) {
-																	if (!routeOperationalCorr.equals(trgRouteFailed)) {
-																		if (!routeOperationalCorr.equals(
-																				trgRouteOperationalToRouteFail)) {
-																			if (!routeOperationalCorr
-																					.equals(semaphoreOperationalCorr)) {
-																				if (!routeOperationalCorr.equals(
-																						trgSemaphoreOperational)) {
-																					if (!trgSemaphoreFailed.equals(
-																							trgSemaphoreOperationalToRouteRepair)) {
-																						if (!trgSemaphoreFailed.equals(
-																								trgSemaphoreFailedToRouteFail)) {
-																							if (!trgSemaphoreFailed
-																									.equals(trgSemaphoreOperational)) {
-																								if (!srcContainer
-																										.equals(trgSemaphoreFailed)) {
-																									if (!srcContainer
-																											.equals(trgSemaphoreOperationalToRouteRepair)) {
-																										if (!srcContainer
-																												.equals(srcRoute)) {
-																											if (!srcContainer
-																													.equals(trgSemaphoreFailedToRouteFail)) {
-																												if (!srcContainer
-																														.equals(trgRouteFail)) {
-																													if (!srcContainer
-																															.equals(trgRouteRepairToSemaphoreOperational)) {
-																														if (!srcContainer
-																																.equals(trgRouteRepair)) {
-																															if (!srcContainer
-																																	.equals(trgRouteFailToRouteFailed)) {
-																																if (!srcContainer
-																																		.equals(trgRouteFailToSemaphoreFailed)) {
-																																	if (!srcContainer
-																																			.equals(srcSemaphore)) {
-																																		if (!srcContainer
-																																				.equals(trgRouteOperational)) {
-																																			if (!srcContainer
-																																					.equals(trgPetrinet)) {
-																																				if (!srcContainer
-																																						.equals(trgRouteFailed)) {
-																																					if (!srcContainer
-																																							.equals(trgRouteOperationalToRouteFail)) {
-																																						if (!srcContainer
-																																								.equals(trgSemaphoreOperational)) {
-																																							if (!srcRoute
+			PerformRuleResult ruleresult, EObject routeRepairCorr, EObject semaphoreOperationalCorr,
+			EObject trgSemaphoreFailed, EObject srcContainer, EObject trgRouteFailToSemaphoreFailed,
+			EObject semaphoreFailedCorr, EObject trgSemaphoreFailedToRouteFail, EObject trgRouteOperational,
+			EObject routeFailedCorr, EObject trgRouteOperationalToRouteFail, EObject trgRouteFailed,
+			EObject trgRouteRepairToSemaphoreOperational, EObject trgSemaphoreOperational, EObject trgRouteFail,
+			EObject trgPetrinet, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
+			EObject trgRouteFailToRouteFailed, EObject containerCorr, EObject srcSemaphore,
+			EObject routeOperationalCorr, EObject trgRouteRepair) {
+		if (!routeRepairCorr.equals(semaphoreOperationalCorr)) {
+			if (!routeRepairCorr.equals(trgSemaphoreFailed)) {
+				if (!routeRepairCorr.equals(srcContainer)) {
+					if (!routeRepairCorr.equals(trgRouteFailToSemaphoreFailed)) {
+						if (!routeRepairCorr.equals(semaphoreFailedCorr)) {
+							if (!routeRepairCorr.equals(trgSemaphoreFailedToRouteFail)) {
+								if (!routeRepairCorr.equals(trgRouteOperational)) {
+									if (!routeRepairCorr.equals(trgRouteOperationalToRouteFail)) {
+										if (!routeRepairCorr.equals(trgRouteFailed)) {
+											if (!routeRepairCorr.equals(trgRouteRepairToSemaphoreOperational)) {
+												if (!routeRepairCorr.equals(trgSemaphoreOperational)) {
+													if (!routeRepairCorr.equals(trgRouteFail)) {
+														if (!routeRepairCorr.equals(trgPetrinet)) {
+															if (!routeRepairCorr
+																	.equals(trgSemaphoreOperationalToRouteRepair)) {
+																if (!routeRepairCorr.equals(srcRoute)) {
+																	if (!routeRepairCorr
+																			.equals(trgRouteFailToRouteFailed)) {
+																		if (!routeRepairCorr.equals(srcSemaphore)) {
+																			if (!routeRepairCorr
+																					.equals(trgRouteRepair)) {
+																				if (!semaphoreOperationalCorr
+																						.equals(trgSemaphoreFailed)) {
+																					if (!semaphoreOperationalCorr
+																							.equals(srcContainer)) {
+																						if (!semaphoreOperationalCorr
+																								.equals(trgRouteFailToSemaphoreFailed)) {
+																							if (!semaphoreOperationalCorr
+																									.equals(trgSemaphoreFailedToRouteFail)) {
+																								if (!semaphoreOperationalCorr
+																										.equals(trgRouteOperational)) {
+																									if (!semaphoreOperationalCorr
+																											.equals(trgRouteOperationalToRouteFail)) {
+																										if (!semaphoreOperationalCorr
+																												.equals(trgRouteFailed)) {
+																											if (!semaphoreOperationalCorr
+																													.equals(trgRouteRepairToSemaphoreOperational)) {
+																												if (!semaphoreOperationalCorr
+																														.equals(trgSemaphoreOperational)) {
+																													if (!semaphoreOperationalCorr
+																															.equals(trgRouteFail)) {
+																														if (!semaphoreOperationalCorr
+																																.equals(trgPetrinet)) {
+																															if (!semaphoreOperationalCorr
+																																	.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																if (!semaphoreOperationalCorr
+																																		.equals(srcRoute)) {
+																																	if (!semaphoreOperationalCorr
+																																			.equals(trgRouteFailToRouteFailed)) {
+																																		if (!semaphoreOperationalCorr
+																																				.equals(srcSemaphore)) {
+																																			if (!semaphoreOperationalCorr
+																																					.equals(trgRouteRepair)) {
+																																				if (!trgSemaphoreFailed
+																																						.equals(trgSemaphoreFailedToRouteFail)) {
+																																					if (!trgSemaphoreFailed
+																																							.equals(trgSemaphoreOperational)) {
+																																						if (!trgSemaphoreFailed
+																																								.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																							if (!srcContainer
 																																									.equals(trgSemaphoreFailed)) {
-																																								if (!srcRoute
-																																										.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																									if (!srcRoute
+																																								if (!srcContainer
+																																										.equals(trgRouteFailToSemaphoreFailed)) {
+																																									if (!srcContainer
 																																											.equals(trgSemaphoreFailedToRouteFail)) {
-																																										if (!srcRoute
-																																												.equals(trgRouteFail)) {
-																																											if (!srcRoute
-																																													.equals(trgRouteRepairToSemaphoreOperational)) {
-																																												if (!srcRoute
-																																														.equals(trgRouteRepair)) {
-																																													if (!srcRoute
-																																															.equals(trgRouteFailToRouteFailed)) {
-																																														if (!srcRoute
-																																																.equals(trgRouteFailToSemaphoreFailed)) {
-																																															if (!srcRoute
-																																																	.equals(srcSemaphore)) {
-																																																if (!srcRoute
-																																																		.equals(trgRouteOperational)) {
-																																																	if (!srcRoute
-																																																			.equals(trgPetrinet)) {
-																																																		if (!srcRoute
-																																																				.equals(trgRouteFailed)) {
-																																																			if (!srcRoute
-																																																					.equals(trgRouteOperationalToRouteFail)) {
-																																																				if (!srcRoute
-																																																						.equals(trgSemaphoreOperational)) {
-																																																					if (!trgSemaphoreFailedToRouteFail
-																																																							.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																						if (!trgSemaphoreFailedToRouteFail
-																																																								.equals(trgSemaphoreOperational)) {
-																																																							if (!containerCorr
-																																																									.equals(routeOperationalCorr)) {
-																																																								if (!containerCorr
-																																																										.equals(trgSemaphoreFailed)) {
-																																																									if (!containerCorr
-																																																											.equals(srcContainer)) {
-																																																										if (!containerCorr
-																																																												.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																											if (!containerCorr
-																																																													.equals(srcRoute)) {
-																																																												if (!containerCorr
-																																																														.equals(trgSemaphoreFailedToRouteFail)) {
-																																																													if (!containerCorr
-																																																															.equals(trgRouteFail)) {
-																																																														if (!containerCorr
-																																																																.equals(routeRepairCorr)) {
-																																																															if (!containerCorr
-																																																																	.equals(semaphoreFailedCorr)) {
-																																																																if (!containerCorr
-																																																																		.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																	if (!containerCorr
-																																																																			.equals(trgRouteRepair)) {
-																																																																		if (!containerCorr
-																																																																				.equals(trgRouteFailToRouteFailed)) {
-																																																																			if (!containerCorr
-																																																																					.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																				if (!containerCorr
-																																																																						.equals(srcSemaphore)) {
-																																																																					if (!containerCorr
-																																																																							.equals(trgRouteOperational)) {
-																																																																						if (!containerCorr
-																																																																								.equals(trgPetrinet)) {
-																																																																							if (!containerCorr
-																																																																									.equals(trgRouteFailed)) {
-																																																																								if (!containerCorr
-																																																																										.equals(trgRouteOperationalToRouteFail)) {
-																																																																									if (!containerCorr
-																																																																											.equals(routeFailedCorr)) {
-																																																																										if (!containerCorr
-																																																																												.equals(semaphoreOperationalCorr)) {
-																																																																											if (!containerCorr
-																																																																													.equals(trgSemaphoreOperational)) {
-																																																																												if (!trgRouteFail
-																																																																														.equals(trgSemaphoreFailed)) {
-																																																																													if (!trgRouteFail
-																																																																															.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																														if (!trgRouteFail
-																																																																																.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																															if (!trgRouteFail
-																																																																																	.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																if (!trgRouteFail
-																																																																																		.equals(trgRouteRepair)) {
-																																																																																	if (!trgRouteFail
-																																																																																			.equals(trgRouteFailToRouteFailed)) {
-																																																																																		if (!trgRouteFail
-																																																																																				.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																			if (!trgRouteFail
-																																																																																					.equals(trgRouteOperational)) {
-																																																																																				if (!trgRouteFail
-																																																																																						.equals(trgRouteFailed)) {
-																																																																																					if (!trgRouteFail
-																																																																																							.equals(trgRouteOperationalToRouteFail)) {
-																																																																																						if (!trgRouteFail
+																																										if (!srcContainer
+																																												.equals(trgRouteOperational)) {
+																																											if (!srcContainer
+																																													.equals(trgRouteOperationalToRouteFail)) {
+																																												if (!srcContainer
+																																														.equals(trgRouteFailed)) {
+																																													if (!srcContainer
+																																															.equals(trgRouteRepairToSemaphoreOperational)) {
+																																														if (!srcContainer
+																																																.equals(trgSemaphoreOperational)) {
+																																															if (!srcContainer
+																																																	.equals(trgRouteFail)) {
+																																																if (!srcContainer
+																																																		.equals(trgPetrinet)) {
+																																																	if (!srcContainer
+																																																			.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																		if (!srcContainer
+																																																				.equals(srcRoute)) {
+																																																			if (!srcContainer
+																																																					.equals(trgRouteFailToRouteFailed)) {
+																																																				if (!srcContainer
+																																																						.equals(srcSemaphore)) {
+																																																					if (!srcContainer
+																																																							.equals(trgRouteRepair)) {
+																																																						if (!trgRouteFailToSemaphoreFailed
+																																																								.equals(trgSemaphoreFailed)) {
+																																																							if (!trgRouteFailToSemaphoreFailed
+																																																									.equals(trgSemaphoreFailedToRouteFail)) {
+																																																								if (!trgRouteFailToSemaphoreFailed
+																																																										.equals(trgRouteOperational)) {
+																																																									if (!trgRouteFailToSemaphoreFailed
+																																																											.equals(trgRouteOperationalToRouteFail)) {
+																																																										if (!trgRouteFailToSemaphoreFailed
+																																																												.equals(trgRouteFailed)) {
+																																																											if (!trgRouteFailToSemaphoreFailed
+																																																													.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																												if (!trgRouteFailToSemaphoreFailed
+																																																														.equals(trgSemaphoreOperational)) {
+																																																													if (!trgRouteFailToSemaphoreFailed
+																																																															.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																														if (!trgRouteFailToSemaphoreFailed
+																																																																.equals(trgRouteRepair)) {
+																																																															if (!semaphoreFailedCorr
+																																																																	.equals(semaphoreOperationalCorr)) {
+																																																																if (!semaphoreFailedCorr
+																																																																		.equals(trgSemaphoreFailed)) {
+																																																																	if (!semaphoreFailedCorr
+																																																																			.equals(srcContainer)) {
+																																																																		if (!semaphoreFailedCorr
+																																																																				.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																			if (!semaphoreFailedCorr
+																																																																					.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																				if (!semaphoreFailedCorr
+																																																																						.equals(trgRouteOperational)) {
+																																																																					if (!semaphoreFailedCorr
+																																																																							.equals(trgRouteOperationalToRouteFail)) {
+																																																																						if (!semaphoreFailedCorr
+																																																																								.equals(trgRouteFailed)) {
+																																																																							if (!semaphoreFailedCorr
+																																																																									.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																								if (!semaphoreFailedCorr
+																																																																										.equals(trgSemaphoreOperational)) {
+																																																																									if (!semaphoreFailedCorr
+																																																																											.equals(trgRouteFail)) {
+																																																																										if (!semaphoreFailedCorr
+																																																																												.equals(trgPetrinet)) {
+																																																																											if (!semaphoreFailedCorr
+																																																																													.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																												if (!semaphoreFailedCorr
+																																																																														.equals(srcRoute)) {
+																																																																													if (!semaphoreFailedCorr
+																																																																															.equals(trgRouteFailToRouteFailed)) {
+																																																																														if (!semaphoreFailedCorr
+																																																																																.equals(srcSemaphore)) {
+																																																																															if (!semaphoreFailedCorr
+																																																																																	.equals(trgRouteRepair)) {
+																																																																																if (!trgSemaphoreFailedToRouteFail
+																																																																																		.equals(trgSemaphoreOperational)) {
+																																																																																	if (!trgSemaphoreFailedToRouteFail
+																																																																																			.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																		if (!trgRouteOperational
+																																																																																				.equals(trgSemaphoreFailed)) {
+																																																																																			if (!trgRouteOperational
+																																																																																					.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																				if (!trgRouteOperational
+																																																																																						.equals(trgRouteOperationalToRouteFail)) {
+																																																																																					if (!trgRouteOperational
+																																																																																							.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																						if (!trgRouteOperational
 																																																																																								.equals(trgSemaphoreOperational)) {
-																																																																																							if (!routeRepairCorr
-																																																																																									.equals(trgSemaphoreFailed)) {
-																																																																																								if (!routeRepairCorr
-																																																																																										.equals(srcContainer)) {
-																																																																																									if (!routeRepairCorr
-																																																																																											.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																										if (!routeRepairCorr
-																																																																																												.equals(srcRoute)) {
-																																																																																											if (!routeRepairCorr
-																																																																																													.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																												if (!routeRepairCorr
-																																																																																														.equals(trgRouteFail)) {
-																																																																																													if (!routeRepairCorr
-																																																																																															.equals(semaphoreFailedCorr)) {
-																																																																																														if (!routeRepairCorr
-																																																																																																.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																															if (!routeRepairCorr
-																																																																																																	.equals(trgRouteRepair)) {
-																																																																																																if (!routeRepairCorr
-																																																																																																		.equals(trgRouteFailToRouteFailed)) {
-																																																																																																	if (!routeRepairCorr
-																																																																																																			.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																		if (!routeRepairCorr
-																																																																																																				.equals(srcSemaphore)) {
-																																																																																																			if (!routeRepairCorr
-																																																																																																					.equals(trgRouteOperational)) {
-																																																																																																				if (!routeRepairCorr
-																																																																																																						.equals(trgPetrinet)) {
-																																																																																																					if (!routeRepairCorr
-																																																																																																							.equals(trgRouteFailed)) {
-																																																																																																						if (!routeRepairCorr
-																																																																																																								.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																							if (!routeRepairCorr
-																																																																																																									.equals(semaphoreOperationalCorr)) {
-																																																																																																								if (!routeRepairCorr
-																																																																																																										.equals(trgSemaphoreOperational)) {
-																																																																																																									if (!semaphoreFailedCorr
-																																																																																																											.equals(trgSemaphoreFailed)) {
-																																																																																																										if (!semaphoreFailedCorr
-																																																																																																												.equals(srcContainer)) {
-																																																																																																											if (!semaphoreFailedCorr
-																																																																																																													.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																												if (!semaphoreFailedCorr
-																																																																																																														.equals(srcRoute)) {
-																																																																																																													if (!semaphoreFailedCorr
-																																																																																																															.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																														if (!semaphoreFailedCorr
-																																																																																																																.equals(trgRouteFail)) {
-																																																																																																															if (!semaphoreFailedCorr
+																																																																																							if (!trgRouteOperational
+																																																																																									.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																								if (!trgRouteOperational
+																																																																																										.equals(trgRouteRepair)) {
+																																																																																									if (!routeFailedCorr
+																																																																																											.equals(routeRepairCorr)) {
+																																																																																										if (!routeFailedCorr
+																																																																																												.equals(semaphoreOperationalCorr)) {
+																																																																																											if (!routeFailedCorr
+																																																																																													.equals(trgSemaphoreFailed)) {
+																																																																																												if (!routeFailedCorr
+																																																																																														.equals(srcContainer)) {
+																																																																																													if (!routeFailedCorr
+																																																																																															.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																														if (!routeFailedCorr
+																																																																																																.equals(semaphoreFailedCorr)) {
+																																																																																															if (!routeFailedCorr
+																																																																																																	.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																if (!routeFailedCorr
+																																																																																																		.equals(trgRouteOperational)) {
+																																																																																																	if (!routeFailedCorr
+																																																																																																			.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																		if (!routeFailedCorr
+																																																																																																				.equals(trgRouteFailed)) {
+																																																																																																			if (!routeFailedCorr
+																																																																																																					.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																				if (!routeFailedCorr
+																																																																																																						.equals(trgSemaphoreOperational)) {
+																																																																																																					if (!routeFailedCorr
+																																																																																																							.equals(trgRouteFail)) {
+																																																																																																						if (!routeFailedCorr
+																																																																																																								.equals(trgPetrinet)) {
+																																																																																																							if (!routeFailedCorr
+																																																																																																									.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																								if (!routeFailedCorr
+																																																																																																										.equals(srcRoute)) {
+																																																																																																									if (!routeFailedCorr
+																																																																																																											.equals(trgRouteFailToRouteFailed)) {
+																																																																																																										if (!routeFailedCorr
+																																																																																																												.equals(srcSemaphore)) {
+																																																																																																											if (!routeFailedCorr
+																																																																																																													.equals(routeOperationalCorr)) {
+																																																																																																												if (!routeFailedCorr
+																																																																																																														.equals(trgRouteRepair)) {
+																																																																																																													if (!trgRouteOperationalToRouteFail
+																																																																																																															.equals(trgSemaphoreFailed)) {
+																																																																																																														if (!trgRouteOperationalToRouteFail
+																																																																																																																.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																															if (!trgRouteOperationalToRouteFail
 																																																																																																																	.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																if (!semaphoreFailedCorr
-																																																																																																																		.equals(trgRouteRepair)) {
-																																																																																																																	if (!semaphoreFailedCorr
-																																																																																																																			.equals(trgRouteFailToRouteFailed)) {
-																																																																																																																		if (!semaphoreFailedCorr
-																																																																																																																				.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																			if (!semaphoreFailedCorr
-																																																																																																																					.equals(srcSemaphore)) {
-																																																																																																																				if (!semaphoreFailedCorr
-																																																																																																																						.equals(trgRouteOperational)) {
-																																																																																																																					if (!semaphoreFailedCorr
-																																																																																																																							.equals(trgPetrinet)) {
-																																																																																																																						if (!semaphoreFailedCorr
-																																																																																																																								.equals(trgRouteFailed)) {
-																																																																																																																							if (!semaphoreFailedCorr
-																																																																																																																									.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																								if (!semaphoreFailedCorr
-																																																																																																																										.equals(semaphoreOperationalCorr)) {
-																																																																																																																									if (!semaphoreFailedCorr
-																																																																																																																											.equals(trgSemaphoreOperational)) {
-																																																																																																																										if (!trgRouteRepairToSemaphoreOperational
-																																																																																																																												.equals(trgSemaphoreFailed)) {
+																																																																																																																if (!trgRouteOperationalToRouteFail
+																																																																																																																		.equals(trgSemaphoreOperational)) {
+																																																																																																																	if (!trgRouteOperationalToRouteFail
+																																																																																																																			.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																		if (!trgRouteOperationalToRouteFail
+																																																																																																																				.equals(trgRouteRepair)) {
+																																																																																																																			if (!trgRouteFailed
+																																																																																																																					.equals(trgSemaphoreFailed)) {
+																																																																																																																				if (!trgRouteFailed
+																																																																																																																						.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																					if (!trgRouteFailed
+																																																																																																																							.equals(trgRouteOperational)) {
+																																																																																																																						if (!trgRouteFailed
+																																																																																																																								.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																							if (!trgRouteFailed
+																																																																																																																									.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																								if (!trgRouteFailed
+																																																																																																																										.equals(trgSemaphoreOperational)) {
+																																																																																																																									if (!trgRouteFailed
+																																																																																																																											.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																										if (!trgRouteFailed
+																																																																																																																												.equals(trgRouteRepair)) {
 																																																																																																																											if (!trgRouteRepairToSemaphoreOperational
-																																																																																																																													.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																													.equals(trgSemaphoreFailed)) {
 																																																																																																																												if (!trgRouteRepairToSemaphoreOperational
 																																																																																																																														.equals(trgSemaphoreFailedToRouteFail)) {
 																																																																																																																													if (!trgRouteRepairToSemaphoreOperational
 																																																																																																																															.equals(trgSemaphoreOperational)) {
-																																																																																																																														if (!trgRouteRepair
-																																																																																																																																.equals(trgSemaphoreFailed)) {
-																																																																																																																															if (!trgRouteRepair
+																																																																																																																														if (!trgRouteRepairToSemaphoreOperational
+																																																																																																																																.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																															if (!trgSemaphoreOperational
 																																																																																																																																	.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																if (!trgRouteRepair
-																																																																																																																																		.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																	if (!trgRouteRepair
-																																																																																																																																			.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																		if (!trgRouteRepair
-																																																																																																																																				.equals(trgSemaphoreOperational)) {
-																																																																																																																																			if (!trgRouteFailToRouteFailed
-																																																																																																																																					.equals(trgSemaphoreFailed)) {
-																																																																																																																																				if (!trgRouteFailToRouteFailed
-																																																																																																																																						.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																					if (!trgRouteFailToRouteFailed
-																																																																																																																																							.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																						if (!trgRouteFailToRouteFailed
+																																																																																																																																if (!trgRouteFail
+																																																																																																																																		.equals(trgSemaphoreFailed)) {
+																																																																																																																																	if (!trgRouteFail
+																																																																																																																																			.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																		if (!trgRouteFail
+																																																																																																																																				.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																			if (!trgRouteFail
+																																																																																																																																					.equals(trgRouteOperational)) {
+																																																																																																																																				if (!trgRouteFail
+																																																																																																																																						.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																					if (!trgRouteFail
+																																																																																																																																							.equals(trgRouteFailed)) {
+																																																																																																																																						if (!trgRouteFail
 																																																																																																																																								.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																							if (!trgRouteFailToRouteFailed
-																																																																																																																																									.equals(trgRouteRepair)) {
-																																																																																																																																								if (!trgRouteFailToRouteFailed
-																																																																																																																																										.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																																									if (!trgRouteFailToRouteFailed
-																																																																																																																																											.equals(trgRouteOperational)) {
-																																																																																																																																										if (!trgRouteFailToRouteFailed
-																																																																																																																																												.equals(trgRouteFailed)) {
-																																																																																																																																											if (!trgRouteFailToRouteFailed
-																																																																																																																																													.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																												if (!trgRouteFailToRouteFailed
-																																																																																																																																														.equals(trgSemaphoreOperational)) {
-																																																																																																																																													if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																															.equals(trgSemaphoreFailed)) {
-																																																																																																																																														if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																															if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																	.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																		.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																	if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																			.equals(trgRouteRepair)) {
-																																																																																																																																																		if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																				.equals(trgRouteOperational)) {
-																																																																																																																																																			if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																					.equals(trgRouteFailed)) {
-																																																																																																																																																				if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																						.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																					if (!trgRouteFailToSemaphoreFailed
-																																																																																																																																																							.equals(trgSemaphoreOperational)) {
-																																																																																																																																																						if (!srcSemaphore
-																																																																																																																																																								.equals(trgSemaphoreFailed)) {
-																																																																																																																																																							if (!srcSemaphore
-																																																																																																																																																									.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																								if (!srcSemaphore
-																																																																																																																																																										.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																									if (!srcSemaphore
-																																																																																																																																																											.equals(trgRouteFail)) {
-																																																																																																																																																										if (!srcSemaphore
-																																																																																																																																																												.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																											if (!srcSemaphore
-																																																																																																																																																													.equals(trgRouteRepair)) {
-																																																																																																																																																												if (!srcSemaphore
-																																																																																																																																																														.equals(trgRouteFailToRouteFailed)) {
-																																																																																																																																																													if (!srcSemaphore
-																																																																																																																																																															.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																																																														if (!srcSemaphore
-																																																																																																																																																																.equals(trgRouteOperational)) {
-																																																																																																																																																															if (!srcSemaphore
-																																																																																																																																																																	.equals(trgPetrinet)) {
-																																																																																																																																																																if (!srcSemaphore
-																																																																																																																																																																		.equals(trgRouteFailed)) {
-																																																																																																																																																																	if (!srcSemaphore
-																																																																																																																																																																			.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																		if (!srcSemaphore
-																																																																																																																																																																				.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																			if (!trgRouteOperational
-																																																																																																																																																																					.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																				if (!trgRouteOperational
-																																																																																																																																																																						.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																					if (!trgRouteOperational
-																																																																																																																																																																							.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																						if (!trgRouteOperational
-																																																																																																																																																																								.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																							if (!trgRouteOperational
-																																																																																																																																																																									.equals(trgRouteRepair)) {
-																																																																																																																																																																								if (!trgRouteOperational
-																																																																																																																																																																										.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																									if (!trgRouteOperational
-																																																																																																																																																																											.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																										if (!trgPetrinet
-																																																																																																																																																																												.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																											if (!trgPetrinet
-																																																																																																																																																																													.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																												if (!trgPetrinet
-																																																																																																																																																																														.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																													if (!trgPetrinet
-																																																																																																																																																																															.equals(trgRouteFail)) {
-																																																																																																																																																																														if (!trgPetrinet
-																																																																																																																																																																																.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																															if (!trgPetrinet
-																																																																																																																																																																																	.equals(trgRouteRepair)) {
-																																																																																																																																																																																if (!trgPetrinet
-																																																																																																																																																																																		.equals(trgRouteFailToRouteFailed)) {
-																																																																																																																																																																																	if (!trgPetrinet
-																																																																																																																																																																																			.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																																																																																		if (!trgPetrinet
-																																																																																																																																																																																				.equals(trgRouteOperational)) {
-																																																																																																																																																																																			if (!trgPetrinet
-																																																																																																																																																																																					.equals(trgRouteFailed)) {
-																																																																																																																																																																																				if (!trgPetrinet
-																																																																																																																																																																																						.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																																					if (!trgPetrinet
-																																																																																																																																																																																							.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																																						if (!trgRouteFailed
-																																																																																																																																																																																								.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																																							if (!trgRouteFailed
-																																																																																																																																																																																									.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																																								if (!trgRouteFailed
-																																																																																																																																																																																										.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																																									if (!trgRouteFailed
-																																																																																																																																																																																											.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																																										if (!trgRouteFailed
-																																																																																																																																																																																												.equals(trgRouteRepair)) {
-																																																																																																																																																																																											if (!trgRouteFailed
-																																																																																																																																																																																													.equals(trgRouteOperational)) {
-																																																																																																																																																																																												if (!trgRouteFailed
-																																																																																																																																																																																														.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																																													if (!trgRouteFailed
-																																																																																																																																																																																															.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																																														if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																																															if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																	.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																																																if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																		.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																																																	if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																			.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																																																		if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																				.equals(trgRouteRepair)) {
-																																																																																																																																																																																																			if (!trgRouteOperationalToRouteFail
-																																																																																																																																																																																																					.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																																																				if (!routeFailedCorr
-																																																																																																																																																																																																						.equals(routeOperationalCorr)) {
-																																																																																																																																																																																																					if (!routeFailedCorr
-																																																																																																																																																																																																							.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																																																						if (!routeFailedCorr
-																																																																																																																																																																																																								.equals(srcContainer)) {
-																																																																																																																																																																																																							if (!routeFailedCorr
-																																																																																																																																																																																																									.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																																																								if (!routeFailedCorr
-																																																																																																																																																																																																										.equals(srcRoute)) {
-																																																																																																																																																																																																									if (!routeFailedCorr
-																																																																																																																																																																																																											.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																																																										if (!routeFailedCorr
-																																																																																																																																																																																																												.equals(trgRouteFail)) {
-																																																																																																																																																																																																											if (!routeFailedCorr
-																																																																																																																																																																																																													.equals(routeRepairCorr)) {
-																																																																																																																																																																																																												if (!routeFailedCorr
-																																																																																																																																																																																																														.equals(semaphoreFailedCorr)) {
-																																																																																																																																																																																																													if (!routeFailedCorr
-																																																																																																																																																																																																															.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																																																														if (!routeFailedCorr
-																																																																																																																																																																																																																.equals(trgRouteRepair)) {
-																																																																																																																																																																																																															if (!routeFailedCorr
+																																																																																																																																							if (!trgRouteFail
+																																																																																																																																									.equals(trgSemaphoreOperational)) {
+																																																																																																																																								if (!trgRouteFail
+																																																																																																																																										.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																									if (!trgRouteFail
+																																																																																																																																											.equals(trgRouteFailToRouteFailed)) {
+																																																																																																																																										if (!trgRouteFail
+																																																																																																																																												.equals(trgRouteRepair)) {
+																																																																																																																																											if (!trgPetrinet
+																																																																																																																																													.equals(trgSemaphoreFailed)) {
+																																																																																																																																												if (!trgPetrinet
+																																																																																																																																														.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																													if (!trgPetrinet
+																																																																																																																																															.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																														if (!trgPetrinet
+																																																																																																																																																.equals(trgRouteOperational)) {
+																																																																																																																																															if (!trgPetrinet
+																																																																																																																																																	.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																if (!trgPetrinet
+																																																																																																																																																		.equals(trgRouteFailed)) {
+																																																																																																																																																	if (!trgPetrinet
+																																																																																																																																																			.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																		if (!trgPetrinet
+																																																																																																																																																				.equals(trgSemaphoreOperational)) {
+																																																																																																																																																			if (!trgPetrinet
+																																																																																																																																																					.equals(trgRouteFail)) {
+																																																																																																																																																				if (!trgPetrinet
+																																																																																																																																																						.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																					if (!trgPetrinet
+																																																																																																																																																							.equals(trgRouteFailToRouteFailed)) {
+																																																																																																																																																						if (!trgPetrinet
+																																																																																																																																																								.equals(trgRouteRepair)) {
+																																																																																																																																																							if (!srcRoute
+																																																																																																																																																									.equals(trgSemaphoreFailed)) {
+																																																																																																																																																								if (!srcRoute
+																																																																																																																																																										.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																																									if (!srcRoute
+																																																																																																																																																											.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																										if (!srcRoute
+																																																																																																																																																												.equals(trgRouteOperational)) {
+																																																																																																																																																											if (!srcRoute
+																																																																																																																																																													.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																												if (!srcRoute
+																																																																																																																																																														.equals(trgRouteFailed)) {
+																																																																																																																																																													if (!srcRoute
+																																																																																																																																																															.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																														if (!srcRoute
+																																																																																																																																																																.equals(trgSemaphoreOperational)) {
+																																																																																																																																																															if (!srcRoute
+																																																																																																																																																																	.equals(trgRouteFail)) {
+																																																																																																																																																																if (!srcRoute
+																																																																																																																																																																		.equals(trgPetrinet)) {
+																																																																																																																																																																	if (!srcRoute
+																																																																																																																																																																			.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																																		if (!srcRoute
+																																																																																																																																																																				.equals(trgRouteFailToRouteFailed)) {
+																																																																																																																																																																			if (!srcRoute
+																																																																																																																																																																					.equals(srcSemaphore)) {
+																																																																																																																																																																				if (!srcRoute
+																																																																																																																																																																						.equals(trgRouteRepair)) {
+																																																																																																																																																																					if (!trgRouteFailToRouteFailed
+																																																																																																																																																																							.equals(trgSemaphoreFailed)) {
+																																																																																																																																																																						if (!trgRouteFailToRouteFailed
+																																																																																																																																																																								.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																																																							if (!trgRouteFailToRouteFailed
+																																																																																																																																																																									.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																																								if (!trgRouteFailToRouteFailed
+																																																																																																																																																																										.equals(trgRouteOperational)) {
+																																																																																																																																																																									if (!trgRouteFailToRouteFailed
+																																																																																																																																																																											.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																																										if (!trgRouteFailToRouteFailed
+																																																																																																																																																																												.equals(trgRouteFailed)) {
+																																																																																																																																																																											if (!trgRouteFailToRouteFailed
+																																																																																																																																																																													.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																																												if (!trgRouteFailToRouteFailed
+																																																																																																																																																																														.equals(trgSemaphoreOperational)) {
+																																																																																																																																																																													if (!trgRouteFailToRouteFailed
+																																																																																																																																																																															.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																																														if (!trgRouteFailToRouteFailed
+																																																																																																																																																																																.equals(trgRouteRepair)) {
+																																																																																																																																																																															if (!containerCorr
+																																																																																																																																																																																	.equals(routeRepairCorr)) {
+																																																																																																																																																																																if (!containerCorr
+																																																																																																																																																																																		.equals(semaphoreOperationalCorr)) {
+																																																																																																																																																																																	if (!containerCorr
+																																																																																																																																																																																			.equals(trgSemaphoreFailed)) {
+																																																																																																																																																																																		if (!containerCorr
+																																																																																																																																																																																				.equals(srcContainer)) {
+																																																																																																																																																																																			if (!containerCorr
+																																																																																																																																																																																					.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																																																																				if (!containerCorr
+																																																																																																																																																																																						.equals(semaphoreFailedCorr)) {
+																																																																																																																																																																																					if (!containerCorr
+																																																																																																																																																																																							.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																																																						if (!containerCorr
+																																																																																																																																																																																								.equals(trgRouteOperational)) {
+																																																																																																																																																																																							if (!containerCorr
+																																																																																																																																																																																									.equals(routeFailedCorr)) {
+																																																																																																																																																																																								if (!containerCorr
+																																																																																																																																																																																										.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																																																									if (!containerCorr
+																																																																																																																																																																																											.equals(trgRouteFailed)) {
+																																																																																																																																																																																										if (!containerCorr
+																																																																																																																																																																																												.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																																																											if (!containerCorr
+																																																																																																																																																																																													.equals(trgSemaphoreOperational)) {
+																																																																																																																																																																																												if (!containerCorr
+																																																																																																																																																																																														.equals(trgRouteFail)) {
+																																																																																																																																																																																													if (!containerCorr
+																																																																																																																																																																																															.equals(trgPetrinet)) {
+																																																																																																																																																																																														if (!containerCorr
+																																																																																																																																																																																																.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																																																															if (!containerCorr
+																																																																																																																																																																																																	.equals(srcRoute)) {
+																																																																																																																																																																																																if (!containerCorr
+																																																																																																																																																																																																		.equals(trgRouteFailToRouteFailed)) {
+																																																																																																																																																																																																	if (!containerCorr
+																																																																																																																																																																																																			.equals(srcSemaphore)) {
+																																																																																																																																																																																																		if (!containerCorr
+																																																																																																																																																																																																				.equals(routeOperationalCorr)) {
+																																																																																																																																																																																																			if (!containerCorr
+																																																																																																																																																																																																					.equals(trgRouteRepair)) {
+																																																																																																																																																																																																				if (!srcSemaphore
+																																																																																																																																																																																																						.equals(trgSemaphoreFailed)) {
+																																																																																																																																																																																																					if (!srcSemaphore
+																																																																																																																																																																																																							.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																																																																																						if (!srcSemaphore
+																																																																																																																																																																																																								.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																																																																							if (!srcSemaphore
+																																																																																																																																																																																																									.equals(trgRouteOperational)) {
+																																																																																																																																																																																																								if (!srcSemaphore
+																																																																																																																																																																																																										.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																																																																									if (!srcSemaphore
+																																																																																																																																																																																																											.equals(trgRouteFailed)) {
+																																																																																																																																																																																																										if (!srcSemaphore
+																																																																																																																																																																																																												.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																																																																											if (!srcSemaphore
+																																																																																																																																																																																																													.equals(trgSemaphoreOperational)) {
+																																																																																																																																																																																																												if (!srcSemaphore
+																																																																																																																																																																																																														.equals(trgRouteFail)) {
+																																																																																																																																																																																																													if (!srcSemaphore
+																																																																																																																																																																																																															.equals(trgPetrinet)) {
+																																																																																																																																																																																																														if (!srcSemaphore
+																																																																																																																																																																																																																.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																																																																															if (!srcSemaphore
 																																																																																																																																																																																																																	.equals(trgRouteFailToRouteFailed)) {
-																																																																																																																																																																																																																if (!routeFailedCorr
-																																																																																																																																																																																																																		.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																																																																																																																	if (!routeFailedCorr
-																																																																																																																																																																																																																			.equals(srcSemaphore)) {
-																																																																																																																																																																																																																		if (!routeFailedCorr
-																																																																																																																																																																																																																				.equals(trgRouteOperational)) {
-																																																																																																																																																																																																																			if (!routeFailedCorr
-																																																																																																																																																																																																																					.equals(trgPetrinet)) {
-																																																																																																																																																																																																																				if (!routeFailedCorr
-																																																																																																																																																																																																																						.equals(trgRouteFailed)) {
-																																																																																																																																																																																																																					if (!routeFailedCorr
-																																																																																																																																																																																																																							.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																																																																						if (!routeFailedCorr
-																																																																																																																																																																																																																								.equals(semaphoreOperationalCorr)) {
-																																																																																																																																																																																																																							if (!routeFailedCorr
-																																																																																																																																																																																																																									.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																																																																								if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																										.equals(trgSemaphoreFailed)) {
-																																																																																																																																																																																																																									if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																											.equals(srcContainer)) {
-																																																																																																																																																																																																																										if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																												.equals(trgSemaphoreOperationalToRouteRepair)) {
-																																																																																																																																																																																																																											if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																													.equals(srcRoute)) {
-																																																																																																																																																																																																																												if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																														.equals(trgSemaphoreFailedToRouteFail)) {
-																																																																																																																																																																																																																													if (!semaphoreOperationalCorr
+																																																																																																																																																																																																																if (!srcSemaphore
+																																																																																																																																																																																																																		.equals(trgRouteRepair)) {
+																																																																																																																																																																																																																	if (!routeOperationalCorr
+																																																																																																																																																																																																																			.equals(routeRepairCorr)) {
+																																																																																																																																																																																																																		if (!routeOperationalCorr
+																																																																																																																																																																																																																				.equals(semaphoreOperationalCorr)) {
+																																																																																																																																																																																																																			if (!routeOperationalCorr
+																																																																																																																																																																																																																					.equals(trgSemaphoreFailed)) {
+																																																																																																																																																																																																																				if (!routeOperationalCorr
+																																																																																																																																																																																																																						.equals(srcContainer)) {
+																																																																																																																																																																																																																					if (!routeOperationalCorr
+																																																																																																																																																																																																																							.equals(trgRouteFailToSemaphoreFailed)) {
+																																																																																																																																																																																																																						if (!routeOperationalCorr
+																																																																																																																																																																																																																								.equals(semaphoreFailedCorr)) {
+																																																																																																																																																																																																																							if (!routeOperationalCorr
+																																																																																																																																																																																																																									.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																																																																																								if (!routeOperationalCorr
+																																																																																																																																																																																																																										.equals(trgRouteOperational)) {
+																																																																																																																																																																																																																									if (!routeOperationalCorr
+																																																																																																																																																																																																																											.equals(trgRouteOperationalToRouteFail)) {
+																																																																																																																																																																																																																										if (!routeOperationalCorr
+																																																																																																																																																																																																																												.equals(trgRouteFailed)) {
+																																																																																																																																																																																																																											if (!routeOperationalCorr
+																																																																																																																																																																																																																													.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																																																																																												if (!routeOperationalCorr
+																																																																																																																																																																																																																														.equals(trgSemaphoreOperational)) {
+																																																																																																																																																																																																																													if (!routeOperationalCorr
 																																																																																																																																																																																																																															.equals(trgRouteFail)) {
-																																																																																																																																																																																																																														if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																.equals(trgRouteRepairToSemaphoreOperational)) {
-																																																																																																																																																																																																																															if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																	.equals(trgRouteRepair)) {
-																																																																																																																																																																																																																																if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																		.equals(trgRouteFailToRouteFailed)) {
-																																																																																																																																																																																																																																	if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																			.equals(trgRouteFailToSemaphoreFailed)) {
-																																																																																																																																																																																																																																		if (!semaphoreOperationalCorr
+																																																																																																																																																																																																																														if (!routeOperationalCorr
+																																																																																																																																																																																																																																.equals(trgPetrinet)) {
+																																																																																																																																																																																																																															if (!routeOperationalCorr
+																																																																																																																																																																																																																																	.equals(trgSemaphoreOperationalToRouteRepair)) {
+																																																																																																																																																																																																																																if (!routeOperationalCorr
+																																																																																																																																																																																																																																		.equals(srcRoute)) {
+																																																																																																																																																																																																																																	if (!routeOperationalCorr
+																																																																																																																																																																																																																																			.equals(trgRouteFailToRouteFailed)) {
+																																																																																																																																																																																																																																		if (!routeOperationalCorr
 																																																																																																																																																																																																																																				.equals(srcSemaphore)) {
-																																																																																																																																																																																																																																			if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																					.equals(trgRouteOperational)) {
-																																																																																																																																																																																																																																				if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																						.equals(trgPetrinet)) {
-																																																																																																																																																																																																																																					if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																							.equals(trgRouteFailed)) {
-																																																																																																																																																																																																																																						if (!semaphoreOperationalCorr
-																																																																																																																																																																																																																																								.equals(trgRouteOperationalToRouteFail)) {
-																																																																																																																																																																																																																																							if (!semaphoreOperationalCorr
+																																																																																																																																																																																																																																			if (!routeOperationalCorr
+																																																																																																																																																																																																																																					.equals(trgRouteRepair)) {
+																																																																																																																																																																																																																																				if (!trgRouteRepair
+																																																																																																																																																																																																																																						.equals(trgSemaphoreFailed)) {
+																																																																																																																																																																																																																																					if (!trgRouteRepair
+																																																																																																																																																																																																																																							.equals(trgSemaphoreFailedToRouteFail)) {
+																																																																																																																																																																																																																																						if (!trgRouteRepair
+																																																																																																																																																																																																																																								.equals(trgRouteRepairToSemaphoreOperational)) {
+																																																																																																																																																																																																																																							if (!trgRouteRepair
 																																																																																																																																																																																																																																									.equals(trgSemaphoreOperational)) {
-																																																																																																																																																																																																																																								if (!trgSemaphoreOperational
+																																																																																																																																																																																																																																								if (!trgRouteRepair
 																																																																																																																																																																																																																																										.equals(trgSemaphoreOperationalToRouteRepair)) {
 																																																																																																																																																																																																																																									return new Object[] {
 																																																																																																																																																																																																																																											ruleresult,
-																																																																																																																																																																																																																																											routeOperationalCorr,
+																																																																																																																																																																																																																																											routeRepairCorr,
+																																																																																																																																																																																																																																											semaphoreOperationalCorr,
 																																																																																																																																																																																																																																											trgSemaphoreFailed,
 																																																																																																																																																																																																																																											srcContainer,
+																																																																																																																																																																																																																																											trgRouteFailToSemaphoreFailed,
+																																																																																																																																																																																																																																											semaphoreFailedCorr,
+																																																																																																																																																																																																																																											trgSemaphoreFailedToRouteFail,
+																																																																																																																																																																																																																																											trgRouteOperational,
+																																																																																																																																																																																																																																											routeFailedCorr,
+																																																																																																																																																																																																																																											trgRouteOperationalToRouteFail,
+																																																																																																																																																																																																																																											trgRouteFailed,
+																																																																																																																																																																																																																																											trgRouteRepairToSemaphoreOperational,
+																																																																																																																																																																																																																																											trgSemaphoreOperational,
+																																																																																																																																																																																																																																											trgRouteFail,
+																																																																																																																																																																																																																																											trgPetrinet,
 																																																																																																																																																																																																																																											trgSemaphoreOperationalToRouteRepair,
 																																																																																																																																																																																																																																											srcRoute,
-																																																																																																																																																																																																																																											trgSemaphoreFailedToRouteFail,
-																																																																																																																																																																																																																																											containerCorr,
-																																																																																																																																																																																																																																											trgRouteFail,
-																																																																																																																																																																																																																																											routeRepairCorr,
-																																																																																																																																																																																																																																											semaphoreFailedCorr,
-																																																																																																																																																																																																																																											trgRouteRepairToSemaphoreOperational,
-																																																																																																																																																																																																																																											trgRouteRepair,
 																																																																																																																																																																																																																																											trgRouteFailToRouteFailed,
-																																																																																																																																																																																																																																											trgRouteFailToSemaphoreFailed,
+																																																																																																																																																																																																																																											containerCorr,
 																																																																																																																																																																																																																																											srcSemaphore,
-																																																																																																																																																																																																																																											trgRouteOperational,
-																																																																																																																																																																																																																																											trgPetrinet,
-																																																																																																																																																																																																																																											trgRouteFailed,
-																																																																																																																																																																																																																																											trgRouteOperationalToRouteFail,
-																																																																																																																																																																																																																																											routeFailedCorr,
-																																																																																																																																																																																																																																											semaphoreOperationalCorr,
-																																																																																																																																																																																																																																											trgSemaphoreOperational };
+																																																																																																																																																																																																																																											routeOperationalCorr,
+																																																																																																																																																																																																																																											trgRouteRepair };
 																																																																																																																																																																																																																																								}
 																																																																																																																																																																																																																																							}
 																																																																																																																																																																																																																																						}
@@ -1829,15 +1831,37 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject trgSemaphoreFailed, EObject trgSemaphoreOperationalToRouteRepair,
-			EObject srcRoute, EObject trgSemaphoreFailedToRouteFail, EObject trgRouteFail,
-			EObject trgRouteRepairToSemaphoreOperational, EObject trgRouteRepair, EObject trgRouteFailToRouteFailed,
-			EObject trgRouteFailToSemaphoreFailed, EObject srcSemaphore, EObject trgRouteOperational,
-			EObject trgPetrinet, EObject trgRouteFailed, EObject trgRouteOperationalToRouteFail,
-			EObject trgSemaphoreOperational) {
+			PerformRuleResult ruleresult, EObject trgSemaphoreFailed, EObject trgRouteFailToSemaphoreFailed,
+			EObject trgSemaphoreFailedToRouteFail, EObject trgRouteOperational, EObject trgRouteOperationalToRouteFail,
+			EObject trgRouteFailed, EObject trgRouteRepairToSemaphoreOperational, EObject trgSemaphoreOperational,
+			EObject trgRouteFail, EObject trgPetrinet, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
+			EObject trgRouteFailToRouteFailed, EObject srcSemaphore, EObject trgRouteRepair) {
+		EMoflonEdge trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteOperationalToRouteFail__trgRouteOperational____place = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteFailToSemaphoreFailed__trgRouteFail____transition = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteFail__trgRouteFailToSemaphoreFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgRouteFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRouteOperationalToRouteFail__trgRouteFail____transition = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteFail__trgRouteOperationalToRouteFail____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition = RuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge srcRoute__srcSemaphore____entry = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRouteFailToRouteFailed__trgRouteFail____transition = RuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge trgRouteFail__trgRouteFailToRouteFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRouteFailToRouteFailed__trgRouteFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place = RuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge trgSemaphoreFailedToRouteFail__trgRouteFail____transition = RuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -1846,57 +1870,80 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 				.createEMoflonEdge();
 		EMoflonEdge trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place = RuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge trgRouteFailToRouteFailed__trgRouteFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRouteFailToSemaphoreFailed__trgRouteFail____transition = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteFail__trgRouteFailToSemaphoreFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRouteFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgRouteFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge srcRoute__srcSemaphore____entry = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteFailToRouteFailed__trgRouteFail____transition = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteFail__trgRouteFailToRouteFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRouteOperationalToRouteFail__trgRouteOperational____place = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteOperationalToRouteFail__trgRouteFail____transition = RuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge trgRouteFail__trgRouteOperationalToRouteFail____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "RequiredEntrySemaphore";
+		String trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place_name_prime = "place";
+		String trgRouteOperationalToRouteFail__trgRouteOperational____place_name_prime = "place";
+		String trgRouteFailToSemaphoreFailed__trgRouteFail____transition_name_prime = "transition";
+		String trgRouteFail__trgRouteFailToSemaphoreFailed____arcs_name_prime = "arcs";
+		String trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition_name_prime = "transition";
+		String trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs_name_prime = "arcs";
+		String trgRouteFail__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgRouteFail____nodes_name_prime = "nodes";
+		String trgRouteOperationalToRouteFail__trgRouteFail____transition_name_prime = "transition";
+		String trgRouteFail__trgRouteOperationalToRouteFail____arcs_name_prime = "arcs";
 		String trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition_name_prime = "transition";
 		String trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs_name_prime = "arcs";
+		String srcRoute__srcSemaphore____entry_name_prime = "entry";
+		String trgRouteFailToRouteFailed__trgRouteFail____transition_name_prime = "transition";
+		String trgRouteFail__trgRouteFailToRouteFailed____arcs_name_prime = "arcs";
+		String trgRouteFailToRouteFailed__trgRouteFailed____place_name_prime = "place";
+		String trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place_name_prime = "place";
 		String trgSemaphoreFailedToRouteFail__trgRouteFail____transition_name_prime = "transition";
 		String trgRouteFail__trgSemaphoreFailedToRouteFail____arcs_name_prime = "arcs";
 		String trgRouteRepairToSemaphoreOperational__trgSemaphoreOperational____place_name_prime = "place";
 		String trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place_name_prime = "place";
-		String trgRouteFailToRouteFailed__trgRouteFailed____place_name_prime = "place";
-		String trgRouteFailToSemaphoreFailed__trgRouteFail____transition_name_prime = "transition";
-		String trgRouteFail__trgRouteFailToSemaphoreFailed____arcs_name_prime = "arcs";
-		String trgRouteFail__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgRouteFail____nodes_name_prime = "nodes";
-		String trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place_name_prime = "place";
-		String srcRoute__srcSemaphore____entry_name_prime = "entry";
-		String trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition_name_prime = "transition";
-		String trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs_name_prime = "arcs";
-		String trgRouteFailToRouteFailed__trgRouteFail____transition_name_prime = "transition";
-		String trgRouteFail__trgRouteFailToRouteFailed____arcs_name_prime = "arcs";
-		String trgRouteOperationalToRouteFail__trgRouteOperational____place_name_prime = "place";
-		String trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place_name_prime = "place";
-		String trgRouteOperationalToRouteFail__trgRouteFail____transition_name_prime = "transition";
-		String trgRouteFail__trgRouteOperationalToRouteFail____arcs_name_prime = "arcs";
+		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place.setSrc(trgRouteFailToSemaphoreFailed);
+		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place.setTrg(trgSemaphoreFailed);
+		ruleresult.getCreatedEdges().add(trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place);
+		trgRouteOperationalToRouteFail__trgRouteOperational____place.setSrc(trgRouteOperationalToRouteFail);
+		trgRouteOperationalToRouteFail__trgRouteOperational____place.setTrg(trgRouteOperational);
+		ruleresult.getCreatedEdges().add(trgRouteOperationalToRouteFail__trgRouteOperational____place);
+		trgRouteFailToSemaphoreFailed__trgRouteFail____transition.setSrc(trgRouteFailToSemaphoreFailed);
+		trgRouteFailToSemaphoreFailed__trgRouteFail____transition.setTrg(trgRouteFail);
+		ruleresult.getCreatedEdges().add(trgRouteFailToSemaphoreFailed__trgRouteFail____transition);
+		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs.setSrc(trgRouteFail);
+		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs.setTrg(trgRouteFailToSemaphoreFailed);
+		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteFailToSemaphoreFailed____arcs);
+		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition.setSrc(trgRouteRepairToSemaphoreOperational);
+		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition.setTrg(trgRouteRepair);
+		ruleresult.getCreatedEdges().add(trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition);
+		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs.setSrc(trgRouteRepair);
+		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs.setTrg(trgRouteRepairToSemaphoreOperational);
+		ruleresult.getCreatedEdges().add(trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs);
+		trgRouteFail__trgPetrinet____petriNet.setSrc(trgRouteFail);
+		trgRouteFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgRouteFail__trgPetrinet____petriNet);
+		trgPetrinet__trgRouteFail____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgRouteFail____nodes.setTrg(trgRouteFail);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgRouteFail____nodes);
+		trgRouteOperationalToRouteFail__trgRouteFail____transition.setSrc(trgRouteOperationalToRouteFail);
+		trgRouteOperationalToRouteFail__trgRouteFail____transition.setTrg(trgRouteFail);
+		ruleresult.getCreatedEdges().add(trgRouteOperationalToRouteFail__trgRouteFail____transition);
+		trgRouteFail__trgRouteOperationalToRouteFail____arcs.setSrc(trgRouteFail);
+		trgRouteFail__trgRouteOperationalToRouteFail____arcs.setTrg(trgRouteOperationalToRouteFail);
+		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteOperationalToRouteFail____arcs);
 		trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition.setSrc(trgSemaphoreOperationalToRouteRepair);
 		trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition.setTrg(trgRouteRepair);
 		ruleresult.getCreatedEdges().add(trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition);
 		trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs.setSrc(trgRouteRepair);
 		trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs.setTrg(trgSemaphoreOperationalToRouteRepair);
 		ruleresult.getCreatedEdges().add(trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs);
+		srcRoute__srcSemaphore____entry.setSrc(srcRoute);
+		srcRoute__srcSemaphore____entry.setTrg(srcSemaphore);
+		ruleresult.getTranslatedEdges().add(srcRoute__srcSemaphore____entry);
+		trgRouteFailToRouteFailed__trgRouteFail____transition.setSrc(trgRouteFailToRouteFailed);
+		trgRouteFailToRouteFailed__trgRouteFail____transition.setTrg(trgRouteFail);
+		ruleresult.getCreatedEdges().add(trgRouteFailToRouteFailed__trgRouteFail____transition);
+		trgRouteFail__trgRouteFailToRouteFailed____arcs.setSrc(trgRouteFail);
+		trgRouteFail__trgRouteFailToRouteFailed____arcs.setTrg(trgRouteFailToRouteFailed);
+		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteFailToRouteFailed____arcs);
+		trgRouteFailToRouteFailed__trgRouteFailed____place.setSrc(trgRouteFailToRouteFailed);
+		trgRouteFailToRouteFailed__trgRouteFailed____place.setTrg(trgRouteFailed);
+		ruleresult.getCreatedEdges().add(trgRouteFailToRouteFailed__trgRouteFailed____place);
+		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place
+				.setSrc(trgSemaphoreOperationalToRouteRepair);
+		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place.setTrg(trgSemaphoreOperational);
+		ruleresult.getCreatedEdges().add(trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place);
 		trgSemaphoreFailedToRouteFail__trgRouteFail____transition.setSrc(trgSemaphoreFailedToRouteFail);
 		trgSemaphoreFailedToRouteFail__trgRouteFail____transition.setTrg(trgRouteFail);
 		ruleresult.getCreatedEdges().add(trgSemaphoreFailedToRouteFail__trgRouteFail____transition);
@@ -1910,57 +1957,38 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 		trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place.setSrc(trgSemaphoreFailedToRouteFail);
 		trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place.setTrg(trgSemaphoreFailed);
 		ruleresult.getCreatedEdges().add(trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place);
-		trgRouteFailToRouteFailed__trgRouteFailed____place.setSrc(trgRouteFailToRouteFailed);
-		trgRouteFailToRouteFailed__trgRouteFailed____place.setTrg(trgRouteFailed);
-		ruleresult.getCreatedEdges().add(trgRouteFailToRouteFailed__trgRouteFailed____place);
-		trgRouteFailToSemaphoreFailed__trgRouteFail____transition.setSrc(trgRouteFailToSemaphoreFailed);
-		trgRouteFailToSemaphoreFailed__trgRouteFail____transition.setTrg(trgRouteFail);
-		ruleresult.getCreatedEdges().add(trgRouteFailToSemaphoreFailed__trgRouteFail____transition);
-		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs.setSrc(trgRouteFail);
-		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs.setTrg(trgRouteFailToSemaphoreFailed);
-		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteFailToSemaphoreFailed____arcs);
-		trgRouteFail__trgPetrinet____petriNet.setSrc(trgRouteFail);
-		trgRouteFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgRouteFail__trgPetrinet____petriNet);
-		trgPetrinet__trgRouteFail____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgRouteFail____nodes.setTrg(trgRouteFail);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgRouteFail____nodes);
-		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place
-				.setSrc(trgSemaphoreOperationalToRouteRepair);
-		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place.setTrg(trgSemaphoreOperational);
-		ruleresult.getCreatedEdges().add(trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place);
-		srcRoute__srcSemaphore____entry.setSrc(srcRoute);
-		srcRoute__srcSemaphore____entry.setTrg(srcSemaphore);
-		ruleresult.getTranslatedEdges().add(srcRoute__srcSemaphore____entry);
-		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition.setSrc(trgRouteRepairToSemaphoreOperational);
-		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition.setTrg(trgRouteRepair);
-		ruleresult.getCreatedEdges().add(trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition);
-		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs.setSrc(trgRouteRepair);
-		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs.setTrg(trgRouteRepairToSemaphoreOperational);
-		ruleresult.getCreatedEdges().add(trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs);
-		trgRouteFailToRouteFailed__trgRouteFail____transition.setSrc(trgRouteFailToRouteFailed);
-		trgRouteFailToRouteFailed__trgRouteFail____transition.setTrg(trgRouteFail);
-		ruleresult.getCreatedEdges().add(trgRouteFailToRouteFailed__trgRouteFail____transition);
-		trgRouteFail__trgRouteFailToRouteFailed____arcs.setSrc(trgRouteFail);
-		trgRouteFail__trgRouteFailToRouteFailed____arcs.setTrg(trgRouteFailToRouteFailed);
-		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteFailToRouteFailed____arcs);
-		trgRouteOperationalToRouteFail__trgRouteOperational____place.setSrc(trgRouteOperationalToRouteFail);
-		trgRouteOperationalToRouteFail__trgRouteOperational____place.setTrg(trgRouteOperational);
-		ruleresult.getCreatedEdges().add(trgRouteOperationalToRouteFail__trgRouteOperational____place);
-		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place.setSrc(trgRouteFailToSemaphoreFailed);
-		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place.setTrg(trgSemaphoreFailed);
-		ruleresult.getCreatedEdges().add(trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place);
-		trgRouteOperationalToRouteFail__trgRouteFail____transition.setSrc(trgRouteOperationalToRouteFail);
-		trgRouteOperationalToRouteFail__trgRouteFail____transition.setTrg(trgRouteFail);
-		ruleresult.getCreatedEdges().add(trgRouteOperationalToRouteFail__trgRouteFail____transition);
-		trgRouteFail__trgRouteOperationalToRouteFail____arcs.setSrc(trgRouteFail);
-		trgRouteFail__trgRouteOperationalToRouteFail____arcs.setTrg(trgRouteOperationalToRouteFail);
-		ruleresult.getCreatedEdges().add(trgRouteFail__trgRouteOperationalToRouteFail____arcs);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place
+				.setName(trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place_name_prime);
+		trgRouteOperationalToRouteFail__trgRouteOperational____place
+				.setName(trgRouteOperationalToRouteFail__trgRouteOperational____place_name_prime);
+		trgRouteFailToSemaphoreFailed__trgRouteFail____transition
+				.setName(trgRouteFailToSemaphoreFailed__trgRouteFail____transition_name_prime);
+		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs
+				.setName(trgRouteFail__trgRouteFailToSemaphoreFailed____arcs_name_prime);
+		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition
+				.setName(trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition_name_prime);
+		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs
+				.setName(trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs_name_prime);
+		trgRouteFail__trgPetrinet____petriNet.setName(trgRouteFail__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgRouteFail____nodes.setName(trgPetrinet__trgRouteFail____nodes_name_prime);
+		trgRouteOperationalToRouteFail__trgRouteFail____transition
+				.setName(trgRouteOperationalToRouteFail__trgRouteFail____transition_name_prime);
+		trgRouteFail__trgRouteOperationalToRouteFail____arcs
+				.setName(trgRouteFail__trgRouteOperationalToRouteFail____arcs_name_prime);
 		trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition
 				.setName(trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition_name_prime);
 		trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs
 				.setName(trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs_name_prime);
+		srcRoute__srcSemaphore____entry.setName(srcRoute__srcSemaphore____entry_name_prime);
+		trgRouteFailToRouteFailed__trgRouteFail____transition
+				.setName(trgRouteFailToRouteFailed__trgRouteFail____transition_name_prime);
+		trgRouteFail__trgRouteFailToRouteFailed____arcs
+				.setName(trgRouteFail__trgRouteFailToRouteFailed____arcs_name_prime);
+		trgRouteFailToRouteFailed__trgRouteFailed____place
+				.setName(trgRouteFailToRouteFailed__trgRouteFailed____place_name_prime);
+		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place
+				.setName(trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place_name_prime);
 		trgSemaphoreFailedToRouteFail__trgRouteFail____transition
 				.setName(trgSemaphoreFailedToRouteFail__trgRouteFail____transition_name_prime);
 		trgRouteFail__trgSemaphoreFailedToRouteFail____arcs
@@ -1969,72 +1997,44 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 				.setName(trgRouteRepairToSemaphoreOperational__trgSemaphoreOperational____place_name_prime);
 		trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place
 				.setName(trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place_name_prime);
-		trgRouteFailToRouteFailed__trgRouteFailed____place
-				.setName(trgRouteFailToRouteFailed__trgRouteFailed____place_name_prime);
-		trgRouteFailToSemaphoreFailed__trgRouteFail____transition
-				.setName(trgRouteFailToSemaphoreFailed__trgRouteFail____transition_name_prime);
-		trgRouteFail__trgRouteFailToSemaphoreFailed____arcs
-				.setName(trgRouteFail__trgRouteFailToSemaphoreFailed____arcs_name_prime);
-		trgRouteFail__trgPetrinet____petriNet.setName(trgRouteFail__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgRouteFail____nodes.setName(trgPetrinet__trgRouteFail____nodes_name_prime);
-		trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place
-				.setName(trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place_name_prime);
-		srcRoute__srcSemaphore____entry.setName(srcRoute__srcSemaphore____entry_name_prime);
-		trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition
-				.setName(trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition_name_prime);
-		trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs
-				.setName(trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs_name_prime);
-		trgRouteFailToRouteFailed__trgRouteFail____transition
-				.setName(trgRouteFailToRouteFailed__trgRouteFail____transition_name_prime);
-		trgRouteFail__trgRouteFailToRouteFailed____arcs
-				.setName(trgRouteFail__trgRouteFailToRouteFailed____arcs_name_prime);
-		trgRouteOperationalToRouteFail__trgRouteOperational____place
-				.setName(trgRouteOperationalToRouteFail__trgRouteOperational____place_name_prime);
-		trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place
-				.setName(trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place_name_prime);
-		trgRouteOperationalToRouteFail__trgRouteFail____transition
-				.setName(trgRouteOperationalToRouteFail__trgRouteFail____transition_name_prime);
-		trgRouteFail__trgRouteOperationalToRouteFail____arcs
-				.setName(trgRouteFail__trgRouteOperationalToRouteFail____arcs_name_prime);
-		return new Object[] { ruleresult, trgSemaphoreFailed, trgSemaphoreOperationalToRouteRepair, srcRoute,
-				trgSemaphoreFailedToRouteFail, trgRouteFail, trgRouteRepairToSemaphoreOperational, trgRouteRepair,
-				trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed, srcSemaphore, trgRouteOperational,
-				trgPetrinet, trgRouteFailed, trgRouteOperationalToRouteFail, trgSemaphoreOperational,
+		return new Object[] { ruleresult, trgSemaphoreFailed, trgRouteFailToSemaphoreFailed,
+				trgSemaphoreFailedToRouteFail, trgRouteOperational, trgRouteOperationalToRouteFail, trgRouteFailed,
+				trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+				trgSemaphoreOperationalToRouteRepair, srcRoute, trgRouteFailToRouteFailed, srcSemaphore, trgRouteRepair,
+				trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place,
+				trgRouteOperationalToRouteFail__trgRouteOperational____place,
+				trgRouteFailToSemaphoreFailed__trgRouteFail____transition,
+				trgRouteFail__trgRouteFailToSemaphoreFailed____arcs,
+				trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition,
+				trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs, trgRouteFail__trgPetrinet____petriNet,
+				trgPetrinet__trgRouteFail____nodes, trgRouteOperationalToRouteFail__trgRouteFail____transition,
+				trgRouteFail__trgRouteOperationalToRouteFail____arcs,
 				trgSemaphoreOperationalToRouteRepair__trgRouteRepair____transition,
-				trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs,
+				trgRouteRepair__trgSemaphoreOperationalToRouteRepair____arcs, srcRoute__srcSemaphore____entry,
+				trgRouteFailToRouteFailed__trgRouteFail____transition, trgRouteFail__trgRouteFailToRouteFailed____arcs,
+				trgRouteFailToRouteFailed__trgRouteFailed____place,
+				trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place,
 				trgSemaphoreFailedToRouteFail__trgRouteFail____transition,
 				trgRouteFail__trgSemaphoreFailedToRouteFail____arcs,
 				trgRouteRepairToSemaphoreOperational__trgSemaphoreOperational____place,
-				trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place,
-				trgRouteFailToRouteFailed__trgRouteFailed____place,
-				trgRouteFailToSemaphoreFailed__trgRouteFail____transition,
-				trgRouteFail__trgRouteFailToSemaphoreFailed____arcs, trgRouteFail__trgPetrinet____petriNet,
-				trgPetrinet__trgRouteFail____nodes,
-				trgSemaphoreOperationalToRouteRepair__trgSemaphoreOperational____place, srcRoute__srcSemaphore____entry,
-				trgRouteRepairToSemaphoreOperational__trgRouteRepair____transition,
-				trgRouteRepair__trgRouteRepairToSemaphoreOperational____arcs,
-				trgRouteFailToRouteFailed__trgRouteFail____transition, trgRouteFail__trgRouteFailToRouteFailed____arcs,
-				trgRouteOperationalToRouteFail__trgRouteOperational____place,
-				trgRouteFailToSemaphoreFailed__trgSemaphoreFailed____place,
-				trgRouteOperationalToRouteFail__trgRouteFail____transition,
-				trgRouteFail__trgRouteOperationalToRouteFail____arcs };
+				trgSemaphoreFailedToRouteFail__trgSemaphoreFailed____place };
 	}
 
 	public static final void pattern_RequiredEntrySemaphore_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBBBBBBBBB(
-			RequiredEntrySemaphore _this, PerformRuleResult ruleresult, EObject routeOperationalCorr,
-			EObject trgSemaphoreFailed, EObject srcContainer, EObject trgSemaphoreOperationalToRouteRepair,
-			EObject srcRoute, EObject trgSemaphoreFailedToRouteFail, EObject containerCorr, EObject trgRouteFail,
-			EObject routeRepairCorr, EObject semaphoreFailedCorr, EObject trgRouteRepairToSemaphoreOperational,
-			EObject trgRouteRepair, EObject trgRouteFailToRouteFailed, EObject trgRouteFailToSemaphoreFailed,
-			EObject srcSemaphore, EObject trgRouteOperational, EObject trgPetrinet, EObject trgRouteFailed,
-			EObject trgRouteOperationalToRouteFail, EObject routeFailedCorr, EObject semaphoreOperationalCorr,
-			EObject trgSemaphoreOperational) {
-		_this.registerObjects_FWD(ruleresult, routeOperationalCorr, trgSemaphoreFailed, srcContainer,
-				trgSemaphoreOperationalToRouteRepair, srcRoute, trgSemaphoreFailedToRouteFail, containerCorr,
-				trgRouteFail, routeRepairCorr, semaphoreFailedCorr, trgRouteRepairToSemaphoreOperational,
-				trgRouteRepair, trgRouteFailToRouteFailed, trgRouteFailToSemaphoreFailed, srcSemaphore,
-				trgRouteOperational, trgPetrinet, trgRouteFailed, trgRouteOperationalToRouteFail, routeFailedCorr,
-				semaphoreOperationalCorr, trgSemaphoreOperational);
+			RequiredEntrySemaphore _this, PerformRuleResult ruleresult, EObject routeRepairCorr,
+			EObject semaphoreOperationalCorr, EObject trgSemaphoreFailed, EObject srcContainer,
+			EObject trgRouteFailToSemaphoreFailed, EObject semaphoreFailedCorr, EObject trgSemaphoreFailedToRouteFail,
+			EObject trgRouteOperational, EObject routeFailedCorr, EObject trgRouteOperationalToRouteFail,
+			EObject trgRouteFailed, EObject trgRouteRepairToSemaphoreOperational, EObject trgSemaphoreOperational,
+			EObject trgRouteFail, EObject trgPetrinet, EObject trgSemaphoreOperationalToRouteRepair, EObject srcRoute,
+			EObject trgRouteFailToRouteFailed, EObject containerCorr, EObject srcSemaphore,
+			EObject routeOperationalCorr, EObject trgRouteRepair) {
+		_this.registerObjects_FWD(ruleresult, routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed,
+				srcContainer, trgRouteFailToSemaphoreFailed, semaphoreFailedCorr, trgSemaphoreFailedToRouteFail,
+				trgRouteOperational, routeFailedCorr, trgRouteOperationalToRouteFail, trgRouteFailed,
+				trgRouteRepairToSemaphoreOperational, trgSemaphoreOperational, trgRouteFail, trgPetrinet,
+				trgSemaphoreOperationalToRouteRepair, srcRoute, trgRouteFailToRouteFailed, containerCorr, srcSemaphore,
+				routeOperationalCorr, trgRouteRepair);
 
 	}
 
@@ -2115,58 +2115,58 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_RequiredEntrySemaphore_2_2_corematch_blackFFBBFFFFBFFFFFFB(
+	public static final Iterable<Object[]> pattern_RequiredEntrySemaphore_2_2_corematch_blackFFFBFFFFFFBFBFFB(
 			RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (RailwayContainerToPetriNet containerCorr : org.moflon.core.utilities.eMoflonEMFUtil
-				.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
-			PetriNet trgPetrinet = containerCorr.getTarget();
-			if (trgPetrinet != null) {
-				for (RouteToRepair routeRepairCorr : org.moflon.core.utilities.eMoflonEMFUtil
-						.getOppositeReferenceTyped(srcRoute, RouteToRepair.class, "source")) {
-					Transition trgRouteRepair = routeRepairCorr.getTarget();
-					if (trgRouteRepair != null) {
-						for (SemaphoreToFailed semaphoreFailedCorr : org.moflon.core.utilities.eMoflonEMFUtil
-								.getOppositeReferenceTyped(srcSemaphore, SemaphoreToFailed.class, "source")) {
-							Place trgSemaphoreFailed = semaphoreFailedCorr.getTarget();
-							if (trgSemaphoreFailed != null) {
-								for (RouteToOperational routeOperationalCorr : org.moflon.core.utilities.eMoflonEMFUtil
-										.getOppositeReferenceTyped(srcRoute, RouteToOperational.class, "source")) {
-									Place trgRouteOperational = routeOperationalCorr.getTarget();
-									if (trgRouteOperational != null) {
-										if (!trgRouteOperational.equals(trgSemaphoreFailed)) {
-											for (RouteToFailed routeFailedCorr : org.moflon.core.utilities.eMoflonEMFUtil
-													.getOppositeReferenceTyped(srcRoute, RouteToFailed.class,
+		for (RouteToFailed routeFailedCorr : org.moflon.core.utilities.eMoflonEMFUtil
+				.getOppositeReferenceTyped(srcRoute, RouteToFailed.class, "source")) {
+			Place trgRouteFailed = routeFailedCorr.getTarget();
+			if (trgRouteFailed != null) {
+				for (RailwayContainerToPetriNet containerCorr : org.moflon.core.utilities.eMoflonEMFUtil
+						.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
+					PetriNet trgPetrinet = containerCorr.getTarget();
+					if (trgPetrinet != null) {
+						for (SemaphoreToOperational semaphoreOperationalCorr : org.moflon.core.utilities.eMoflonEMFUtil
+								.getOppositeReferenceTyped(srcSemaphore, SemaphoreToOperational.class, "source")) {
+							Place trgSemaphoreOperational = semaphoreOperationalCorr.getTarget();
+							if (trgSemaphoreOperational != null) {
+								if (!trgRouteFailed.equals(trgSemaphoreOperational)) {
+									for (RouteToRepair routeRepairCorr : org.moflon.core.utilities.eMoflonEMFUtil
+											.getOppositeReferenceTyped(srcRoute, RouteToRepair.class, "source")) {
+										Transition trgRouteRepair = routeRepairCorr.getTarget();
+										if (trgRouteRepair != null) {
+											for (RouteToOperational routeOperationalCorr : org.moflon.core.utilities.eMoflonEMFUtil
+													.getOppositeReferenceTyped(srcRoute, RouteToOperational.class,
 															"source")) {
-												Place trgRouteFailed = routeFailedCorr.getTarget();
-												if (trgRouteFailed != null) {
-													if (!trgRouteFailed.equals(trgSemaphoreFailed)) {
+												Place trgRouteOperational = routeOperationalCorr.getTarget();
+												if (trgRouteOperational != null) {
+													if (!trgRouteOperational.equals(trgSemaphoreOperational)) {
 														if (!trgRouteFailed.equals(trgRouteOperational)) {
-															for (SemaphoreToOperational semaphoreOperationalCorr : org.moflon.core.utilities.eMoflonEMFUtil
+															for (SemaphoreToFailed semaphoreFailedCorr : org.moflon.core.utilities.eMoflonEMFUtil
 																	.getOppositeReferenceTyped(srcSemaphore,
-																			SemaphoreToOperational.class, "source")) {
-																Place trgSemaphoreOperational = semaphoreOperationalCorr
+																			SemaphoreToFailed.class, "source")) {
+																Place trgSemaphoreFailed = semaphoreFailedCorr
 																		.getTarget();
-																if (trgSemaphoreOperational != null) {
+																if (trgSemaphoreFailed != null) {
 																	if (!trgSemaphoreFailed
 																			.equals(trgSemaphoreOperational)) {
 																		if (!trgRouteOperational
-																				.equals(trgSemaphoreOperational)) {
+																				.equals(trgSemaphoreFailed)) {
 																			if (!trgRouteFailed
-																					.equals(trgSemaphoreOperational)) {
+																					.equals(trgSemaphoreFailed)) {
 																				_result.add(new Object[] {
-																						routeOperationalCorr,
-																						trgSemaphoreFailed,
-																						srcContainer, srcRoute,
-																						containerCorr, routeRepairCorr,
-																						semaphoreFailedCorr,
-																						trgRouteRepair, srcSemaphore,
-																						trgRouteOperational,
-																						trgPetrinet, trgRouteFailed,
-																						routeFailedCorr,
+																						routeRepairCorr,
 																						semaphoreOperationalCorr,
+																						trgSemaphoreFailed,
+																						srcContainer,
+																						semaphoreFailedCorr,
+																						trgRouteOperational,
+																						routeFailedCorr, trgRouteFailed,
 																						trgSemaphoreOperational,
-																						match });
+																						trgPetrinet, srcRoute,
+																						containerCorr, srcSemaphore,
+																						routeOperationalCorr,
+																						trgRouteRepair, match });
 																			}
 																		}
 																	}
@@ -2179,8 +2179,8 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 
 											}
 										}
-									}
 
+									}
 								}
 							}
 
@@ -2195,11 +2195,11 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Iterable<Object[]> pattern_RequiredEntrySemaphore_2_3_findcontext_blackBBBBBBBBBBBBBBB(
-			RouteToOperational routeOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
-			Route srcRoute, RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational) {
+			RouteToRepair routeRepairCorr, SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed,
+			RailwayContainer srcContainer, SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational,
+			RouteToFailed routeFailedCorr, Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet,
+			Route srcRoute, RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore,
+			RouteToOperational routeOperationalCorr, Transition trgRouteRepair) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!trgSemaphoreFailed.equals(trgSemaphoreOperational)) {
 			if (!trgRouteOperational.equals(trgSemaphoreFailed)) {
@@ -2207,42 +2207,41 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 					if (!trgRouteFailed.equals(trgSemaphoreFailed)) {
 						if (!trgRouteFailed.equals(trgRouteOperational)) {
 							if (!trgRouteFailed.equals(trgSemaphoreOperational)) {
-								if (srcContainer.equals(containerCorr.getSource())) {
-									if (srcRoute.equals(routeRepairCorr.getSource())) {
+								if (trgRouteFailed.equals(routeFailedCorr.getTarget())) {
+									if (trgSemaphoreOperational.equals(semaphoreOperationalCorr.getTarget())) {
 										if (trgSemaphoreFailed.equals(semaphoreFailedCorr.getTarget())) {
-											if (srcContainer.getRoutes().contains(srcRoute)) {
-												if (trgRouteRepair.equals(routeRepairCorr.getTarget())) {
-													if (srcSemaphore.equals(semaphoreFailedCorr.getSource())) {
-														if (srcRoute.equals(routeOperationalCorr.getSource())) {
-															if (srcSemaphore.equals(srcRoute.getEntry())) {
-																if (trgRouteOperational
-																		.equals(routeOperationalCorr.getTarget())) {
-																	if (trgPetrinet.equals(containerCorr.getTarget())) {
-																		if (srcRoute
-																				.equals(routeFailedCorr.getSource())) {
-																			if (srcSemaphore
-																					.equals(semaphoreOperationalCorr
-																							.getSource())) {
-																				if (trgRouteFailed.equals(
-																						routeFailedCorr.getTarget())) {
-																					if (trgSemaphoreOperational.equals(
-																							semaphoreOperationalCorr
+											if (srcRoute.equals(routeFailedCorr.getSource())) {
+												if (srcSemaphore.equals(srcRoute.getEntry())) {
+													if (trgPetrinet.equals(containerCorr.getTarget())) {
+														if (srcContainer.equals(containerCorr.getSource())) {
+															if (srcSemaphore
+																	.equals(semaphoreOperationalCorr.getSource())) {
+																if (srcContainer.getRoutes().contains(srcRoute)) {
+																	if (srcRoute.equals(routeRepairCorr.getSource())) {
+																		if (srcRoute.equals(
+																				routeOperationalCorr.getSource())) {
+																			if (srcSemaphore.equals(
+																					semaphoreFailedCorr.getSource())) {
+																				if (trgRouteRepair.equals(
+																						routeRepairCorr.getTarget())) {
+																					if (trgRouteOperational
+																							.equals(routeOperationalCorr
 																									.getTarget())) {
 																						_result.add(new Object[] {
-																								routeOperationalCorr,
-																								trgSemaphoreFailed,
-																								srcContainer, srcRoute,
-																								containerCorr,
 																								routeRepairCorr,
-																								semaphoreFailedCorr,
-																								trgRouteRepair,
-																								srcSemaphore,
-																								trgRouteOperational,
-																								trgPetrinet,
-																								trgRouteFailed,
-																								routeFailedCorr,
 																								semaphoreOperationalCorr,
-																								trgSemaphoreOperational });
+																								trgSemaphoreFailed,
+																								srcContainer,
+																								semaphoreFailedCorr,
+																								trgRouteOperational,
+																								routeFailedCorr,
+																								trgRouteFailed,
+																								trgSemaphoreOperational,
+																								trgPetrinet, srcRoute,
+																								containerCorr,
+																								srcSemaphore,
+																								routeOperationalCorr,
+																								trgRouteRepair });
 																					}
 																				}
 																			}
@@ -2267,146 +2266,146 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_2_3_findcontext_greenBBBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-			RouteToOperational routeOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
-			Route srcRoute, RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational) {
+			RouteToRepair routeRepairCorr, SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed,
+			RailwayContainer srcContainer, SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational,
+			RouteToFailed routeFailedCorr, Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet,
+			Route srcRoute, RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore,
+			RouteToOperational routeOperationalCorr, Transition trgRouteRepair) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
-		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeRepairCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge semaphoreFailedCorr__trgSemaphoreFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeRepairCorr__trgRouteRepair____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeOperationalCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcRoute__srcSemaphore____entry = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeOperationalCorr__trgRouteOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge routeFailedCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge routeFailedCorr__trgRouteFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge semaphoreOperationalCorr__trgSemaphoreOperational____target = RuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		String containerCorr__srcContainer____source_name_prime = "source";
-		String routeRepairCorr__srcRoute____source_name_prime = "source";
-		String semaphoreFailedCorr__trgSemaphoreFailed____target_name_prime = "target";
-		String srcContainer__srcRoute____routes_name_prime = "routes";
-		String routeRepairCorr__trgRouteRepair____target_name_prime = "target";
-		String semaphoreFailedCorr__srcSemaphore____source_name_prime = "source";
-		String routeOperationalCorr__srcRoute____source_name_prime = "source";
-		String srcRoute__srcSemaphore____entry_name_prime = "entry";
-		String routeOperationalCorr__trgRouteOperational____target_name_prime = "target";
-		String containerCorr__trgPetrinet____target_name_prime = "target";
-		String routeFailedCorr__srcRoute____source_name_prime = "source";
-		String semaphoreOperationalCorr__srcSemaphore____source_name_prime = "source";
+		EMoflonEdge semaphoreFailedCorr__trgSemaphoreFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeFailedCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcRoute__srcSemaphore____entry = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge semaphoreOperationalCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcContainer__srcRoute____routes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeRepairCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeOperationalCorr__srcRoute____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge semaphoreFailedCorr__srcSemaphore____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeRepairCorr__trgRouteRepair____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge routeOperationalCorr__trgRouteOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String routeFailedCorr__trgRouteFailed____target_name_prime = "target";
 		String semaphoreOperationalCorr__trgSemaphoreOperational____target_name_prime = "target";
-		isApplicableMatch.getAllContextElements().add(routeOperationalCorr);
+		String semaphoreFailedCorr__trgSemaphoreFailed____target_name_prime = "target";
+		String routeFailedCorr__srcRoute____source_name_prime = "source";
+		String srcRoute__srcSemaphore____entry_name_prime = "entry";
+		String containerCorr__trgPetrinet____target_name_prime = "target";
+		String containerCorr__srcContainer____source_name_prime = "source";
+		String semaphoreOperationalCorr__srcSemaphore____source_name_prime = "source";
+		String srcContainer__srcRoute____routes_name_prime = "routes";
+		String routeRepairCorr__srcRoute____source_name_prime = "source";
+		String routeOperationalCorr__srcRoute____source_name_prime = "source";
+		String semaphoreFailedCorr__srcSemaphore____source_name_prime = "source";
+		String routeRepairCorr__trgRouteRepair____target_name_prime = "target";
+		String routeOperationalCorr__trgRouteOperational____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(routeRepairCorr);
+		isApplicableMatch.getAllContextElements().add(semaphoreOperationalCorr);
 		isApplicableMatch.getAllContextElements().add(trgSemaphoreFailed);
 		isApplicableMatch.getAllContextElements().add(srcContainer);
+		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr);
+		isApplicableMatch.getAllContextElements().add(trgRouteOperational);
+		isApplicableMatch.getAllContextElements().add(routeFailedCorr);
+		isApplicableMatch.getAllContextElements().add(trgRouteFailed);
+		isApplicableMatch.getAllContextElements().add(trgSemaphoreOperational);
+		isApplicableMatch.getAllContextElements().add(trgPetrinet);
 		isApplicableMatch.getAllContextElements().add(srcRoute);
 		isApplicableMatch.getAllContextElements().add(containerCorr);
-		isApplicableMatch.getAllContextElements().add(routeRepairCorr);
-		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr);
-		isApplicableMatch.getAllContextElements().add(trgRouteRepair);
 		isApplicableMatch.getAllContextElements().add(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(trgRouteOperational);
-		isApplicableMatch.getAllContextElements().add(trgPetrinet);
-		isApplicableMatch.getAllContextElements().add(trgRouteFailed);
-		isApplicableMatch.getAllContextElements().add(routeFailedCorr);
-		isApplicableMatch.getAllContextElements().add(semaphoreOperationalCorr);
-		isApplicableMatch.getAllContextElements().add(trgSemaphoreOperational);
-		containerCorr__srcContainer____source.setSrc(containerCorr);
-		containerCorr__srcContainer____source.setTrg(srcContainer);
-		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
-		routeRepairCorr__srcRoute____source.setSrc(routeRepairCorr);
-		routeRepairCorr__srcRoute____source.setTrg(srcRoute);
-		isApplicableMatch.getAllContextElements().add(routeRepairCorr__srcRoute____source);
-		semaphoreFailedCorr__trgSemaphoreFailed____target.setSrc(semaphoreFailedCorr);
-		semaphoreFailedCorr__trgSemaphoreFailed____target.setTrg(trgSemaphoreFailed);
-		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr__trgSemaphoreFailed____target);
-		srcContainer__srcRoute____routes.setSrc(srcContainer);
-		srcContainer__srcRoute____routes.setTrg(srcRoute);
-		isApplicableMatch.getAllContextElements().add(srcContainer__srcRoute____routes);
-		routeRepairCorr__trgRouteRepair____target.setSrc(routeRepairCorr);
-		routeRepairCorr__trgRouteRepair____target.setTrg(trgRouteRepair);
-		isApplicableMatch.getAllContextElements().add(routeRepairCorr__trgRouteRepair____target);
-		semaphoreFailedCorr__srcSemaphore____source.setSrc(semaphoreFailedCorr);
-		semaphoreFailedCorr__srcSemaphore____source.setTrg(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr__srcSemaphore____source);
-		routeOperationalCorr__srcRoute____source.setSrc(routeOperationalCorr);
-		routeOperationalCorr__srcRoute____source.setTrg(srcRoute);
-		isApplicableMatch.getAllContextElements().add(routeOperationalCorr__srcRoute____source);
-		srcRoute__srcSemaphore____entry.setSrc(srcRoute);
-		srcRoute__srcSemaphore____entry.setTrg(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(srcRoute__srcSemaphore____entry);
-		routeOperationalCorr__trgRouteOperational____target.setSrc(routeOperationalCorr);
-		routeOperationalCorr__trgRouteOperational____target.setTrg(trgRouteOperational);
-		isApplicableMatch.getAllContextElements().add(routeOperationalCorr__trgRouteOperational____target);
-		containerCorr__trgPetrinet____target.setSrc(containerCorr);
-		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
-		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
-		routeFailedCorr__srcRoute____source.setSrc(routeFailedCorr);
-		routeFailedCorr__srcRoute____source.setTrg(srcRoute);
-		isApplicableMatch.getAllContextElements().add(routeFailedCorr__srcRoute____source);
-		semaphoreOperationalCorr__srcSemaphore____source.setSrc(semaphoreOperationalCorr);
-		semaphoreOperationalCorr__srcSemaphore____source.setTrg(srcSemaphore);
-		isApplicableMatch.getAllContextElements().add(semaphoreOperationalCorr__srcSemaphore____source);
+		isApplicableMatch.getAllContextElements().add(routeOperationalCorr);
+		isApplicableMatch.getAllContextElements().add(trgRouteRepair);
 		routeFailedCorr__trgRouteFailed____target.setSrc(routeFailedCorr);
 		routeFailedCorr__trgRouteFailed____target.setTrg(trgRouteFailed);
 		isApplicableMatch.getAllContextElements().add(routeFailedCorr__trgRouteFailed____target);
 		semaphoreOperationalCorr__trgSemaphoreOperational____target.setSrc(semaphoreOperationalCorr);
 		semaphoreOperationalCorr__trgSemaphoreOperational____target.setTrg(trgSemaphoreOperational);
 		isApplicableMatch.getAllContextElements().add(semaphoreOperationalCorr__trgSemaphoreOperational____target);
-		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
-		routeRepairCorr__srcRoute____source.setName(routeRepairCorr__srcRoute____source_name_prime);
-		semaphoreFailedCorr__trgSemaphoreFailed____target
-				.setName(semaphoreFailedCorr__trgSemaphoreFailed____target_name_prime);
-		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
-		routeRepairCorr__trgRouteRepair____target.setName(routeRepairCorr__trgRouteRepair____target_name_prime);
-		semaphoreFailedCorr__srcSemaphore____source.setName(semaphoreFailedCorr__srcSemaphore____source_name_prime);
-		routeOperationalCorr__srcRoute____source.setName(routeOperationalCorr__srcRoute____source_name_prime);
-		srcRoute__srcSemaphore____entry.setName(srcRoute__srcSemaphore____entry_name_prime);
-		routeOperationalCorr__trgRouteOperational____target
-				.setName(routeOperationalCorr__trgRouteOperational____target_name_prime);
-		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
-		routeFailedCorr__srcRoute____source.setName(routeFailedCorr__srcRoute____source_name_prime);
-		semaphoreOperationalCorr__srcSemaphore____source
-				.setName(semaphoreOperationalCorr__srcSemaphore____source_name_prime);
+		semaphoreFailedCorr__trgSemaphoreFailed____target.setSrc(semaphoreFailedCorr);
+		semaphoreFailedCorr__trgSemaphoreFailed____target.setTrg(trgSemaphoreFailed);
+		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr__trgSemaphoreFailed____target);
+		routeFailedCorr__srcRoute____source.setSrc(routeFailedCorr);
+		routeFailedCorr__srcRoute____source.setTrg(srcRoute);
+		isApplicableMatch.getAllContextElements().add(routeFailedCorr__srcRoute____source);
+		srcRoute__srcSemaphore____entry.setSrc(srcRoute);
+		srcRoute__srcSemaphore____entry.setTrg(srcSemaphore);
+		isApplicableMatch.getAllContextElements().add(srcRoute__srcSemaphore____entry);
+		containerCorr__trgPetrinet____target.setSrc(containerCorr);
+		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
+		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
+		containerCorr__srcContainer____source.setSrc(containerCorr);
+		containerCorr__srcContainer____source.setTrg(srcContainer);
+		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
+		semaphoreOperationalCorr__srcSemaphore____source.setSrc(semaphoreOperationalCorr);
+		semaphoreOperationalCorr__srcSemaphore____source.setTrg(srcSemaphore);
+		isApplicableMatch.getAllContextElements().add(semaphoreOperationalCorr__srcSemaphore____source);
+		srcContainer__srcRoute____routes.setSrc(srcContainer);
+		srcContainer__srcRoute____routes.setTrg(srcRoute);
+		isApplicableMatch.getAllContextElements().add(srcContainer__srcRoute____routes);
+		routeRepairCorr__srcRoute____source.setSrc(routeRepairCorr);
+		routeRepairCorr__srcRoute____source.setTrg(srcRoute);
+		isApplicableMatch.getAllContextElements().add(routeRepairCorr__srcRoute____source);
+		routeOperationalCorr__srcRoute____source.setSrc(routeOperationalCorr);
+		routeOperationalCorr__srcRoute____source.setTrg(srcRoute);
+		isApplicableMatch.getAllContextElements().add(routeOperationalCorr__srcRoute____source);
+		semaphoreFailedCorr__srcSemaphore____source.setSrc(semaphoreFailedCorr);
+		semaphoreFailedCorr__srcSemaphore____source.setTrg(srcSemaphore);
+		isApplicableMatch.getAllContextElements().add(semaphoreFailedCorr__srcSemaphore____source);
+		routeRepairCorr__trgRouteRepair____target.setSrc(routeRepairCorr);
+		routeRepairCorr__trgRouteRepair____target.setTrg(trgRouteRepair);
+		isApplicableMatch.getAllContextElements().add(routeRepairCorr__trgRouteRepair____target);
+		routeOperationalCorr__trgRouteOperational____target.setSrc(routeOperationalCorr);
+		routeOperationalCorr__trgRouteOperational____target.setTrg(trgRouteOperational);
+		isApplicableMatch.getAllContextElements().add(routeOperationalCorr__trgRouteOperational____target);
 		routeFailedCorr__trgRouteFailed____target.setName(routeFailedCorr__trgRouteFailed____target_name_prime);
 		semaphoreOperationalCorr__trgSemaphoreOperational____target
 				.setName(semaphoreOperationalCorr__trgSemaphoreOperational____target_name_prime);
-		return new Object[] { routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute, containerCorr,
-				routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational, trgPetrinet,
-				trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr, trgSemaphoreOperational, isApplicableMatch,
-				containerCorr__srcContainer____source, routeRepairCorr__srcRoute____source,
-				semaphoreFailedCorr__trgSemaphoreFailed____target, srcContainer__srcRoute____routes,
-				routeRepairCorr__trgRouteRepair____target, semaphoreFailedCorr__srcSemaphore____source,
-				routeOperationalCorr__srcRoute____source, srcRoute__srcSemaphore____entry,
-				routeOperationalCorr__trgRouteOperational____target, containerCorr__trgPetrinet____target,
-				routeFailedCorr__srcRoute____source, semaphoreOperationalCorr__srcSemaphore____source,
-				routeFailedCorr__trgRouteFailed____target,
-				semaphoreOperationalCorr__trgSemaphoreOperational____target };
+		semaphoreFailedCorr__trgSemaphoreFailed____target
+				.setName(semaphoreFailedCorr__trgSemaphoreFailed____target_name_prime);
+		routeFailedCorr__srcRoute____source.setName(routeFailedCorr__srcRoute____source_name_prime);
+		srcRoute__srcSemaphore____entry.setName(srcRoute__srcSemaphore____entry_name_prime);
+		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
+		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
+		semaphoreOperationalCorr__srcSemaphore____source
+				.setName(semaphoreOperationalCorr__srcSemaphore____source_name_prime);
+		srcContainer__srcRoute____routes.setName(srcContainer__srcRoute____routes_name_prime);
+		routeRepairCorr__srcRoute____source.setName(routeRepairCorr__srcRoute____source_name_prime);
+		routeOperationalCorr__srcRoute____source.setName(routeOperationalCorr__srcRoute____source_name_prime);
+		semaphoreFailedCorr__srcSemaphore____source.setName(semaphoreFailedCorr__srcSemaphore____source_name_prime);
+		routeRepairCorr__trgRouteRepair____target.setName(routeRepairCorr__trgRouteRepair____target_name_prime);
+		routeOperationalCorr__trgRouteOperational____target
+				.setName(routeOperationalCorr__trgRouteOperational____target_name_prime);
+		return new Object[] { routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+				semaphoreFailedCorr, trgRouteOperational, routeFailedCorr, trgRouteFailed, trgSemaphoreOperational,
+				trgPetrinet, srcRoute, containerCorr, srcSemaphore, routeOperationalCorr, trgRouteRepair,
+				isApplicableMatch, routeFailedCorr__trgRouteFailed____target,
+				semaphoreOperationalCorr__trgSemaphoreOperational____target,
+				semaphoreFailedCorr__trgSemaphoreFailed____target, routeFailedCorr__srcRoute____source,
+				srcRoute__srcSemaphore____entry, containerCorr__trgPetrinet____target,
+				containerCorr__srcContainer____source, semaphoreOperationalCorr__srcSemaphore____source,
+				srcContainer__srcRoute____routes, routeRepairCorr__srcRoute____source,
+				routeOperationalCorr__srcRoute____source, semaphoreFailedCorr__srcSemaphore____source,
+				routeRepairCorr__trgRouteRepair____target, routeOperationalCorr__trgRouteOperational____target };
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_2_4_solveCSP_bindingFBBBBBBBBBBBBBBBBB(
-			RequiredEntrySemaphore _this, IsApplicableMatch isApplicableMatch, RouteToOperational routeOperationalCorr,
-			Place trgSemaphoreFailed, RailwayContainer srcContainer, Route srcRoute,
-			RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, routeOperationalCorr,
-				trgSemaphoreFailed, srcContainer, srcRoute, containerCorr, routeRepairCorr, semaphoreFailedCorr,
-				trgRouteRepair, srcSemaphore, trgRouteOperational, trgPetrinet, trgRouteFailed, routeFailedCorr,
-				semaphoreOperationalCorr, trgSemaphoreOperational);
+			RequiredEntrySemaphore _this, IsApplicableMatch isApplicableMatch, RouteToRepair routeRepairCorr,
+			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
+			SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational, RouteToFailed routeFailedCorr,
+			Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet, Route srcRoute,
+			RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore, RouteToOperational routeOperationalCorr,
+			Transition trgRouteRepair) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, routeRepairCorr,
+				semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer, semaphoreFailedCorr, trgRouteOperational,
+				routeFailedCorr, trgRouteFailed, trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr,
+				srcSemaphore, routeOperationalCorr, trgRouteRepair);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, routeOperationalCorr, trgSemaphoreFailed, srcContainer,
-					srcRoute, containerCorr, routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore,
-					trgRouteOperational, trgPetrinet, trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr,
-					trgSemaphoreOperational };
+			return new Object[] { csp, _this, isApplicableMatch, routeRepairCorr, semaphoreOperationalCorr,
+					trgSemaphoreFailed, srcContainer, semaphoreFailedCorr, trgRouteOperational, routeFailedCorr,
+					trgRouteFailed, trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr, srcSemaphore,
+					routeOperationalCorr, trgRouteRepair };
 		}
 		return null;
 	}
@@ -2416,16 +2415,16 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 	}
 
 	public static final Object[] pattern_RequiredEntrySemaphore_2_4_solveCSP_bindingAndBlackFBBBBBBBBBBBBBBBBB(
-			RequiredEntrySemaphore _this, IsApplicableMatch isApplicableMatch, RouteToOperational routeOperationalCorr,
-			Place trgSemaphoreFailed, RailwayContainer srcContainer, Route srcRoute,
-			RailwayContainerToPetriNet containerCorr, RouteToRepair routeRepairCorr,
-			SemaphoreToFailed semaphoreFailedCorr, Transition trgRouteRepair, Semaphore srcSemaphore,
-			Place trgRouteOperational, PetriNet trgPetrinet, Place trgRouteFailed, RouteToFailed routeFailedCorr,
-			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreOperational) {
+			RequiredEntrySemaphore _this, IsApplicableMatch isApplicableMatch, RouteToRepair routeRepairCorr,
+			SemaphoreToOperational semaphoreOperationalCorr, Place trgSemaphoreFailed, RailwayContainer srcContainer,
+			SemaphoreToFailed semaphoreFailedCorr, Place trgRouteOperational, RouteToFailed routeFailedCorr,
+			Place trgRouteFailed, Place trgSemaphoreOperational, PetriNet trgPetrinet, Route srcRoute,
+			RailwayContainerToPetriNet containerCorr, Semaphore srcSemaphore, RouteToOperational routeOperationalCorr,
+			Transition trgRouteRepair) {
 		Object[] result_pattern_RequiredEntrySemaphore_2_4_solveCSP_binding = pattern_RequiredEntrySemaphore_2_4_solveCSP_bindingFBBBBBBBBBBBBBBBBB(
-				_this, isApplicableMatch, routeOperationalCorr, trgSemaphoreFailed, srcContainer, srcRoute,
-				containerCorr, routeRepairCorr, semaphoreFailedCorr, trgRouteRepair, srcSemaphore, trgRouteOperational,
-				trgPetrinet, trgRouteFailed, routeFailedCorr, semaphoreOperationalCorr, trgSemaphoreOperational);
+				_this, isApplicableMatch, routeRepairCorr, semaphoreOperationalCorr, trgSemaphoreFailed, srcContainer,
+				semaphoreFailedCorr, trgRouteOperational, routeFailedCorr, trgRouteFailed, trgSemaphoreOperational,
+				trgPetrinet, srcRoute, containerCorr, srcSemaphore, routeOperationalCorr, trgRouteRepair);
 		if (result_pattern_RequiredEntrySemaphore_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_RequiredEntrySemaphore_2_4_solveCSP_binding[0];
 
@@ -2433,10 +2432,10 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 					csp);
 			if (result_pattern_RequiredEntrySemaphore_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, routeOperationalCorr, trgSemaphoreFailed,
-						srcContainer, srcRoute, containerCorr, routeRepairCorr, semaphoreFailedCorr, trgRouteRepair,
-						srcSemaphore, trgRouteOperational, trgPetrinet, trgRouteFailed, routeFailedCorr,
-						semaphoreOperationalCorr, trgSemaphoreOperational };
+				return new Object[] { csp, _this, isApplicableMatch, routeRepairCorr, semaphoreOperationalCorr,
+						trgSemaphoreFailed, srcContainer, semaphoreFailedCorr, trgRouteOperational, routeFailedCorr,
+						trgRouteFailed, trgSemaphoreOperational, trgPetrinet, srcRoute, containerCorr, srcSemaphore,
+						routeOperationalCorr, trgRouteRepair };
 			}
 		}
 		return null;
@@ -2593,8 +2592,8 @@ public class RequiredEntrySemaphoreImpl extends AbstractRuleImpl implements Requ
 
 	public static final Object[] pattern_RequiredEntrySemaphore_13_1_matchtggpattern_blackBBB(
 			RailwayContainer srcContainer, Route srcRoute, Semaphore srcSemaphore) {
-		if (srcContainer.getRoutes().contains(srcRoute)) {
-			if (srcSemaphore.equals(srcRoute.getEntry())) {
+		if (srcSemaphore.equals(srcRoute.getEntry())) {
+			if (srcContainer.getRoutes().contains(srcRoute)) {
 				return new Object[] { srcContainer, srcRoute, srcSemaphore };
 			}
 		}

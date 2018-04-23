@@ -37,8 +37,8 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition);
+	boolean isAppropriate_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,8 +62,8 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition);
+	void registerObjectsToMatch_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,8 +71,8 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition);
+	CSP isAppropriate_solveCsp_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,8 +88,8 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,7 +105,7 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSwitch, EObject srcSwitchPosition);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSwitchPosition, EObject srcSwitch);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_10(EMoflonEdge _edge_positions);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_1(EMoflonEdge _edge_positions);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,8 +145,8 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition);
+	boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition,
+			Switch srcSwitch);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

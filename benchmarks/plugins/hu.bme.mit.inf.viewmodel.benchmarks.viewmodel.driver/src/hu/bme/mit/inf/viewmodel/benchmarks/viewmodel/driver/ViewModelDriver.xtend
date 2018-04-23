@@ -4,6 +4,7 @@ import com.google.common.collect.Iterators
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.TransformationCase
 import hu.bme.mit.inf.viewmodel.benchmarks.core.context.ExperimentContext
 import hu.bme.mit.inf.viewmodel.benchmarks.core.driver.ExperimentDriver
+import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.dependability.Dependability2PetriNet
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.stochasticpetrinet.TrainBenchmark2PetriNet
 import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.virtualswitchview.RailwayModel2VirtualSwitchModel
 import hu.bme.mit.inf.viewmodel.runtime.model.logicmodel.InterpretedManifestation
@@ -37,8 +38,6 @@ import org.eclipse.viatra.query.runtime.base.api.IndexingLevel
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.viatra.transformation.evm.api.ExecutionSchema
 import org.eclipse.viatra.transformation.evm.specific.ExecutionSchemas
-import hu.bme.mit.inf.viewmodel.benchmarks.viewmodel.dependability.Dependability2PetriNet
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.RailwayElementFailureModelMatcher
 
 abstract class ViewModelDriver extends ExperimentDriver {
 	protected val ManifestationMode manifestationMode
@@ -74,6 +73,15 @@ abstract class ViewModelDriver extends ExperimentDriver {
 			case VIRTUAL_SWITCH: RailwayModel2VirtualSwitchModel.createSpecification
 			case DEPENDABILITY: Dependability2PetriNet.createSpecification
 			default: throw new IllegalArgumentException("Unknown case: " + transformationCase)
+		}
+	}
+
+	override protected loadModel() {
+		super.loadModel()
+		if (dependabilityModel !== null) {
+			// Move the dependability model to the same resource as the railway model,
+			// so that the VIATRA Query scope roots can be managed more easily.
+			resource.contents += dependabilityModel
 		}
 	}
 

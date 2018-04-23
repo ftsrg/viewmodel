@@ -328,7 +328,7 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_8(EMoflonEdge _edge_elements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_5(EMoflonEdge _edge_elements) {
 
 		Object[] result1_bindingAndBlack = SegmentImpl
 				.pattern_Segment_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -468,8 +468,8 @@ public class SegmentImpl extends AbstractRuleImpl implements Segment {
 			return null;
 		case RulesPackage.SEGMENT___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD_EMOFLON_EDGE_8__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_8((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SEGMENT___IS_APPROPRIATE_FWD_EMOFLON_EDGE_5__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_5((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SEGMENT___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SEGMENT___IS_APPLICABLE_CC__MATCH_MATCH:

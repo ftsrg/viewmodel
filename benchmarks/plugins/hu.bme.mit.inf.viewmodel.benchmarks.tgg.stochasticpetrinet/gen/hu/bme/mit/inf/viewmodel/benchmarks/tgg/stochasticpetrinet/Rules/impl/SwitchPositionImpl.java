@@ -77,51 +77,51 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+	public boolean isAppropriate_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 
 		Object[] result1_black = SwitchPositionImpl.pattern_SwitchPosition_0_1_initialbindings_blackBBBB(this, match,
-				srcSwitch, srcSwitchPosition);
+				srcSwitchPosition, srcSwitch);
 		if (result1_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcSwitch] = " + srcSwitch + ", " + "[srcSwitchPosition] = "
-					+ srcSwitchPosition + ".");
+					+ "[match] = " + match + ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ", "
+					+ "[srcSwitch] = " + srcSwitch + ".");
 		}
 
 		Object[] result2_bindingAndBlack = SwitchPositionImpl
-				.pattern_SwitchPosition_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcSwitch, srcSwitchPosition);
+				.pattern_SwitchPosition_0_2_SolveCSP_bindingAndBlackFBBBB(this, match, srcSwitchPosition, srcSwitch);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcSwitch] = " + srcSwitch + ", " + "[srcSwitchPosition] = "
-					+ srcSwitchPosition + ".");
+					+ "[match] = " + match + ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ", "
+					+ "[srcSwitch] = " + srcSwitch + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (SwitchPositionImpl.pattern_SwitchPosition_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = SwitchPositionImpl
-					.pattern_SwitchPosition_0_4_collectelementstobetranslated_blackBBB(match, srcSwitch,
-							srcSwitchPosition);
+					.pattern_SwitchPosition_0_4_collectelementstobetranslated_blackBBB(match, srcSwitchPosition,
+							srcSwitch);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSwitch] = " + srcSwitch + ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ".");
+						+ "[srcSwitchPosition] = " + srcSwitchPosition + ", " + "[srcSwitch] = " + srcSwitch + ".");
 			}
-			SwitchPositionImpl.pattern_SwitchPosition_0_4_collectelementstobetranslated_greenBBBFF(match, srcSwitch,
-					srcSwitchPosition);
+			SwitchPositionImpl.pattern_SwitchPosition_0_4_collectelementstobetranslated_greenBBBFF(match,
+					srcSwitchPosition, srcSwitch);
 			//nothing EMoflonEdge srcSwitch__srcSwitchPosition____positions = (EMoflonEdge) result4_green[3];
 			//nothing EMoflonEdge srcSwitchPosition__srcSwitch____target = (EMoflonEdge) result4_green[4];
 
 			Object[] result5_black = SwitchPositionImpl
-					.pattern_SwitchPosition_0_5_collectcontextelements_blackBBB(match, srcSwitch, srcSwitchPosition);
+					.pattern_SwitchPosition_0_5_collectcontextelements_blackBBB(match, srcSwitchPosition, srcSwitch);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcSwitch] = " + srcSwitch + ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ".");
+						+ "[srcSwitchPosition] = " + srcSwitchPosition + ", " + "[srcSwitch] = " + srcSwitch + ".");
 			}
 			SwitchPositionImpl.pattern_SwitchPosition_0_5_collectcontextelements_greenBB(match, srcSwitch);
 
 			// 
-			SwitchPositionImpl.pattern_SwitchPosition_0_6_registerobjectstomatch_expressionBBBB(this, match, srcSwitch,
-					srcSwitchPosition);
+			SwitchPositionImpl.pattern_SwitchPosition_0_6_registerobjectstomatch_expressionBBBB(this, match,
+					srcSwitchPosition, srcSwitch);
 			return SwitchPositionImpl.pattern_SwitchPosition_0_7_expressionF();
 		} else {
 			return SwitchPositionImpl.pattern_SwitchPosition_0_8_expressionF();
@@ -142,8 +142,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		Switch srcSwitch = (Switch) result1_bindingAndBlack[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result1_bindingAndBlack[1];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result1_bindingAndBlack[0];
+		Switch srcSwitch = (Switch) result1_bindingAndBlack[1];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[2];
 
 		Object[] result2_black = SwitchPositionImpl
@@ -157,20 +157,20 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = SwitchPositionImpl.pattern_SwitchPosition_1_3_bookkeepingforedges_blackBBB(ruleresult,
-				srcSwitch, srcSwitchPosition);
+				srcSwitchPosition, srcSwitch);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[srcSwitch] = " + srcSwitch + ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ".");
+					+ ", " + "[srcSwitchPosition] = " + srcSwitchPosition + ", " + "[srcSwitch] = " + srcSwitch + ".");
 		}
-		SwitchPositionImpl.pattern_SwitchPosition_1_3_bookkeepingforedges_greenBBBFF(ruleresult, srcSwitch,
-				srcSwitchPosition);
+		SwitchPositionImpl.pattern_SwitchPosition_1_3_bookkeepingforedges_greenBBBFF(ruleresult, srcSwitchPosition,
+				srcSwitch);
 		//nothing EMoflonEdge srcSwitch__srcSwitchPosition____positions = (EMoflonEdge) result3_green[3];
 		//nothing EMoflonEdge srcSwitchPosition__srcSwitch____target = (EMoflonEdge) result3_green[4];
 
 		// 
 		// 
-		SwitchPositionImpl.pattern_SwitchPosition_1_5_registerobjects_expressionBBBB(this, ruleresult, srcSwitch,
-				srcSwitchPosition);
+		SwitchPositionImpl.pattern_SwitchPosition_1_5_registerobjects_expressionBBBB(this, ruleresult,
+				srcSwitchPosition, srcSwitch);
 		return SwitchPositionImpl.pattern_SwitchPosition_1_6_expressionFB(ruleresult);
 	}
 
@@ -198,26 +198,26 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		Switch srcSwitch = (Switch) result2_binding[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result2_binding[1];
-		for (Object[] result2_black : SwitchPositionImpl.pattern_SwitchPosition_2_2_corematch_blackBBB(srcSwitch,
-				srcSwitchPosition, match)) {
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result2_binding[0];
+		Switch srcSwitch = (Switch) result2_binding[1];
+		for (Object[] result2_black : SwitchPositionImpl
+				.pattern_SwitchPosition_2_2_corematch_blackBBB(srcSwitchPosition, srcSwitch, match)) {
 			// ForEach 
-			for (Object[] result3_black : SwitchPositionImpl.pattern_SwitchPosition_2_3_findcontext_blackBB(srcSwitch,
-					srcSwitchPosition)) {
-				Object[] result3_green = SwitchPositionImpl.pattern_SwitchPosition_2_3_findcontext_greenBBFFF(srcSwitch,
-						srcSwitchPosition);
+			for (Object[] result3_black : SwitchPositionImpl
+					.pattern_SwitchPosition_2_3_findcontext_blackBB(srcSwitchPosition, srcSwitch)) {
+				Object[] result3_green = SwitchPositionImpl
+						.pattern_SwitchPosition_2_3_findcontext_greenBBFFF(srcSwitchPosition, srcSwitch);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[2];
 				//nothing EMoflonEdge srcSwitch__srcSwitchPosition____positions = (EMoflonEdge) result3_green[3];
 				//nothing EMoflonEdge srcSwitchPosition__srcSwitch____target = (EMoflonEdge) result3_green[4];
 
 				Object[] result4_bindingAndBlack = SwitchPositionImpl
-						.pattern_SwitchPosition_2_4_solveCSP_bindingAndBlackFBBBB(this, isApplicableMatch, srcSwitch,
-								srcSwitchPosition);
+						.pattern_SwitchPosition_2_4_solveCSP_bindingAndBlackFBBBB(this, isApplicableMatch,
+								srcSwitchPosition, srcSwitch);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSwitch] = " + srcSwitch + ", "
-							+ "[srcSwitchPosition] = " + srcSwitchPosition + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSwitchPosition] = "
+							+ srcSwitchPosition + ", " + "[srcSwitch] = " + srcSwitch + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -246,10 +246,10 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		match.registerObject("srcSwitch", srcSwitch);
+	public void registerObjectsToMatch_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		match.registerObject("srcSwitchPosition", srcSwitchPosition);
+		match.registerObject("srcSwitch", srcSwitch);
 
 	}
 
@@ -258,8 +258,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -288,8 +288,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -304,8 +304,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("srcSwitch", srcSwitch);
 		isApplicableMatch.registerObject("srcSwitchPosition", srcSwitchPosition);
+		isApplicableMatch.registerObject("srcSwitch", srcSwitch);
 		return csp;
 	}
 
@@ -323,9 +323,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSwitch, EObject srcSwitchPosition) {
-		ruleresult.registerObject("srcSwitch", srcSwitch);
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSwitchPosition, EObject srcSwitch) {
 		ruleresult.registerObject("srcSwitchPosition", srcSwitchPosition);
+		ruleresult.registerObject("srcSwitch", srcSwitch);
 
 	}
 
@@ -344,7 +344,7 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_10(EMoflonEdge _edge_positions) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_1(EMoflonEdge _edge_positions) {
 
 		Object[] result1_bindingAndBlack = SwitchPositionImpl
 				.pattern_SwitchPosition_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -360,8 +360,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		// ForEach 
 		for (Object[] result2_black : SwitchPositionImpl
 				.pattern_SwitchPosition_10_2_testcorematchandDECs_blackFFB(_edge_positions)) {
-			Switch srcSwitch = (Switch) result2_black[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result2_black[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result2_black[0];
+			Switch srcSwitch = (Switch) result2_black[1];
 			Object[] result2_green = SwitchPositionImpl
 					.pattern_SwitchPosition_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -369,7 +369,7 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 			// 
 			if (SwitchPositionImpl
 					.pattern_SwitchPosition_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(this, match,
-							srcSwitch, srcSwitchPosition)) {
+							srcSwitchPosition, srcSwitch)) {
 				// 
 				if (SwitchPositionImpl
 						.pattern_SwitchPosition_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(this,
@@ -443,10 +443,10 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {// 
-		Object[] result1_black = SwitchPositionImpl.pattern_SwitchPosition_13_1_matchtggpattern_blackBB(srcSwitch,
-				srcSwitchPosition);
+	public boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition,
+			Switch srcSwitch) {// 
+		Object[] result1_black = SwitchPositionImpl
+				.pattern_SwitchPosition_13_1_matchtggpattern_blackBB(srcSwitchPosition, srcSwitch);
 		if (result1_black != null) {
 			return SwitchPositionImpl.pattern_SwitchPosition_13_2_expressionF();
 		} else {
@@ -463,25 +463,29 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD__MATCH_SWITCH_SWITCHPOSITION:
-			return isAppropriate_FWD((Match) arguments.get(0), (Switch) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(2));
+		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD__MATCH_SWITCHPOSITION_SWITCH:
+			return isAppropriate_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(1),
+					(Switch) arguments.get(2));
 		case RulesPackage.SWITCH_POSITION___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SWITCH_POSITION___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SWITCH_SWITCHPOSITION:
-			registerObjectsToMatch_FWD((Match) arguments.get(0), (Switch) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(2));
+		case RulesPackage.SWITCH_POSITION___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SWITCHPOSITION_SWITCH:
+			registerObjectsToMatch_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(1),
+					(Switch) arguments.get(2));
 			return null;
-		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SWITCH_SWITCHPOSITION:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (Switch) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(2));
+		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SWITCHPOSITION_SWITCH:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(1),
+					(Switch) arguments.get(2));
 		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SWITCH_SWITCHPOSITION:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (Switch) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(2));
+		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SWITCHPOSITION_SWITCH:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(1),
+					(Switch) arguments.get(2));
 		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT:
@@ -490,30 +494,30 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 			return null;
 		case RulesPackage.SWITCH_POSITION___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD_EMOFLON_EDGE_10__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_10((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD_EMOFLON_EDGE_1__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_1((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.SWITCH_POSITION___CHECK_DEC_FWD__SWITCH_SWITCHPOSITION:
-			return checkDEC_FWD((Switch) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(1));
+		case RulesPackage.SWITCH_POSITION___CHECK_DEC_FWD__SWITCHPOSITION_SWITCH:
+			return checkDEC_FWD((hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) arguments.get(0),
+					(Switch) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_1_initialbindings_blackBBBB(SwitchPosition _this, Match match,
-			Switch srcSwitch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		return new Object[] { _this, match, srcSwitch, srcSwitchPosition };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		return new Object[] { _this, match, srcSwitchPosition, srcSwitch };
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_2_SolveCSP_bindingFBBBB(SwitchPosition _this, Match match,
-			Switch srcSwitch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcSwitch, srcSwitchPosition);
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcSwitchPosition, srcSwitch);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcSwitch, srcSwitchPosition };
+			return new Object[] { csp, _this, match, srcSwitchPosition, srcSwitch };
 		}
 		return null;
 	}
@@ -523,17 +527,17 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_2_SolveCSP_bindingAndBlackFBBBB(SwitchPosition _this,
-			Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+			Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition,
+			Switch srcSwitch) {
 		Object[] result_pattern_SwitchPosition_0_2_SolveCSP_binding = pattern_SwitchPosition_0_2_SolveCSP_bindingFBBBB(
-				_this, match, srcSwitch, srcSwitchPosition);
+				_this, match, srcSwitchPosition, srcSwitch);
 		if (result_pattern_SwitchPosition_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_SwitchPosition_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_SwitchPosition_0_2_SolveCSP_black = pattern_SwitchPosition_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_SwitchPosition_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcSwitch, srcSwitchPosition };
+				return new Object[] { csp, _this, match, srcSwitchPosition, srcSwitch };
 			}
 		}
 		return null;
@@ -546,12 +550,12 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_4_collectelementstobetranslated_blackBBB(Match match,
-			Switch srcSwitch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		return new Object[] { match, srcSwitch, srcSwitchPosition };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		return new Object[] { match, srcSwitchPosition, srcSwitch };
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_4_collectelementstobetranslated_greenBBBFF(Match match,
-			Switch srcSwitch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		EMoflonEdge srcSwitch__srcSwitchPosition____positions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcSwitchPosition__srcSwitch____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(srcSwitchPosition);
@@ -565,13 +569,13 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		match.getToBeTranslatedEdges().add(srcSwitchPosition__srcSwitch____target);
 		srcSwitch__srcSwitchPosition____positions.setName(srcSwitch__srcSwitchPosition____positions_name_prime);
 		srcSwitchPosition__srcSwitch____target.setName(srcSwitchPosition__srcSwitch____target_name_prime);
-		return new Object[] { match, srcSwitch, srcSwitchPosition, srcSwitch__srcSwitchPosition____positions,
+		return new Object[] { match, srcSwitchPosition, srcSwitch, srcSwitch__srcSwitchPosition____positions,
 				srcSwitchPosition__srcSwitch____target };
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_5_collectcontextelements_blackBBB(Match match,
-			Switch srcSwitch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		return new Object[] { match, srcSwitch, srcSwitchPosition };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		return new Object[] { match, srcSwitchPosition, srcSwitch };
 	}
 
 	public static final Object[] pattern_SwitchPosition_0_5_collectcontextelements_greenBB(Match match,
@@ -581,9 +585,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final void pattern_SwitchPosition_0_6_registerobjectstomatch_expressionBBBB(SwitchPosition _this,
-			Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		_this.registerObjectsToMatch_FWD(match, srcSwitch, srcSwitchPosition);
+			Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition,
+			Switch srcSwitch) {
+		_this.registerObjectsToMatch_FWD(match, srcSwitchPosition, srcSwitch);
 
 	}
 
@@ -599,27 +603,27 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 
 	public static final Object[] pattern_SwitchPosition_1_1_performtransformation_bindingFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("srcSwitch");
-		EObject _localVariable_1 = isApplicableMatch.getObject("srcSwitchPosition");
-		EObject tmpSrcSwitch = _localVariable_0;
-		EObject tmpSrcSwitchPosition = _localVariable_1;
-		if (tmpSrcSwitch instanceof Switch) {
-			Switch srcSwitch = (Switch) tmpSrcSwitch;
-			if (tmpSrcSwitchPosition instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) tmpSrcSwitchPosition;
-				return new Object[] { srcSwitch, srcSwitchPosition, isApplicableMatch };
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcSwitchPosition");
+		EObject _localVariable_1 = isApplicableMatch.getObject("srcSwitch");
+		EObject tmpSrcSwitchPosition = _localVariable_0;
+		EObject tmpSrcSwitch = _localVariable_1;
+		if (tmpSrcSwitchPosition instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) tmpSrcSwitchPosition;
+			if (tmpSrcSwitch instanceof Switch) {
+				Switch srcSwitch = (Switch) tmpSrcSwitch;
+				return new Object[] { srcSwitchPosition, srcSwitch, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_SwitchPosition_1_1_performtransformation_blackBBFBB(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, SwitchPosition _this,
-			IsApplicableMatch isApplicableMatch) {
+	public static final Object[] pattern_SwitchPosition_1_1_performtransformation_blackBBFBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch,
+			SwitchPosition _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { srcSwitch, srcSwitchPosition, csp, _this, isApplicableMatch };
+				return new Object[] { srcSwitchPosition, srcSwitch, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -630,15 +634,15 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		Object[] result_pattern_SwitchPosition_1_1_performtransformation_binding = pattern_SwitchPosition_1_1_performtransformation_bindingFFB(
 				isApplicableMatch);
 		if (result_pattern_SwitchPosition_1_1_performtransformation_binding != null) {
-			Switch srcSwitch = (Switch) result_pattern_SwitchPosition_1_1_performtransformation_binding[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result_pattern_SwitchPosition_1_1_performtransformation_binding[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) result_pattern_SwitchPosition_1_1_performtransformation_binding[0];
+			Switch srcSwitch = (Switch) result_pattern_SwitchPosition_1_1_performtransformation_binding[1];
 
 			Object[] result_pattern_SwitchPosition_1_1_performtransformation_black = pattern_SwitchPosition_1_1_performtransformation_blackBBFBB(
-					srcSwitch, srcSwitchPosition, _this, isApplicableMatch);
+					srcSwitchPosition, srcSwitch, _this, isApplicableMatch);
 			if (result_pattern_SwitchPosition_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_SwitchPosition_1_1_performtransformation_black[2];
 
-				return new Object[] { srcSwitch, srcSwitchPosition, csp, _this, isApplicableMatch };
+				return new Object[] { srcSwitchPosition, srcSwitch, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -657,15 +661,15 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final Object[] pattern_SwitchPosition_1_3_bookkeepingforedges_blackBBB(PerformRuleResult ruleresult,
-			EObject srcSwitch, EObject srcSwitchPosition) {
+			EObject srcSwitchPosition, EObject srcSwitch) {
 		if (!srcSwitch.equals(srcSwitchPosition)) {
-			return new Object[] { ruleresult, srcSwitch, srcSwitchPosition };
+			return new Object[] { ruleresult, srcSwitchPosition, srcSwitch };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_SwitchPosition_1_3_bookkeepingforedges_greenBBBFF(PerformRuleResult ruleresult,
-			EObject srcSwitch, EObject srcSwitchPosition) {
+			EObject srcSwitchPosition, EObject srcSwitch) {
 		EMoflonEdge srcSwitch__srcSwitchPosition____positions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcSwitchPosition__srcSwitch____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "SwitchPosition";
@@ -680,13 +684,13 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		srcSwitch__srcSwitchPosition____positions.setName(srcSwitch__srcSwitchPosition____positions_name_prime);
 		srcSwitchPosition__srcSwitch____target.setName(srcSwitchPosition__srcSwitch____target_name_prime);
-		return new Object[] { ruleresult, srcSwitch, srcSwitchPosition, srcSwitch__srcSwitchPosition____positions,
+		return new Object[] { ruleresult, srcSwitchPosition, srcSwitch, srcSwitch__srcSwitchPosition____positions,
 				srcSwitchPosition__srcSwitch____target };
 	}
 
 	public static final void pattern_SwitchPosition_1_5_registerobjects_expressionBBBB(SwitchPosition _this,
-			PerformRuleResult ruleresult, EObject srcSwitch, EObject srcSwitchPosition) {
-		_this.registerObjects_FWD(ruleresult, srcSwitch, srcSwitchPosition);
+			PerformRuleResult ruleresult, EObject srcSwitchPosition, EObject srcSwitch) {
+		_this.registerObjects_FWD(ruleresult, srcSwitchPosition, srcSwitch);
 
 	}
 
@@ -745,45 +749,46 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final Object[] pattern_SwitchPosition_2_2_corematch_bindingFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcSwitch");
-		EObject _localVariable_1 = match.getObject("srcSwitchPosition");
-		EObject tmpSrcSwitch = _localVariable_0;
-		EObject tmpSrcSwitchPosition = _localVariable_1;
-		if (tmpSrcSwitch instanceof Switch) {
-			Switch srcSwitch = (Switch) tmpSrcSwitch;
-			if (tmpSrcSwitchPosition instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) tmpSrcSwitchPosition;
-				return new Object[] { srcSwitch, srcSwitchPosition, match };
+		EObject _localVariable_0 = match.getObject("srcSwitchPosition");
+		EObject _localVariable_1 = match.getObject("srcSwitch");
+		EObject tmpSrcSwitchPosition = _localVariable_0;
+		EObject tmpSrcSwitch = _localVariable_1;
+		if (tmpSrcSwitchPosition instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition) tmpSrcSwitchPosition;
+			if (tmpSrcSwitch instanceof Switch) {
+				Switch srcSwitch = (Switch) tmpSrcSwitch;
+				return new Object[] { srcSwitchPosition, srcSwitch, match };
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_SwitchPosition_2_2_corematch_blackBBB(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Match match) {
+	public static final Iterable<Object[]> pattern_SwitchPosition_2_2_corematch_blackBBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch,
+			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		_result.add(new Object[] { srcSwitch, srcSwitchPosition, match });
+		_result.add(new Object[] { srcSwitchPosition, srcSwitch, match });
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_SwitchPosition_2_3_findcontext_blackBB(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+	public static final Iterable<Object[]> pattern_SwitchPosition_2_3_findcontext_blackBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (srcSwitch.getPositions().contains(srcSwitchPosition)) {
-			_result.add(new Object[] { srcSwitch, srcSwitchPosition });
+			_result.add(new Object[] { srcSwitchPosition, srcSwitch });
 		}
 		return _result;
 	}
 
-	public static final Object[] pattern_SwitchPosition_2_3_findcontext_greenBBFFF(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+	public static final Object[] pattern_SwitchPosition_2_3_findcontext_greenBBFFF(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge srcSwitch__srcSwitchPosition____positions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcSwitchPosition__srcSwitch____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcSwitch__srcSwitchPosition____positions_name_prime = "positions";
 		String srcSwitchPosition__srcSwitch____target_name_prime = "target";
-		isApplicableMatch.getAllContextElements().add(srcSwitch);
 		isApplicableMatch.getAllContextElements().add(srcSwitchPosition);
+		isApplicableMatch.getAllContextElements().add(srcSwitch);
 		srcSwitch__srcSwitchPosition____positions.setSrc(srcSwitch);
 		srcSwitch__srcSwitchPosition____positions.setTrg(srcSwitchPosition);
 		isApplicableMatch.getAllContextElements().add(srcSwitch__srcSwitchPosition____positions);
@@ -792,17 +797,17 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		isApplicableMatch.getAllContextElements().add(srcSwitchPosition__srcSwitch____target);
 		srcSwitch__srcSwitchPosition____positions.setName(srcSwitch__srcSwitchPosition____positions_name_prime);
 		srcSwitchPosition__srcSwitch____target.setName(srcSwitchPosition__srcSwitch____target_name_prime);
-		return new Object[] { srcSwitch, srcSwitchPosition, isApplicableMatch,
+		return new Object[] { srcSwitchPosition, srcSwitch, isApplicableMatch,
 				srcSwitch__srcSwitchPosition____positions, srcSwitchPosition__srcSwitch____target };
 	}
 
 	public static final Object[] pattern_SwitchPosition_2_4_solveCSP_bindingFBBBB(SwitchPosition _this,
-			IsApplicableMatch isApplicableMatch, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSwitch, srcSwitchPosition);
+			IsApplicableMatch isApplicableMatch,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSwitchPosition, srcSwitch);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, srcSwitch, srcSwitchPosition };
+			return new Object[] { csp, _this, isApplicableMatch, srcSwitchPosition, srcSwitch };
 		}
 		return null;
 	}
@@ -812,17 +817,17 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final Object[] pattern_SwitchPosition_2_4_solveCSP_bindingAndBlackFBBBB(SwitchPosition _this,
-			IsApplicableMatch isApplicableMatch, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+			IsApplicableMatch isApplicableMatch,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		Object[] result_pattern_SwitchPosition_2_4_solveCSP_binding = pattern_SwitchPosition_2_4_solveCSP_bindingFBBBB(
-				_this, isApplicableMatch, srcSwitch, srcSwitchPosition);
+				_this, isApplicableMatch, srcSwitchPosition, srcSwitch);
 		if (result_pattern_SwitchPosition_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_SwitchPosition_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_SwitchPosition_2_4_solveCSP_black = pattern_SwitchPosition_2_4_solveCSP_blackB(csp);
 			if (result_pattern_SwitchPosition_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, srcSwitch, srcSwitchPosition };
+				return new Object[] { csp, _this, isApplicableMatch, srcSwitchPosition, srcSwitch };
 			}
 		}
 		return null;
@@ -910,9 +915,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 
 	public static final Object[] pattern_SwitchPosition_10_2_testcorematchandDECs_black_nac_0BB(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
-		Switch __DEC_srcSwitchPosition_positions_656855 = srcSwitchPosition.getTarget();
-		if (__DEC_srcSwitchPosition_positions_656855 != null) {
-			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_656855)) {
+		Switch __DEC_srcSwitchPosition_positions_461916 = srcSwitchPosition.getTarget();
+		if (__DEC_srcSwitchPosition_positions_461916 != null) {
+			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_461916)) {
 				return new Object[] { srcSwitchPosition, srcSwitch };
 			}
 		}
@@ -932,7 +937,7 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 				if (srcSwitch.getPositions().contains(srcSwitchPosition)) {
 					if (pattern_SwitchPosition_10_2_testcorematchandDECs_black_nac_0BB(srcSwitchPosition,
 							srcSwitch) == null) {
-						_result.add(new Object[] { srcSwitch, srcSwitchPosition, _edge_positions });
+						_result.add(new Object[] { srcSwitchPosition, srcSwitch, _edge_positions });
 					}
 				}
 			}
@@ -952,9 +957,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	}
 
 	public static final boolean pattern_SwitchPosition_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBB(
-			SwitchPosition _this, Match match, Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcSwitch, srcSwitchPosition);
+			SwitchPosition _this, Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcSwitchPosition, srcSwitch);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -989,9 +994,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 
 	public static final Object[] pattern_SwitchPosition_13_1_matchtggpattern_black_nac_0BB(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
-		Switch __DEC_srcSwitchPosition_positions_331408 = srcSwitchPosition.getTarget();
-		if (__DEC_srcSwitchPosition_positions_331408 != null) {
-			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_331408)) {
+		Switch __DEC_srcSwitchPosition_positions_162430 = srcSwitchPosition.getTarget();
+		if (__DEC_srcSwitchPosition_positions_162430 != null) {
+			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_162430)) {
 				return new Object[] { srcSwitchPosition, srcSwitch };
 			}
 		}
@@ -999,11 +1004,11 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 		return null;
 	}
 
-	public static final Object[] pattern_SwitchPosition_13_1_matchtggpattern_blackBB(Switch srcSwitch,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition) {
+	public static final Object[] pattern_SwitchPosition_13_1_matchtggpattern_blackBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
 		if (srcSwitch.getPositions().contains(srcSwitchPosition)) {
 			if (pattern_SwitchPosition_13_1_matchtggpattern_black_nac_0BB(srcSwitchPosition, srcSwitch) == null) {
-				return new Object[] { srcSwitch, srcSwitchPosition };
+				return new Object[] { srcSwitchPosition, srcSwitch };
 			}
 		}
 		return null;
