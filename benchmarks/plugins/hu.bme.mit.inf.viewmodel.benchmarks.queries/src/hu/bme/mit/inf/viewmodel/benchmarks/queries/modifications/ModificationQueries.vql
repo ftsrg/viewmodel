@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications
 
 import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/railway.ecore"
+import "platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.models/model/dependability.ecore"
 
 pattern trackElement(Element : TrackElement) {
 	TrackElement(Element);
@@ -24,4 +25,8 @@ pattern setSwitchFailed(Switch : Switch) {
 
 pattern setSwitchOperational(Switch : Switch) {
 	Switch.currentPosition(Switch, Position::FAILURE);
+}
+
+pattern routeErrorModel(Route : Route, Model : ErrorModel) {
+	ErrorModel.railwayElement(Model, Route);
 }

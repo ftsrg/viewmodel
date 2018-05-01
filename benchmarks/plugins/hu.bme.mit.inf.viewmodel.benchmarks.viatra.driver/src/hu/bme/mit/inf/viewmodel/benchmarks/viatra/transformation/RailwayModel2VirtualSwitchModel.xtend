@@ -43,6 +43,10 @@ class RailwayModel2VirtualSwitchModel extends HandCodedTransformation {
 	protected override createMatchers(ViatraQueryEngine queryEngine) {
 		virtualSwitchTracedMatcher = VirtualSwitchTraceMatcher.on(queryEngine)
 	}
+	
+	override protected createRules() {
+		// Rules are created in getTransformationRuleGroup
+	}
 
 	protected override getTransformationRuleGroup() {
 		extension val VirtualSwitchViewFactory = VirtualSwitchViewFactory.eINSTANCE

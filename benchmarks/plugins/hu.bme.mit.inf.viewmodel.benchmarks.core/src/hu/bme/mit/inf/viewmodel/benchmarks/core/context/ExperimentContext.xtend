@@ -5,6 +5,7 @@ import hu.bme.mit.inf.viewmodel.benchmarks.core.BenchmarkUtils
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.BenchmarksConfiguration
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.ExperimentConfiguration
 import hu.bme.mit.inf.viewmodel.benchmarks.core.configuration.TransformationCase
+import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.AbstractModelModifications
 import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.ModelModification
 import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.ModelModifications
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityModel
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtend.lib.annotations.Accessors
+import hu.bme.mit.inf.viewmodel.benchmarks.core.modification.DependabilityModelModifications
 
 abstract class ExperimentContext {
 	val int gcSleep
@@ -30,7 +32,7 @@ abstract class ExperimentContext {
 	@Accessors val TransformationCase transformationCase
 	val Map<ModelModification, Integer> modelModificationMix
 
-	var ModelModifications modelModifications
+	var AbstractModelModifications modelModifications
 	var long previousHeapMemory = 0
 	var long previousNonHeapMemory = 0
 
@@ -77,7 +79,12 @@ abstract class ExperimentContext {
 			dependabilityModel = dependabilityResource.contents.head as DependabilityModel
 		}
 		if (modelModificationMix !== null) {
-			modelModifications = new ModelModifications(seed, railwayContainer, modelModificationMix)
+			modelModifications = if (dependabilityModel === null) {
+				new ModelModifications(seed, railwayContainer, modelModificationMix)
+			} else {
+				new DependabilityModelModifications(seed, resourceSet, railwayContainer, dependabilityModel,
+					modelModificationMix)
+			}
 		}
 	}
 

@@ -11,6 +11,8 @@ import org.eclipse.viatra.query.runtime.api.IQueryGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.viatra.transformation.evm.api.Scheduler.ISchedulerFactory
+import org.eclipse.viatra.transformation.evm.api.resolver.ConflictResolver
+import org.eclipse.viatra.transformation.evm.specific.resolver.ArbitraryOrderConflictResolver
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRuleFactory
 import org.eclipse.viatra.transformation.runtime.emf.transformation.eventdriven.EventDrivenTransformation
@@ -52,10 +54,18 @@ abstract class HandCodedTransformation {
 
 	protected abstract def void createMatchers(ViatraQueryEngine queryEngine)
 
+	protected abstract def void createRules()
+
 	protected abstract def EventDrivenTransformationRuleGroup getTransformationRuleGroup()
 
+	protected def ConflictResolver getConflictResolver() {
+		new ArbitraryOrderConflictResolver
+	}
+
 	def void createTransformation(ISchedulerFactory schedulerFactory) {
+		createRules()
 		val builder = EventDrivenTransformation.forEngine(queryEngine).addRules(transformationRuleGroup)
+		builder.conflictResolver = conflictResolver
 		if (schedulerFactory !== null) {
 			builder.schedulerFactory = schedulerFactory
 		}

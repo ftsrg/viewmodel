@@ -60,6 +60,10 @@ class RailwayModel2StochasticPetriNet extends HandCodedTransformation {
 		requiredElementTraceMatcher = RequiredElementTraceMatcher.on(queryEngine)
 		requiredElementConnectionTraceMatcher = RequiredElementConnectionTraceMatcher.on(queryEngine)
 	}
+	
+	override protected createRules() {
+		// Rules are created in getTransformationRuleGroup
+	}
 
 	override protected getTransformationRuleGroup() {
 		extension val StochasticPetriNetFactory = StochasticPetriNetFactory.eINSTANCE

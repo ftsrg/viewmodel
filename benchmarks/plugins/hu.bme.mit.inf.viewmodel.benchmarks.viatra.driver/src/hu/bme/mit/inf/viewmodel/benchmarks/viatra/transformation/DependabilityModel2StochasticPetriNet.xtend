@@ -27,7 +27,9 @@ import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.evm.specific.crud.CRUDActivationStateEnum
+import org.eclipse.viatra.transformation.evm.specific.resolver.InvertedDisappearancePriorityConflictResolver
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
+import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 
 class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 
@@ -38,6 +40,11 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 	RailwayContainerTraceMatcher railwayContainerTraceMatcher
 	ErrorModelTraceMatcher errorModelTraceMatcher
 	RequiredElementConnectionTraceMatcher requiredElementConnectionTraceMatcher
+
+	EventDrivenTransformationRule<?, ?> railwayContainerRule
+	EventDrivenTransformationRule<?, ?> errorModelRule
+	EventDrivenTransformationRule<?, ?> failedErrorModelRule
+	EventDrivenTransformationRule<?, ?> connectionRule
 
 	new(RailwayContainer railwayContainer, DependabilityModel dependabilityModel, ResourceSet resourceSet) {
 		super(railwayContainer, resourceSet)
@@ -68,11 +75,11 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 		requiredElementConnectionTraceMatcher = RequiredElementConnectionTraceMatcher.on(queryEngine)
 	}
 
-	override protected getTransformationRuleGroup() {
+	override protected def createRules() {
 		extension val StochasticPetriNetFactory = StochasticPetriNetFactory.eINSTANCE
 		extension val Dependability2StochasticPetriNetFactory = Dependability2StochasticPetriNetFactory.eINSTANCE
 
-		val railwayContainerRule = createRule.precondition(RailwayContainerQuerySpecification.instance).action(
+		railwayContainerRule = createRule.precondition(RailwayContainerQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
 			val petriNet = createPetriNet
 			val traceLink = createRailwayContainer2PetriNet
@@ -87,7 +94,7 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			}
 		].build
 
-		val dependabilityModelRule = createRule.precondition(TracedErrorModelQuerySpecification.instance).action(
+		errorModelRule = createRule.precondition(TracedErrorModelQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
 			val traceLink = createErrorModel2PetriNetModule
 			traceLink.errorModel = model
@@ -122,7 +129,7 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			}
 		].filter[match|match.traceModel == traceModel].build
 
-		val failedErrorModelRule = createRule.precondition(FailedErrorModelTraceQuerySpecification.instance).action(
+		failedErrorModelRule = createRule.precondition(FailedErrorModelTraceQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
 			traceLink.up.tokens = 0
 			traceLink.down.tokens = 1
@@ -131,30 +138,43 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			traceLink.down.tokens = 0
 		].filter[match|match.traceModel == traceModel].build
 
-		val connectionRule = createRule.precondition(RouteRequiresElementInRailwayModelQuerySpecification.instance).
-			action(CRUDActivationStateEnum.CREATED) [
-				val traceLink = createRequiredElement2Connection
-				traceLink.source = sourceLink.errorModel
-				traceLink.target = targetLink.errorModel
-				val fail = createImmediateTransition
-				traceLink.nodes += fail
-				traceLink.arcs += createArc(targetLink.up, fail)
-				traceLink.arcs += createArc(fail, targetLink.down)
-				traceLink.arcs += createArc(sourceLink.down, fail)
-				traceLink.arcs += createArc(fail, sourceLink.down)
-				traceLink.arcs += createArc(sourceLink.up, targetLink.repair)
-				traceLink.arcs += createArc(targetLink.repair, sourceLink.up)
-				petriNet.nodes += traceLink.nodes
-				traceModel.traceLinks += traceLink
-			].action(CRUDActivationStateEnum.DELETED) [
-				for (traceLink : requiredElementConnectionTraceMatcher.getAllValuesOfTraceLink(traceModel, sourceLink,
-					targetLink)) {
-					removePetriNetModule(petriNet, traceLink)
-				}
-			].filter[match|match.traceModel == traceModel].build
+		connectionRule = createRule.precondition(RouteRequiresElementInRailwayModelQuerySpecification.instance).action(
+			CRUDActivationStateEnum.CREATED) [
+			val traceLink = createRequiredElement2Connection
+			traceLink.source = sourceLink.errorModel
+			traceLink.target = targetLink.errorModel
+			val fail = createImmediateTransition
+			traceLink.nodes += fail
+			traceLink.arcs += createArc(targetLink.up, fail)
+			traceLink.arcs += createArc(fail, targetLink.down)
+			traceLink.arcs += createArc(sourceLink.down, fail)
+			traceLink.arcs += createArc(fail, sourceLink.down)
+			traceLink.arcs += createArc(sourceLink.up, targetLink.repair)
+			traceLink.arcs += createArc(targetLink.repair, sourceLink.up)
+			petriNet.nodes += traceLink.nodes
+			traceModel.traceLinks += traceLink
+		].action(CRUDActivationStateEnum.DELETED) [
+			for (traceLink : requiredElementConnectionTraceMatcher.getAllValuesOfTraceLink(traceModel, sourceLink,
+				targetLink)) {
+				removePetriNetModule(petriNet, traceLink)
+			}
+		].filter[match|match.traceModel == traceModel].build
+	}
 
-		new EventDrivenTransformationRuleGroup(railwayContainerRule, dependabilityModelRule, failedErrorModelRule,
+	override protected getTransformationRuleGroup() {
+		new EventDrivenTransformationRuleGroup(railwayContainerRule, errorModelRule, failedErrorModelRule,
 			connectionRule)
+	}
+
+	override protected getConflictResolver() {
+		val resolver = new InvertedDisappearancePriorityConflictResolver
+		resolver.setPriority(railwayContainerRule.ruleSpecification, 0)
+		resolver.setPriority(errorModelRule.ruleSpecification, 0)
+		resolver.setPriority(failedErrorModelRule.ruleSpecification, 0)
+		// Make sure connections are removed before the error models are removed,
+		// because otherwise the connection trace link cannot be found by VIATRA Query.
+		resolver.setPriority(connectionRule.ruleSpecification, 10)
+		resolver
 	}
 
 	private def createArc(ArcKind kind, Place place, Transition transition) {
