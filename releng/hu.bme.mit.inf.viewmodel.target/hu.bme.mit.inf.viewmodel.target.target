@@ -8,7 +8,7 @@
 <repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20171013-1050"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20170919-1305"/>
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/milestones/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
