@@ -8,8 +8,8 @@
 <repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20170919-1305"/>
-<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/milestones/"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.13.0.v20171020-0920"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/releases"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.google.inject.multibindings.source" version="3.0.0.v201402270930"/>
