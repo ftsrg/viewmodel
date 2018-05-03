@@ -1,24 +1,31 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.viatra.transformation
 
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer
+import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway2virtualswitchview.Railway2VirtualSwitchViewFactory
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway2virtualswitchview.Railway2VirtualSwitchViewTrace
 import hu.bme.mit.inf.viewmodel.benchmarks.models.virtualswitchview.VirtualSwitchViewFactory
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.VirtualSwitchTraceMatcher
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.util.ConnectedSwitchesTracedQuerySpecification
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.util.CountConnectedInFailureTracedQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.util.ConnectedToQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.util.CountConnectedInFailureQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.virtualswitchview.util.VirtualSwitchesQuerySpecification
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.viatra.query.runtime.api.GenericQueryGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.evm.specific.crud.CRUDActivationStateEnum
+import org.eclipse.viatra.transformation.evm.specific.resolver.InvertedDisappearancePriorityConflictResolver
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
+import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 import org.eclipse.xtend.lib.annotations.Accessors
 
-class RailwayModel2VirtualSwitchModel extends HandCodedTransformation {
+class RailwayModel2VirtualSwitchModelPrioritised extends HandCodedTransformation {
 	@Accessors(PUBLIC_GETTER) Railway2VirtualSwitchViewTrace traceModel
 
 	VirtualSwitchTraceMatcher virtualSwitchTracedMatcher
+
+	EventDrivenTransformationRule<?, ?> virtualSwitchRule
+	EventDrivenTransformationRule<?, ?> connectedSwitchesRule
+	EventDrivenTransformationRule<?, ?> countConnectedInFailureRule
 
 	new(RailwayContainer railwayContainer, ResourceSet resourceSet) {
 		super(railwayContainer, resourceSet)
@@ -37,8 +44,8 @@ class RailwayModel2VirtualSwitchModel extends HandCodedTransformation {
 	protected override getQueryGroup() {
 		GenericQueryGroup.of(
 			VirtualSwitchesQuerySpecification.instance,
-			ConnectedSwitchesTracedQuerySpecification.instance,
-			CountConnectedInFailureTracedQuerySpecification.instance
+			ConnectedToQuerySpecification.instance,
+			CountConnectedInFailureQuerySpecification.instance
 		)
 	}
 
@@ -47,14 +54,10 @@ class RailwayModel2VirtualSwitchModel extends HandCodedTransformation {
 	}
 
 	override protected createRules() {
-		// Rules are created in getTransformationRuleGroup
-	}
-
-	protected override getTransformationRuleGroup() {
 		extension val VirtualSwitchViewFactory = VirtualSwitchViewFactory.eINSTANCE
 		extension val Railway2VirtualSwitchViewFactory = Railway2VirtualSwitchViewFactory.eINSTANCE
 
-		val virtualSwitchRule = createRule.precondition(VirtualSwitchesQuerySpecification.instance).action(
+		virtualSwitchRule = createRule.precondition(VirtualSwitchesQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
 			val virtualSwitch = createVirtualSwitch
 			val traceLink = createSwitch2VirtualSwitch
@@ -69,18 +72,33 @@ class RailwayModel2VirtualSwitchModel extends HandCodedTransformation {
 			}
 		].build
 
-		val connectedSwitchesRule = createRule.precondition(ConnectedSwitchesTracedQuerySpecification.instance).action(
+		connectedSwitchesRule = createRule.precondition(ConnectedToQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
-			virtualLeft.connectedTo += virtualRight
+			getVirtualSwitch(left).connectedTo += getVirtualSwitch(right)
 		].action(CRUDActivationStateEnum.DELETED) [
-			virtualLeft.connectedTo -= virtualRight
+			getVirtualSwitch(left).connectedTo -= getVirtualSwitch(right)
 		].build
 
-		val countConnectedInFailureRule = createRule.precondition(
-			CountConnectedInFailureTracedQuerySpecification.instance).action(CRUDActivationStateEnum.CREATED) [
-			virtualSwitch.countConnectedInFailure = n
-		].build
+		countConnectedInFailureRule = createRule.precondition(CountConnectedInFailureQuerySpecification.instance).
+			action(CRUDActivationStateEnum.CREATED) [
+				getVirtualSwitch(^switch).countConnectedInFailure = n
+			].build
+	}
 
+	protected override getTransformationRuleGroup() {
 		new EventDrivenTransformationRuleGroup(virtualSwitchRule, connectedSwitchesRule, countConnectedInFailureRule)
+	}
+
+	override protected getConflictResolver() {
+		val resolver = new InvertedDisappearancePriorityConflictResolver
+		resolver.setPriority(virtualSwitchRule.ruleSpecification, 0)
+		// Only connect switches after the appropriate virtual switch was created.
+		resolver.setPriority(connectedSwitchesRule.ruleSpecification, 10)
+		resolver.setPriority(countConnectedInFailureRule.ruleSpecification, 10)
+		resolver
+	}
+
+	private def getVirtualSwitch(Switch ^switch) {
+		virtualSwitchTracedMatcher.getOneArbitraryMatch(traceModel, ^switch, null).traceLink.virtualSwitch
 	}
 }

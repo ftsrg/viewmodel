@@ -5,8 +5,8 @@ import hu.bme.mit.inf.viewmodel.runtime.utils.NullScheduler
 
 class IncrementalViatraDriver extends ViatraDriver {
 	
-	new(ExperimentContext experimentContext) {
-		super(experimentContext)
+	new(ExperimentContext experimentContext, PreconditionStyle preconditionStyle) {
+		super(experimentContext, preconditionStyle)
 	}
 	
 	override protected doRunExperiment() {

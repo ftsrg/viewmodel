@@ -3,7 +3,6 @@ package hu.bme.mit.inf.viewmodel.benchmarks.core.modification
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityFactory
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityModel
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer
-import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayElement
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Route
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Segment
 import hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Switch
@@ -31,17 +30,13 @@ class DependabilityModelModifications extends AbstractModelModifications {
 	}
 
 	override protected switchCreated(Switch ^switch) {
-		createFailureRepairModel(^switch)
+		val errorModel = createFailureRepairModel
+		errorModel.railwayElement = ^switch
+		dependabilityModel.errorModels += errorModel
 	}
 
 	override protected segmentCreated(Segment segment) {
-		createFailureRepairModel(segment)
-	}
-
-	private def void createFailureRepairModel(RailwayElement railwayElement) {
-		val errorModel = createFailureRepairModel
-		errorModel.railwayElement = railwayElement
-		dependabilityModel.errorModels += errorModel
+		// Nothing to do.
 	}
 
 	override protected routeCreated(Route route) {

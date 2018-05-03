@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.viatra.query.runtime.api.AdvancedViatraQueryEngine
 import org.eclipse.viatra.query.runtime.api.IQueryGroup
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
+import org.eclipse.viatra.query.runtime.base.api.BaseIndexOptions
+import org.eclipse.viatra.query.runtime.base.api.IndexingLevel
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.viatra.transformation.evm.api.Scheduler.ISchedulerFactory
 import org.eclipse.viatra.transformation.evm.api.resolver.ConflictResolver
@@ -45,7 +47,8 @@ abstract class HandCodedTransformation {
 	abstract def int getTraceLinkCount()
 
 	def void createQueryEngine() {
-		queryEngine = AdvancedViatraQueryEngine.createUnmanagedEngine(new EMFScope(resourceSet))
+		val baseIndexOptions = new BaseIndexOptions().withWildcardLevel(IndexingLevel.FULL)
+		queryEngine = AdvancedViatraQueryEngine.createUnmanagedEngine(new EMFScope(resourceSet, baseIndexOptions))
 		queryGroup.prepare(queryEngine)
 		createMatchers(queryEngine)
 	}
@@ -71,7 +74,7 @@ abstract class HandCodedTransformation {
 		}
 		transformation = builder.build
 	}
-	
+
 	def void startUnscheduledExecution() {
 		transformation.executionSchema.startUnscheduledExecution
 	}

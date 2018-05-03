@@ -1,6 +1,7 @@
 package hu.bme.mit.inf.viewmodel.benchmarks.viatra.transformation
 
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.DependabilityModel
+import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.ErrorModel
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.FailureRepairModel
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability.ImmediateRepairModel
 import hu.bme.mit.inf.viewmodel.benchmarks.models.dependability2stochasticpetrinet.Dependability2StochasticPetriNetFactory
@@ -16,12 +17,12 @@ import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.ErrorModelTrace
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.RailwayContainerTraceMatcher
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.RequiredElementConnectionTraceMatcher
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.ErrorModelTraceQuerySpecification
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.FailedErrorModelTraceQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.NotTracedErrorModelQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.NotTracedFailedErrorModelQuerySpecification
+import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.NotTracedRouteRequiredElementInRailwayModelQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.RailwayContainerTraceQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.RequiredElementConnectionTraceQuerySpecification
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.RouteRequiresElementInRailwayModelQuerySpecification
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util.TracedErrorModelQuerySpecification
-import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.TrainBenchmarkQueries
 import hu.bme.mit.inf.viewmodel.benchmarks.queries.stochasticpetrinet.util.RailwayContainerQuerySpecification
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
@@ -32,7 +33,7 @@ import org.eclipse.viatra.transformation.evm.specific.resolver.InvertedDisappear
 import org.eclipse.viatra.transformation.runtime.emf.rules.EventDrivenTransformationRuleGroup
 import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDrivenTransformationRule
 
-class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
+class DependabilityModel2StochasticPetriNetPrioritised extends HandCodedTransformation {
 
 	val DependabilityModel dependabilityModel
 
@@ -64,7 +65,12 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 	}
 
 	override protected getQueryGroup() {
-		TrainBenchmarkQueries.instance
+		GenericQueryGroup.of(
+			RailwayContainerQuerySpecification.instance,
+			NotTracedErrorModelQuerySpecification.instance,
+			NotTracedFailedErrorModelQuerySpecification.instance,
+			RouteRequiresElementInRailwayModelQuerySpecification.instance
+		)
 	}
 
 	override protected createMatchers(ViatraQueryEngine queryEngine) {
@@ -95,8 +101,9 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			}
 		].build
 
-		errorModelRule = createRule.precondition(TracedErrorModelQuerySpecification.instance).action(
+		errorModelRule = createRule.precondition(NotTracedErrorModelQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
+			val petriNet = getPetriNet(container)
 			val traceLink = createErrorModel2PetriNetModule
 			traceLink.errorModel = model
 			val up = createPlace => [tokens = 1]
@@ -126,21 +133,27 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			traceModel.traceLinks += traceLink
 		].action(CRUDActivationStateEnum.DELETED) [
 			for (traceLink : errorModelTraceMatcher.getAllValuesOfTraceLink(traceModel, model)) {
-				removePetriNetModule(petriNet, traceLink)
+				removePetriNetModule(getPetriNet(container), traceLink)
 			}
-		].filter[match|match.traceModel == traceModel].build
+		].build
 
-		failedErrorModelRule = createRule.precondition(FailedErrorModelTraceQuerySpecification.instance).action(
+		failedErrorModelRule = createRule.precondition(NotTracedFailedErrorModelQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
+			val traceLink = getErrorModelTrace(model)
 			traceLink.up.tokens = 0
 			traceLink.down.tokens = 1
 		].action(CRUDActivationStateEnum.DELETED) [
+			val traceLink = getErrorModelTrace(model)
 			traceLink.up.tokens = 1
 			traceLink.down.tokens = 0
-		].filter[match|match.traceModel == traceModel].build
+		].build
 
-		connectionRule = createRule.precondition(RouteRequiresElementInRailwayModelQuerySpecification.instance).action(
+		connectionRule = createRule.precondition(
+			NotTracedRouteRequiredElementInRailwayModelQuerySpecification.instance).action(
 			CRUDActivationStateEnum.CREATED) [
+			val sourceLink = getErrorModelTrace(sourceModel)
+			val targetLink = getErrorModelTrace(targetModel)
+			val petriNet = getPetriNet(container)
 			val traceLink = createRequiredElement2Connection
 			traceLink.source = sourceLink.errorModel
 			traceLink.target = targetLink.errorModel
@@ -155,11 +168,22 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 			petriNet.nodes += traceLink.nodes
 			traceModel.traceLinks += traceLink
 		].action(CRUDActivationStateEnum.DELETED) [
+			val sourceLink = getErrorModelTrace(sourceModel)
+			val targetLink = getErrorModelTrace(targetModel)
+			val petriNet = getPetriNet(container)
 			for (traceLink : requiredElementConnectionTraceMatcher.getAllValuesOfTraceLink(traceModel, sourceLink,
 				targetLink)) {
 				removePetriNetModule(petriNet, traceLink)
 			}
-		].filter[match|match.traceModel == traceModel].build
+		].build
+	}
+
+	private def getPetriNet(RailwayContainer railwayContainer) {
+		railwayContainerTraceMatcher.getOneArbitraryMatch(traceModel, railwayContainer, null).traceLink.petriNet
+	}
+
+	private def getErrorModelTrace(ErrorModel model) {
+		errorModelTraceMatcher.getOneArbitraryMatch(traceModel, model, null).traceLink
 	}
 
 	override protected getTransformationRuleGroup() {
@@ -170,11 +194,9 @@ class DependabilityModel2StochasticPetriNet extends HandCodedTransformation {
 	override protected getConflictResolver() {
 		val resolver = new InvertedDisappearancePriorityConflictResolver
 		resolver.setPriority(railwayContainerRule.ruleSpecification, 0)
-		resolver.setPriority(errorModelRule.ruleSpecification, 0)
-		resolver.setPriority(failedErrorModelRule.ruleSpecification, 0)
-		// Make sure connections are removed before the error models are removed,
-		// because otherwise the connection trace link cannot be found by VIATRA Query.
-		resolver.setPriority(connectionRule.ruleSpecification, 10)
+		resolver.setPriority(errorModelRule.ruleSpecification, 10)
+		resolver.setPriority(failedErrorModelRule.ruleSpecification, 20)
+		resolver.setPriority(connectionRule.ruleSpecification, 120)
 		resolver
 	}
 

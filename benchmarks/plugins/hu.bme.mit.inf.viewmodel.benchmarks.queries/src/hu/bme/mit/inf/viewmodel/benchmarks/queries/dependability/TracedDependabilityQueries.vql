@@ -23,6 +23,11 @@ pattern tracedErrorModel(TraceModel : Dependability2StochasticPetriNetTrace, Mod
 	ErrorModel.railwayElement(Model, Element);
 }
 
+pattern notTracedErrorModel(Model : ErrorModel, Container : RailwayContainer) {
+	find railwayElement(Container, Element);
+	ErrorModel.railwayElement(Model, Element);
+}
+
 pattern errorModelTrace(TraceModel : Dependability2StochasticPetriNetTrace, Model : ErrorModel, TraceLink : ErrorModel2PetriNetModule) {
 	Dependability2StochasticPetriNetTrace.traceLinks(TraceModel, TraceLink);
 	ErrorModel2PetriNetModule.errorModel(TraceLink, Model);
@@ -38,6 +43,11 @@ pattern failedErrorModelTrace(TraceModel : Dependability2StochasticPetriNetTrace
 	find failedRailwayElement(_, Element);
 }
 
+pattern notTracedFailedErrorModel(Model : ErrorModel) {
+	find failedRailwayElement(_, Element);
+	ErrorModel.railwayElement(Model, Element);
+}
+
 pattern routeRequiresElementInRailwayModel(TraceModel : Dependability2StochasticPetriNetTrace, SourceLink : ErrorModel2PetriNetModule, TargetLink : ErrorModel2PetriNetModule, PetriNet : PetriNet) {
 	find routeRequiresElementInRailwayModelHelper(TraceModel, SourceLink, Target, PetriNet);
 	find elementErrorModelTrace(TraceModel, Target, TargetLink);
@@ -49,6 +59,17 @@ routeRequiresElementInRailwayModelHelper(TraceModel : Dependability2StochasticPe
 	find railwayElement(Container, Source);
 	find elementErrorModelTrace(TraceModel, Source, SourceLink);
 	find routeRequiresElement(Container, Target, Source);
+}
+
+pattern notTracedRouteRequiredElementInRailwayModel(Container : RailwayContainer, SourceModel : ErrorModel, TargetModel : ErrorModel) {
+	find notTracedRouteRequiredElementInRailwayModelHelper(Container, SourceModel, Target);
+	ErrorModel.railwayElement(TargetModel, Target);
+}
+
+private pattern
+notTracedRouteRequiredElementInRailwayModelHelper(Container : RailwayContainer, SourceModel : ErrorModel, Target : Route) {
+	find routeRequiresElement(Container, Target, Source);
+	ErrorModel.railwayElement(SourceModel, Source);
 }
 
 pattern requiredElementConnectionTrace(TraceModel : Dependability2StochasticPetriNetTrace, SourceLink : ErrorModel2PetriNetModule, TargetLink : ErrorModel2PetriNetModule, TraceLink : RequiredElement2Connection) {
