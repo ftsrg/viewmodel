@@ -1,0 +1,171 @@
+{
+ "randomSeed": 1,
+ "warmup": 10,
+ "iterations": 30,
+ "gcSleep": 500,
+ "modelPath": "models",
+ "outputPath": "/mnt/results/all-virtualSwitch-createSwitch",
+ "timestampOutput": "true",
+ "modificationMixes": {
+  "createSwitch": {
+   "createSwitch": 1
+  },
+  "createSegment": {
+   "createSegment": 1
+  },
+  "connectTrackElements": {
+   "connectTrackElements": 1
+  },
+  "disconnectTrackElements": {
+   "disconnectTrackElements": 1
+  },
+  "createRoute": {
+   "createRoute": 1
+  },
+  "removeRoute": {
+   "removeRoute": 1
+  },
+  "addSwitchToRoute": {
+   "addSwitchToRoute": 1
+  },
+  "removeSwitchFromRoute": {
+   "removeSwitchFromRoute": 1
+  },
+  "setSwitchFailed": {
+   "setSwitchFailed": 1
+  },
+  "setSwitchOperational": {
+   "setSwitchOperational": 1
+  },
+  "usual": {
+   "createSwitch": 10,
+   "createSegment": 10,
+   "connectTrackElements": 10,
+   "disconnectTrackElements": 10,
+   "createRoute": 5,
+   "removeRoute": 5,
+   "addSwitchToRoute": 10,
+   "removeSwitchFromRoute": 10,
+   "setSwitchFailed": 15,
+   "setSwitchOperational": 15
+  },
+  "petriNetSlow": {
+   "createSwitch": 25,
+   "createRoute": 25,
+   "removeRoute": 5,
+   "addSwitchToRoute": 20,
+   "removeSwitchFromRoute": 25
+  },
+  "virtualSwitchSlow": {
+   "disconnectTrackElements": 33,
+   "setSwitchFailed": 34,
+   "setSwitchOperational": 33
+  },
+  "bothSlow": {
+   "createSwitch": 12,
+   "disconnectTrackElements": 16,
+   "createRoute": 12,
+   "removeRoute": 5,
+   "addSwitchToRoute": 10,
+   "removeSwitchFromRoute": 12,
+   "setSwitchFailed": 17,
+   "setSwitchOperational": 16
+  },
+  "bothFast": {
+   "createSegment": 50,
+   "connectTrackElements": 50
+  }
+ },
+ "experiments": [
+  {
+   "model": "railway-batch-16",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viewModel-incremental-physical",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-16",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-16",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental-priorities",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-32",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viewModel-incremental-physical",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-32",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-32",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental-priorities",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-64",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viewModel-incremental-physical",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-64",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-64",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental-priorities",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-128",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viewModel-incremental-physical",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-128",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-128",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental-priorities",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-256",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viewModel-incremental-physical",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-256",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental",
+   "modificationMix": "createSwitch"
+  },
+  {
+   "model": "railway-batch-256",
+   "transformationCase": "virtualSwitch",
+   "experiment": "viatra-incremental-priorities",
+   "modificationMix": "createSwitch"
+  }
+ ]
+}
