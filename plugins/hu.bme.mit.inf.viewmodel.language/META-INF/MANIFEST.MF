@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.language
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Name: ViewModel Language
+Bundle-Vendor: Contributors to the ViewModel project
 Bundle-Version: 0.1.0.qualifier
-Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language; singleton:=true
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,

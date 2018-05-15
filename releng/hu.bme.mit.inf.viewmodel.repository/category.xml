@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-	<feature id="hu.bme.mit.inf.viewmodel.language.feature" version="0.0.0">
-		<category name="main"/>
-	</feature>
-	<feature id="hu.bme.mit.inf.viewmodel.language.feature.source" version="0.0.0">
-		<category name="main.source"/>
-	</feature>
-	<feature id="hu.bme.mit.inf.viewmodel.runtime.feature" version="0.0.0">
-		<category name="main"/>
-	</feature>
-	<feature id="hu.bme.mit.inf.viewmodel.runtime.feature.source" version="0.0.0">
-		<category name="main.source"/>
-	</feature>
-	<category-def name="main" label="ViewModel"/>
-	<category-def name="main.source" label="ViewModel (Sources)"/>
+   <feature id="hu.bme.mit.inf.viewmodel.language.feature" version="0.0.0">
+      <category name="main"/>
+   </feature>
+   <feature id="hu.bme.mit.inf.viewmodel.language.feature.source" version="0.0.0">
+      <category name="main.source"/>
+   </feature>
+   <feature id="hu.bme.mit.inf.viewmodel.runtime.feature" version="0.0.0">
+      <category name="main"/>
+   </feature>
+   <feature id="hu.bme.mit.inf.viewmodel.runtime.feature.source" version="0.0.0">
+      <category name="main.source"/>
+   </feature>
+   <category-def name="main" label="ViewModel"/>
+   <category-def name="main.source" label="ViewModel (Sources)"/>
 </site>

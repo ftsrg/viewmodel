@@ -91,50 +91,50 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
+	public boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			RailwayContainer srcContainer, Region srcRegion) {
 
-		Object[] result1_black = SensorImpl.pattern_Sensor_0_1_initialbindings_blackBBBBB(this, match, srcContainer,
-				srcSensor, srcRegion);
+		Object[] result1_black = SensorImpl.pattern_Sensor_0_1_initialbindings_blackBBBBB(this, match, srcSensor,
+				srcContainer, srcRegion);
 		if (result1_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcContainer] = " + srcContainer + ", " + "[srcSensor] = "
-					+ srcSensor + ", " + "[srcRegion] = " + srcRegion + ".");
+					+ "[match] = " + match + ", " + "[srcSensor] = " + srcSensor + ", " + "[srcContainer] = "
+					+ srcContainer + ", " + "[srcRegion] = " + srcRegion + ".");
 		}
 
 		Object[] result2_bindingAndBlack = SensorImpl.pattern_Sensor_0_2_SolveCSP_bindingAndBlackFBBBBB(this, match,
-				srcContainer, srcSensor, srcRegion);
+				srcSensor, srcContainer, srcRegion);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-					+ "[match] = " + match + ", " + "[srcContainer] = " + srcContainer + ", " + "[srcSensor] = "
-					+ srcSensor + ", " + "[srcRegion] = " + srcRegion + ".");
+					+ "[match] = " + match + ", " + "[srcSensor] = " + srcSensor + ", " + "[srcContainer] = "
+					+ srcContainer + ", " + "[srcRegion] = " + srcRegion + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// 
 		if (SensorImpl.pattern_Sensor_0_3_CheckCSP_expressionFBB(this, csp)) {
 
 			Object[] result4_black = SensorImpl.pattern_Sensor_0_4_collectelementstobetranslated_blackBBBB(match,
-					srcContainer, srcSensor, srcRegion);
+					srcSensor, srcContainer, srcRegion);
 			if (result4_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcSensor] = " + srcSensor + ", "
+						+ "[srcSensor] = " + srcSensor + ", " + "[srcContainer] = " + srcContainer + ", "
 						+ "[srcRegion] = " + srcRegion + ".");
 			}
 			SensorImpl.pattern_Sensor_0_4_collectelementstobetranslated_greenBBBF(match, srcSensor, srcRegion);
 			//nothing EMoflonEdge srcRegion__srcSensor____sensors = (EMoflonEdge) result4_green[3];
 
-			Object[] result5_black = SensorImpl.pattern_Sensor_0_5_collectcontextelements_blackBBBB(match, srcContainer,
-					srcSensor, srcRegion);
+			Object[] result5_black = SensorImpl.pattern_Sensor_0_5_collectcontextelements_blackBBBB(match, srcSensor,
+					srcContainer, srcRegion);
 			if (result5_black == null) {
 				throw new RuntimeException("Pattern matching failed." + " Variables: " + "[match] = " + match + ", "
-						+ "[srcContainer] = " + srcContainer + ", " + "[srcSensor] = " + srcSensor + ", "
+						+ "[srcSensor] = " + srcSensor + ", " + "[srcContainer] = " + srcContainer + ", "
 						+ "[srcRegion] = " + srcRegion + ".");
 			}
 			SensorImpl.pattern_Sensor_0_5_collectcontextelements_greenBBBF(match, srcContainer, srcRegion);
 			//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result5_green[3];
 
 			// 
-			SensorImpl.pattern_Sensor_0_6_registerobjectstomatch_expressionBBBBB(this, match, srcContainer, srcSensor,
+			SensorImpl.pattern_Sensor_0_6_registerobjectstomatch_expressionBBBBB(this, match, srcSensor, srcContainer,
 					srcRegion);
 			return SensorImpl.pattern_Sensor_0_7_expressionF();
 		} else {
@@ -156,92 +156,93 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
 					+ "[isApplicableMatch] = " + isApplicableMatch + ".");
 		}
-		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[0];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result1_bindingAndBlack[0];
 		RailwayContainer srcContainer = (RailwayContainer) result1_bindingAndBlack[1];
-		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[2];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result1_bindingAndBlack[3];
-		Region srcRegion = (Region) result1_bindingAndBlack[4];
+		Region srcRegion = (Region) result1_bindingAndBlack[2];
+		PetriNet trgPetrinet = (PetriNet) result1_bindingAndBlack[3];
+		RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result1_bindingAndBlack[4];
 		//nothing CSP csp = (CSP) result1_bindingAndBlack[5];
-		Object[] result1_green = SensorImpl.pattern_Sensor_1_1_performtransformation_greenFBFFBFFFFFFF(trgPetrinet,
-				srcSensor);
-		Arc trgRepairToOperational = (Arc) result1_green[0];
-		Arc trgFailedToRepair = (Arc) result1_green[2];
-		SensorToOperational sensorOperationalCoor = (SensorToOperational) result1_green[3];
-		TimedTransition trgFail = (TimedTransition) result1_green[5];
-		Place trgOperational = (Place) result1_green[6];
-		TimedTransition trgRepair = (TimedTransition) result1_green[7];
-		Place trgFailed = (Place) result1_green[8];
-		SensorToFailed sensorFailedCorr = (SensorToFailed) result1_green[9];
-		Arc trgOperationToFail = (Arc) result1_green[10];
-		Arc trgFailToFailed = (Arc) result1_green[11];
+		Object[] result1_green = SensorImpl.pattern_Sensor_1_1_performtransformation_greenBFFFFFFBFFFF(srcSensor,
+				trgPetrinet);
+		TimedTransition trgRepair = (TimedTransition) result1_green[1];
+		TimedTransition trgFail = (TimedTransition) result1_green[2];
+		Place trgFailed = (Place) result1_green[3];
+		Arc trgOperationToFail = (Arc) result1_green[4];
+		SensorToFailed sensorFailedCorr = (SensorToFailed) result1_green[5];
+		Arc trgRepairToOperational = (Arc) result1_green[6];
+		Place trgOperational = (Place) result1_green[8];
+		SensorToOperational sensorOperationalCoor = (SensorToOperational) result1_green[9];
+		Arc trgFailToFailed = (Arc) result1_green[10];
+		Arc trgFailedToRepair = (Arc) result1_green[11];
 
-		Object[] result2_black = SensorImpl.pattern_Sensor_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
-				trgRepairToOperational, trgFailedToRepair, sensorOperationalCoor, srcSensor, trgFail, trgOperational,
-				trgRepair, trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed);
+		Object[] result2_black = SensorImpl.pattern_Sensor_1_2_collecttranslatedelements_blackBBBBBBBBBBB(srcSensor,
+				trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr, trgRepairToOperational,
+				trgOperational, sensorOperationalCoor, trgFailToFailed, trgFailedToRepair);
 		if (result2_black == null) {
-			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[trgRepairToOperational] = "
-					+ trgRepairToOperational + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", "
-					+ "[sensorOperationalCoor] = " + sensorOperationalCoor + ", " + "[srcSensor] = " + srcSensor + ", "
-					+ "[trgFail] = " + trgFail + ", " + "[trgOperational] = " + trgOperational + ", " + "[trgRepair] = "
-					+ trgRepair + ", " + "[trgFailed] = " + trgFailed + ", " + "[sensorFailedCorr] = "
-					+ sensorFailedCorr + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", "
-					+ "[trgFailToFailed] = " + trgFailToFailed + ".");
+			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[srcSensor] = " + srcSensor + ", "
+					+ "[trgRepair] = " + trgRepair + ", " + "[trgFail] = " + trgFail + ", " + "[trgFailed] = "
+					+ trgFailed + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", " + "[sensorFailedCorr] = "
+					+ sensorFailedCorr + ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", "
+					+ "[trgOperational] = " + trgOperational + ", " + "[sensorOperationalCoor] = "
+					+ sensorOperationalCoor + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", "
+					+ "[trgFailedToRepair] = " + trgFailedToRepair + ".");
 		}
-		Object[] result2_green = SensorImpl.pattern_Sensor_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
-				trgRepairToOperational, trgFailedToRepair, sensorOperationalCoor, srcSensor, trgFail, trgOperational,
-				trgRepair, trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed);
+		Object[] result2_green = SensorImpl.pattern_Sensor_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(srcSensor,
+				trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr, trgRepairToOperational,
+				trgOperational, sensorOperationalCoor, trgFailToFailed, trgFailedToRepair);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		Object[] result3_black = SensorImpl.pattern_Sensor_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBB(ruleresult,
-				trgRepairToOperational, trgPetrinet, srcContainer, containerCorr, trgFailedToRepair,
-				sensorOperationalCoor, srcSensor, trgFail, trgOperational, srcRegion, trgRepair, trgFailed,
-				sensorFailedCorr, trgOperationToFail, trgFailToFailed);
+				srcSensor, srcContainer, trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr, srcRegion,
+				trgRepairToOperational, trgPetrinet, trgOperational, sensorOperationalCoor, containerCorr,
+				trgFailToFailed, trgFailedToRepair);
 		if (result3_black == null) {
 			throw new RuntimeException("Pattern matching failed." + " Variables: " + "[ruleresult] = " + ruleresult
-					+ ", " + "[trgRepairToOperational] = " + trgRepairToOperational + ", " + "[trgPetrinet] = "
-					+ trgPetrinet + ", " + "[srcContainer] = " + srcContainer + ", " + "[containerCorr] = "
-					+ containerCorr + ", " + "[trgFailedToRepair] = " + trgFailedToRepair + ", "
-					+ "[sensorOperationalCoor] = " + sensorOperationalCoor + ", " + "[srcSensor] = " + srcSensor + ", "
-					+ "[trgFail] = " + trgFail + ", " + "[trgOperational] = " + trgOperational + ", " + "[srcRegion] = "
-					+ srcRegion + ", " + "[trgRepair] = " + trgRepair + ", " + "[trgFailed] = " + trgFailed + ", "
-					+ "[sensorFailedCorr] = " + sensorFailedCorr + ", " + "[trgOperationToFail] = " + trgOperationToFail
-					+ ", " + "[trgFailToFailed] = " + trgFailToFailed + ".");
+					+ ", " + "[srcSensor] = " + srcSensor + ", " + "[srcContainer] = " + srcContainer + ", "
+					+ "[trgRepair] = " + trgRepair + ", " + "[trgFail] = " + trgFail + ", " + "[trgFailed] = "
+					+ trgFailed + ", " + "[trgOperationToFail] = " + trgOperationToFail + ", " + "[sensorFailedCorr] = "
+					+ sensorFailedCorr + ", " + "[srcRegion] = " + srcRegion + ", " + "[trgRepairToOperational] = "
+					+ trgRepairToOperational + ", " + "[trgPetrinet] = " + trgPetrinet + ", " + "[trgOperational] = "
+					+ trgOperational + ", " + "[sensorOperationalCoor] = " + sensorOperationalCoor + ", "
+					+ "[containerCorr] = " + containerCorr + ", " + "[trgFailToFailed] = " + trgFailToFailed + ", "
+					+ "[trgFailedToRepair] = " + trgFailedToRepair + ".");
 		}
 		SensorImpl.pattern_Sensor_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(ruleresult,
-				trgRepairToOperational, trgPetrinet, trgFailedToRepair, sensorOperationalCoor, srcSensor, trgFail,
-				trgOperational, srcRegion, trgRepair, trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed);
-		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[14];
-		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[15];
-		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[16];
-		//nothing EMoflonEdge sensorOperationalCoor__srcSensor____source = (EMoflonEdge) result3_green[17];
-		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[18];
-		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[19];
-		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[20];
-		//nothing EMoflonEdge sensorOperationalCoor__trgOperational____target = (EMoflonEdge) result3_green[21];
-		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[22];
-		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[23];
-		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[24];
-		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[25];
-		//nothing EMoflonEdge srcRegion__srcSensor____sensors = (EMoflonEdge) result3_green[26];
-		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[27];
-		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[28];
-		//nothing EMoflonEdge sensorFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[29];
-		//nothing EMoflonEdge sensorFailedCorr__srcSensor____source = (EMoflonEdge) result3_green[30];
-		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[31];
-		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[32];
-		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[33];
-		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[34];
-		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[35];
+				srcSensor, trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr, srcRegion,
+				trgRepairToOperational, trgPetrinet, trgOperational, sensorOperationalCoor, trgFailToFailed,
+				trgFailedToRepair);
+		//nothing EMoflonEdge trgRepair__trgPetrinet____petriNet = (EMoflonEdge) result3_green[14];
+		//nothing EMoflonEdge trgPetrinet__trgRepair____nodes = (EMoflonEdge) result3_green[15];
+		//nothing EMoflonEdge trgFail__trgPetrinet____petriNet = (EMoflonEdge) result3_green[16];
+		//nothing EMoflonEdge trgPetrinet__trgFail____nodes = (EMoflonEdge) result3_green[17];
+		//nothing EMoflonEdge sensorFailedCorr__trgFailed____target = (EMoflonEdge) result3_green[18];
+		//nothing EMoflonEdge sensorFailedCorr__srcSensor____source = (EMoflonEdge) result3_green[19];
+		//nothing EMoflonEdge trgOperationToFail__trgOperational____place = (EMoflonEdge) result3_green[20];
+		//nothing EMoflonEdge trgOperationToFail__trgFail____transition = (EMoflonEdge) result3_green[21];
+		//nothing EMoflonEdge trgFail__trgOperationToFail____arcs = (EMoflonEdge) result3_green[22];
+		//nothing EMoflonEdge trgFailed__trgPetrinet____petriNet = (EMoflonEdge) result3_green[23];
+		//nothing EMoflonEdge trgPetrinet__trgFailed____nodes = (EMoflonEdge) result3_green[24];
+		//nothing EMoflonEdge trgOperational__trgPetrinet____petriNet = (EMoflonEdge) result3_green[25];
+		//nothing EMoflonEdge trgPetrinet__trgOperational____nodes = (EMoflonEdge) result3_green[26];
+		//nothing EMoflonEdge trgRepairToOperational__trgOperational____place = (EMoflonEdge) result3_green[27];
+		//nothing EMoflonEdge srcRegion__srcSensor____sensors = (EMoflonEdge) result3_green[28];
+		//nothing EMoflonEdge sensorOperationalCoor__srcSensor____source = (EMoflonEdge) result3_green[29];
+		//nothing EMoflonEdge sensorOperationalCoor__trgOperational____target = (EMoflonEdge) result3_green[30];
+		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[31];
+		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[32];
+		//nothing EMoflonEdge trgFailedToRepair__trgFailed____place = (EMoflonEdge) result3_green[33];
+		//nothing EMoflonEdge trgFailedToRepair__trgRepair____transition = (EMoflonEdge) result3_green[34];
+		//nothing EMoflonEdge trgRepair__trgFailedToRepair____arcs = (EMoflonEdge) result3_green[35];
 		//nothing EMoflonEdge trgFailToFailed__trgFailed____place = (EMoflonEdge) result3_green[36];
-		//nothing EMoflonEdge trgFailToFailed__trgFail____transition = (EMoflonEdge) result3_green[37];
-		//nothing EMoflonEdge trgFail__trgFailToFailed____arcs = (EMoflonEdge) result3_green[38];
+		//nothing EMoflonEdge trgRepairToOperational__trgRepair____transition = (EMoflonEdge) result3_green[37];
+		//nothing EMoflonEdge trgRepair__trgRepairToOperational____arcs = (EMoflonEdge) result3_green[38];
 
 		// 
 		// 
-		SensorImpl.pattern_Sensor_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(this, ruleresult,
-				trgRepairToOperational, trgPetrinet, srcContainer, containerCorr, trgFailedToRepair,
-				sensorOperationalCoor, srcSensor, trgFail, trgOperational, srcRegion, trgRepair, trgFailed,
-				sensorFailedCorr, trgOperationToFail, trgFailToFailed);
+		SensorImpl.pattern_Sensor_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(this, ruleresult, srcSensor,
+				srcContainer, trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr, srcRegion,
+				trgRepairToOperational, trgPetrinet, trgOperational, sensorOperationalCoor, containerCorr,
+				trgFailToFailed, trgFailedToRepair);
 		return SensorImpl.pattern_Sensor_1_6_expressionFB(ruleresult);
 	}
 
@@ -267,31 +268,31 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 			throw new RuntimeException(
 					"Binding in node core match failed." + " Variables: " + "[match] = " + match + ".");
 		}
-		RailwayContainer srcContainer = (RailwayContainer) result2_binding[0];
-		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result2_binding[1];
+		hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result2_binding[0];
+		RailwayContainer srcContainer = (RailwayContainer) result2_binding[1];
 		Region srcRegion = (Region) result2_binding[2];
-		for (Object[] result2_black : SensorImpl.pattern_Sensor_2_2_corematch_blackFBFBBB(srcContainer, srcSensor,
+		for (Object[] result2_black : SensorImpl.pattern_Sensor_2_2_corematch_blackBBBFFB(srcSensor, srcContainer,
 				srcRegion, match)) {
-			PetriNet trgPetrinet = (PetriNet) result2_black[0];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[2];
+			PetriNet trgPetrinet = (PetriNet) result2_black[3];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result2_black[4];
 			// ForEach 
-			for (Object[] result3_black : SensorImpl.pattern_Sensor_2_3_findcontext_blackBBBBB(trgPetrinet,
-					srcContainer, containerCorr, srcSensor, srcRegion)) {
-				Object[] result3_green = SensorImpl.pattern_Sensor_2_3_findcontext_greenBBBBBFFFFF(trgPetrinet,
-						srcContainer, containerCorr, srcSensor, srcRegion);
+			for (Object[] result3_black : SensorImpl.pattern_Sensor_2_3_findcontext_blackBBBBB(srcSensor, srcContainer,
+					srcRegion, trgPetrinet, containerCorr)) {
+				Object[] result3_green = SensorImpl.pattern_Sensor_2_3_findcontext_greenBBBBBFFFFF(srcSensor,
+						srcContainer, srcRegion, trgPetrinet, containerCorr);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
 				//nothing EMoflonEdge srcContainer__srcRegion____regions = (EMoflonEdge) result3_green[6];
-				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[7];
+				//nothing EMoflonEdge srcRegion__srcSensor____sensors = (EMoflonEdge) result3_green[7];
 				//nothing EMoflonEdge containerCorr__srcContainer____source = (EMoflonEdge) result3_green[8];
-				//nothing EMoflonEdge srcRegion__srcSensor____sensors = (EMoflonEdge) result3_green[9];
+				//nothing EMoflonEdge containerCorr__trgPetrinet____target = (EMoflonEdge) result3_green[9];
 
 				Object[] result4_bindingAndBlack = SensorImpl.pattern_Sensor_2_4_solveCSP_bindingAndBlackFBBBBBBB(this,
-						isApplicableMatch, trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion);
+						isApplicableMatch, srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException("Pattern matching failed." + " Variables: " + "[this] = " + this + ", "
-							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[trgPetrinet] = " + trgPetrinet
-							+ ", " + "[srcContainer] = " + srcContainer + ", " + "[containerCorr] = " + containerCorr
-							+ ", " + "[srcSensor] = " + srcSensor + ", " + "[srcRegion] = " + srcRegion + ".");
+							+ "[isApplicableMatch] = " + isApplicableMatch + ", " + "[srcSensor] = " + srcSensor + ", "
+							+ "[srcContainer] = " + srcContainer + ", " + "[srcRegion] = " + srcRegion + ", "
+							+ "[trgPetrinet] = " + trgPetrinet + ", " + "[containerCorr] = " + containerCorr + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// 
@@ -319,10 +320,11 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
-		match.registerObject("srcContainer", srcContainer);
+	public void registerObjectsToMatch_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion) {
 		match.registerObject("srcSensor", srcSensor);
+		match.registerObject("srcContainer", srcContainer);
 		match.registerObject("srcRegion", srcRegion);
 
 	}
@@ -332,8 +334,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -362,9 +365,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
-			RailwayContainer srcContainer, RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {// Create CSP
+	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -379,11 +382,11 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
-		isApplicableMatch.registerObject("srcContainer", srcContainer);
-		isApplicableMatch.registerObject("containerCorr", containerCorr);
 		isApplicableMatch.registerObject("srcSensor", srcSensor);
+		isApplicableMatch.registerObject("srcContainer", srcContainer);
 		isApplicableMatch.registerObject("srcRegion", srcRegion);
+		isApplicableMatch.registerObject("trgPetrinet", trgPetrinet);
+		isApplicableMatch.registerObject("containerCorr", containerCorr);
 		return csp;
 	}
 
@@ -401,25 +404,25 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet,
-			EObject srcContainer, EObject containerCorr, EObject trgFailedToRepair, EObject sensorOperationalCoor,
-			EObject srcSensor, EObject trgFail, EObject trgOperational, EObject srcRegion, EObject trgRepair,
-			EObject trgFailed, EObject sensorFailedCorr, EObject trgOperationToFail, EObject trgFailToFailed) {
+	public void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSensor, EObject srcContainer,
+			EObject trgRepair, EObject trgFail, EObject trgFailed, EObject trgOperationToFail, EObject sensorFailedCorr,
+			EObject srcRegion, EObject trgRepairToOperational, EObject trgPetrinet, EObject trgOperational,
+			EObject sensorOperationalCoor, EObject containerCorr, EObject trgFailToFailed, EObject trgFailedToRepair) {
+		ruleresult.registerObject("srcSensor", srcSensor);
+		ruleresult.registerObject("srcContainer", srcContainer);
+		ruleresult.registerObject("trgRepair", trgRepair);
+		ruleresult.registerObject("trgFail", trgFail);
+		ruleresult.registerObject("trgFailed", trgFailed);
+		ruleresult.registerObject("trgOperationToFail", trgOperationToFail);
+		ruleresult.registerObject("sensorFailedCorr", sensorFailedCorr);
+		ruleresult.registerObject("srcRegion", srcRegion);
 		ruleresult.registerObject("trgRepairToOperational", trgRepairToOperational);
 		ruleresult.registerObject("trgPetrinet", trgPetrinet);
-		ruleresult.registerObject("srcContainer", srcContainer);
-		ruleresult.registerObject("containerCorr", containerCorr);
-		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
-		ruleresult.registerObject("sensorOperationalCoor", sensorOperationalCoor);
-		ruleresult.registerObject("srcSensor", srcSensor);
-		ruleresult.registerObject("trgFail", trgFail);
 		ruleresult.registerObject("trgOperational", trgOperational);
-		ruleresult.registerObject("srcRegion", srcRegion);
-		ruleresult.registerObject("trgRepair", trgRepair);
-		ruleresult.registerObject("trgFailed", trgFailed);
-		ruleresult.registerObject("sensorFailedCorr", sensorFailedCorr);
-		ruleresult.registerObject("trgOperationToFail", trgOperationToFail);
+		ruleresult.registerObject("sensorOperationalCoor", sensorOperationalCoor);
+		ruleresult.registerObject("containerCorr", containerCorr);
 		ruleresult.registerObject("trgFailToFailed", trgFailToFailed);
+		ruleresult.registerObject("trgFailedToRepair", trgFailedToRepair);
 
 	}
 
@@ -438,7 +441,7 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_10(EMoflonEdge _edge_sensors) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_195(EMoflonEdge _edge_sensors) {
 
 		Object[] result1_bindingAndBlack = SensorImpl.pattern_Sensor_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
 		if (result1_bindingAndBlack == null) {
@@ -452,15 +455,15 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 
 		// ForEach 
 		for (Object[] result2_black : SensorImpl.pattern_Sensor_10_2_testcorematchandDECs_blackFFFB(_edge_sensors)) {
-			RailwayContainer srcContainer = (RailwayContainer) result2_black[0];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result2_black[1];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result2_black[0];
+			RailwayContainer srcContainer = (RailwayContainer) result2_black[1];
 			Region srcRegion = (Region) result2_black[2];
 			Object[] result2_green = SensorImpl.pattern_Sensor_10_2_testcorematchandDECs_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// 
 			if (SensorImpl.pattern_Sensor_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBBB(this, match,
-					srcContainer, srcSensor, srcRegion)) {
+					srcSensor, srcContainer, srcRegion)) {
 				// 
 				if (SensorImpl.pattern_Sensor_10_4_Ensurethatthecorrecttypesofelementsarematched_expressionFBB(this,
 						match)) {
@@ -500,21 +503,6 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 
 		CheckAttributeHelper __helper = new CheckAttributeHelper(__tripleMatch);
 
-		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
-			ruleResult.setSuccess(false);
-			return ruleResult;
-		}
-
-		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
-			ruleResult.setSuccess(false);
-			return ruleResult;
-		}
-
-		if (!__helper.hasExpectedValue("trgOperational", "tokens", 1, ComparingOperator.EQUAL)) {
-			ruleResult.setSuccess(false);
-			return ruleResult;
-		}
-
 		if (!__helper.hasExpectedValue("trgFailed", "tokens", 0, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
@@ -525,7 +513,22 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 			return ruleResult;
 		}
 
+		if (!__helper.hasExpectedValue("trgRepairToOperational", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
+			ruleResult.setSuccess(false);
+			return ruleResult;
+		}
+
+		if (!__helper.hasExpectedValue("trgOperational", "tokens", 1, ComparingOperator.EQUAL)) {
+			ruleResult.setSuccess(false);
+			return ruleResult;
+		}
+
 		if (!__helper.hasExpectedValue("trgFailToFailed", "kind", ArcKind.OUTPUT, ComparingOperator.EQUAL)) {
+			ruleResult.setSuccess(false);
+			return ruleResult;
+		}
+
+		if (!__helper.hasExpectedValue("trgFailedToRepair", "kind", ArcKind.INPUT, ComparingOperator.EQUAL)) {
 			ruleResult.setSuccess(false);
 			return ruleResult;
 		}
@@ -562,9 +565,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkDEC_FWD(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {// 
-		Object[] result1_black = SensorImpl.pattern_Sensor_13_1_matchtggpattern_blackBBB(srcContainer, srcSensor,
+	public boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			RailwayContainer srcContainer, Region srcRegion) {// 
+		Object[] result1_black = SensorImpl.pattern_Sensor_13_1_matchtggpattern_blackBBB(srcSensor, srcContainer,
 				srcRegion);
 		if (result1_black != null) {
 			return SensorImpl.pattern_Sensor_13_2_expressionF();
@@ -582,30 +585,30 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SENSOR___IS_APPROPRIATE_FWD__MATCH_RAILWAYCONTAINER_SENSOR_REGION:
-			return isAppropriate_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(2),
-					(Region) arguments.get(3));
+		case RulesPackage.SENSOR___IS_APPROPRIATE_FWD__MATCH_SENSOR_RAILWAYCONTAINER_REGION:
+			return isAppropriate_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(1),
+					(RailwayContainer) arguments.get(2), (Region) arguments.get(3));
 		case RulesPackage.SENSOR___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SENSOR___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SENSOR___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_RAILWAYCONTAINER_SENSOR_REGION:
-			registerObjectsToMatch_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(2),
-					(Region) arguments.get(3));
+		case RulesPackage.SENSOR___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SENSOR_RAILWAYCONTAINER_REGION:
+			registerObjectsToMatch_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(1),
+					(RailwayContainer) arguments.get(2), (Region) arguments.get(3));
 			return null;
-		case RulesPackage.SENSOR___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_RAILWAYCONTAINER_SENSOR_REGION:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0), (RailwayContainer) arguments.get(1),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(2),
-					(Region) arguments.get(3));
+		case RulesPackage.SENSOR___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SENSOR_RAILWAYCONTAINER_REGION:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(1),
+					(RailwayContainer) arguments.get(2), (Region) arguments.get(3));
 		case RulesPackage.SENSOR___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SENSOR___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PETRINET_RAILWAYCONTAINER_RAILWAYCONTAINERTOPETRINET_SENSOR_REGION:
-			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0), (PetriNet) arguments.get(1),
-					(RailwayContainer) arguments.get(2), (RailwayContainerToPetriNet) arguments.get(3),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(4),
-					(Region) arguments.get(5));
+		case RulesPackage.SENSOR___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SENSOR_RAILWAYCONTAINER_REGION_PETRINET_RAILWAYCONTAINERTOPETRINET:
+			return isApplicable_solveCsp_FWD((IsApplicableMatch) arguments.get(0),
+					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(1),
+					(RailwayContainer) arguments.get(2), (Region) arguments.get(3), (PetriNet) arguments.get(4),
+					(RailwayContainerToPetriNet) arguments.get(5));
 		case RulesPackage.SENSOR___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
 		case RulesPackage.SENSOR___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
@@ -618,33 +621,32 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 			return null;
 		case RulesPackage.SENSOR___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SENSOR___IS_APPROPRIATE_FWD_EMOFLON_EDGE_10__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_10((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SENSOR___IS_APPROPRIATE_FWD_EMOFLON_EDGE_195__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_195((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SENSOR___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SENSOR___IS_APPLICABLE_CC__MATCH_MATCH:
 			return isApplicable_CC((Match) arguments.get(0), (Match) arguments.get(1));
-		case RulesPackage.SENSOR___CHECK_DEC_FWD__RAILWAYCONTAINER_SENSOR_REGION:
-			return checkDEC_FWD((RailwayContainer) arguments.get(0),
-					(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(1),
-					(Region) arguments.get(2));
+		case RulesPackage.SENSOR___CHECK_DEC_FWD__SENSOR_RAILWAYCONTAINER_REGION:
+			return checkDEC_FWD((hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) arguments.get(0),
+					(RailwayContainer) arguments.get(1), (Region) arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	public static final Object[] pattern_Sensor_0_1_initialbindings_blackBBBBB(Sensor _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
-		return new Object[] { _this, match, srcContainer, srcSensor, srcRegion };
+		return new Object[] { _this, match, srcSensor, srcContainer, srcRegion };
 	}
 
 	public static final Object[] pattern_Sensor_0_2_SolveCSP_bindingFBBBBB(Sensor _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcContainer, srcSensor, srcRegion);
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, srcSensor, srcContainer, srcRegion);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, srcContainer, srcSensor, srcRegion };
+			return new Object[] { csp, _this, match, srcSensor, srcContainer, srcRegion };
 		}
 		return null;
 	}
@@ -654,17 +656,17 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_0_2_SolveCSP_bindingAndBlackFBBBBB(Sensor _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
 		Object[] result_pattern_Sensor_0_2_SolveCSP_binding = pattern_Sensor_0_2_SolveCSP_bindingFBBBBB(_this, match,
-				srcContainer, srcSensor, srcRegion);
+				srcSensor, srcContainer, srcRegion);
 		if (result_pattern_Sensor_0_2_SolveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Sensor_0_2_SolveCSP_binding[0];
 
 			Object[] result_pattern_Sensor_0_2_SolveCSP_black = pattern_Sensor_0_2_SolveCSP_blackB(csp);
 			if (result_pattern_Sensor_0_2_SolveCSP_black != null) {
 
-				return new Object[] { csp, _this, match, srcContainer, srcSensor, srcRegion };
+				return new Object[] { csp, _this, match, srcSensor, srcContainer, srcRegion };
 			}
 		}
 		return null;
@@ -677,9 +679,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_0_4_collectelementstobetranslated_blackBBBB(Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
-		return new Object[] { match, srcContainer, srcSensor, srcRegion };
+		return new Object[] { match, srcSensor, srcContainer, srcRegion };
 	}
 
 	public static final Object[] pattern_Sensor_0_4_collectelementstobetranslated_greenBBBF(Match match,
@@ -695,9 +697,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_0_5_collectcontextelements_blackBBBB(Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
-		return new Object[] { match, srcContainer, srcSensor, srcRegion };
+		return new Object[] { match, srcSensor, srcContainer, srcRegion };
 	}
 
 	public static final Object[] pattern_Sensor_0_5_collectcontextelements_greenBBBF(Match match,
@@ -714,9 +716,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final void pattern_Sensor_0_6_registerobjectstomatch_expressionBBBBB(Sensor _this, Match match,
-			RailwayContainer srcContainer, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
 			Region srcRegion) {
-		_this.registerObjectsToMatch_FWD(match, srcContainer, srcSensor, srcRegion);
+		_this.registerObjectsToMatch_FWD(match, srcSensor, srcContainer, srcRegion);
 
 	}
 
@@ -732,27 +734,27 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 
 	public static final Object[] pattern_Sensor_1_1_performtransformation_bindingFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_0 = isApplicableMatch.getObject("srcSensor");
 		EObject _localVariable_1 = isApplicableMatch.getObject("srcContainer");
-		EObject _localVariable_2 = isApplicableMatch.getObject("containerCorr");
-		EObject _localVariable_3 = isApplicableMatch.getObject("srcSensor");
-		EObject _localVariable_4 = isApplicableMatch.getObject("srcRegion");
-		EObject tmpTrgPetrinet = _localVariable_0;
+		EObject _localVariable_2 = isApplicableMatch.getObject("srcRegion");
+		EObject _localVariable_3 = isApplicableMatch.getObject("trgPetrinet");
+		EObject _localVariable_4 = isApplicableMatch.getObject("containerCorr");
+		EObject tmpSrcSensor = _localVariable_0;
 		EObject tmpSrcContainer = _localVariable_1;
-		EObject tmpContainerCorr = _localVariable_2;
-		EObject tmpSrcSensor = _localVariable_3;
-		EObject tmpSrcRegion = _localVariable_4;
-		if (tmpTrgPetrinet instanceof PetriNet) {
-			PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+		EObject tmpSrcRegion = _localVariable_2;
+		EObject tmpTrgPetrinet = _localVariable_3;
+		EObject tmpContainerCorr = _localVariable_4;
+		if (tmpSrcSensor instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) tmpSrcSensor;
 			if (tmpSrcContainer instanceof RailwayContainer) {
 				RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-				if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
-					RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
-					if (tmpSrcSensor instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) {
-						hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) tmpSrcSensor;
-						if (tmpSrcRegion instanceof Region) {
-							Region srcRegion = (Region) tmpSrcRegion;
-							return new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion,
+				if (tmpSrcRegion instanceof Region) {
+					Region srcRegion = (Region) tmpSrcRegion;
+					if (tmpTrgPetrinet instanceof PetriNet) {
+						PetriNet trgPetrinet = (PetriNet) tmpTrgPetrinet;
+						if (tmpContainerCorr instanceof RailwayContainerToPetriNet) {
+							RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) tmpContainerCorr;
+							return new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr,
 									isApplicableMatch };
 						}
 					}
@@ -762,14 +764,14 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		return null;
 	}
 
-	public static final Object[] pattern_Sensor_1_1_performtransformation_blackBBBBBFBB(PetriNet trgPetrinet,
-			RailwayContainer srcContainer, RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion, Sensor _this,
+	public static final Object[] pattern_Sensor_1_1_performtransformation_blackBBBBBFBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr, Sensor _this,
 			IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion, csp, _this,
+				return new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr, csp, _this,
 						isApplicableMatch };
 			}
 		}
@@ -781,84 +783,86 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		Object[] result_pattern_Sensor_1_1_performtransformation_binding = pattern_Sensor_1_1_performtransformation_bindingFFFFFB(
 				isApplicableMatch);
 		if (result_pattern_Sensor_1_1_performtransformation_binding != null) {
-			PetriNet trgPetrinet = (PetriNet) result_pattern_Sensor_1_1_performtransformation_binding[0];
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result_pattern_Sensor_1_1_performtransformation_binding[0];
 			RailwayContainer srcContainer = (RailwayContainer) result_pattern_Sensor_1_1_performtransformation_binding[1];
-			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Sensor_1_1_performtransformation_binding[2];
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) result_pattern_Sensor_1_1_performtransformation_binding[3];
-			Region srcRegion = (Region) result_pattern_Sensor_1_1_performtransformation_binding[4];
+			Region srcRegion = (Region) result_pattern_Sensor_1_1_performtransformation_binding[2];
+			PetriNet trgPetrinet = (PetriNet) result_pattern_Sensor_1_1_performtransformation_binding[3];
+			RailwayContainerToPetriNet containerCorr = (RailwayContainerToPetriNet) result_pattern_Sensor_1_1_performtransformation_binding[4];
 
 			Object[] result_pattern_Sensor_1_1_performtransformation_black = pattern_Sensor_1_1_performtransformation_blackBBBBBFBB(
-					trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion, _this, isApplicableMatch);
+					srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr, _this, isApplicableMatch);
 			if (result_pattern_Sensor_1_1_performtransformation_black != null) {
 				CSP csp = (CSP) result_pattern_Sensor_1_1_performtransformation_black[5];
 
-				return new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion, csp, _this,
+				return new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr, csp, _this,
 						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_Sensor_1_1_performtransformation_greenFBFFBFFFFFFF(PetriNet trgPetrinet,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor) {
-		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
-		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
-		SensorToOperational sensorOperationalCoor = StochasticpetrinetFactory.eINSTANCE.createSensorToOperational();
-		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
-		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
+	public static final Object[] pattern_Sensor_1_1_performtransformation_greenBFFFFFFBFFFF(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, PetriNet trgPetrinet) {
 		TimedTransition trgRepair = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
+		TimedTransition trgFail = StochasticPetriNetFactory.eINSTANCE.createTimedTransition();
 		Place trgFailed = StochasticPetriNetFactory.eINSTANCE.createPlace();
-		SensorToFailed sensorFailedCorr = StochasticpetrinetFactory.eINSTANCE.createSensorToFailed();
 		Arc trgOperationToFail = StochasticPetriNetFactory.eINSTANCE.createArc();
+		SensorToFailed sensorFailedCorr = StochasticpetrinetFactory.eINSTANCE.createSensorToFailed();
+		Arc trgRepairToOperational = StochasticPetriNetFactory.eINSTANCE.createArc();
+		Place trgOperational = StochasticPetriNetFactory.eINSTANCE.createPlace();
+		SensorToOperational sensorOperationalCoor = StochasticpetrinetFactory.eINSTANCE.createSensorToOperational();
 		Arc trgFailToFailed = StochasticPetriNetFactory.eINSTANCE.createArc();
-		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
-		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
-		int trgOperational_tokens_prime = Integer.valueOf(1);
+		Arc trgFailedToRepair = StochasticPetriNetFactory.eINSTANCE.createArc();
 		int trgFailed_tokens_prime = Integer.valueOf(0);
 		ArcKind trgOperationToFail_kind_prime = ArcKind.INPUT;
+		ArcKind trgRepairToOperational_kind_prime = ArcKind.OUTPUT;
+		int trgOperational_tokens_prime = Integer.valueOf(1);
 		ArcKind trgFailToFailed_kind_prime = ArcKind.OUTPUT;
-		sensorOperationalCoor.setSource(srcSensor);
-		trgFail.setPetriNet(trgPetrinet);
-		trgRepairToOperational.setPlace(trgOperational);
-		sensorOperationalCoor.setTarget(trgOperational);
-		trgOperational.setPetriNet(trgPetrinet);
-		trgRepairToOperational.setTransition(trgRepair);
+		ArcKind trgFailedToRepair_kind_prime = ArcKind.INPUT;
 		trgRepair.setPetriNet(trgPetrinet);
-		trgFailedToRepair.setTransition(trgRepair);
-		trgFailedToRepair.setPlace(trgFailed);
+		trgFail.setPetriNet(trgPetrinet);
 		trgFailed.setPetriNet(trgPetrinet);
+		trgOperationToFail.setTransition(trgFail);
 		sensorFailedCorr.setTarget(trgFailed);
 		sensorFailedCorr.setSource(srcSensor);
+		trgRepairToOperational.setTransition(trgRepair);
 		trgOperationToFail.setPlace(trgOperational);
-		trgOperationToFail.setTransition(trgFail);
-		trgFailToFailed.setPlace(trgFailed);
+		trgOperational.setPetriNet(trgPetrinet);
+		trgRepairToOperational.setPlace(trgOperational);
+		sensorOperationalCoor.setSource(srcSensor);
+		sensorOperationalCoor.setTarget(trgOperational);
 		trgFailToFailed.setTransition(trgFail);
-		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
-		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
-		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
+		trgFailToFailed.setPlace(trgFailed);
+		trgFailedToRepair.setPlace(trgFailed);
+		trgFailedToRepair.setTransition(trgRepair);
 		trgFailed.setTokens(Integer.valueOf(trgFailed_tokens_prime));
 		trgOperationToFail.setKind(trgOperationToFail_kind_prime);
+		trgRepairToOperational.setKind(trgRepairToOperational_kind_prime);
+		trgOperational.setTokens(Integer.valueOf(trgOperational_tokens_prime));
 		trgFailToFailed.setKind(trgFailToFailed_kind_prime);
-		return new Object[] { trgRepairToOperational, trgPetrinet, trgFailedToRepair, sensorOperationalCoor, srcSensor,
-				trgFail, trgOperational, trgRepair, trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed };
+		trgFailedToRepair.setKind(trgFailedToRepair_kind_prime);
+		return new Object[] { srcSensor, trgRepair, trgFail, trgFailed, trgOperationToFail, sensorFailedCorr,
+				trgRepairToOperational, trgPetrinet, trgOperational, sensorOperationalCoor, trgFailToFailed,
+				trgFailedToRepair };
 	}
 
 	public static final Object[] pattern_Sensor_1_2_collecttranslatedelements_blackBBBBBBBBBBB(
-			Arc trgRepairToOperational, Arc trgFailedToRepair, SensorToOperational sensorOperationalCoor,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, TimedTransition trgFail,
-			Place trgOperational, TimedTransition trgRepair, Place trgFailed, SensorToFailed sensorFailedCorr,
-			Arc trgOperationToFail, Arc trgFailToFailed) {
-		if (!trgFailedToRepair.equals(trgRepairToOperational)) {
-			if (!trgFailedToRepair.equals(trgOperationToFail)) {
-				if (!trgFail.equals(trgRepair)) {
-					if (!trgFailed.equals(trgOperational)) {
-						if (!trgOperationToFail.equals(trgRepairToOperational)) {
-							if (!trgFailToFailed.equals(trgRepairToOperational)) {
-								if (!trgFailToFailed.equals(trgFailedToRepair)) {
-									if (!trgFailToFailed.equals(trgOperationToFail)) {
-										return new Object[] { trgRepairToOperational, trgFailedToRepair,
-												sensorOperationalCoor, srcSensor, trgFail, trgOperational, trgRepair,
-												trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed };
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, TimedTransition trgRepair,
+			TimedTransition trgFail, Place trgFailed, Arc trgOperationToFail, SensorToFailed sensorFailedCorr,
+			Arc trgRepairToOperational, Place trgOperational, SensorToOperational sensorOperationalCoor,
+			Arc trgFailToFailed, Arc trgFailedToRepair) {
+		if (!trgFail.equals(trgRepair)) {
+			if (!trgFailed.equals(trgOperational)) {
+				if (!trgOperationToFail.equals(trgRepairToOperational)) {
+					if (!trgFailToFailed.equals(trgOperationToFail)) {
+						if (!trgFailToFailed.equals(trgRepairToOperational)) {
+							if (!trgFailToFailed.equals(trgFailedToRepair)) {
+								if (!trgFailedToRepair.equals(trgOperationToFail)) {
+									if (!trgFailedToRepair.equals(trgRepairToOperational)) {
+										return new Object[] { srcSensor, trgRepair, trgFail, trgFailed,
+												trgOperationToFail, sensorFailedCorr, trgRepairToOperational,
+												trgOperational, sensorOperationalCoor, trgFailToFailed,
+												trgFailedToRepair };
 									}
 								}
 							}
@@ -871,240 +875,241 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_1_2_collecttranslatedelements_greenFBBBBBBBBBBB(
-			Arc trgRepairToOperational, Arc trgFailedToRepair, SensorToOperational sensorOperationalCoor,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, TimedTransition trgFail,
-			Place trgOperational, TimedTransition trgRepair, Place trgFailed, SensorToFailed sensorFailedCorr,
-			Arc trgOperationToFail, Arc trgFailToFailed) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, TimedTransition trgRepair,
+			TimedTransition trgFail, Place trgFailed, Arc trgOperationToFail, SensorToFailed sensorFailedCorr,
+			Arc trgRepairToOperational, Place trgOperational, SensorToOperational sensorOperationalCoor,
+			Arc trgFailToFailed, Arc trgFailedToRepair) {
 		PerformRuleResult ruleresult = RuntimeFactory.eINSTANCE.createPerformRuleResult();
-		ruleresult.getCreatedElements().add(trgRepairToOperational);
-		ruleresult.getCreatedElements().add(trgFailedToRepair);
-		ruleresult.getCreatedLinkElements().add(sensorOperationalCoor);
 		ruleresult.getTranslatedElements().add(srcSensor);
-		ruleresult.getCreatedElements().add(trgFail);
-		ruleresult.getCreatedElements().add(trgOperational);
 		ruleresult.getCreatedElements().add(trgRepair);
+		ruleresult.getCreatedElements().add(trgFail);
 		ruleresult.getCreatedElements().add(trgFailed);
-		ruleresult.getCreatedLinkElements().add(sensorFailedCorr);
 		ruleresult.getCreatedElements().add(trgOperationToFail);
+		ruleresult.getCreatedLinkElements().add(sensorFailedCorr);
+		ruleresult.getCreatedElements().add(trgRepairToOperational);
+		ruleresult.getCreatedElements().add(trgOperational);
+		ruleresult.getCreatedLinkElements().add(sensorOperationalCoor);
 		ruleresult.getCreatedElements().add(trgFailToFailed);
-		return new Object[] { ruleresult, trgRepairToOperational, trgFailedToRepair, sensorOperationalCoor, srcSensor,
-				trgFail, trgOperational, trgRepair, trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed };
+		ruleresult.getCreatedElements().add(trgFailedToRepair);
+		return new Object[] { ruleresult, srcSensor, trgRepair, trgFail, trgFailed, trgOperationToFail,
+				sensorFailedCorr, trgRepairToOperational, trgOperational, sensorOperationalCoor, trgFailToFailed,
+				trgFailedToRepair };
 	}
 
 	public static final Object[] pattern_Sensor_1_3_bookkeepingforedges_blackBBBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet, EObject srcContainer,
-			EObject containerCorr, EObject trgFailedToRepair, EObject sensorOperationalCoor, EObject srcSensor,
-			EObject trgFail, EObject trgOperational, EObject srcRegion, EObject trgRepair, EObject trgFailed,
-			EObject sensorFailedCorr, EObject trgOperationToFail, EObject trgFailToFailed) {
-		if (!trgPetrinet.equals(trgRepairToOperational)) {
-			if (!trgPetrinet.equals(trgRepair)) {
-				if (!srcContainer.equals(trgRepairToOperational)) {
-					if (!srcContainer.equals(trgPetrinet)) {
-						if (!srcContainer.equals(trgFailedToRepair)) {
-							if (!srcContainer.equals(srcSensor)) {
-								if (!srcContainer.equals(trgFail)) {
-									if (!srcContainer.equals(trgOperational)) {
-										if (!srcContainer.equals(srcRegion)) {
-											if (!srcContainer.equals(trgRepair)) {
-												if (!srcContainer.equals(trgFailed)) {
-													if (!srcContainer.equals(trgOperationToFail)) {
-														if (!srcContainer.equals(trgFailToFailed)) {
-															if (!containerCorr.equals(trgRepairToOperational)) {
-																if (!containerCorr.equals(trgPetrinet)) {
-																	if (!containerCorr.equals(srcContainer)) {
-																		if (!containerCorr.equals(trgFailedToRepair)) {
-																			if (!containerCorr
-																					.equals(sensorOperationalCoor)) {
-																				if (!containerCorr.equals(srcSensor)) {
-																					if (!containerCorr
-																							.equals(trgFail)) {
-																						if (!containerCorr.equals(
-																								trgOperational)) {
-																							if (!containerCorr.equals(
-																									srcRegion)) {
-																								if (!containerCorr
-																										.equals(trgRepair)) {
-																									if (!containerCorr
-																											.equals(trgFailed)) {
-																										if (!containerCorr
-																												.equals(sensorFailedCorr)) {
-																											if (!containerCorr
-																													.equals(trgOperationToFail)) {
-																												if (!containerCorr
-																														.equals(trgFailToFailed)) {
-																													if (!trgFailedToRepair
-																															.equals(trgRepairToOperational)) {
-																														if (!trgFailedToRepair
-																																.equals(trgPetrinet)) {
-																															if (!trgFailedToRepair
-																																	.equals(trgOperational)) {
-																																if (!trgFailedToRepair
-																																		.equals(trgRepair)) {
-																																	if (!trgFailedToRepair
-																																			.equals(trgOperationToFail)) {
-																																		if (!sensorOperationalCoor
-																																				.equals(trgRepairToOperational)) {
-																																			if (!sensorOperationalCoor
-																																					.equals(trgPetrinet)) {
-																																				if (!sensorOperationalCoor
-																																						.equals(srcContainer)) {
-																																					if (!sensorOperationalCoor
-																																							.equals(trgFailedToRepair)) {
-																																						if (!sensorOperationalCoor
-																																								.equals(srcSensor)) {
-																																							if (!sensorOperationalCoor
-																																									.equals(trgFail)) {
-																																								if (!sensorOperationalCoor
+			PerformRuleResult ruleresult, EObject srcSensor, EObject srcContainer, EObject trgRepair, EObject trgFail,
+			EObject trgFailed, EObject trgOperationToFail, EObject sensorFailedCorr, EObject srcRegion,
+			EObject trgRepairToOperational, EObject trgPetrinet, EObject trgOperational, EObject sensorOperationalCoor,
+			EObject containerCorr, EObject trgFailToFailed, EObject trgFailedToRepair) {
+		if (!srcSensor.equals(trgRepair)) {
+			if (!srcSensor.equals(trgFail)) {
+				if (!srcSensor.equals(trgFailed)) {
+					if (!srcSensor.equals(trgOperationToFail)) {
+						if (!srcSensor.equals(trgRepairToOperational)) {
+							if (!srcSensor.equals(trgPetrinet)) {
+								if (!srcSensor.equals(trgOperational)) {
+									if (!srcSensor.equals(trgFailToFailed)) {
+										if (!srcSensor.equals(trgFailedToRepair)) {
+											if (!srcContainer.equals(srcSensor)) {
+												if (!srcContainer.equals(trgRepair)) {
+													if (!srcContainer.equals(trgFail)) {
+														if (!srcContainer.equals(trgFailed)) {
+															if (!srcContainer.equals(trgOperationToFail)) {
+																if (!srcContainer.equals(srcRegion)) {
+																	if (!srcContainer.equals(trgRepairToOperational)) {
+																		if (!srcContainer.equals(trgPetrinet)) {
+																			if (!srcContainer.equals(trgOperational)) {
+																				if (!srcContainer
+																						.equals(trgFailToFailed)) {
+																					if (!srcContainer.equals(
+																							trgFailedToRepair)) {
+																						if (!trgRepair.equals(
+																								trgRepairToOperational)) {
+																							if (!trgFail.equals(
+																									trgRepair)) {
+																								if (!trgFail.equals(
+																										trgFailed)) {
+																									if (!trgFail.equals(
+																											trgOperationToFail)) {
+																										if (!trgFail
+																												.equals(trgRepairToOperational)) {
+																											if (!trgFail
+																													.equals(trgPetrinet)) {
+																												if (!trgFail
+																														.equals(trgOperational)) {
+																													if (!trgFail
+																															.equals(trgFailToFailed)) {
+																														if (!trgFail
+																																.equals(trgFailedToRepair)) {
+																															if (!trgFailed
+																																	.equals(trgRepair)) {
+																																if (!trgFailed
+																																		.equals(trgOperationToFail)) {
+																																	if (!trgFailed
+																																			.equals(trgRepairToOperational)) {
+																																		if (!trgFailed
+																																				.equals(trgPetrinet)) {
+																																			if (!trgFailed
+																																					.equals(trgOperational)) {
+																																				if (!trgFailed
+																																						.equals(trgFailedToRepair)) {
+																																					if (!trgOperationToFail
+																																							.equals(trgRepair)) {
+																																						if (!trgOperationToFail
+																																								.equals(trgRepairToOperational)) {
+																																							if (!trgOperationToFail
+																																									.equals(trgPetrinet)) {
+																																								if (!trgOperationToFail
 																																										.equals(trgOperational)) {
-																																									if (!sensorOperationalCoor
-																																											.equals(srcRegion)) {
-																																										if (!sensorOperationalCoor
-																																												.equals(trgRepair)) {
-																																											if (!sensorOperationalCoor
-																																													.equals(trgFailed)) {
-																																												if (!sensorOperationalCoor
-																																														.equals(trgOperationToFail)) {
-																																													if (!sensorOperationalCoor
-																																															.equals(trgFailToFailed)) {
-																																														if (!srcSensor
-																																																.equals(trgRepairToOperational)) {
-																																															if (!srcSensor
-																																																	.equals(trgPetrinet)) {
-																																																if (!srcSensor
-																																																		.equals(trgFailedToRepair)) {
-																																																	if (!srcSensor
-																																																			.equals(trgFail)) {
-																																																		if (!srcSensor
+																																									if (!sensorFailedCorr
+																																											.equals(srcSensor)) {
+																																										if (!sensorFailedCorr
+																																												.equals(srcContainer)) {
+																																											if (!sensorFailedCorr
+																																													.equals(trgRepair)) {
+																																												if (!sensorFailedCorr
+																																														.equals(trgFail)) {
+																																													if (!sensorFailedCorr
+																																															.equals(trgFailed)) {
+																																														if (!sensorFailedCorr
+																																																.equals(trgOperationToFail)) {
+																																															if (!sensorFailedCorr
+																																																	.equals(srcRegion)) {
+																																																if (!sensorFailedCorr
+																																																		.equals(trgRepairToOperational)) {
+																																																	if (!sensorFailedCorr
+																																																			.equals(trgPetrinet)) {
+																																																		if (!sensorFailedCorr
 																																																				.equals(trgOperational)) {
-																																																			if (!srcSensor
-																																																					.equals(trgRepair)) {
-																																																				if (!srcSensor
-																																																						.equals(trgFailed)) {
-																																																					if (!srcSensor
-																																																							.equals(trgOperationToFail)) {
-																																																						if (!srcSensor
-																																																								.equals(trgFailToFailed)) {
-																																																							if (!trgFail
-																																																									.equals(trgRepairToOperational)) {
-																																																								if (!trgFail
-																																																										.equals(trgPetrinet)) {
-																																																									if (!trgFail
-																																																											.equals(trgFailedToRepair)) {
-																																																										if (!trgFail
-																																																												.equals(trgOperational)) {
-																																																											if (!trgFail
-																																																													.equals(trgRepair)) {
-																																																												if (!trgFail
-																																																														.equals(trgFailed)) {
-																																																													if (!trgFail
-																																																															.equals(trgOperationToFail)) {
-																																																														if (!trgFail
+																																																			if (!sensorFailedCorr
+																																																					.equals(sensorOperationalCoor)) {
+																																																				if (!sensorFailedCorr
+																																																						.equals(trgFailToFailed)) {
+																																																					if (!sensorFailedCorr
+																																																							.equals(trgFailedToRepair)) {
+																																																						if (!srcRegion
+																																																								.equals(srcSensor)) {
+																																																							if (!srcRegion
+																																																									.equals(trgRepair)) {
+																																																								if (!srcRegion
+																																																										.equals(trgFail)) {
+																																																									if (!srcRegion
+																																																											.equals(trgFailed)) {
+																																																										if (!srcRegion
+																																																												.equals(trgOperationToFail)) {
+																																																											if (!srcRegion
+																																																													.equals(trgRepairToOperational)) {
+																																																												if (!srcRegion
+																																																														.equals(trgPetrinet)) {
+																																																													if (!srcRegion
+																																																															.equals(trgOperational)) {
+																																																														if (!srcRegion
 																																																																.equals(trgFailToFailed)) {
-																																																															if (!trgOperational
-																																																																	.equals(trgRepairToOperational)) {
-																																																																if (!trgOperational
-																																																																		.equals(trgPetrinet)) {
-																																																																	if (!trgOperational
-																																																																			.equals(trgRepair)) {
-																																																																		if (!srcRegion
-																																																																				.equals(trgRepairToOperational)) {
-																																																																			if (!srcRegion
-																																																																					.equals(trgPetrinet)) {
-																																																																				if (!srcRegion
-																																																																						.equals(trgFailedToRepair)) {
-																																																																					if (!srcRegion
+																																																															if (!srcRegion
+																																																																	.equals(trgFailedToRepair)) {
+																																																																if (!trgPetrinet
+																																																																		.equals(trgRepair)) {
+																																																																	if (!trgPetrinet
+																																																																			.equals(trgRepairToOperational)) {
+																																																																		if (!trgOperational
+																																																																				.equals(trgRepair)) {
+																																																																			if (!trgOperational
+																																																																					.equals(trgRepairToOperational)) {
+																																																																				if (!trgOperational
+																																																																						.equals(trgPetrinet)) {
+																																																																					if (!sensorOperationalCoor
 																																																																							.equals(srcSensor)) {
-																																																																						if (!srcRegion
-																																																																								.equals(trgFail)) {
-																																																																							if (!srcRegion
-																																																																									.equals(trgOperational)) {
-																																																																								if (!srcRegion
-																																																																										.equals(trgRepair)) {
-																																																																									if (!srcRegion
+																																																																						if (!sensorOperationalCoor
+																																																																								.equals(srcContainer)) {
+																																																																							if (!sensorOperationalCoor
+																																																																									.equals(trgRepair)) {
+																																																																								if (!sensorOperationalCoor
+																																																																										.equals(trgFail)) {
+																																																																									if (!sensorOperationalCoor
 																																																																											.equals(trgFailed)) {
-																																																																										if (!srcRegion
+																																																																										if (!sensorOperationalCoor
 																																																																												.equals(trgOperationToFail)) {
-																																																																											if (!srcRegion
-																																																																													.equals(trgFailToFailed)) {
-																																																																												if (!trgRepair
+																																																																											if (!sensorOperationalCoor
+																																																																													.equals(srcRegion)) {
+																																																																												if (!sensorOperationalCoor
 																																																																														.equals(trgRepairToOperational)) {
-																																																																													if (!trgFailed
-																																																																															.equals(trgRepairToOperational)) {
-																																																																														if (!trgFailed
-																																																																																.equals(trgPetrinet)) {
-																																																																															if (!trgFailed
-																																																																																	.equals(trgFailedToRepair)) {
-																																																																																if (!trgFailed
-																																																																																		.equals(trgOperational)) {
-																																																																																	if (!trgFailed
-																																																																																			.equals(trgRepair)) {
-																																																																																		if (!trgFailed
-																																																																																				.equals(trgOperationToFail)) {
-																																																																																			if (!sensorFailedCorr
-																																																																																					.equals(trgRepairToOperational)) {
-																																																																																				if (!sensorFailedCorr
-																																																																																						.equals(trgPetrinet)) {
-																																																																																					if (!sensorFailedCorr
-																																																																																							.equals(srcContainer)) {
-																																																																																						if (!sensorFailedCorr
-																																																																																								.equals(trgFailedToRepair)) {
-																																																																																							if (!sensorFailedCorr
-																																																																																									.equals(sensorOperationalCoor)) {
-																																																																																								if (!sensorFailedCorr
-																																																																																										.equals(srcSensor)) {
-																																																																																									if (!sensorFailedCorr
-																																																																																											.equals(trgFail)) {
-																																																																																										if (!sensorFailedCorr
-																																																																																												.equals(trgOperational)) {
-																																																																																											if (!sensorFailedCorr
-																																																																																													.equals(srcRegion)) {
-																																																																																												if (!sensorFailedCorr
-																																																																																														.equals(trgRepair)) {
-																																																																																													if (!sensorFailedCorr
-																																																																																															.equals(trgFailed)) {
-																																																																																														if (!sensorFailedCorr
-																																																																																																.equals(trgOperationToFail)) {
-																																																																																															if (!sensorFailedCorr
-																																																																																																	.equals(trgFailToFailed)) {
-																																																																																																if (!trgOperationToFail
-																																																																																																		.equals(trgRepairToOperational)) {
-																																																																																																	if (!trgOperationToFail
-																																																																																																			.equals(trgPetrinet)) {
-																																																																																																		if (!trgOperationToFail
-																																																																																																				.equals(trgOperational)) {
-																																																																																																			if (!trgOperationToFail
-																																																																																																					.equals(trgRepair)) {
+																																																																													if (!sensorOperationalCoor
+																																																																															.equals(trgPetrinet)) {
+																																																																														if (!sensorOperationalCoor
+																																																																																.equals(trgOperational)) {
+																																																																															if (!sensorOperationalCoor
+																																																																																	.equals(trgFailToFailed)) {
+																																																																																if (!sensorOperationalCoor
+																																																																																		.equals(trgFailedToRepair)) {
+																																																																																	if (!containerCorr
+																																																																																			.equals(srcSensor)) {
+																																																																																		if (!containerCorr
+																																																																																				.equals(srcContainer)) {
+																																																																																			if (!containerCorr
+																																																																																					.equals(trgRepair)) {
+																																																																																				if (!containerCorr
+																																																																																						.equals(trgFail)) {
+																																																																																					if (!containerCorr
+																																																																																							.equals(trgFailed)) {
+																																																																																						if (!containerCorr
+																																																																																								.equals(trgOperationToFail)) {
+																																																																																							if (!containerCorr
+																																																																																									.equals(sensorFailedCorr)) {
+																																																																																								if (!containerCorr
+																																																																																										.equals(srcRegion)) {
+																																																																																									if (!containerCorr
+																																																																																											.equals(trgRepairToOperational)) {
+																																																																																										if (!containerCorr
+																																																																																												.equals(trgPetrinet)) {
+																																																																																											if (!containerCorr
+																																																																																													.equals(trgOperational)) {
+																																																																																												if (!containerCorr
+																																																																																														.equals(sensorOperationalCoor)) {
+																																																																																													if (!containerCorr
+																																																																																															.equals(trgFailToFailed)) {
+																																																																																														if (!containerCorr
+																																																																																																.equals(trgFailedToRepair)) {
+																																																																																															if (!trgFailToFailed
+																																																																																																	.equals(trgRepair)) {
+																																																																																																if (!trgFailToFailed
+																																																																																																		.equals(trgFailed)) {
+																																																																																																	if (!trgFailToFailed
+																																																																																																			.equals(trgOperationToFail)) {
+																																																																																																		if (!trgFailToFailed
+																																																																																																				.equals(trgRepairToOperational)) {
+																																																																																																			if (!trgFailToFailed
+																																																																																																					.equals(trgPetrinet)) {
 																																																																																																				if (!trgFailToFailed
-																																																																																																						.equals(trgRepairToOperational)) {
+																																																																																																						.equals(trgOperational)) {
 																																																																																																					if (!trgFailToFailed
-																																																																																																							.equals(trgPetrinet)) {
-																																																																																																						if (!trgFailToFailed
-																																																																																																								.equals(trgFailedToRepair)) {
-																																																																																																							if (!trgFailToFailed
-																																																																																																									.equals(trgOperational)) {
-																																																																																																								if (!trgFailToFailed
-																																																																																																										.equals(trgRepair)) {
-																																																																																																									if (!trgFailToFailed
-																																																																																																											.equals(trgFailed)) {
-																																																																																																										if (!trgFailToFailed
-																																																																																																												.equals(trgOperationToFail)) {
+																																																																																																							.equals(trgFailedToRepair)) {
+																																																																																																						if (!trgFailedToRepair
+																																																																																																								.equals(trgRepair)) {
+																																																																																																							if (!trgFailedToRepair
+																																																																																																									.equals(trgOperationToFail)) {
+																																																																																																								if (!trgFailedToRepair
+																																																																																																										.equals(trgRepairToOperational)) {
+																																																																																																									if (!trgFailedToRepair
+																																																																																																											.equals(trgPetrinet)) {
+																																																																																																										if (!trgFailedToRepair
+																																																																																																												.equals(trgOperational)) {
 																																																																																																											return new Object[] {
 																																																																																																													ruleresult,
+																																																																																																													srcSensor,
+																																																																																																													srcContainer,
+																																																																																																													trgRepair,
+																																																																																																													trgFail,
+																																																																																																													trgFailed,
+																																																																																																													trgOperationToFail,
+																																																																																																													sensorFailedCorr,
+																																																																																																													srcRegion,
 																																																																																																													trgRepairToOperational,
 																																																																																																													trgPetrinet,
-																																																																																																													srcContainer,
-																																																																																																													containerCorr,
-																																																																																																													trgFailedToRepair,
-																																																																																																													sensorOperationalCoor,
-																																																																																																													srcSensor,
-																																																																																																													trgFail,
 																																																																																																													trgOperational,
-																																																																																																													srcRegion,
-																																																																																																													trgRepair,
-																																																																																																													trgFailed,
-																																																																																																													sensorFailedCorr,
-																																																																																																													trgOperationToFail,
-																																																																																																													trgFailToFailed };
+																																																																																																													sensorOperationalCoor,
+																																																																																																													containerCorr,
+																																																																																																													trgFailToFailed,
+																																																																																																													trgFailedToRepair };
 																																																																																																										}
 																																																																																																									}
 																																																																																																								}
@@ -1214,106 +1219,73 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_1_3_bookkeepingforedges_greenBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet,
-			EObject trgFailedToRepair, EObject sensorOperationalCoor, EObject srcSensor, EObject trgFail,
-			EObject trgOperational, EObject srcRegion, EObject trgRepair, EObject trgFailed, EObject sensorFailedCorr,
-			EObject trgOperationToFail, EObject trgFailToFailed) {
-		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge sensorOperationalCoor__srcSensor____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge sensorOperationalCoor__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+			PerformRuleResult ruleresult, EObject srcSensor, EObject trgRepair, EObject trgFail, EObject trgFailed,
+			EObject trgOperationToFail, EObject sensorFailedCorr, EObject srcRegion, EObject trgRepairToOperational,
+			EObject trgPetrinet, EObject trgOperational, EObject sensorOperationalCoor, EObject trgFailToFailed,
+			EObject trgFailedToRepair) {
 		EMoflonEdge trgRepair__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgPetrinet__trgRepair____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge srcRegion__srcSensor____sensors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFail__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFail____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge sensorFailedCorr__trgFailed____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge sensorFailedCorr__srcSensor____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgOperationToFail__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgOperationToFail__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFail__trgOperationToFail____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailed__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgFailed____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgOperational__trgPetrinet____petriNet = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgPetrinet__trgOperational____nodes = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgOperational____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge srcRegion__srcSensor____sensors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge sensorOperationalCoor__srcSensor____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge sensorOperationalCoor__trgOperational____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFailToFailed__trgFail____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge trgFail__trgFailToFailed____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailedToRepair__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgFailedToRepair____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgFailToFailed__trgFailed____place = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepairToOperational__trgRepair____transition = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge trgRepair__trgRepairToOperational____arcs = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "Sensor";
-		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
-		String trgFailedToRepair__trgFailed____place_name_prime = "place";
-		String sensorOperationalCoor__srcSensor____source_name_prime = "source";
-		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
-		String trgRepairToOperational__trgOperational____place_name_prime = "place";
-		String sensorOperationalCoor__trgOperational____target_name_prime = "target";
 		String trgRepair__trgPetrinet____petriNet_name_prime = "petriNet";
 		String trgPetrinet__trgRepair____nodes_name_prime = "nodes";
-		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
-		String srcRegion__srcSensor____sensors_name_prime = "sensors";
-		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
-		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
+		String trgFail__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFail____nodes_name_prime = "nodes";
 		String sensorFailedCorr__trgFailed____target_name_prime = "target";
 		String sensorFailedCorr__srcSensor____source_name_prime = "source";
 		String trgOperationToFail__trgOperational____place_name_prime = "place";
-		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
-		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
 		String trgOperationToFail__trgFail____transition_name_prime = "transition";
 		String trgFail__trgOperationToFail____arcs_name_prime = "arcs";
-		String trgFailToFailed__trgFailed____place_name_prime = "place";
+		String trgFailed__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgFailed____nodes_name_prime = "nodes";
+		String trgOperational__trgPetrinet____petriNet_name_prime = "petriNet";
+		String trgPetrinet__trgOperational____nodes_name_prime = "nodes";
+		String trgRepairToOperational__trgOperational____place_name_prime = "place";
+		String srcRegion__srcSensor____sensors_name_prime = "sensors";
+		String sensorOperationalCoor__srcSensor____source_name_prime = "source";
+		String sensorOperationalCoor__trgOperational____target_name_prime = "target";
 		String trgFailToFailed__trgFail____transition_name_prime = "transition";
 		String trgFail__trgFailToFailed____arcs_name_prime = "arcs";
-		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
-		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
-		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
-		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
-		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
-		sensorOperationalCoor__srcSensor____source.setSrc(sensorOperationalCoor);
-		sensorOperationalCoor__srcSensor____source.setTrg(srcSensor);
-		ruleresult.getCreatedEdges().add(sensorOperationalCoor__srcSensor____source);
-		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
-		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
-		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFail____nodes.setTrg(trgFail);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
-		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
-		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
-		sensorOperationalCoor__trgOperational____target.setSrc(sensorOperationalCoor);
-		sensorOperationalCoor__trgOperational____target.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(sensorOperationalCoor__trgOperational____target);
+		String trgFailedToRepair__trgFailed____place_name_prime = "place";
+		String trgFailedToRepair__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgFailedToRepair____arcs_name_prime = "arcs";
+		String trgFailToFailed__trgFailed____place_name_prime = "place";
+		String trgRepairToOperational__trgRepair____transition_name_prime = "transition";
+		String trgRepair__trgRepairToOperational____arcs_name_prime = "arcs";
 		trgRepair__trgPetrinet____petriNet.setSrc(trgRepair);
 		trgRepair__trgPetrinet____petriNet.setTrg(trgPetrinet);
 		ruleresult.getCreatedEdges().add(trgRepair__trgPetrinet____petriNet);
 		trgPetrinet__trgRepair____nodes.setSrc(trgPetrinet);
 		trgPetrinet__trgRepair____nodes.setTrg(trgRepair);
 		ruleresult.getCreatedEdges().add(trgPetrinet__trgRepair____nodes);
-		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
-		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
-		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
-		srcRegion__srcSensor____sensors.setSrc(srcRegion);
-		srcRegion__srcSensor____sensors.setTrg(srcSensor);
-		ruleresult.getTranslatedEdges().add(srcRegion__srcSensor____sensors);
-		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
-		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
-		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
-		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
-		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
+		trgFail__trgPetrinet____petriNet.setSrc(trgFail);
+		trgFail__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFail__trgPetrinet____petriNet);
+		trgPetrinet__trgFail____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFail____nodes.setTrg(trgFail);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFail____nodes);
 		sensorFailedCorr__trgFailed____target.setSrc(sensorFailedCorr);
 		sensorFailedCorr__trgFailed____target.setTrg(trgFailed);
 		ruleresult.getCreatedEdges().add(sensorFailedCorr__trgFailed____target);
@@ -1323,81 +1295,113 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		trgOperationToFail__trgOperational____place.setSrc(trgOperationToFail);
 		trgOperationToFail__trgOperational____place.setTrg(trgOperational);
 		ruleresult.getCreatedEdges().add(trgOperationToFail__trgOperational____place);
-		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
-		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
-		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
-		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
-		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
-		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
 		trgOperationToFail__trgFail____transition.setSrc(trgOperationToFail);
 		trgOperationToFail__trgFail____transition.setTrg(trgFail);
 		ruleresult.getCreatedEdges().add(trgOperationToFail__trgFail____transition);
 		trgFail__trgOperationToFail____arcs.setSrc(trgFail);
 		trgFail__trgOperationToFail____arcs.setTrg(trgOperationToFail);
 		ruleresult.getCreatedEdges().add(trgFail__trgOperationToFail____arcs);
-		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
-		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
-		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
+		trgFailed__trgPetrinet____petriNet.setSrc(trgFailed);
+		trgFailed__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgFailed__trgPetrinet____petriNet);
+		trgPetrinet__trgFailed____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgFailed____nodes.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgFailed____nodes);
+		trgOperational__trgPetrinet____petriNet.setSrc(trgOperational);
+		trgOperational__trgPetrinet____petriNet.setTrg(trgPetrinet);
+		ruleresult.getCreatedEdges().add(trgOperational__trgPetrinet____petriNet);
+		trgPetrinet__trgOperational____nodes.setSrc(trgPetrinet);
+		trgPetrinet__trgOperational____nodes.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgPetrinet__trgOperational____nodes);
+		trgRepairToOperational__trgOperational____place.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgOperational____place.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgOperational____place);
+		srcRegion__srcSensor____sensors.setSrc(srcRegion);
+		srcRegion__srcSensor____sensors.setTrg(srcSensor);
+		ruleresult.getTranslatedEdges().add(srcRegion__srcSensor____sensors);
+		sensorOperationalCoor__srcSensor____source.setSrc(sensorOperationalCoor);
+		sensorOperationalCoor__srcSensor____source.setTrg(srcSensor);
+		ruleresult.getCreatedEdges().add(sensorOperationalCoor__srcSensor____source);
+		sensorOperationalCoor__trgOperational____target.setSrc(sensorOperationalCoor);
+		sensorOperationalCoor__trgOperational____target.setTrg(trgOperational);
+		ruleresult.getCreatedEdges().add(sensorOperationalCoor__trgOperational____target);
 		trgFailToFailed__trgFail____transition.setSrc(trgFailToFailed);
 		trgFailToFailed__trgFail____transition.setTrg(trgFail);
 		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFail____transition);
 		trgFail__trgFailToFailed____arcs.setSrc(trgFail);
 		trgFail__trgFailToFailed____arcs.setTrg(trgFailToFailed);
 		ruleresult.getCreatedEdges().add(trgFail__trgFailToFailed____arcs);
+		trgFailedToRepair__trgFailed____place.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgFailed____place);
+		trgFailedToRepair__trgRepair____transition.setSrc(trgFailedToRepair);
+		trgFailedToRepair__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgFailedToRepair__trgRepair____transition);
+		trgRepair__trgFailedToRepair____arcs.setSrc(trgRepair);
+		trgRepair__trgFailedToRepair____arcs.setTrg(trgFailedToRepair);
+		ruleresult.getCreatedEdges().add(trgRepair__trgFailedToRepair____arcs);
+		trgFailToFailed__trgFailed____place.setSrc(trgFailToFailed);
+		trgFailToFailed__trgFailed____place.setTrg(trgFailed);
+		ruleresult.getCreatedEdges().add(trgFailToFailed__trgFailed____place);
+		trgRepairToOperational__trgRepair____transition.setSrc(trgRepairToOperational);
+		trgRepairToOperational__trgRepair____transition.setTrg(trgRepair);
+		ruleresult.getCreatedEdges().add(trgRepairToOperational__trgRepair____transition);
+		trgRepair__trgRepairToOperational____arcs.setSrc(trgRepair);
+		trgRepair__trgRepairToOperational____arcs.setTrg(trgRepairToOperational);
+		ruleresult.getCreatedEdges().add(trgRepair__trgRepairToOperational____arcs);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
-		trgRepairToOperational__trgRepair____transition
-				.setName(trgRepairToOperational__trgRepair____transition_name_prime);
-		trgRepair__trgRepairToOperational____arcs.setName(trgRepair__trgRepairToOperational____arcs_name_prime);
-		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
-		sensorOperationalCoor__srcSensor____source.setName(sensorOperationalCoor__srcSensor____source_name_prime);
-		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
-		trgRepairToOperational__trgOperational____place
-				.setName(trgRepairToOperational__trgOperational____place_name_prime);
-		sensorOperationalCoor__trgOperational____target
-				.setName(sensorOperationalCoor__trgOperational____target_name_prime);
 		trgRepair__trgPetrinet____petriNet.setName(trgRepair__trgPetrinet____petriNet_name_prime);
 		trgPetrinet__trgRepair____nodes.setName(trgPetrinet__trgRepair____nodes_name_prime);
-		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
-		srcRegion__srcSensor____sensors.setName(srcRegion__srcSensor____sensors_name_prime);
-		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
-		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
+		trgFail__trgPetrinet____petriNet.setName(trgFail__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFail____nodes.setName(trgPetrinet__trgFail____nodes_name_prime);
 		sensorFailedCorr__trgFailed____target.setName(sensorFailedCorr__trgFailed____target_name_prime);
 		sensorFailedCorr__srcSensor____source.setName(sensorFailedCorr__srcSensor____source_name_prime);
 		trgOperationToFail__trgOperational____place.setName(trgOperationToFail__trgOperational____place_name_prime);
-		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
-		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
 		trgOperationToFail__trgFail____transition.setName(trgOperationToFail__trgFail____transition_name_prime);
 		trgFail__trgOperationToFail____arcs.setName(trgFail__trgOperationToFail____arcs_name_prime);
-		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
+		trgFailed__trgPetrinet____petriNet.setName(trgFailed__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgFailed____nodes.setName(trgPetrinet__trgFailed____nodes_name_prime);
+		trgOperational__trgPetrinet____petriNet.setName(trgOperational__trgPetrinet____petriNet_name_prime);
+		trgPetrinet__trgOperational____nodes.setName(trgPetrinet__trgOperational____nodes_name_prime);
+		trgRepairToOperational__trgOperational____place
+				.setName(trgRepairToOperational__trgOperational____place_name_prime);
+		srcRegion__srcSensor____sensors.setName(srcRegion__srcSensor____sensors_name_prime);
+		sensorOperationalCoor__srcSensor____source.setName(sensorOperationalCoor__srcSensor____source_name_prime);
+		sensorOperationalCoor__trgOperational____target
+				.setName(sensorOperationalCoor__trgOperational____target_name_prime);
 		trgFailToFailed__trgFail____transition.setName(trgFailToFailed__trgFail____transition_name_prime);
 		trgFail__trgFailToFailed____arcs.setName(trgFail__trgFailToFailed____arcs_name_prime);
-		return new Object[] { ruleresult, trgRepairToOperational, trgPetrinet, trgFailedToRepair, sensorOperationalCoor,
-				srcSensor, trgFail, trgOperational, srcRegion, trgRepair, trgFailed, sensorFailedCorr,
-				trgOperationToFail, trgFailToFailed, trgRepairToOperational__trgRepair____transition,
-				trgRepair__trgRepairToOperational____arcs, trgFailedToRepair__trgFailed____place,
-				sensorOperationalCoor__srcSensor____source, trgFail__trgPetrinet____petriNet,
-				trgPetrinet__trgFail____nodes, trgRepairToOperational__trgOperational____place,
-				sensorOperationalCoor__trgOperational____target, trgRepair__trgPetrinet____petriNet,
-				trgPetrinet__trgRepair____nodes, trgOperational__trgPetrinet____petriNet,
-				trgPetrinet__trgOperational____nodes, srcRegion__srcSensor____sensors,
+		trgFailedToRepair__trgFailed____place.setName(trgFailedToRepair__trgFailed____place_name_prime);
+		trgFailedToRepair__trgRepair____transition.setName(trgFailedToRepair__trgRepair____transition_name_prime);
+		trgRepair__trgFailedToRepair____arcs.setName(trgRepair__trgFailedToRepair____arcs_name_prime);
+		trgFailToFailed__trgFailed____place.setName(trgFailToFailed__trgFailed____place_name_prime);
+		trgRepairToOperational__trgRepair____transition
+				.setName(trgRepairToOperational__trgRepair____transition_name_prime);
+		trgRepair__trgRepairToOperational____arcs.setName(trgRepair__trgRepairToOperational____arcs_name_prime);
+		return new Object[] { ruleresult, srcSensor, trgRepair, trgFail, trgFailed, trgOperationToFail,
+				sensorFailedCorr, srcRegion, trgRepairToOperational, trgPetrinet, trgOperational, sensorOperationalCoor,
+				trgFailToFailed, trgFailedToRepair, trgRepair__trgPetrinet____petriNet, trgPetrinet__trgRepair____nodes,
+				trgFail__trgPetrinet____petriNet, trgPetrinet__trgFail____nodes, sensorFailedCorr__trgFailed____target,
+				sensorFailedCorr__srcSensor____source, trgOperationToFail__trgOperational____place,
+				trgOperationToFail__trgFail____transition, trgFail__trgOperationToFail____arcs,
 				trgFailed__trgPetrinet____petriNet, trgPetrinet__trgFailed____nodes,
-				sensorFailedCorr__trgFailed____target, sensorFailedCorr__srcSensor____source,
-				trgOperationToFail__trgOperational____place, trgFailedToRepair__trgRepair____transition,
-				trgRepair__trgFailedToRepair____arcs, trgOperationToFail__trgFail____transition,
-				trgFail__trgOperationToFail____arcs, trgFailToFailed__trgFailed____place,
-				trgFailToFailed__trgFail____transition, trgFail__trgFailToFailed____arcs };
+				trgOperational__trgPetrinet____petriNet, trgPetrinet__trgOperational____nodes,
+				trgRepairToOperational__trgOperational____place, srcRegion__srcSensor____sensors,
+				sensorOperationalCoor__srcSensor____source, sensorOperationalCoor__trgOperational____target,
+				trgFailToFailed__trgFail____transition, trgFail__trgFailToFailed____arcs,
+				trgFailedToRepair__trgFailed____place, trgFailedToRepair__trgRepair____transition,
+				trgRepair__trgFailedToRepair____arcs, trgFailToFailed__trgFailed____place,
+				trgRepairToOperational__trgRepair____transition, trgRepair__trgRepairToOperational____arcs };
 	}
 
 	public static final void pattern_Sensor_1_5_registerobjects_expressionBBBBBBBBBBBBBBBBB(Sensor _this,
-			PerformRuleResult ruleresult, EObject trgRepairToOperational, EObject trgPetrinet, EObject srcContainer,
-			EObject containerCorr, EObject trgFailedToRepair, EObject sensorOperationalCoor, EObject srcSensor,
-			EObject trgFail, EObject trgOperational, EObject srcRegion, EObject trgRepair, EObject trgFailed,
-			EObject sensorFailedCorr, EObject trgOperationToFail, EObject trgFailToFailed) {
-		_this.registerObjects_FWD(ruleresult, trgRepairToOperational, trgPetrinet, srcContainer, containerCorr,
-				trgFailedToRepair, sensorOperationalCoor, srcSensor, trgFail, trgOperational, srcRegion, trgRepair,
-				trgFailed, sensorFailedCorr, trgOperationToFail, trgFailToFailed);
+			PerformRuleResult ruleresult, EObject srcSensor, EObject srcContainer, EObject trgRepair, EObject trgFail,
+			EObject trgFailed, EObject trgOperationToFail, EObject sensorFailedCorr, EObject srcRegion,
+			EObject trgRepairToOperational, EObject trgPetrinet, EObject trgOperational, EObject sensorOperationalCoor,
+			EObject containerCorr, EObject trgFailToFailed, EObject trgFailedToRepair) {
+		_this.registerObjects_FWD(ruleresult, srcSensor, srcContainer, trgRepair, trgFail, trgFailed,
+				trgOperationToFail, sensorFailedCorr, srcRegion, trgRepairToOperational, trgPetrinet, trgOperational,
+				sensorOperationalCoor, containerCorr, trgFailToFailed, trgFailedToRepair);
 
 	}
 
@@ -1454,48 +1458,49 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_2_2_corematch_bindingFFFB(Match match) {
-		EObject _localVariable_0 = match.getObject("srcContainer");
-		EObject _localVariable_1 = match.getObject("srcSensor");
+		EObject _localVariable_0 = match.getObject("srcSensor");
+		EObject _localVariable_1 = match.getObject("srcContainer");
 		EObject _localVariable_2 = match.getObject("srcRegion");
-		EObject tmpSrcContainer = _localVariable_0;
-		EObject tmpSrcSensor = _localVariable_1;
+		EObject tmpSrcSensor = _localVariable_0;
+		EObject tmpSrcContainer = _localVariable_1;
 		EObject tmpSrcRegion = _localVariable_2;
-		if (tmpSrcContainer instanceof RailwayContainer) {
-			RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
-			if (tmpSrcSensor instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) {
-				hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) tmpSrcSensor;
+		if (tmpSrcSensor instanceof hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) {
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor = (hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor) tmpSrcSensor;
+			if (tmpSrcContainer instanceof RailwayContainer) {
+				RailwayContainer srcContainer = (RailwayContainer) tmpSrcContainer;
 				if (tmpSrcRegion instanceof Region) {
 					Region srcRegion = (Region) tmpSrcRegion;
-					return new Object[] { srcContainer, srcSensor, srcRegion, match };
+					return new Object[] { srcSensor, srcContainer, srcRegion, match };
 				}
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_Sensor_2_2_corematch_blackFBFBBB(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion, Match match) {
+	public static final Iterable<Object[]> pattern_Sensor_2_2_corematch_blackBBBFFB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		for (RailwayContainerToPetriNet containerCorr : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(srcContainer, RailwayContainerToPetriNet.class, "source")) {
 			PetriNet trgPetrinet = containerCorr.getTarget();
 			if (trgPetrinet != null) {
-				_result.add(new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion, match });
+				_result.add(new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr, match });
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_Sensor_2_3_findcontext_blackBBBBB(PetriNet trgPetrinet,
-			RailwayContainer srcContainer, RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
+	public static final Iterable<Object[]> pattern_Sensor_2_3_findcontext_blackBBBBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (srcContainer.getRegions().contains(srcRegion)) {
-			if (trgPetrinet.equals(containerCorr.getTarget())) {
+			if (srcRegion.getSensors().contains(srcSensor)) {
 				if (srcContainer.equals(containerCorr.getSource())) {
-					if (srcRegion.getSensors().contains(srcSensor)) {
-						_result.add(new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion });
+					if (trgPetrinet.equals(containerCorr.getTarget())) {
+						_result.add(new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr });
 					}
 				}
 			}
@@ -1503,54 +1508,54 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		return _result;
 	}
 
-	public static final Object[] pattern_Sensor_2_3_findcontext_greenBBBBBFFFFF(PetriNet trgPetrinet,
-			RailwayContainer srcContainer, RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
+	public static final Object[] pattern_Sensor_2_3_findcontext_greenBBBBBFFFFF(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion, PetriNet trgPetrinet, RailwayContainerToPetriNet containerCorr) {
 		IsApplicableMatch isApplicableMatch = RuntimeFactory.eINSTANCE.createIsApplicableMatch();
 		EMoflonEdge srcContainer__srcRegion____regions = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
-		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		EMoflonEdge srcRegion__srcSensor____sensors = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__srcContainer____source = RuntimeFactory.eINSTANCE.createEMoflonEdge();
+		EMoflonEdge containerCorr__trgPetrinet____target = RuntimeFactory.eINSTANCE.createEMoflonEdge();
 		String srcContainer__srcRegion____regions_name_prime = "regions";
-		String containerCorr__trgPetrinet____target_name_prime = "target";
-		String containerCorr__srcContainer____source_name_prime = "source";
 		String srcRegion__srcSensor____sensors_name_prime = "sensors";
-		isApplicableMatch.getAllContextElements().add(trgPetrinet);
-		isApplicableMatch.getAllContextElements().add(srcContainer);
-		isApplicableMatch.getAllContextElements().add(containerCorr);
+		String containerCorr__srcContainer____source_name_prime = "source";
+		String containerCorr__trgPetrinet____target_name_prime = "target";
 		isApplicableMatch.getAllContextElements().add(srcSensor);
+		isApplicableMatch.getAllContextElements().add(srcContainer);
 		isApplicableMatch.getAllContextElements().add(srcRegion);
+		isApplicableMatch.getAllContextElements().add(trgPetrinet);
+		isApplicableMatch.getAllContextElements().add(containerCorr);
 		srcContainer__srcRegion____regions.setSrc(srcContainer);
 		srcContainer__srcRegion____regions.setTrg(srcRegion);
 		isApplicableMatch.getAllContextElements().add(srcContainer__srcRegion____regions);
-		containerCorr__trgPetrinet____target.setSrc(containerCorr);
-		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
-		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
-		containerCorr__srcContainer____source.setSrc(containerCorr);
-		containerCorr__srcContainer____source.setTrg(srcContainer);
-		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
 		srcRegion__srcSensor____sensors.setSrc(srcRegion);
 		srcRegion__srcSensor____sensors.setTrg(srcSensor);
 		isApplicableMatch.getAllContextElements().add(srcRegion__srcSensor____sensors);
+		containerCorr__srcContainer____source.setSrc(containerCorr);
+		containerCorr__srcContainer____source.setTrg(srcContainer);
+		isApplicableMatch.getAllContextElements().add(containerCorr__srcContainer____source);
+		containerCorr__trgPetrinet____target.setSrc(containerCorr);
+		containerCorr__trgPetrinet____target.setTrg(trgPetrinet);
+		isApplicableMatch.getAllContextElements().add(containerCorr__trgPetrinet____target);
 		srcContainer__srcRegion____regions.setName(srcContainer__srcRegion____regions_name_prime);
-		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
-		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
 		srcRegion__srcSensor____sensors.setName(srcRegion__srcSensor____sensors_name_prime);
-		return new Object[] { trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion, isApplicableMatch,
-				srcContainer__srcRegion____regions, containerCorr__trgPetrinet____target,
-				containerCorr__srcContainer____source, srcRegion__srcSensor____sensors };
+		containerCorr__srcContainer____source.setName(containerCorr__srcContainer____source_name_prime);
+		containerCorr__trgPetrinet____target.setName(containerCorr__trgPetrinet____target_name_prime);
+		return new Object[] { srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr, isApplicableMatch,
+				srcContainer__srcRegion____regions, srcRegion__srcSensor____sensors,
+				containerCorr__srcContainer____source, containerCorr__trgPetrinet____target };
 	}
 
 	public static final Object[] pattern_Sensor_2_4_solveCSP_bindingFBBBBBBB(Sensor _this,
-			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
-		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, trgPetrinet, srcContainer,
-				containerCorr, srcSensor, srcRegion);
+			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			RailwayContainer srcContainer, Region srcRegion, PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(isApplicableMatch, srcSensor, srcContainer, srcRegion,
+				trgPetrinet, containerCorr);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, srcContainer, containerCorr, srcSensor,
-					srcRegion };
+			return new Object[] { csp, _this, isApplicableMatch, srcSensor, srcContainer, srcRegion, trgPetrinet,
+					containerCorr };
 		}
 		return null;
 	}
@@ -1560,19 +1565,19 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final Object[] pattern_Sensor_2_4_solveCSP_bindingAndBlackFBBBBBBB(Sensor _this,
-			IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet, RailwayContainer srcContainer,
-			RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
+			IsApplicableMatch isApplicableMatch, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			RailwayContainer srcContainer, Region srcRegion, PetriNet trgPetrinet,
+			RailwayContainerToPetriNet containerCorr) {
 		Object[] result_pattern_Sensor_2_4_solveCSP_binding = pattern_Sensor_2_4_solveCSP_bindingFBBBBBBB(_this,
-				isApplicableMatch, trgPetrinet, srcContainer, containerCorr, srcSensor, srcRegion);
+				isApplicableMatch, srcSensor, srcContainer, srcRegion, trgPetrinet, containerCorr);
 		if (result_pattern_Sensor_2_4_solveCSP_binding != null) {
 			CSP csp = (CSP) result_pattern_Sensor_2_4_solveCSP_binding[0];
 
 			Object[] result_pattern_Sensor_2_4_solveCSP_black = pattern_Sensor_2_4_solveCSP_blackB(csp);
 			if (result_pattern_Sensor_2_4_solveCSP_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, trgPetrinet, srcContainer, containerCorr,
-						srcSensor, srcRegion };
+				return new Object[] { csp, _this, isApplicableMatch, srcSensor, srcContainer, srcRegion, trgPetrinet,
+						containerCorr };
 			}
 		}
 		return null;
@@ -1667,7 +1672,7 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 				if (srcRegion.getSensors().contains(srcSensor)) {
 					for (RailwayContainer srcContainer : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(srcRegion, RailwayContainer.class, "regions")) {
-						_result.add(new Object[] { srcContainer, srcSensor, srcRegion, _edge_sensors });
+						_result.add(new Object[] { srcSensor, srcContainer, srcRegion, _edge_sensors });
 					}
 				}
 			}
@@ -1687,9 +1692,9 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 	}
 
 	public static final boolean pattern_Sensor_10_3_bookkeepingwithgenericisAppropriatemethod_expressionFBBBBB(
-			Sensor _this, Match match, RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcContainer, srcSensor, srcRegion);
+			Sensor _this, Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor,
+			RailwayContainer srcContainer, Region srcRegion) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, srcSensor, srcContainer, srcRegion);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -1722,11 +1727,12 @@ public class SensorImpl extends AbstractRuleImpl implements Sensor {
 		return _result;
 	}
 
-	public static final Object[] pattern_Sensor_13_1_matchtggpattern_blackBBB(RailwayContainer srcContainer,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, Region srcRegion) {
+	public static final Object[] pattern_Sensor_13_1_matchtggpattern_blackBBB(
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor srcSensor, RailwayContainer srcContainer,
+			Region srcRegion) {
 		if (srcContainer.getRegions().contains(srcRegion)) {
 			if (srcRegion.getSensors().contains(srcSensor)) {
-				return new Object[] { srcContainer, srcSensor, srcRegion };
+				return new Object[] { srcSensor, srcContainer, srcRegion };
 			}
 		}
 		return null;

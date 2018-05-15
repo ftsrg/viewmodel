@@ -102,8 +102,8 @@ public interface RailwayContainer extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject containerCorr,
-			EObject srcContainer);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcContainer, EObject trgPetrinet,
+			EObject containerCorr);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public interface RailwayContainer extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_RailwayContainer_0(
+	EObjectContainer isAppropriate_FWD_RailwayContainer_15(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.RailwayContainer srcContainer);
 
 	/**

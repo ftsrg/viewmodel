@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ViewModel Benchmarks ATL Driver
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.atl.driver;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Vendor: Contributors to the ViewModel project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: com.google.guava,
  org.eclipse.xtext.xbase.lib,

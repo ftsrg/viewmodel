@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.benchmarks.queries
+Bundle-Name: ViewModel Benchmarks Queries
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Vendor: Contributors to the ViewModel project
 Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability,
   hu.bme.mit.inf.viewmodel.benchmarks.queries.dependability.util,
   hu.bme.mit.inf.viewmodel.benchmarks.queries.modifications,

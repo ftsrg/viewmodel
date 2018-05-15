@@ -37,7 +37,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2);
+	boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,7 +61,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2);
+	void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement1, TrackElement srcTrackElement2);
+	CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement2, TrackElement srcTrackElement1);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -85,8 +85,8 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement1,
-			TrackElement srcTrackElement2);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement2,
+			TrackElement srcTrackElement1);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,7 +102,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement1, EObject srcTrackElement2);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement2, EObject srcTrackElement1);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_11(EMoflonEdge _edge_connectsTo);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_202(EMoflonEdge _edge_connectsTo);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,7 +142,7 @@ public interface TrackElementConnectsTo extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(TrackElement srcTrackElement1, TrackElement srcTrackElement2);
+	boolean checkDEC_FWD(TrackElement srcTrackElement2, TrackElement srcTrackElement1);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

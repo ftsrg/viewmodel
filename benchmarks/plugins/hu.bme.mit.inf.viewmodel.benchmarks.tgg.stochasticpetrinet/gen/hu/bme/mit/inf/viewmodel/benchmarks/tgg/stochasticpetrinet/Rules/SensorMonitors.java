@@ -38,7 +38,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor);
+	boolean isAppropriate_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor);
+	void registerObjectsToMatch_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, TrackElement srcTrackElement, Sensor srcSensor);
+	CSP isAppropriate_solveCsp_FWD(Match match, Sensor srcSensor, TrackElement srcTrackElement);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, TrackElement srcTrackElement, Sensor srcSensor);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, Sensor srcSensor, TrackElement srcTrackElement);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,7 +102,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcTrackElement, EObject srcSensor);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject srcSensor, EObject srcTrackElement);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_4(EMoflonEdge _edge_monitors);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_197(EMoflonEdge _edge_monitors);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,7 +142,7 @@ public interface SensorMonitors extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(TrackElement srcTrackElement, Sensor srcSensor);
+	boolean checkDEC_FWD(Sensor srcSensor, TrackElement srcTrackElement);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

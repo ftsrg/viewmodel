@@ -23,40 +23,13 @@ public interface RulesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Required Exit Semaphore</em>'.
+	 * Returns a new object of class '<em>Sensor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Exit Semaphore</em>'.
+	 * @return a new object of class '<em>Sensor</em>'.
 	 * @generated
 	 */
-	RequiredExitSemaphore createRequiredExitSemaphore();
-
-	/**
-	 * Returns a new object of class '<em>Switch Position</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Switch Position</em>'.
-	 * @generated
-	 */
-	SwitchPosition createSwitchPosition();
-
-	/**
-	 * Returns a new object of class '<em>Railway Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Railway Container</em>'.
-	 * @generated
-	 */
-	RailwayContainer createRailwayContainer();
-
-	/**
-	 * Returns a new object of class '<em>Required Switch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Switch</em>'.
-	 * @generated
-	 */
-	RequiredSwitch createRequiredSwitch();
+	Sensor createSensor();
 
 	/**
 	 * Returns a new object of class '<em>Required Sensor</em>'.
@@ -77,22 +50,22 @@ public interface RulesFactory extends EFactory {
 	SensorMonitors createSensorMonitors();
 
 	/**
-	 * Returns a new object of class '<em>Segment</em>'.
+	 * Returns a new object of class '<em>Semaphore</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Segment</em>'.
+	 * @return a new object of class '<em>Semaphore</em>'.
 	 * @generated
 	 */
-	Segment createSegment();
+	Semaphore createSemaphore();
 
 	/**
-	 * Returns a new object of class '<em>Region</em>'.
+	 * Returns a new object of class '<em>Required Entry Semaphore</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Region</em>'.
+	 * @return a new object of class '<em>Required Entry Semaphore</em>'.
 	 * @generated
 	 */
-	Region createRegion();
+	RequiredEntrySemaphore createRequiredEntrySemaphore();
 
 	/**
 	 * Returns a new object of class '<em>Switch</em>'.
@@ -104,31 +77,13 @@ public interface RulesFactory extends EFactory {
 	Switch createSwitch();
 
 	/**
-	 * Returns a new object of class '<em>Semaphore</em>'.
+	 * Returns a new object of class '<em>Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Semaphore</em>'.
+	 * @return a new object of class '<em>Segment</em>'.
 	 * @generated
 	 */
-	Semaphore createSemaphore();
-
-	/**
-	 * Returns a new object of class '<em>Route</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Route</em>'.
-	 * @generated
-	 */
-	Route createRoute();
-
-	/**
-	 * Returns a new object of class '<em>Sensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor</em>'.
-	 * @generated
-	 */
-	Sensor createSensor();
+	Segment createSegment();
 
 	/**
 	 * Returns a new object of class '<em>Track Element Connects To</em>'.
@@ -140,13 +95,58 @@ public interface RulesFactory extends EFactory {
 	TrackElementConnectsTo createTrackElementConnectsTo();
 
 	/**
-	 * Returns a new object of class '<em>Required Entry Semaphore</em>'.
+	 * Returns a new object of class '<em>Route</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Entry Semaphore</em>'.
+	 * @return a new object of class '<em>Route</em>'.
 	 * @generated
 	 */
-	RequiredEntrySemaphore createRequiredEntrySemaphore();
+	Route createRoute();
+
+	/**
+	 * Returns a new object of class '<em>Railway Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Railway Container</em>'.
+	 * @generated
+	 */
+	RailwayContainer createRailwayContainer();
+
+	/**
+	 * Returns a new object of class '<em>Region</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Region</em>'.
+	 * @generated
+	 */
+	Region createRegion();
+
+	/**
+	 * Returns a new object of class '<em>Switch Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Position</em>'.
+	 * @generated
+	 */
+	SwitchPosition createSwitchPosition();
+
+	/**
+	 * Returns a new object of class '<em>Required Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Switch</em>'.
+	 * @generated
+	 */
+	RequiredSwitch createRequiredSwitch();
+
+	/**
+	 * Returns a new object of class '<em>Required Exit Semaphore</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Exit Semaphore</em>'.
+	 * @generated
+	 */
+	RequiredExitSemaphore createRequiredExitSemaphore();
 
 	/**
 	 * Returns the package supported by this factory.

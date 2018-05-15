@@ -4,6 +4,15 @@
 	<groupId>hu.bme.mit.inf.viewmodel</groupId>
 	<version>0.1.0-SNAPSHOT</version>
 	<artifactId>hu.bme.mit.inf.viewmodel</artifactId>
+	<organization>
+		<name>Contributors to the ViewModel project</name>
+		<url>https://github.com/FTSRG/viewmodel/blob/master/CONTRIBUTORS.md</url>
+	</organization>
+	<scm>
+		<url>https://github.com/FTSRG/viewmodel/</url>
+		<connection>https://github.com/FTSRG/viewmodel.git</connection>
+		<developerConnection>git@github.com:FTSRG/viewmodel.git</developerConnection>
+	</scm>
 	<packaging>pom</packaging>
 
 	<modules>
