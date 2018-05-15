@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.language.ui
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Name: ViewModel Language UI
+Bundle-Vendor: Contributors to the ViewModel project
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language.ui; singleton:=true
 Bundle-ActivationPolicy: lazy

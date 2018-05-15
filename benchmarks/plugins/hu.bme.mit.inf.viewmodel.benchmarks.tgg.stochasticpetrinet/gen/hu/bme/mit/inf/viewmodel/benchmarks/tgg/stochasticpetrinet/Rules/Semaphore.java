@@ -43,8 +43,8 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment, Region srcRegion);
+	boolean isAppropriate_FWD(Match match, RailwayContainer srcContainer, Segment srcSegment,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Region srcRegion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,9 +68,8 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment, Region srcRegion);
+	void registerObjectsToMatch_FWD(Match match, RailwayContainer srcContainer, Segment srcSegment,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Region srcRegion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,9 +77,8 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment, Region srcRegion);
+	CSP isAppropriate_solveCsp_FWD(Match match, RailwayContainer srcContainer, Segment srcSegment,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Region srcRegion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,9 +94,10 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, RailwayContainerToPetriNet containerCorr,
-			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, RailwayContainer srcContainer,
-			Segment srcSegment, PetriNet trgPetrinet, Region srcRegion);
+	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch, PetriNet trgPetrinet,
+			RailwayContainer srcContainer, Segment srcSegment,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
+			RailwayContainerToPetriNet containerCorr, Region srcRegion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,11 +113,11 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult, EObject containerCorr, EObject trgFailedToRepair,
-			EObject srcSemaphore, EObject semaphoreFailedCorr, EObject srcContainer, EObject trgRepair,
-			EObject trgOperational, EObject srcSegment, EObject trgPetrinet, EObject semaphoreOperationalCorr,
-			EObject trgRepairToOperational, EObject trgOperationToFail, EObject srcRegion, EObject trgFailed,
-			EObject trgFailToFailed, EObject trgFail);
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject trgPetrinet, EObject trgRepairToOperational,
+			EObject srcContainer, EObject semaphoreOperationalCorr, EObject trgFailedToRepair, EObject trgRepair,
+			EObject semaphoreFailedCorr, EObject srcSegment, EObject trgFailToFailed, EObject trgFailed,
+			EObject trgFail, EObject trgOperational, EObject srcSemaphore, EObject containerCorr,
+			EObject trgOperationToFail, EObject srcRegion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,7 +133,7 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_8(EMoflonEdge _edge_semaphores);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_198(EMoflonEdge _edge_semaphores);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,8 +157,8 @@ public interface Semaphore extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean checkDEC_FWD(hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore,
-			RailwayContainer srcContainer, Segment srcSegment, Region srcRegion);
+	boolean checkDEC_FWD(RailwayContainer srcContainer, Segment srcSegment,
+			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Semaphore srcSemaphore, Region srcRegion);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

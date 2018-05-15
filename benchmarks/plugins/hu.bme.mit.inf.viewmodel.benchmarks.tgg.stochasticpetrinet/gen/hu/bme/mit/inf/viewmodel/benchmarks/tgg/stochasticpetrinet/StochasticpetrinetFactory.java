@@ -23,49 +23,13 @@ public interface StochasticpetrinetFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Railway Container To Petri Net</em>'.
+	 * Returns a new object of class '<em>Semaphore To Failed</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Railway Container To Petri Net</em>'.
+	 * @return a new object of class '<em>Semaphore To Failed</em>'.
 	 * @generated
 	 */
-	RailwayContainerToPetriNet createRailwayContainerToPetriNet();
-
-	/**
-	 * Returns a new object of class '<em>Route To Repair</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Route To Repair</em>'.
-	 * @generated
-	 */
-	RouteToRepair createRouteToRepair();
-
-	/**
-	 * Returns a new object of class '<em>Switch To Operational</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Switch To Operational</em>'.
-	 * @generated
-	 */
-	SwitchToOperational createSwitchToOperational();
-
-	/**
-	 * Returns a new object of class '<em>Semaphore To Operational</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Semaphore To Operational</em>'.
-	 * @generated
-	 */
-	SemaphoreToOperational createSemaphoreToOperational();
-
-	/**
-	 * Returns a new object of class '<em>Sensor To Operational</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor To Operational</em>'.
-	 * @generated
-	 */
-	SensorToOperational createSensorToOperational();
+	SemaphoreToFailed createSemaphoreToFailed();
 
 	/**
 	 * Returns a new object of class '<em>Switch To Failed</em>'.
@@ -86,6 +50,33 @@ public interface StochasticpetrinetFactory extends EFactory {
 	RouteToOperational createRouteToOperational();
 
 	/**
+	 * Returns a new object of class '<em>Sensor To Operational</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor To Operational</em>'.
+	 * @generated
+	 */
+	SensorToOperational createSensorToOperational();
+
+	/**
+	 * Returns a new object of class '<em>Semaphore To Operational</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Semaphore To Operational</em>'.
+	 * @generated
+	 */
+	SemaphoreToOperational createSemaphoreToOperational();
+
+	/**
+	 * Returns a new object of class '<em>Route To Repair</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Route To Repair</em>'.
+	 * @generated
+	 */
+	RouteToRepair createRouteToRepair();
+
+	/**
 	 * Returns a new object of class '<em>Sensor To Failed</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,13 +95,22 @@ public interface StochasticpetrinetFactory extends EFactory {
 	RouteToFailed createRouteToFailed();
 
 	/**
-	 * Returns a new object of class '<em>Semaphore To Failed</em>'.
+	 * Returns a new object of class '<em>Switch To Operational</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Semaphore To Failed</em>'.
+	 * @return a new object of class '<em>Switch To Operational</em>'.
 	 * @generated
 	 */
-	SemaphoreToFailed createSemaphoreToFailed();
+	SwitchToOperational createSwitchToOperational();
+
+	/**
+	 * Returns a new object of class '<em>Railway Container To Petri Net</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Railway Container To Petri Net</em>'.
+	 * @generated
+	 */
+	RailwayContainerToPetriNet createRailwayContainerToPetriNet();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -31,6 +31,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class LookupResultImpl extends MinimalEObjectImpl.Container implements LookupResult {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright (c) 2018 Contributors to the ViewModel project\n\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nSPDX-License-Identifier: EPL-1.0";
+	/**
 	 * The cached value of the '{@link #getResultArguments() <em>Result Arguments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

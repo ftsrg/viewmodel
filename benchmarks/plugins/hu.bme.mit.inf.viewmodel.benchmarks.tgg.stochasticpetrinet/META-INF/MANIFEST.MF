@@ -7,7 +7,7 @@ Export-Package: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet,
  hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.impl,
  hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.org.moflon.tie,
  hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet.util
-Bundle-Name: hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet
+Bundle-Name: ViewModel Benchmarks TGG Implementation for the petrinet case
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
@@ -19,3 +19,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  hu.bme.mit.inf.viewmodel.benchmarks.models
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Contributors to the ViewModel project

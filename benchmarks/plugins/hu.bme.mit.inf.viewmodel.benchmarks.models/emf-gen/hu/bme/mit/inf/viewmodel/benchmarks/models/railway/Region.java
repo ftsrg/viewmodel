@@ -23,6 +23,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Region extends RailwayElement {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright (c) 2018 Contributors to the Train Benchmark and ViewModel projects\n\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nSPDX-License-Identifier: EPL-1.0";
+
+	/**
 	 * Returns the value of the '<em><b>Sensors</b></em>' containment reference list.
 	 * The list contents are of type {@link hu.bme.mit.inf.viewmodel.benchmarks.models.railway.Sensor}.
 	 * <!-- begin-user-doc -->

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.language.ide
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Name: ViewModel Langauge IDE Support
+Bundle-Vendor: Contributors to the ViewModel project
 Bundle-Version: 0.1.0.qualifier
-Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language.ide; singleton:=true
+Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.language.ide;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: hu.bme.mit.inf.viewmodel.language,
  org.eclipse.xtext.ide,

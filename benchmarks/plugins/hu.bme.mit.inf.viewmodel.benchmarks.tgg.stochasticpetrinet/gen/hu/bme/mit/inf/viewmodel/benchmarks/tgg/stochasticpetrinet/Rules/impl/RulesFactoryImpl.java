@@ -55,34 +55,34 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case RulesPackage.REQUIRED_EXIT_SEMAPHORE:
-			return createRequiredExitSemaphore();
-		case RulesPackage.SWITCH_POSITION:
-			return createSwitchPosition();
-		case RulesPackage.RAILWAY_CONTAINER:
-			return createRailwayContainer();
-		case RulesPackage.REQUIRED_SWITCH:
-			return createRequiredSwitch();
+		case RulesPackage.SENSOR:
+			return createSensor();
 		case RulesPackage.REQUIRED_SENSOR:
 			return createRequiredSensor();
 		case RulesPackage.SENSOR_MONITORS:
 			return createSensorMonitors();
-		case RulesPackage.SEGMENT:
-			return createSegment();
-		case RulesPackage.REGION:
-			return createRegion();
-		case RulesPackage.SWITCH:
-			return createSwitch();
 		case RulesPackage.SEMAPHORE:
 			return createSemaphore();
-		case RulesPackage.ROUTE:
-			return createRoute();
-		case RulesPackage.SENSOR:
-			return createSensor();
-		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
-			return createTrackElementConnectsTo();
 		case RulesPackage.REQUIRED_ENTRY_SEMAPHORE:
 			return createRequiredEntrySemaphore();
+		case RulesPackage.SWITCH:
+			return createSwitch();
+		case RulesPackage.SEGMENT:
+			return createSegment();
+		case RulesPackage.TRACK_ELEMENT_CONNECTS_TO:
+			return createTrackElementConnectsTo();
+		case RulesPackage.ROUTE:
+			return createRoute();
+		case RulesPackage.RAILWAY_CONTAINER:
+			return createRailwayContainer();
+		case RulesPackage.REGION:
+			return createRegion();
+		case RulesPackage.SWITCH_POSITION:
+			return createSwitchPosition();
+		case RulesPackage.REQUIRED_SWITCH:
+			return createRequiredSwitch();
+		case RulesPackage.REQUIRED_EXIT_SEMAPHORE:
+			return createRequiredExitSemaphore();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,39 +93,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredExitSemaphore createRequiredExitSemaphore() {
-		RequiredExitSemaphoreImpl requiredExitSemaphore = new RequiredExitSemaphoreImpl();
-		return requiredExitSemaphore;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwitchPosition createSwitchPosition() {
-		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
-		return switchPosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RailwayContainer createRailwayContainer() {
-		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
-		return railwayContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredSwitch createRequiredSwitch() {
-		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
-		return requiredSwitch;
+	public Sensor createSensor() {
+		SensorImpl sensor = new SensorImpl();
+		return sensor;
 	}
 
 	/**
@@ -153,9 +123,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Segment createSegment() {
-		SegmentImpl segment = new SegmentImpl();
-		return segment;
+	public Semaphore createSemaphore() {
+		SemaphoreImpl semaphore = new SemaphoreImpl();
+		return semaphore;
 	}
 
 	/**
@@ -163,9 +133,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Region createRegion() {
-		RegionImpl region = new RegionImpl();
-		return region;
+	public RequiredEntrySemaphore createRequiredEntrySemaphore() {
+		RequiredEntrySemaphoreImpl requiredEntrySemaphore = new RequiredEntrySemaphoreImpl();
+		return requiredEntrySemaphore;
 	}
 
 	/**
@@ -183,29 +153,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Semaphore createSemaphore() {
-		SemaphoreImpl semaphore = new SemaphoreImpl();
-		return semaphore;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Route createRoute() {
-		RouteImpl route = new RouteImpl();
-		return route;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
+	public Segment createSegment() {
+		SegmentImpl segment = new SegmentImpl();
+		return segment;
 	}
 
 	/**
@@ -223,9 +173,59 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredEntrySemaphore createRequiredEntrySemaphore() {
-		RequiredEntrySemaphoreImpl requiredEntrySemaphore = new RequiredEntrySemaphoreImpl();
-		return requiredEntrySemaphore;
+	public Route createRoute() {
+		RouteImpl route = new RouteImpl();
+		return route;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RailwayContainer createRailwayContainer() {
+		RailwayContainerImpl railwayContainer = new RailwayContainerImpl();
+		return railwayContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Region createRegion() {
+		RegionImpl region = new RegionImpl();
+		return region;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchPosition createSwitchPosition() {
+		SwitchPositionImpl switchPosition = new SwitchPositionImpl();
+		return switchPosition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredSwitch createRequiredSwitch() {
+		RequiredSwitchImpl requiredSwitch = new RequiredSwitchImpl();
+		return requiredSwitch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredExitSemaphore createRequiredExitSemaphore() {
+		RequiredExitSemaphoreImpl requiredExitSemaphore = new RequiredExitSemaphoreImpl();
+		return requiredExitSemaphore;
 	}
 
 	/**

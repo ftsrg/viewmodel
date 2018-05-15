@@ -121,7 +121,7 @@ public interface Segment extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_5(EMoflonEdge _edge_elements);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_201(EMoflonEdge _edge_elements);
 
 	/**
 	 * <!-- begin-user-doc -->

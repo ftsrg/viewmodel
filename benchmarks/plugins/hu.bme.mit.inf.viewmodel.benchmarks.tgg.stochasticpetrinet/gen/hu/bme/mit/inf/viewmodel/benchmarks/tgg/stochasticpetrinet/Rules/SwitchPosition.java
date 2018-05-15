@@ -121,7 +121,7 @@ public interface SwitchPosition extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_1(EMoflonEdge _edge_positions);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_205(EMoflonEdge _edge_positions);
 
 	/**
 	 * <!-- begin-user-doc -->

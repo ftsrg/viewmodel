@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.benchmarks.viewmodel
+Bundle-Name: ViewModel Benchmarks ViewModel Implementation
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.benchmarks.viewmodel;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Vendor: Contributors to the ViewModel project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.viatra.query.runtime;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,

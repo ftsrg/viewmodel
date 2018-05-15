@@ -121,7 +121,7 @@ public interface Region extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_6(EMoflonEdge _edge_regions);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_204(EMoflonEdge _edge_regions);
 
 	/**
 	 * <!-- begin-user-doc -->

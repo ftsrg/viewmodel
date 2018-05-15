@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="ASCII"?>
 <analysis:StaticAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:analysis="platform:/plugin/org.moflon.tgg.language/model/Language.ecore#//analysis">
   <sourceRules>
-    <rules ruleName="RequiredExitSemaphore">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredExitSemaphore/isAppropriate_FWD_EMoflonEdge_0"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredExitSemaphore/checkDEC_FWD"/>
-    </rules>
-    <rules ruleName="SwitchPosition">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SwitchPosition/isAppropriate_FWD_EMoflonEdge_1"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SwitchPosition/checkDEC_FWD"/>
-    </rules>
-    <rules ruleName="RailwayContainer">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RailwayContainer/isAppropriate_FWD_RailwayContainer_0"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RailwayContainer/checkDEC_FWD"/>
-    </rules>
-    <rules ruleName="RequiredSwitch">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSwitch/isAppropriate_FWD_EMoflonEdge_2"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSwitch/checkDEC_FWD"/>
+    <rules ruleName="Sensor">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Sensor/isAppropriate_FWD_EMoflonEdge_195"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Sensor/checkDEC_FWD"/>
     </rules>
     <rules ruleName="RequiredSensor">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSensor/isAppropriate_FWD_EMoflonEdge_3"/>
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSensor/isAppropriate_FWD_EMoflonEdge_196"/>
       <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSensor/checkDEC_FWD"/>
     </rules>
     <rules ruleName="SensorMonitors">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SensorMonitors/isAppropriate_FWD_EMoflonEdge_4"/>
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SensorMonitors/isAppropriate_FWD_EMoflonEdge_197"/>
       <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SensorMonitors/checkDEC_FWD"/>
     </rules>
-    <rules ruleName="Segment">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Segment/isAppropriate_FWD_EMoflonEdge_5"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Segment/checkDEC_FWD"/>
-    </rules>
-    <rules ruleName="Region">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Region/isAppropriate_FWD_EMoflonEdge_6"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Region/checkDEC_FWD"/>
-    </rules>
-    <rules ruleName="Switch">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Switch/isAppropriate_FWD_EMoflonEdge_7"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Switch/checkDEC_FWD"/>
-    </rules>
     <rules ruleName="Semaphore">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Semaphore/isAppropriate_FWD_EMoflonEdge_8"/>
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Semaphore/isAppropriate_FWD_EMoflonEdge_198"/>
       <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Semaphore/checkDEC_FWD"/>
     </rules>
-    <rules ruleName="Route">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Route/isAppropriate_FWD_EMoflonEdge_9"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Route/checkDEC_FWD"/>
+    <rules ruleName="RequiredEntrySemaphore">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredEntrySemaphore/isAppropriate_FWD_EMoflonEdge_199"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredEntrySemaphore/checkDEC_FWD"/>
     </rules>
-    <rules ruleName="Sensor">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Sensor/isAppropriate_FWD_EMoflonEdge_10"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Sensor/checkDEC_FWD"/>
+    <rules ruleName="Switch">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Switch/isAppropriate_FWD_EMoflonEdge_200"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Switch/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="Segment">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Segment/isAppropriate_FWD_EMoflonEdge_201"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Segment/checkDEC_FWD"/>
     </rules>
     <rules ruleName="TrackElementConnectsTo">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/TrackElementConnectsTo/isAppropriate_FWD_EMoflonEdge_11"/>
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/TrackElementConnectsTo/isAppropriate_FWD_EMoflonEdge_202"/>
       <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/TrackElementConnectsTo/checkDEC_FWD"/>
     </rules>
-    <rules ruleName="RequiredEntrySemaphore">
-      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredEntrySemaphore/isAppropriate_FWD_EMoflonEdge_12"/>
-      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredEntrySemaphore/checkDEC_FWD"/>
+    <rules ruleName="Route">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Route/isAppropriate_FWD_EMoflonEdge_203"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Route/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="RailwayContainer">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RailwayContainer/isAppropriate_FWD_RailwayContainer_15"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RailwayContainer/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="Region">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Region/isAppropriate_FWD_EMoflonEdge_204"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/Region/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="SwitchPosition">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SwitchPosition/isAppropriate_FWD_EMoflonEdge_205"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/SwitchPosition/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="RequiredSwitch">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSwitch/isAppropriate_FWD_EMoflonEdge_206"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredSwitch/checkDEC_FWD"/>
+    </rules>
+    <rules ruleName="RequiredExitSemaphore">
+      <isAppropriateMethods href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredExitSemaphore/isAppropriate_FWD_EMoflonEdge_207"/>
+      <checkDECMethod href="platform:/plugin/hu.bme.mit.inf.viewmodel.benchmarks.tgg.stochasticpetrinet/model/Stochasticpetrinet.ecore#//Rules/RequiredExitSemaphore/checkDEC_FWD"/>
     </rules>
   </sourceRules>
   <targetRules>
-    <rules ruleName="RequiredExitSemaphore"/>
-    <rules ruleName="SwitchPosition" ignore="true"/>
-    <rules ruleName="RailwayContainer"/>
-    <rules ruleName="RequiredSwitch"/>
+    <rules ruleName="Sensor"/>
     <rules ruleName="RequiredSensor"/>
     <rules ruleName="SensorMonitors" ignore="true"/>
-    <rules ruleName="Segment" ignore="true"/>
-    <rules ruleName="Region" ignore="true"/>
-    <rules ruleName="Switch"/>
     <rules ruleName="Semaphore"/>
-    <rules ruleName="Route"/>
-    <rules ruleName="Sensor"/>
-    <rules ruleName="TrackElementConnectsTo" ignore="true"/>
     <rules ruleName="RequiredEntrySemaphore"/>
+    <rules ruleName="Switch"/>
+    <rules ruleName="Segment" ignore="true"/>
+    <rules ruleName="TrackElementConnectsTo" ignore="true"/>
+    <rules ruleName="Route"/>
+    <rules ruleName="RailwayContainer"/>
+    <rules ruleName="Region" ignore="true"/>
+    <rules ruleName="SwitchPosition" ignore="true"/>
+    <rules ruleName="RequiredSwitch"/>
+    <rules ruleName="RequiredExitSemaphore"/>
   </targetRules>
 </analysis:StaticAnalysis>

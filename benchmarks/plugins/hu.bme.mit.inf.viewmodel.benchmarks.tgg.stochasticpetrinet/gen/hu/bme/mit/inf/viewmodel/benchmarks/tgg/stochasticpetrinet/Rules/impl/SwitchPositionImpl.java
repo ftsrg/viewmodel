@@ -344,7 +344,7 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_1(EMoflonEdge _edge_positions) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_205(EMoflonEdge _edge_positions) {
 
 		Object[] result1_bindingAndBlack = SwitchPositionImpl
 				.pattern_SwitchPosition_10_1_preparereturnvalue_bindingAndBlackFFBF(this);
@@ -494,8 +494,8 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 			return null;
 		case RulesPackage.SWITCH_POSITION___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD_EMOFLON_EDGE_1__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_1((EMoflonEdge) arguments.get(0));
+		case RulesPackage.SWITCH_POSITION___IS_APPROPRIATE_FWD_EMOFLON_EDGE_205__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_205((EMoflonEdge) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SWITCH_POSITION___IS_APPLICABLE_CC__MATCH_MATCH:
@@ -915,9 +915,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 
 	public static final Object[] pattern_SwitchPosition_10_2_testcorematchandDECs_black_nac_0BB(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
-		Switch __DEC_srcSwitchPosition_positions_461916 = srcSwitchPosition.getTarget();
-		if (__DEC_srcSwitchPosition_positions_461916 != null) {
-			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_461916)) {
+		Switch __DEC_srcSwitchPosition_positions_480086 = srcSwitchPosition.getTarget();
+		if (__DEC_srcSwitchPosition_positions_480086 != null) {
+			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_480086)) {
 				return new Object[] { srcSwitchPosition, srcSwitch };
 			}
 		}
@@ -994,9 +994,9 @@ public class SwitchPositionImpl extends AbstractRuleImpl implements SwitchPositi
 
 	public static final Object[] pattern_SwitchPosition_13_1_matchtggpattern_black_nac_0BB(
 			hu.bme.mit.inf.viewmodel.benchmarks.models.railway.SwitchPosition srcSwitchPosition, Switch srcSwitch) {
-		Switch __DEC_srcSwitchPosition_positions_162430 = srcSwitchPosition.getTarget();
-		if (__DEC_srcSwitchPosition_positions_162430 != null) {
-			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_162430)) {
+		Switch __DEC_srcSwitchPosition_positions_861108 = srcSwitchPosition.getTarget();
+		if (__DEC_srcSwitchPosition_positions_861108 != null) {
+			if (!srcSwitch.equals(__DEC_srcSwitchPosition_positions_861108)) {
 				return new Object[] { srcSwitchPosition, srcSwitch };
 			}
 		}

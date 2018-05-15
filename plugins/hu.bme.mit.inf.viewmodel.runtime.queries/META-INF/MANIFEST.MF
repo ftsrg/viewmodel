@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: hu.bme.mit.inf.viewmodel.runtime.queries
+Bundle-Name: ViewModel Runtime Queries
 Bundle-SymbolicName: hu.bme.mit.inf.viewmodel.runtime.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: BME MIT FTSRG
+Bundle-Vendor: Contributors to the ViewModel project
 Export-Package: hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel,
   hu.bme.mit.inf.viewmodel.runtime.queries.logicmodel.util,
   hu.bme.mit.inf.viewmodel.runtime.queries.manifestationtrace,
