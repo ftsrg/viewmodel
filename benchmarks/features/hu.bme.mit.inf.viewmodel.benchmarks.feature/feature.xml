@@ -3,7 +3,28 @@
       id="hu.bme.mit.inf.viewmodel.benchmarks.feature"
       label="ViewModel Benchmarks"
       version="0.1.0.qualifier"
-      provider-name="BME MIT FTSRG">
+      provider-name="Contributors to the ViewModel project">
+
+   <description>
+      ViewModel benchmarks feature. This is the Eclipse application required to run benchmarks with ViewModel, imperative reactive VIATRA transformations, and some other transformation tools.
+   </description>
+
+   <copyright>
+      Copyright (c) 2018 Contributors to the ViewModel project
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+SPDX-License-Identifier: EPL-1.0
+   </license>
+
+   <requires>
+      <import feature="hu.bme.mit.inf.viewmodel.runtime.feature" version="0.1.0" match="compatible"/>
+   </requires>
 
    <plugin
          id="hu.bme.mit.inf.viewmodel.benchmarks.application"
@@ -12,7 +33,6 @@
          version="0.0.0"
          unpack="false"/>
 
-   <!-- Required by the VIATRA Query logger. -->
    <plugin
          id="org.eclipse.xtext.logging"
          download-size="0"
@@ -21,10 +41,4 @@
          fragment="true"
          unpack="false"/>
 
-   <requires>
-      <import
-            feature="hu.bme.mit.inf.viewmodel.runtime.feature"
-            version="0.1.0"
-            match="compatible"/>
-   </requires>
 </feature>

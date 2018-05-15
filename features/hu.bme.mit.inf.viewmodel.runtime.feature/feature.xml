@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="hu.bme.mit.inf.viewmodel.runtime.feature"
-      label="ViewModel SDK"
+      label="ViewModel Runtime"
       version="0.1.0.qualifier"
-      provider-name="BME MIT FTSRG">
+      provider-name="Contributors to the ViewModel plugin">
+
+   <description>
+      ViewModel runtime feature. This is the minimum dependency to execute ViewModel transformations.
+   </description>
+
+   <copyright>
+      Copyright (c) 2018 Contributors to the ViewModel project
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+SPDX-License-Identifier: EPL-1.0
+   </license>
 
    <plugin
          id="hu.bme.mit.inf.viewmodel.runtime"
@@ -18,7 +35,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="hu.bme.mit.inf.viewmodel.runtime.queries"
          download-size="0"
