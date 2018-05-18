@@ -79,3 +79,7 @@ into your host Eclipse. Set `hu.bme.mit.inf.viewmodel.benchmarks.target` as the 
 ## License
 
 The project uses the Eclipse Public License 1.0. For more information see [NOTICE.md](https://github.com/FTSRG/viewmodel/blob/master/NOTICE.md) and [CONTRIBUTORS.md](https://github.com/FTSRG/viewmodel/blob/master/CONTRIBUTORS.md).
+
+## Acknowledgment
+
+The project was partially supported by the [MTA-BME Lendület Research Group on Cyber-Physical Systems](http://lendulet.inf.mit.bme.hu/).
