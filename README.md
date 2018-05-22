@@ -82,4 +82,5 @@ The project uses the Eclipse Public License 1.0. For more information see [NOTIC
 
 ## Acknowledgment
 
-The project was partially supported by the [MTA-BME Lendület Research Group on Cyber-Physical Systems](http://lendulet.inf.mit.bme.hu/).
+The project was partially supported by the [MTA-BME Lendület Cyber-Physical Systems Research Group](http://lendulet.inf.mit.bme.hu/) and the [Fault Tolerant Systems Research Group](https://inf.mit.bme.hu/en) of the Department of Measurement and Information Systems, Budapest University of Technology and Economics.
+
