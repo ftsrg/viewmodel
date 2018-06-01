@@ -2,15 +2,17 @@
 
 *ViewModel* is a view transformation approach with (1) a fully compositional transformation language built on top of the [VIATRA Query language](https://www.eclipse.org/viatra/documentation/query-language.html), and (2) a transformation engine which is reactive, incremental, validating and inconsistency-tolerant at the same time. For more information see the [publication page](https://github.com/FTSRG/publication-pages/wiki/Incremental-View-Model-Synchronization-Using-Partial-Models) of our recently submitted paper.
 
-## User's Guide
+## Users' Guide
 
 ### Creating and running view transformations
 
-*ViewModel* is available as an Eclipse plugin from our update site
+*ViewModel* is available as an Eclipse plugin from our update site (go to *Help > Install New Software...* in Eclipse and enter the following URI):
 
     http://docs.inf.mit.bme.hu/viewmodel/repository
 
 The *ViewModel Runtime* feature is required for executing transformations, while the *ViewModel SDK* feature contains editor support and code generator for the transformation language. See the [implementation of the benchmarks](https://github.com/FTSRG/viewmodel/tree/master/benchmarks/plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel/src/hu/bme/mit/inf/viewmodel/benchmarks/viewmodel) for usage.
+
+The ViewModel plugin and its benchmarks were build and tested with Java 1.8.0. It may be possible to develop or run them with Java 9 or 10, however, we recommend Java 1.8.0 instead. 
 
 ### Running the benchmarks
 
@@ -28,7 +30,7 @@ The archives contain the Eclipse application, example models, and `.json` config
 
 For running the benchmarks in Amazon EC2 (we used `m5.xlarge` instances with Amazon Linux AMI 2017.09.1), some utility scripts are provided in `/benchmarks/scripts` which aid in setting up the measurement environment.
 
-## Developer's Guide
+## Developers' Guide
 
 ### Cloning the repository
 
