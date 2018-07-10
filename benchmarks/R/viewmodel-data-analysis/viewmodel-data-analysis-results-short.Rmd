@@ -1,0 +1,456 @@
+---
+title: "Data Analysis for \"Incremental View Model Synchronization Using Partial Models\" with Short Logs"
+author: "Kristóf Marussy, Oszkár Semeráth, Dániel Varró"
+date: "July 10, 2018"
+output:
+  html_document:
+    toc: true
+    theme: united
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This report contains data analysis for the papaer "Incremental View Model Synchronization Using Partial Models" using a subset of the experiment configurations.
+It was created to facilitate experimenting with the benchmarking environment without running the full measurement campaign.
+
+After extracting the benchmarking environment for the appropriate operating system, the benchmark configuration `short.json` can be run as follows:
+
+    ./eclipse -benchmarks short.json -vmargs -Xmx8g
+
+The results are places into `./results/short/benchmarks.log`, which should be copied into the same folder as this `.Rmd` document under the name `short_log.csv` before knitting.
+
+The largest source models for both the Dependability and VirtualSwitch case studies are omitted, and only a single modification mix (Usual) is executed. Moreover, warm-up iterations are skipped and only a single iteration is performed for each experiment, which may increase noise substantially.
+
+# Loading the data
+
+First we load the `tidyverse` packages for data wrangling and plotting.
+
+```{r, message=FALSE}
+require(tidyverse)
+```
+
+The file `short_log.csv` is the concatenation of the log files produced by the benchmark configuration `short.json`.
+
+```{r, message=FALSE}
+log_path <- './short_log.csv'
+full_log <- read_csv(log_path, col_types = cols(
+  model = col_character(),
+  transformationCase = col_character(),
+  experiment = col_character(),
+  modificationMix = col_character(),
+  rerun = col_integer(),
+  variable = col_character(),
+  value = col_double()
+))
+```
+
+We only measured using Train Benchmark models, so we can replace the model name with the scale factor in the logs, while still preserving all information.
+
+```{r}
+trainbenchmark_log <- full_log %>%
+  mutate(modelSize = as.integer(gsub('railway-batch-', '', model))) %>%
+  select(-model) %>%
+  separate(variable, c('checkpoint', 'category', 'variable'))
+```
+
+# Basic statistics
+
+We define some helper function for converting string identifiers to factor variables later.
+
+```{r}
+TransformationCaseFactor <- function (v) {
+  factor(as.factor(v),
+         levels = c('dependability', 'virtualSwitch'),
+         labels = c('Dependability', 'VirtualSwitch'))
+}
+
+ModificationMixFactor <- function (v) {
+  factor(as.factor(v),
+         levels = c('modelQuery', 'execute', 'usual', 'petriNetSlow', 'virtualSwitchSlow',
+                    'bothSlow', 'bothFast', 'createSwitch', 'createSegment',
+                    'connectTrackElements', 'disconnectTrackElements', 'createRoute', 'removeRoute',
+                    'addSwitchToRoute', 'removeSwitchFromRoute',
+                    'setSwitchFailed', 'setSwitchOperational'),
+         labels = c('Initial query', 'Initial transformation', '(A) Usual mix', '(B) Depend. stress mix',
+                    '(C) VirtSw. stress mix', '(D) mix', '(E) mix', 'Create switch', 'Create segment',
+                    'Connect tract elements', 'Disconnect track elements', 'Create route', 'Remove route',
+                    'Add switch to route', 'Remove switch from route',
+                    'Set switch failed', 'Set switch operational'))
+}
+
+ExperimentFactor <- function (v) {
+  factor(as.factor(v),
+         levels = c('viewModel-physical', 'viatra-priorities', 'viatra'),
+         labels = c('Our approach', 'Source-reactive VIATRA', 'Trace-reactive VIATRA'))
+}
+```
+
+## Source model statistics
+
+We create a data frame containing size of the source models (object, reference and attribute counts). Each run prints the model sizes. However, we only use the output from the first batch run, because all source models with the same scale factor are identical.
+
+```{r, results='asis'}
+source_model_statistics <- trainbenchmark_log %>%
+  filter(experiment == 'viewModel-batch-physical' &
+           modificationMix == 'none' &
+           rerun == 0 &
+           checkpoint == 'batch' &
+           category == 'source') %>%
+  group_by(modelSize, variable) %>%
+  summarize(value = first(value)) %>%
+  mutate(variable = paste0('source_', variable)) %>%
+  spread(variable, value)
+
+stat_df <- data.frame(source_model_statistics$modelSize, source_model_statistics$source_count, source_model_statistics$source_referenceCount, source_model_statistics$source_attributeCount)
+
+colnames(stat_df) <- c("Scale factor", "Source objects", "Source references", "Source attributes")
+knitr::kable(stat_df, format='markdown') %>% cat(sep = '\n')
+```
+
+## Target model statistics
+
+### Batch transformations
+
+We perform the same analysis for the target models of the batch transformations.
+
+```{r, results='asis'}
+target_model_statistics <- trainbenchmark_log %>%
+  filter(experiment == 'viewModel-batch-physical' &
+           modificationMix == 'none' &
+           rerun == 0 &
+           checkpoint == 'batch' &
+           category == 'target') %>%
+  group_by(modelSize, transformationCase, variable) %>%
+  summarize(value = first(value)) %>%
+  mutate(variable = paste0('target_', variable)) %>%
+  spread(variable, value)
+
+tstat_cases <- TransformationCaseFactor(target_model_statistics$transformationCase)
+tstat_df <- data.frame(target_model_statistics$modelSize, tstat_cases, target_model_statistics$target_count, target_model_statistics$target_referenceCount, target_model_statistics$target_attributeCount)
+
+colnames(tstat_df) <- c("Scale factor", "Case study", "Target objects", "Target references", "Target attributes")
+knitr::kable(tstat_df, format='markdown') %>% cat(sep = '\n')
+```
+
+For sanity, we check that all transformations resulted in the same number of target model elements.
+
+```{r}
+bad_batch_transformations <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           checkpoint == 'batch' &
+           category == 'target') %>%
+  select(-c(modificationMix, checkpoint, category)) %>%
+  mutate(variable = paste0('actual_', variable)) %>%
+  spread(variable, value) %>%
+  inner_join(target_model_statistics, by=c('transformationCase', 'modelSize')) %>%
+  filter(actual_rootCount != target_rootCount |
+           actual_count != target_count |
+           actual_referenceCount != target_referenceCount |
+           actual_attributeCount != target_attributeCount)
+
+if (nrow(bad_batch_transformations) != 0) {
+  print(bad_batch_transformations)
+  stop("Unexpected batch transformation results")
+} else {
+  message("All correct")
+}
+```
+
+We may see that every batch transformation resulted in the expected number of target elements.
+
+Now we count the variables and constraints in the partial models.
+
+```{r, results='asis'}
+partial_size <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           checkpoint == 'batch' & category == 'trace' &
+           variable %in% c('variableCount', 'constraintCount') &
+           rerun == 0) %>%
+  select(c(transformationCase, variable, value, modelSize)) %>%
+  spread(variable, value)
+
+partial_cases <- TransformationCaseFactor(partial_size$transformationCase)
+partial_df = data.frame(partial_size$modelSize, partial_cases, partial_size$variableCount, partial_size$constraintCount)
+
+colnames(partial_df) <- c("Scale factor", "Case study", "Partial model variables", "Partial model constraints")
+knitr::kable(partial_df, format='markdown') %>% cat(sep = '\n')
+```
+
+### Change-driven transformations
+
+Different modification mixed produce different output models, so we also collect statistics for the target model after each modification mix separately.
+
+```{r, results='asis'}
+incremental_target_model_statistics <- trainbenchmark_log %>%
+  filter(experiment == 'viewModel-incremental-physical' &
+           modificationMix != 'none' &
+           rerun == 0 &
+           checkpoint == 'after' &
+           category == 'target') %>%
+  group_by(modelSize, transformationCase, modificationMix, variable) %>%
+  summarize(value = first(value)) %>%
+  mutate(variable = paste0('target_', variable)) %>%
+  spread(variable, value) %>%
+  ungroup()
+
+incremental_tstat_df <- data.frame(
+  incremental_target_model_statistics$modelSize,
+  TransformationCaseFactor(incremental_target_model_statistics$transformationCase),
+  ModificationMixFactor(incremental_target_model_statistics$modificationMix),
+  incremental_target_model_statistics$target_count,
+  incremental_target_model_statistics$target_referenceCount,
+  incremental_target_model_statistics$target_attributeCount) %>%
+  arrange_at(c(2, 1, 3))
+
+colnames(incremental_tstat_df) <- c("Scale factor", "Case study", "Modification mix", "Target objects", "Target references", "Target attributes")
+knitr::kable(incremental_tstat_df, format='markdown') %>% cat(sep = '\n')
+```
+
+We make sure that each experiment resulted in the same number of target model elements when executed with the same source model and modification mix.
+
+```{r}
+incremental_target_model_statistics_by_experiment <- trainbenchmark_log %>%
+  filter(modificationMix != 'none' &
+           checkpoint == 'after' &
+           category == 'target') %>%
+  group_by(modelSize, transformationCase, modificationMix, experiment, rerun, variable) %>%
+  summarize(value = first(value)) %>%
+  mutate(variable = paste0('actual_', variable)) %>%
+  spread(variable, value) %>%
+  ungroup()
+
+bad_incremental_experiments <- incremental_target_model_statistics_by_experiment %>%
+  inner_join(incremental_target_model_statistics,
+    by = c('modelSize', 'transformationCase', 'modificationMix')) %>%
+  filter(actual_rootCount != target_rootCount |
+           actual_count != target_count |
+           actual_referenceCount != target_referenceCount |
+           actual_attributeCount != target_attributeCount)
+
+
+if (nrow(bad_incremental_experiments) != 0) {
+  print(bad_incremental_experiments)
+  stop("Unexpected incremental transformation results")
+} else {
+  message("All correct")
+}
+```
+
+We may see that every incremental transformation resulted in the expected number of target elements.
+
+# Execution time (RQ2 and RQ3)
+
+## Data wrangling
+
+We define a helper function for collecting execution times from the batch and incremental versions of experiments.
+
+```{r}
+RenameExperiment <- function(df) {
+  df %>% mutate(experiment = gsub("-(batch|incremental)", "", experiment))
+}
+```
+
+### First execution (RQ2)
+
+We will "formally" treat model query and first execution as two modification mixes, which simplifies our data frames.
+They will be shown on the same plots as the incremental sychronization times, anyway.
+
+We collect the execution time of the model query in the first (also known as "batch" in the logs) execution.
+This is relatively simple, as all experiments contain a `modelQuery` checkpoint.
+
+```{r}
+modelQuery <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           variable == 'duration' &
+           checkpoint == 'modelQuery') %>%
+  mutate(modificationMix='modelQuery') %>%
+  RenameExperiment()
+```
+
+We extract the first execution time of the hand-written VIATRA transformations, too.
+Only the hand-written transformations have an `execute` checkpoint in the log.
+
+```{r}
+execution_viatra <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           variable == 'duration' &
+           checkpoint == 'execute') %>%
+  mutate(modificationMix='execute') %>%
+  RenameExperiment()
+```
+
+Extracting the first run of the ViewModel transformations is a bit more involved, as different steps were logged separately.
+We simply sum their durations.
+
+```{r}
+execution_viewmodel <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           variable == 'duration' &
+           checkpoint %in% c('pt2tExecute', 'pt2tRete', 's2ptExecute', 's2ptRete')) %>%
+  group_by(transformationCase, experiment, rerun, category, variable, modelSize) %>%
+  summarize(checkpoint='execute', modificationMix='execute', value=sum(value)) %>%
+  ungroup() %>%
+  RenameExperiment()
+```
+
+### Incremental transformations (RQ3)
+
+The execution time of change-driven synchronization is split between the `modelModification` (propagation of source model changes trough the RETE net) and `synchronization` (firing of change-driven transformation rules) phases.
+We sum the two durations.
+
+```{r}
+incremental <- trainbenchmark_log %>%
+  filter(modificationMix != 'none' &
+           variable == 'duration' &
+           checkpoint %in% c('synchronization', 'modelModification')) %>%
+  group_by(transformationCase, experiment, rerun, category, variable, modelSize, modificationMix) %>%
+  summarize(checkpoint='synchronization', value=sum(value)) %>%
+  ungroup() %>%
+  RenameExperiment()
+```
+
+### Putting it together
+
+We bind the data frames from the previous two sections, and join them to the target and source model statistics.
+Then we prepare for creating the plots as follows:
+
+  * The total model size is the geometric mean of the number of source and target model objects.
+    This measure was selected because it can indicate scaleability in both case studies considered.
+  * Only the median of the execution times is kept.
+  * Execution times smaller than 1 ms are replaced with 1 ms so that a log-log plot can be drawn.
+    Zero execution times would lead to `NaN` values after taking their logarithm.
+
+```{r}
+durations_plot <- rbind(incremental, modelQuery, execution_viatra, execution_viewmodel) %>%
+  inner_join(target_model_statistics, by = c('transformationCase', 'modelSize')) %>%
+  inner_join(source_model_statistics, by = c('modelSize')) %>%
+  mutate(total_count = sqrt(source_count * target_count)) %>%
+  group_by(modelSize, transformationCase, modificationMix, experiment) %>%
+  summarize(total_count = median(total_count), value = median(value)) %>%
+  mutate(value = ifelse(value < 1, 1, value))
+```
+
+We add some factor labels in order to generate appropriate legends in the plots.
+
+```{r}
+durations_plot$modificationMix <- ModificationMixFactor(durations_plot$modificationMix)
+durations_plot$transformationCase <- TransformationCaseFactor(durations_plot$transformationCase)
+durations_plot$experiment <- ExperimentFactor(durations_plot$experiment)
+durations_plot <- durations_plot %>%
+  arrange(transformationCase, modelSize, modificationMix, experiment)
+```
+
+A large table can be assembled for viewing by spreading the three experiments side by side.
+Note that different modification mixes were evaluated on different virtual machines, so executing times are only comparable within a single modification mix.
+
+```{r, results='asis'}
+durations_table <- durations_plot %>%
+  spread(experiment, value) %>%
+  arrange(modificationMix, transformationCase, modelSize)
+colnames(durations_table)[1:4] <- c("Scale factor", "Case study", "Modification mix", "Total size")
+knitr::kable(durations_table, format='markdown') %>% cat(sep = '\n')
+```
+
+## Plots
+
+Let use define some helper functions for making publication-quality plots.
+
+```{r}
+scientific_10 <- function (x) {
+  parse(text=gsub("1e", " 10^", scales::scientific_format()(x)))
+}
+
+DurationsPlot <- function (df) {
+  ggplot(df, aes(x = total_count, y = value, color=experiment, shape=experiment)) +
+    geom_point(size = 2) +
+    geom_line() +
+    scale_x_continuous(name = "Model size = sqrt(#source objects * #target object)",
+                       trans = "log",
+                       limits = c(1000, 100000),
+                       breaks = c(1, 10, 100, 1000, 10000, 100000),
+                       label=scientific_10) +
+    scale_y_continuous(name = "Execution time (ms)",
+                       trans = 'log',
+                       limits = c(1, 150000),
+                       breaks = c(1, 10, 100, 1000, 10000, 100000),
+                       label=scientific_10) +
+    facet_grid(transformationCase~modificationMix) +
+    scale_color_brewer(type='qual', palette=6, name = "Transformation") +
+    scale_shape_manual(values=c(1, 4, 3), name="Transformation") +
+    theme_bw() +
+    theme(legend.position='bottom', legend.box.spacing = unit(c(0, 0, 0, 0), 'cm'))
+}
+```
+
+As only a single modification mix was run, the plots fit on a single figure.
+
+```{r, fig.height=5,fig.width=6}
+durations_plot %>% filter(as.numeric(modificationMix) < 8) %>% DurationsPlot()
+```
+
+# Instrumented first-run transformations (RQ1)
+
+In order to analyze first run behavior in depth, ViewModel was instrumented to log each phase of first run execution separately.
+These phases are
+
+  * constructing the Source2PartialTarget RETE net,
+  * firing the Source2PartialTarget transformation rules,
+  * constructing the PartialTarget2Target RETE net,
+  * firing the PartialTarget2Target transformation rules.
+
+As the RETE constrution times are usually much shorter than the firing time, we add them to the firing times and compare the overall execution times of the Source2PartialTarget and PartialTarget2Target phases.
+
+```{r}
+instrumented_plot <- trainbenchmark_log %>%
+  filter(modificationMix == 'none' &
+           variable == 'duration' &
+           checkpoint %in% c('pt2tExecute', 'pt2tRete', 's2ptExecute', 's2ptRete')) %>%
+  mutate(checkpoint = gsub('Execute|Rete', '', checkpoint)) %>%
+  group_by(transformationCase, experiment, rerun, category, variable, modelSize, checkpoint, modificationMix) %>%
+  summarize(value=sum(value)) %>%
+  ungroup() %>%
+  inner_join(target_model_statistics, by = c('transformationCase', 'modelSize')) %>%
+  inner_join(source_model_statistics, by = c('modelSize')) %>%
+  mutate(total_count = sqrt(source_count * target_count)) %>%
+  group_by(modelSize, transformationCase, modificationMix, experiment, checkpoint) %>%
+  summarize(total_count = median(total_count), value = median(value)) %>%
+  mutate(value = ifelse(value < 1, 1, value)) %>%
+  ungroup()
+
+instrumented_plot$transformationCase <- TransformationCaseFactor(instrumented_plot$transformationCase)
+instrumented_plot$checkpoint <- factor(as.factor(instrumented_plot$checkpoint),
+                                    levels = c('s2pt', 'pt2t'),
+                                    labels = c('S2PT', 'PT2T'))
+```
+
+```{r, results='asis'}
+show_instrumented_plot <- instrumented_plot %>%
+  select(-c('modificationMix', 'experiment')) %>%
+  spread(checkpoint, value)
+colnames(show_instrumented_plot) <- c('Scale factor', 'Case study', 'Total size', 'PT2T duration', 'S2PT duration')
+
+knitr::kable(show_instrumented_plot, format='markdown') %>% cat(sep = '\n')
+```
+
+```{r, fig.height=5,fig.width=3}
+ggplot(instrumented_plot, aes(x = total_count, y = value, color=checkpoint, shape=checkpoint)) +
+  geom_point(size=3.5) +
+  geom_line() +
+  scale_x_continuous(name = "Model size",
+                     trans = "log",
+                     limits = c(1000, 100000),
+                     breaks = c(1, 10, 100, 1000, 10000, 100000),
+                     label=scientific_10) +
+  scale_y_continuous(name = "Execution time (ms)",
+                     trans = 'log',
+                     limits = c(1, 150000),
+                     breaks = c(1, 10, 100, 1000, 10000, 100000),
+                     label=scientific_10) +
+  facet_grid(transformationCase~.) +
+  scale_color_brewer(type='qual', palette=6, name = "Execution step") +
+  scale_shape_manual(values=c(1, 4), name="Execution step") +
+  theme_bw() +
+  theme(legend.position='bottom', legend.box.spacing = unit(c(0, 0, 0, 0), 'cm'))
+```
