@@ -12,6 +12,19 @@
 
 The *ViewModel Runtime* feature is required for executing transformations, while the *ViewModel SDK* feature contains editor support and code generator for the transformation language. See the [implementation of the benchmarks](https://github.com/FTSRG/viewmodel/tree/master/benchmarks/plugins/hu.bme.mit.inf.viewmodel.benchmarks.viewmodel/src/hu/bme/mit/inf/viewmodel/benchmarks/viewmodel) for usage.
 
+View specification classes are generated from `.viewmodel` files, which should be located in the source folder of an Eclipse plug-in project.
+The bundle `hu.bme.mit.inf.viewmodel.runtime.transformation` should be added to the set of plug-in dependencies.
+The helper class `hu.bme.mit.inf.viewmodel.runtime.transformation.ViewModel` provides easy execution of transformations:
+
+    // MyGeneratedView is the view specification class generated from MyGeneratedView.viewmodel
+    val viewModel = ViewModel.create(resource, MyGeneratedView.createSpecification)
+    viewModel.startUnscheduledExecution
+    val results = viewModel.results
+    // Modify `resource` here to get `results` updated automaticaly.
+    viewModel.dispose
+
+As there is currently no support for running from a plain JAR / Maven application, an Eclipse application or plug-in test should be used.
+
 The ViewModel plugin and its benchmarks were build and tested with Java 1.8.0. It may be possible to develop or run them with Java 9 or 10, however, we recommend Java 1.8.0 instead. 
 
 ### Running the benchmarks
@@ -28,7 +41,13 @@ The archives contain the Eclipse application, example models, and `.json` config
 
     ./eclipse -benchmarks <CONFIGURATION FILE>.json -vmargs -Xmx15g
 
+By default, the benchmark configurations `d_batch.json`, `d_NN.json` (`NN` = `01`..`15`), `vs_batch.json` and `d_NN.json` will output benchmarks results to `/mnt/results`. This enables mounting a shared filesystem at that path to collects logs from multiple machines.
+
 For running the benchmarks in Amazon EC2 (we used `m5.xlarge` instances with Amazon Linux AMI 2017.09.1), some utility scripts are provided in `/benchmarks/scripts` which aid in setting up the measurement environment.
+
+For trying out the benchmarking environment in a more limited environment, you can use the `short.json` configuration, which does not depend on a mounted shared filesystem, and runs only a few experiments.
+
+The R Markdown files `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results.Rmd` and `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results-short.Rmd` may be knitted to generate reports from the `full_log.csv` and `short_log.csv` files, respectively.
 
 ## Developers' Guide
 
@@ -62,7 +81,7 @@ instead. This may take significantly longer due to the increased number of depen
 
 ### Developing with Eclipse
 
-To develop *ViewModel* with Eclipse, you should first install the following Eclipse plugins:
+To develop *ViewModel* with Eclipse (version Oxygen.2 recommended), you should first install the following Eclipse plugins:
 
   * [Xtext SDK](https://www.eclipse.org/Xtext/download.html) 2.13.0
   * [VIATRA Query and Transformation SDK](https://www.eclipse.org/viatra/downloads.html) 1.7.2
