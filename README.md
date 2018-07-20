@@ -47,7 +47,7 @@ For running the benchmarks in Amazon EC2 (we used `m5.xlarge` instances with Ama
 
 For trying out the benchmarking environment in a more limited environment, you can use the `short.json` configuration, which does not depend on a mounted shared filesystem, and runs only a few experiments.
 
-The R Markdown files `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results.Rmd` and `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results-short.Rmd` may be knitted to generate reports from the `full_log.csv` and `short_log.csv` files, respectively.
+The R Markdown files `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results.Rmd` and `benchmarks/R/viewmodel-data-analysis/viewmodel-data-analysis-results-short.Rmd` may be knitted to generate reports from the `full_log.csv` and `short_log.csv` files, respectively. They were tested under R 3.5.0 and RStudio 1.1.453 (Arch Linux), as well as R 3.4.4 and RStudio 1.1.442 (Ubuntu 18.04) with tidyverse 1.2.1 and knitr 1.20.
 
 ## Developers' Guide
 

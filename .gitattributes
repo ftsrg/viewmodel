@@ -14,3 +14,4 @@ benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models
 benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/dependability-4.xmi filter=lfs diff=lfs merge=lfs -text
 benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/dependability-8.xmi filter=lfs diff=lfs merge=lfs -text
 benchmarks/features/hu.bme.mit.inf.viewmodel.benchmarks.feature/rootfiles/models/dependability-16.xmi filter=lfs diff=lfs merge=lfs -text
+benchmarks/R/viewmodel-data-analysis/full_log.csv filter=lfs diff=lfs merge=lfs -text

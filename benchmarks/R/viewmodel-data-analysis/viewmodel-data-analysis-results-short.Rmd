@@ -1,7 +1,7 @@
 ---
-title: "Data Analysis for \"Incremental View Model Synchronization Using Partial Models\" with Short Logs"
+title: "Simplified Data Analysis for \"Incremental View Model Synchronization Using Partial Models\""
 author: "Kristóf Marussy, Oszkár Semeráth, Dániel Varró"
-date: "July 10, 2018"
+date: "July 20, 2018"
 output:
   html_document:
     toc: true
@@ -12,20 +12,26 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This report contains data analysis for the papaer "Incremental View Model Synchronization Using Partial Models" using a subset of the experiment configurations.
+**This is a simplified version of the benchmarking and analysis campaign that can be executed on a desktop computer quickly.** For the full report which was used to generate figures in the paper, see [viewmodel-data-analysis-results.html](viewmodel-data-analysis-results.html).
+
+This report contains **simplified** data analysis for the paper "Incremental View Model Synchronization Using Partial Models" using a subset of the experiment configurations.
 It was created to facilitate experimenting with the benchmarking environment without running the full measurement campaign.
 
-After extracting the benchmarking environment for the appropriate operating system, the benchmark configuration `short.json` can be run as follows:
+# Running the benchmark
+
+The measurements can be ran in a fairly short time (< 15 minutes) on a desktop computer.
+
+After extracting the benchmarking environment (`hu.bme.mit.inf.viewmodel.benchmarks.product-linux.gtk.x86_64`, `hu.bme.mit.inf.viewmodel.benchmarks.product-macosx.cocoa.x86_64` or `hu.bme.mit.inf.viewmodel.benchmarks.product-win32.win32.x86_64`) for the appropriate operating system, the benchmark configuration `short.json` can be run as follows:
 
     ./eclipse -benchmarks short.json -vmargs -Xmx8g
 
-The results are places into `./results/short/benchmarks.log`, which should be copied into the same folder as this `.Rmd` document under the name `short_log.csv` before knitting.
+The results are placed into `./results/short/benchmarks.log`, which should be copied into the same folder as this `.Rmd` document under the name `short_log.csv` before knitting.
 
 The largest source models for both the Dependability and VirtualSwitch case studies are omitted, and only a single modification mix (Usual) is executed. Moreover, warm-up iterations are skipped and only a single iteration is performed for each experiment, which may increase noise substantially.
 
 # Loading the data
 
-First we load the `tidyverse` packages for data wrangling and plotting.
+The rest of the analysis proceeds as a literate R script. First we load the `tidyverse` packages for data wrangling and plotting.
 
 ```{r, message=FALSE}
 require(tidyverse)
@@ -427,7 +433,7 @@ instrumented_plot$checkpoint <- factor(as.factor(instrumented_plot$checkpoint),
 
 ```{r, results='asis'}
 show_instrumented_plot <- instrumented_plot %>%
-  select(-c('modificationMix', 'experiment')) %>%
+  select(-c(modificationMix, experiment)) %>%
   spread(checkpoint, value)
 colnames(show_instrumented_plot) <- c('Scale factor', 'Case study', 'Total size', 'PT2T duration', 'S2PT duration')
 

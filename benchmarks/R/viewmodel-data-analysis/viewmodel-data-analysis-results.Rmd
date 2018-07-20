@@ -1,7 +1,7 @@
 ---
 title: "Data Analysis for \"Incremental View Model Synchronization Using Partial Models\""
 author: "Kristóf Marussy, Oszkár Semeráth, Dániel Varró"
-date: "July 10, 2018"
+date: "July 20, 2018"
 output:
   html_document:
     toc: true
@@ -12,9 +12,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This report contains data analysis for the papaer "Incremental View Model Synchronization Using Partial Models".
+This report contains data analysis for the paper "Incremental View Model Synchronization Using Partial Models".
 
 The source code of the ViewModel tool is available under the terms of the Eclipse Public License, version 1.0 at https://github.com/FTSRG/viewmodel.
+
+For a simplified benchmarking campaign that can be executed on a desktop computer, see [viewmodel-data-analysis-results-short.html](viewmodel-data-analysis-results-short.html).
 
 # Evaluation
 
@@ -68,10 +70,19 @@ Change mix (A) presents a balanced mix of changes, while types of changes in mix
 
 Each experiment was executed 30 times after 10 warmup runs on a cloud-based virtual environment (with 4 CPU, 16 GB memory and 8 GB disk size, `m5.xlarge`) on Amazon AWS. Heap space of the Java virtual machine was limited to 15 GB.
 
+# Running the benchmark
+
+The archives `hu.bme.mit.inf.viewmodel.benchmarks.product-linux.gtk.x86_64`, `hu.bme.mit.inf.viewmodel.benchmarks.product-macosx.cocoa.x86_64` or `hu.bme.mit.inf.viewmodel.benchmarks.product-win32.win32.x86_64` contain the Eclipse application, example models, and `.json` configuration files for various transformation cases and model modification mixes. Execute the benchmark with
+
+    ./eclipse -benchmarks <CONFIGURATION FILE>.json -vmargs -Xmx15g
+
+The configuration files `d_batch.json`, `d_1.json`, `d_2.json`, ..., `d_15.json`, as well as `vs_batch.json`, `vs_1.json`, `vs_2.json`, ..., `vs_15.json` can be ran on separate virtual machines. To facilitate this, outputs are written to the folder `/mnt/results`, where a shared filesystem can be mounted to collect results.
+
+After the benchmarks above are finished, the produces `benchmarks.log` files should be concatenated into a single `full_log.csv` file (mind the csv headers! they should be removed from all but the first log file). The `full_log.csv` file should be placed into the same directory as this R Markdown file for furter analysis.
 
 # Loading the data
 
-First we load the `tidyverse` packages for data wrangling and plotting.
+The rest of the analysis proceeds as a literate R script. First we load the `tidyverse` packages for data wrangling and plotting.
 
 ```{r, message=FALSE}
 require(tidyverse)
@@ -481,7 +492,7 @@ instrumented_plot$checkpoint <- factor(as.factor(instrumented_plot$checkpoint),
 
 ```{r, results='asis'}
 show_instrumented_plot <- instrumented_plot %>%
-  select(-c('modificationMix', 'experiment')) %>%
+  select(-c(modificationMix, experiment)) %>%
   spread(checkpoint, value)
 colnames(show_instrumented_plot) <- c('Scale factor', 'Case study', 'Total size', 'PT2T duration', 'S2PT duration')
 
